@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { TypedComponent } from '../../shared/typings/prop-types';
+import db from '../../shared/services/faunaDB';
 
 export const Home: TypedComponent<{}> = () => {
     const [limit, setLimit] = useState(2);
@@ -15,12 +16,23 @@ export const Home: TypedComponent<{}> = () => {
         }, 2000);
     }, [limit]);
 
+    const createPasswordEntity = (): void => {
+        const secret = 'USER_ADMIN_KEY';
+
+        db.setClient({ secret }).then(() => {
+            db.createPasswordEntity('MojBank', 'passWord1234', '');
+        });
+    };
+
     return (
         <div>
             <section>
                 <h1>Testing pre-rendering</h1>
             </section>
             <section>
+                <button onClick={createPasswordEntity}>
+                    Create new password
+                </button>
                 <button
                     onClick={(): void => {
                         setLimit(limit => limit + 2);

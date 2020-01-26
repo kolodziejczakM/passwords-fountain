@@ -8,5 +8,15 @@ module.exports = {
             },
         ],
     ],
-    presets: [['@babel/typescript', { jsxPragma: 'h' }], '@babel/preset-env'],
+    presets: [
+        ['@babel/typescript', { jsxPragma: 'h' }],
+        [
+            '@babel/preset-env',
+            {
+                targets: {
+                    node: 'current', // this solves: "ReferenceError: regeneratorRuntime is not defined"
+                },
+            },
+        ],
+    ],
 };

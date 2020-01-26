@@ -66,6 +66,7 @@
     },
     "dependencies": {
         "@preact-hooks/unistore": "^1.0.9",
+        "faunadb": "^2.11.1",
         "goober": "^1.5.0",
         "preact": "^10.0.0",
         "prop-types": "^15.7.2",

@@ -11,6 +11,7 @@ module.exports = {
         sourceType: 'module', // Allows for the use of imports
     },
     rules: {
+        '@typescript-eslint/no-non-null-assertion': 0, // Sometimes TS is not seeing that something cannot be possibly null so !. is great option here
         '@typescript-eslint/no-explicit-any': 0, // Sometimes defining something as any isn't that bad e.g. (document as any).getElementById('root')
         '@typescript-eslint/no-empty-interface': 0, // To have already pre-defined Props & State interfaces in boilerplate component code
         '@typescript-eslint/interface-name-prefix': 0, // I don't consider prefixing interfaces names with "I" bad thing
