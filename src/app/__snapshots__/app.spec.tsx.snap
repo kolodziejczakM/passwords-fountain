@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go460013392"
+  >
+    <h1>
+      This is test description
+    </h1>
+    <header>
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/about-me"
+      >
+        About me
+      </a>
+    </header>
+    <section>
+      <h1>
+        Testing store
+      </h1>
+      <section>
+        (see redux-dev-tools): 
+        <strong>
+          12
+        </strong>
+      </section>
+      <button>
+        Increment
+      </button>
+      <hr />
+    </section>
+    <main>
+      <div>
+        <section>
+          <h1>
+            Testing pre-rendering
+          </h1>
+        </section>
+        <section>
+          <button>
+            Load more
+          </button>
+        </section>
+        <div />
+      </div>
+    </main>
+  </section>
+</DocumentFragment>
+`;
