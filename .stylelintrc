@@ -16,6 +16,7 @@
     "declaration-colon-newline-after": "always-multi-line",
     "length-zero-no-unit": [true, { ignore: ["custom-properties"] }],
     "max-empty-lines": [1, { ignore: ["comments"] }],
-    "block-closing-brace-newline-after": "always-single-line"
+    "block-closing-brace-newline-after": "always-single-line",
+    "no-eol-whitespace": null,
   }
 }
