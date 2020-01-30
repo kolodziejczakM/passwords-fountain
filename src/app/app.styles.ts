@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme } from '../shared/theme';
+import { theme } from '../common/theme';
 
 setPragma(h);
 

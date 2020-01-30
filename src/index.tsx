@@ -4,6 +4,10 @@ import { store } from './store';
 import { App } from './app/app';
 import './styles';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+import {
+    LocalisationProvider,
+    Text,
+} from './modules/localisation/localisation.context';
 
 OfflinePluginRuntime.install();
 
@@ -14,7 +18,9 @@ if ((module as any).hot) {
 
 render(
     <StoreProvider value={store}>
-        <App description="Minimalistic, high-powered boilerplate" />
+        <LocalisationProvider>
+            <App description={<Text>description</Text>} />
+        </LocalisationProvider>
     </StoreProvider>,
     (document as any).getElementById('root')
 );

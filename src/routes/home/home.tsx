@@ -1,19 +1,21 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { TypedComponent } from '../../shared/typings/prop-types';
-import db from '../../shared/services/faunaDB';
+import { TypedComponent } from '../../common/typings/prop-types';
+import db from '../../common/services/faunaDB';
+import {
+    useLocalisation,
+    Text,
+} from '../../modules/localisation/localisation.context';
 
 export const Home: TypedComponent<{}> = () => {
     const [limit, setLimit] = useState(2);
-    const [data, setData] = useState([]);
+    const [data] = useState([]);
+    const [, setCurrentLanguage] = useLocalisation();
+
     useEffect(() => {
         setTimeout(() => {
-            fetch(`https://jsonplaceholder.typicode.com/photos?_limit=${limit}`)
-                .then(res => res.json())
-                .then(data => {
-                    setData(data);
-                });
-        }, 2000);
+            setCurrentLanguage('pl');
+        }, 3000);
     }, [limit]);
 
     const createPasswordEntity = (): void => {
@@ -27,9 +29,12 @@ export const Home: TypedComponent<{}> = () => {
     return (
         <div>
             <section>
-                <h1>Testing pre-rendering</h1>
+                <h1>{<Text>description</Text>}</h1>
             </section>
             <section>
+                <button onClick={setCurrentLanguage.bind(null, 'en')}>
+                    Set current language
+                </button>
                 <button onClick={createPasswordEntity}>
                     Create new password
                 </button>

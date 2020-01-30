@@ -1,22 +1,16 @@
 import createStore from 'unistore';
 import devtools from 'unistore/devtools';
-import { Action } from 'unistore';
+
+import {
+    localisation,
+    Localisation,
+} from './modules/localisation/localisation.model';
 
 export interface StoreState {
-    count: number;
+    localisation: Localisation;
 }
 
-export interface ActionCreators {
-    increment: Action<StoreState>;
-}
-
-const initialState: StoreState = { count: 0 };
-
-export const actions: ActionCreators = {
-    increment(state: StoreState): Partial<StoreState> {
-        return { count: state.count + 1 };
-    },
-};
+const initialState: StoreState = { localisation };
 
 export const store =
     process.env.NODE_ENV === 'production'
