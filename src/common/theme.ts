@@ -17,6 +17,11 @@ const fonts = {
     xl: '32px',
 } as const;
 
+const fontFamily = {
+    regular: 'PT Sans',
+    bold: 'PT Sans Bold',
+} as const;
+
 // TODO: Review
 const breakpoints = {
     xs: '320px',
@@ -32,6 +37,9 @@ type ColorValue = typeof colors[ColorKey];
 type FontKey = keyof typeof fonts;
 type FontValue = typeof fonts[FontKey];
 
+type FontFamilyKey = keyof typeof fontFamily;
+type FontFamilyValue = typeof fontFamily[FontFamilyKey];
+
 type BreakpointsKey = keyof typeof breakpoints;
 type BreakpointValue = typeof breakpoints[BreakpointsKey];
 
@@ -39,6 +47,7 @@ interface Theme {
     colors: Record<ColorKey, ColorValue>;
     breakpoints: Record<BreakpointsKey, BreakpointValue>;
     fonts: Record<FontKey, FontValue>;
+    fontFamily: Record<FontFamilyKey, FontFamilyValue>;
     media: {
         gte: (breakpoint: string) => (styles: string) => string;
         lte: (breakpoint: string) => (styles: string) => string;
@@ -60,6 +69,7 @@ export const theme: Theme = {
     colors,
     breakpoints,
     fonts,
+    fontFamily,
     media: {
         gte: (breakpoint: string) => (styles: string): string => `
         @media only screen and (min-width: ${breakpoint}) {

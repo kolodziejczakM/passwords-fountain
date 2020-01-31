@@ -1,15 +1,35 @@
 import { h } from 'preact';
 import { setPragma, glob } from 'goober';
+import PTSansRegularWoff2 from './static/fonts/pt-sans-v11-latin_latin-ext-regular.woff2';
+import PTSansRegularWoff from './static/fonts/pt-sans-v11-latin_latin-ext-regular.woff';
+import PTSansBoldWoff2 from './static/fonts/pt-sans-v11-latin_latin-ext-700.woff2';
+import PTSansBoldWoff from './static/fonts/pt-sans-v11-latin_latin-ext-700.woff';
 
 setPragma(h);
 
-if (!document.getElementById('_goober')) {
-    glob`
-    /* http://meyerweb.com/eric/tools/css/reset/ 
-        v2.0 | 20110126
-        License: none (public domain)
-    */
- 
+const fontFaces = `
+    @font-face {
+        font-family: 'PT Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('PT Sans'),
+            local('PTSans-Regular'),
+            url(${PTSansRegularWoff2}) format('woff2'),
+            url(${PTSansRegularWoff}) format('woff');
+    }
+
+    @font-face {
+        font-family: 'PT Sans Bold';
+        font-style: bold;
+        font-weight: 700;
+        src: local('PT Sans Bold'),
+            local('PTSans-Bold'),
+                url(${PTSansBoldWoff2}) format('woff2'),
+                url(${PTSansBoldWoff}) format('woff');
+    }
+`;
+
+const resetCss = `
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -22,13 +42,14 @@ if (!document.getElementById('_goober')) {
     article, aside, canvas, details, embed, 
     figure, figcaption, footer, header, hgroup, 
     menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
+    time, mark, audio, video, button {
         margin: 0;
         padding: 0;
         border: 0;
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
+        font-family: 'PT Sans';
     }
     /* HTML5 display-role reset for older browsers */
 
@@ -59,5 +80,16 @@ if (!document.getElementById('_goober')) {
         border-collapse: collapse;
         border-spacing: 0;
     }
+`;
+
+if (!document.getElementById('_fonts')) {
+    const s = document.createElement('style');
+    s.id = '_fonts';
+    s.appendChild(document.createTextNode(`${fontFaces}`));
+    document.head.appendChild(s);
+}
+
+if (!document.getElementById('_goober')) {
+    glob`${resetCss}
   `;
 }

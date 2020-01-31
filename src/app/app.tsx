@@ -4,6 +4,7 @@ import { TypedComponent } from '../common/typings/prop-types';
 import { Home } from '../routes/home/home';
 import { AboutMe } from '../routes/aboutMe/aboutMe';
 import { Wrapper } from './app.styles';
+import LogoIcon from '../static/icons/logo.svg';
 
 interface ComponentProps {
     description: VNode<string>;
@@ -16,6 +17,7 @@ export const App: TypedComponent<ComponentProps> = ({
         <Wrapper>
             <h1>{description}</h1>
             <header>
+                <img src={LogoIcon} />
                 <Link href="/">
                     <a>Home</a>
                 </Link>

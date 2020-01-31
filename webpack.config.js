@@ -29,6 +29,13 @@ const development = {
                 test: /\.(ts|tsx)$/,
                 loader: 'babel-loader',
             },
+            {
+                test: /\.(svg|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 8192,
+                },
+            },
         ],
     },
     plugins: [
