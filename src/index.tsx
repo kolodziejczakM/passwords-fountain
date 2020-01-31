@@ -2,7 +2,7 @@ import { h, render } from 'preact';
 import { StoreProvider } from '@preact-hooks/unistore';
 import { store } from './store';
 import { App } from './app/app';
-import './styles';
+import './globalStyles';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import {
     LocalisationProvider,
