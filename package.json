@@ -1,9 +1,10 @@
 {
+    "version": "0.0.1",
     "name": "passwords-fountain",
     "description": "Highly optimised password manager",
-    "version": "0.0.1",
-    "main": "index.js",
+    "author": "Marcin Kołodziejczak <kolodziejczak.mn@gmail.com>",
     "license": "MIT",
+    "main": "index.js",
     "scripts": {
         "check:types": "tsc",
         "build:dev": "webpack-dev-server --config-name dev --history-api-fallback",

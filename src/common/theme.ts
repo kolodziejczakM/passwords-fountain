@@ -31,23 +31,11 @@ const breakpoints = {
     xl: '1980px',
 } as const;
 
-type ColorKey = keyof typeof colors;
-type ColorValue = typeof colors[ColorKey];
-
-type FontKey = keyof typeof fonts;
-type FontValue = typeof fonts[FontKey];
-
-type FontFamilyKey = keyof typeof fontFamily;
-type FontFamilyValue = typeof fontFamily[FontFamilyKey];
-
-type BreakpointsKey = keyof typeof breakpoints;
-type BreakpointValue = typeof breakpoints[BreakpointsKey];
-
 interface Theme {
-    colors: Record<ColorKey, ColorValue>;
-    breakpoints: Record<BreakpointsKey, BreakpointValue>;
-    fonts: Record<FontKey, FontValue>;
-    fontFamily: Record<FontFamilyKey, FontFamilyValue>;
+    colors: typeof colors;
+    breakpoints: typeof breakpoints;
+    fonts: typeof fonts;
+    fontFamily: typeof fontFamily;
     media: {
         gte: (breakpoint: string) => (styles: string) => string;
         lte: (breakpoint: string) => (styles: string) => string;
