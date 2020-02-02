@@ -1,16 +1,13 @@
 import createStore from 'unistore';
 import devtools from 'unistore/devtools';
 
-import {
-    localisation,
-    Localisation,
-} from './modules/localisation/localisation.model';
+import { overlay } from './modules/overlay/overlay.model';
 
-export interface StoreState {
-    localisation: Localisation;
-}
+const initialState = {
+    overlay,
+};
 
-const initialState: StoreState = { localisation };
+export type InitialState = typeof initialState;
 
 export const store =
     process.env.NODE_ENV === 'production'

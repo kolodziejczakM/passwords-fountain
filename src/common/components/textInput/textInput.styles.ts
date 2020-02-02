@@ -11,7 +11,7 @@ const standard = validate.css`
     }
 `;
 
-const withErrors = validate.css`
+const withError = validate.css`
     border: 1px solid ${theme.colors.red};
     color: ${theme.colors.red};
 
@@ -32,6 +32,6 @@ export const Wrapper = styled('input')`
         text-decoration: underline;
     }
 
-    ${({ hasErrors }: { hasErrors: boolean }): string =>
-        hasErrors ? withErrors : standard}
+    ${({ hasError }: { hasError: boolean }): string =>
+        hasError ? withError : standard}
 `;

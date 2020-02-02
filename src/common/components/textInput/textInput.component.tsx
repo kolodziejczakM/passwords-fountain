@@ -7,14 +7,14 @@ interface ComponentProps {
     onChange: Function;
     value?: string;
     placeholder?: string;
-    hasErrors?: boolean;
+    hasError?: boolean;
 }
 
 export const TextInput: TypedComponent<ComponentProps> = ({
     value,
     onChange,
     placeholder,
-    hasErrors,
+    hasError,
 }) => {
     return (
         <Wrapper
@@ -22,7 +22,7 @@ export const TextInput: TypedComponent<ComponentProps> = ({
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            hasErrors={hasErrors}
+            hasError={hasError}
         />
     );
 };
@@ -31,11 +31,11 @@ TextInput.propTypes = {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string,
     placeholder: PropTypes.string,
-    hasErrors: PropTypes.bool,
+    hasError: PropTypes.bool,
 };
 
 TextInput.defaultProps = {
     value: '',
-    placeholder: '',
-    hasErrors: false,
+    placeholder: undefined,
+    hasError: false,
 };

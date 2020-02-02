@@ -9,11 +9,15 @@ import {
 import { Button } from '../../common/components/button';
 import { TextInput } from '../../common/components/textInput';
 import { FormControl } from '../../common/components/formControl';
+import { Snackbar } from '../../common/components/snackbar';
+import { useAction } from '@preact-hooks/unistore';
+import { overlayActions } from '../../modules/overlay/overlay.model';
 
 export const Home: TypedComponent<{}> = () => {
     const [, setLimit] = useState(2);
     const [data] = useState([]);
     const [, setCurrentLanguage] = useLocalisation();
+    const showSnackbar = useAction(overlayActions.showSnackbar);
 
     const createPasswordEntity = (): void => {
         const secret = 'USER_ADMIN_KEY';
@@ -29,6 +33,9 @@ export const Home: TypedComponent<{}> = () => {
                 <h1>{<Text>description</Text>}</h1>
             </section>
             <section>
+                <Button onClick={showSnackbar.bind(null, 'XD', 'SUCCESS')}>
+                    Show snackbar with msg key XD and type SUCCESS
+                </Button>
                 <Button onClick={setCurrentLanguage.bind(null, 'en')}>
                     Set current language
                 </Button>
@@ -57,7 +64,7 @@ export const Home: TypedComponent<{}> = () => {
                 <TextInput
                     value="To jest test"
                     onChange={setCurrentLanguage.bind(null, 'en')}
-                    hasErrors
+                    hasError
                 />
                 <hr />
                 <FormControl
@@ -65,12 +72,14 @@ export const Home: TypedComponent<{}> = () => {
                     renderLabel={() => 'Labelka'}
                     renderInput={() => (
                         <TextInput
+                            hasError
                             value="Form input"
                             onChange={setCurrentLanguage.bind(null, 'en')}
                         />
                     )}
                     renderError={() => <div>Error</div>}
                 />
+                <Snackbar />
             </section>
             <div>
                 {data.map((photo: { thumbnailUrl: string; title: string }) => (
