@@ -1,14 +1,14 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme } from '../common/theme';
+import { theme, media, validate } from '../common/theme';
 
 setPragma(h);
 
 export const Wrapper = styled('section')`
     color: ${theme.colors.primaryBlue};
 
-    ${theme.media.gte(theme.breakpoints.s)(
-        theme.css`
+    ${media.gte(theme.breakpoints.s)(
+        validate.css`
         color: ${theme.colors.pastelGreen};
     `
     )}

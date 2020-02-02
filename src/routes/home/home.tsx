@@ -8,6 +8,7 @@ import {
 } from '../../modules/localisation/localisation.context';
 import { Button } from '../../common/components/button';
 import { TextInput } from '../../common/components/textInput';
+import { FormControl } from '../../common/components/formControl';
 
 export const Home: TypedComponent<{}> = () => {
     const [, setLimit] = useState(2);
@@ -57,6 +58,18 @@ export const Home: TypedComponent<{}> = () => {
                     value="To jest test"
                     onChange={setCurrentLanguage.bind(null, 'en')}
                     hasErrors
+                />
+                <hr />
+                <FormControl
+                    hasError
+                    renderLabel={() => 'Labelka'}
+                    renderInput={() => (
+                        <TextInput
+                            value="Form input"
+                            onChange={setCurrentLanguage.bind(null, 'en')}
+                        />
+                    )}
+                    renderError={() => <div>Error</div>}
                 />
             </section>
             <div>

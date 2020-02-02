@@ -9,7 +9,7 @@ const colors = {
     red: '#ff6465',
 } as const;
 
-const fonts = {
+const fontSizes = {
     xs: '16px',
     s: '18px',
     m: '20px',
@@ -17,7 +17,7 @@ const fonts = {
     xl: '32px',
 } as const;
 
-const fontFamily = {
+const fontFamilies = {
     regular: 'PT Sans',
     bold: 'PT Sans Bold',
 } as const;
@@ -31,44 +31,52 @@ const breakpoints = {
     xl: '1980px',
 } as const;
 
-interface Theme {
-    colors: typeof colors;
-    breakpoints: typeof breakpoints;
-    fonts: typeof fonts;
-    fontFamily: typeof fontFamily;
-    media: {
-        gte: (breakpoint: string) => (styles: string) => string;
-        lte: (breakpoint: string) => (styles: string) => string;
-    };
-    css: (strings: TemplateStringsArray, ...values: any[]) => string;
-}
+const spacing = {
+    s: '6px',
+    l: '18px',
+    xxl: '30px',
+} as const;
 
-const cssTemplateJoin = (
-    strings: TemplateStringsArray,
-    ...values: any[]
-): string =>
-    strings.reduce(
-        (acc: string, value: string, i: number) =>
-            (acc += value + (values[i] || '')),
-        ''
-    );
+const shadows = {
+    clickableItem: `0 2px 2px 0 rgba(0, 0, 0, 0.2)`,
+} as const;
 
-export const theme: Theme = {
+export const validate = {
+    css: (strings: TemplateStringsArray, ...values: any[]): string =>
+        strings.reduce(
+            (acc: string, value: string, i: number) =>
+                (acc += value + (values[i] || '')),
+            ''
+        ),
+} as const;
+
+export const media = {
+    gte: (breakpoint: string) => (styles: string): string => `
+    @media only screen and (min-width: ${breakpoint}) {
+        ${styles}
+    }
+`,
+    lte: (breakpoint: string) => (styles: string): string => `
+    @media only screen and (max-width: ${breakpoint}) {
+        ${styles}
+    }
+`,
+} as const;
+
+export const theme = {
     colors,
     breakpoints,
-    fonts,
-    fontFamily,
-    media: {
-        gte: (breakpoint: string) => (styles: string): string => `
-        @media only screen and (min-width: ${breakpoint}) {
-            ${styles}
-        }
-    `,
-        lte: (breakpoint: string) => (styles: string): string => `
-        @media only screen and (max-width: ${breakpoint}) {
-            ${styles}
-        }
-    `,
-    },
-    css: cssTemplateJoin,
+    fontSizes,
+    fontFamilies,
+    spacing,
+    shadows,
+} as const;
+
+const smallText = validate.css`
+    font-size: ${theme.fontSizes.s};
+    line-height: 23px;
+`;
+
+export const typography = {
+    smallText,
 } as const;

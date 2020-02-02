@@ -10,20 +10,20 @@ setPragma(h);
 
 const fontFaces = `
     @font-face {
-        font-family: ${theme.fontFamily.regular};
+        font-family: ${theme.fontFamilies.regular};
         font-style: normal;
         font-weight: 400;
-        src: local(${theme.fontFamily.regular}),
+        src: local(${theme.fontFamilies.regular}),
             local('PTSans-Regular'),
             url(${PTSansRegularWoff2}) format('woff2'),
             url(${PTSansRegularWoff}) format('woff');
     }
 
     @font-face {
-        font-family: ${theme.fontFamily.bold};
+        font-family: ${theme.fontFamilies.bold};
         font-style: bold;
         font-weight: 700;
-        src: local(${theme.fontFamily.bold}),
+        src: local(${theme.fontFamilies.bold}),
             local('PTSans-Bold'),
                 url(${PTSansBoldWoff2}) format('woff2'),
                 url(${PTSansBoldWoff}) format('woff');
@@ -47,10 +47,10 @@ const resetCss = `
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: ${theme.fonts.l};
+        font-size: ${theme.fontSizes.l};
         font: inherit;
         vertical-align: baseline;
-        font-family: ${theme.fontFamily.regular};
+        font-family: ${theme.fontFamilies.regular};
     }
 
     h1, h2, h3, h4, h5, h6, p, span, button, a {

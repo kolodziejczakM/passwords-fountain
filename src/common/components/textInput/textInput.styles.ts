@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme } from '../../theme';
+import { theme, validate, typography } from '../../theme';
 setPragma(h);
 
-const standard = theme.css`
+const standard = validate.css`
     border: 1px solid ${theme.colors.primaryBlue};
 
     &:focus {
@@ -11,7 +11,7 @@ const standard = theme.css`
     }
 `;
 
-const withErrors = `
+const withErrors = validate.css`
     border: 1px solid ${theme.colors.red};
     color: ${theme.colors.red};
 
@@ -21,12 +21,11 @@ const withErrors = `
 `;
 
 export const Wrapper = styled('input')`
-    padding: 18px;
+    ${typography.smallText}
+    padding: ${theme.spacing.l};
     width: 360px;
-    font-size: ${theme.fonts.s};
-    line-height: 23px;
     color: ${theme.colors.darkBlue};
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: ${theme.shadows.clickableItem};
     outline: none;
 
     &:hover {
