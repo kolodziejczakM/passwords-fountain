@@ -13,7 +13,7 @@ export const Snackbar: TypedComponent<ComponentProps> = () => {
     const type = useSelector(selectSnackbarType);
 
     return (
-        <Wrapper>
+        <Wrapper type={type}>
             {messageKey} {type}
         </Wrapper>
     );

@@ -33,6 +33,8 @@ const breakpoints = {
 
 const spacing = {
     s: '6px',
+    m: '14px',
+    xm: '16px',
     l: '18px',
     xxl: '30px',
 } as const;
@@ -41,7 +43,7 @@ const shadows = {
     clickableItem: `0 2px 2px 0 rgba(0, 0, 0, 0.2)`,
 } as const;
 
-export const validate = {
+export const stylelint = {
     css: (strings: TemplateStringsArray, ...values: any[]): string =>
         strings.reduce(
             (acc: string, value: string, i: number) =>
@@ -72,7 +74,7 @@ export const theme = {
     shadows,
 } as const;
 
-const smallText = validate.css`
+const smallText = stylelint.css`
     font-size: ${theme.fontSizes.s};
     line-height: 23px;
 `;

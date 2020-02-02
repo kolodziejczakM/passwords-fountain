@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, validate, typography } from '../../theme';
+import { theme, stylelint, typography } from '../../theme';
 setPragma(h);
 
-const standard = validate.css`
+const standard = stylelint.css`
     border: 1px solid ${theme.colors.primaryBlue};
 
     &:focus {
@@ -11,7 +11,7 @@ const standard = validate.css`
     }
 `;
 
-const withError = validate.css`
+const withError = stylelint.css`
     border: 1px solid ${theme.colors.red};
     color: ${theme.colors.red};
 
