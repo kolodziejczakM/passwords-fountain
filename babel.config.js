@@ -16,6 +16,7 @@ module.exports = {
                 targets: {
                     node: 'current', // this solves: "ReferenceError: regeneratorRuntime is not defined"
                 },
+                bugfixes: true,
             },
         ],
     ],
