@@ -1,47 +1,47 @@
-const colors = {
-    primaryBlue: '#2484ad',
-    pastelBlue: '#b0d3f0',
-    blue: '#48a3ca',
-    darkBlue: '#004973',
-    primaryGreen: '#46b29d',
-    pastelGreen: '#d1f5ea',
-    white: '#fff',
-    red: '#ff6465',
-} as const;
+enum colors {
+    primaryBlue = '#2484ad',
+    pastelBlue = '#b0d3f0',
+    blue = '#48a3ca',
+    darkBlue = '#004973',
+    primaryGreen = '#46b29d',
+    pastelGreen = '#d1f5ea',
+    white = '#fff',
+    red = '#ff6465',
+}
 
-const fontSizes = {
-    xs: '16px',
-    s: '18px',
-    m: '20px',
-    l: '24px',
-    xl: '32px',
-} as const;
+enum fontSizes {
+    xs = '16px',
+    s = '18px',
+    m = '20px',
+    l = '24px',
+    xl = '32px',
+}
 
-const fontFamilies = {
-    regular: 'PT Sans',
-    bold: 'PT Sans Bold',
-} as const;
+enum fontFamilies {
+    regular = 'PT Sans',
+    bold = 'PT Sans Bold',
+}
 
 // TODO: Review
-const breakpoints = {
-    xs: '320px',
-    s: '480px',
-    m: '768px',
-    l: '1024px',
-    xl: '1980px',
-} as const;
+enum breakpoints {
+    xs = '320px',
+    s = '480px',
+    m = '768px',
+    l = '1024px',
+    xl = '1980px',
+}
 
-const spacing = {
-    s: '6px',
-    m: '14px',
-    xm: '16px',
-    l: '18px',
-    xxl: '30px',
-} as const;
+enum spacing {
+    s = '6px',
+    m = '14px',
+    xm = '16px',
+    l = '18px',
+    xxl = '30px',
+}
 
-const shadows = {
-    clickableItem: `0 2px 2px 0 rgba(0, 0, 0, 0.2)`,
-} as const;
+enum shadows {
+    clickableItem = `0 2px 2px 0 rgba(0, 0, 0, 0.2)`,
+}
 
 export const stylelint = {
     css: (strings: TemplateStringsArray, ...values: any[]): string =>

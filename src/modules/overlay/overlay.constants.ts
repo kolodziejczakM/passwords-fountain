@@ -1,10 +1,9 @@
 export const invisibleSnackbarValue = '';
 
-export const snackbarTypes = {
-    success: 'SUCCESS',
-    info: 'INFO',
-    error: 'ERROR',
-} as const;
+export enum snackbarTypes {
+    success = 'success',
+    info = 'info',
+    error = 'error',
+}
 
-type SnackbarTypesKey = keyof typeof snackbarTypes;
-export type SnackbarType = typeof snackbarTypes[SnackbarTypesKey];
+export type SnackbarType = keyof typeof snackbarTypes;

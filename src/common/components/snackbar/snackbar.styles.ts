@@ -1,7 +1,10 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
 import { theme, typography, stylelint } from '../../theme';
-import { snackbarTypes } from '../../../modules/overlay/overlay.constants';
+import {
+    snackbarTypes,
+    SnackbarType,
+} from '../../../modules/overlay/overlay.constants';
 setPragma(h);
 
 const info = stylelint.css`
@@ -16,7 +19,7 @@ const error = stylelint.css`
     border-top: 4px solid ${theme.colors.red};
 `;
 
-const getVariantStyles = ({ type }: { type: string }): string => {
+const getVariantStyles = ({ type }: { type: SnackbarType }): string => {
     switch (type) {
         case snackbarTypes.info:
             return info;

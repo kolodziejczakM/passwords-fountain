@@ -1,27 +1,24 @@
 import { invisibleSnackbarValue, SnackbarType } from './overlay.constants';
+import { AppState } from '../../store';
 
-export const overlay = {
+export const overlayState = {
     snackbarMessageKey: invisibleSnackbarValue,
     snackbarType: invisibleSnackbarValue,
 };
 
-export type OverlayDomain = typeof overlay;
-
-type Overlay = {
-    overlay: OverlayDomain;
-};
+export type OverlayState = typeof overlayState;
 
 export const overlayActions = {
     showSnackbar(
-        state: Overlay,
+        appState: AppState,
         messageKey: string,
         type: SnackbarType
-    ): Partial<Overlay> {
+    ): Partial<AppState> {
         return {
             overlay: { snackbarMessageKey: messageKey, snackbarType: type },
         };
     },
-    hideSnackbar(): Overlay {
+    hideSnackbar(): Partial<AppState> {
         return {
             overlay: {
                 snackbarMessageKey: invisibleSnackbarValue,
