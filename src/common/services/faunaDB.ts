@@ -1,7 +1,7 @@
 import faunadb, { ClientConfig, Client } from 'faunadb';
 
-enum ERRORS {
-    NOT_EXISTING_CLIENT = 'NOT_EXISTING_CLIENT',
+enum errors {
+    notExistingClient = 'notExistingClient',
 }
 
 class FaunaDBService {
@@ -45,7 +45,7 @@ class FaunaDBService {
         login: string
     ): Promise<object> {
         if (this.client === null) {
-            throw Error(ERRORS.NOT_EXISTING_CLIENT);
+            throw Error(errors.notExistingClient);
         }
 
         const passwordsCollectionRef:
