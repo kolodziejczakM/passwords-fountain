@@ -1,5 +1,8 @@
 import { invisibleSnackbarValue, SnackbarType } from './overlay.constants';
 import { AppState } from '../../store';
+import { mergeState } from '../../common/utils/store';
+
+const change = mergeState('overlay');
 
 export const overlayState = {
     snackbarMessageKey: invisibleSnackbarValue,
@@ -14,16 +17,12 @@ export const overlayActions = {
         messageKey: string,
         type: SnackbarType
     ): Partial<AppState> {
-        return {
-            overlay: { snackbarMessageKey: messageKey, snackbarType: type },
-        };
+        return change({ snackbarMessageKey: messageKey, snackbarType: type });
     },
     hideSnackbar(): Partial<AppState> {
-        return {
-            overlay: {
-                snackbarMessageKey: invisibleSnackbarValue,
-                snackbarType: invisibleSnackbarValue,
-            },
-        };
+        return change({
+            snackbarMessageKey: invisibleSnackbarValue,
+            snackbarType: invisibleSnackbarValue,
+        });
     },
 };

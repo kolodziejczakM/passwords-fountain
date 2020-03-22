@@ -6,7 +6,7 @@ import { overlayState } from './modules/overlay/overlay.model';
 const appState = {
     test: 'xd',
     overlay: overlayState,
-};
+} as const;
 
 export type AppState = typeof appState;
 
