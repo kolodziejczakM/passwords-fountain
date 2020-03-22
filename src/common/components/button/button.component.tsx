@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { TypedComponent } from '../../typings/prop-types';
+import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './button.styles';

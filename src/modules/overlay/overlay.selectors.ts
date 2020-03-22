@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { AppState } from '../../store';
+import { AppState } from '@/store';
 import { OverlayState } from './overlay.model';
 
 const selectOverlay = (state: AppState): OverlayState => state.overlay;

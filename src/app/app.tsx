@@ -1,12 +1,12 @@
 import { h, VNode } from 'preact';
-import { TypedComponent } from '../common/typings/prop-types';
+import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
 import { Link, Route } from 'wouter-preact';
-import { Home } from '../routes/home/home';
-import { AboutMe } from '../routes/aboutMe/aboutMe';
+import { Home } from '@/routes/home/home';
+import { AboutMe } from '@/routes/aboutMe/aboutMe';
 import { Wrapper } from './app.styles';
-import { Icon } from '../common/components/icon';
+import { Icon } from '@/common/components/icon';
 
 export const App: TypedComponent<Props> = ({ description }: Props) => {
     return (

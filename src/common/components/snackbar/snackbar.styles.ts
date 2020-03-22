@@ -1,10 +1,10 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, typography, stylelint } from '../../theme';
+import { theme, typography, stylelint } from '@/common/theme';
 import {
     snackbarTypes,
     SnackbarType,
-} from '../../../modules/overlay/overlay.constants';
+} from '@/modules/overlay/overlay.constants';
 setPragma(h);
 
 const info = stylelint.css`

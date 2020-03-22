@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, stylelint, typography } from '../../theme';
+import { theme, stylelint, typography } from '@/common/theme';
 setPragma(h);
 
 const standard = stylelint.css`

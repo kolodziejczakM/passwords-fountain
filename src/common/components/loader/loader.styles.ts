@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme } from '../../theme';
+import { theme } from '@/common/theme';
 setPragma(h);
 
 const animation = `@keyframes ripple {

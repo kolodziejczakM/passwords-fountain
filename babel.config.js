@@ -6,6 +6,14 @@ const plugins = [
             pragma: 'h',
         },
     ],
+    [
+        'module-resolver',
+        {
+            alias: {
+                '@': './src',
+            },
+        },
+    ],
 ];
 
 const presets = [

@@ -1,6 +1,6 @@
 import { invisibleSnackbarValue, SnackbarType } from './overlay.constants';
-import { AppState } from '../../store';
-import { mergeState } from '../../common/utils/store';
+import { AppState } from '@/store';
+import { mergeState } from '@/common/utils/store';
 
 const change = mergeState('overlay');
 
