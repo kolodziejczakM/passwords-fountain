@@ -6,6 +6,7 @@ import {
     selectSnackbarMessageKey,
     selectSnackbarType,
 } from '../../../modules/overlay/overlay.selectors';
+import { Icon } from '../icon';
 
 export const Snackbar: TypedComponent<ComponentProps> = () => {
     const messageKey = useSelector(selectSnackbarMessageKey);

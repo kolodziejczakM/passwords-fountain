@@ -4,8 +4,8 @@ import { theme, typography } from '../../theme';
 setPragma(h);
 
 export const Wrapper = styled('button')`
-    ${typography.smallText}
-    padding: ${theme.spacing.l} ${theme.spacing.xxl};
+    ${typography.text18}
+    padding: ${theme.spacing.m18} ${theme.spacing.xl30};
     min-width: 140px;
     cursor: pointer;
     display: inline-block;

@@ -47,7 +47,7 @@ const resetCss = `
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: ${theme.fontSizes.l};
+        font-size: ${theme.fontSizes.xs16};
         font: inherit;
         vertical-align: baseline;
         font-family: ${theme.fontFamilies.regular};

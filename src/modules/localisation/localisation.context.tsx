@@ -1,7 +1,7 @@
 import { h, Fragment, VNode } from 'preact';
 import { createContext } from 'preact';
 import { useContext, useState, useMemo } from 'preact/hooks';
-import i18n from '../../i18n';
+import i18n from './i18n';
 
 type ContextValue = [string, (v: string) => void];
 

@@ -8,14 +8,17 @@ import {
 setPragma(h);
 
 const info = stylelint.css`
+    border: 1px solid ${theme.colors.primaryBlue};
     border-top: 4px solid ${theme.colors.primaryBlue};
 `;
 
 const success = stylelint.css`
+    border: 1px solid ${theme.colors.primaryGreen};
     border-top: 4px solid ${theme.colors.primaryGreen};
 `;
 
 const error = stylelint.css`
+    border: 1px solid ${theme.colors.red};
     border-top: 4px solid ${theme.colors.red};
 `;
 
@@ -34,14 +37,14 @@ const getVariantStyles = ({ type }: { type: SnackbarType }): string => {
 
 export const Wrapper = styled('section')`
     ${getVariantStyles}
+    ${typography.text18}
     max-width: 500px;
     width: 100%;
     position: absolute;
     bottom: 2px;
     left: 50%;
     transform: translateX(-50%);
-    ${typography.smallText}
-    padding: ${theme.spacing.m} ${theme.spacing.xm};
+    padding: ${theme.spacing.s12};
     background: ${theme.colors.white};
     color: ${theme.colors.darkBlue};
 `;

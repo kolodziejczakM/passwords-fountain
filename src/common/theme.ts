@@ -10,11 +10,11 @@ enum colors {
 }
 
 enum fontSizes {
-    xs = '16px',
-    s = '18px',
-    m = '20px',
-    l = '24px',
-    xl = '32px',
+    xs16 = '16px',
+    s18 = '18px',
+    m20 = '20px',
+    l24 = '24px',
+    xl32 = '32px',
 }
 
 enum fontFamilies {
@@ -22,21 +22,29 @@ enum fontFamilies {
     bold = 'PT Sans Bold',
 }
 
-// TODO: Review
 enum breakpoints {
-    xs = '320px',
-    s = '480px',
-    m = '768px',
-    l = '1024px',
-    xl = '1980px',
+    xs320 = '320px',
+    s480 = '480px',
+    m768 = '768px',
+    l1024 = '1024px',
+    xl1980 = '1980px',
 }
 
 enum spacing {
-    s = '6px',
-    m = '14px',
-    xm = '16px',
-    l = '18px',
-    xxl = '30px',
+    xxs2 = '2px',
+    xs6 = '6px',
+    s12 = '12px',
+    m18 = '18px',
+    l24 = '24px',
+    xl30 = '30px',
+}
+
+enum lineHeights {
+    xs21 = '21px',
+    s23 = '23px',
+    m26 = '26px',
+    l31 = '31px',
+    xl41 = '41px',
 }
 
 enum shadows {
@@ -69,16 +77,41 @@ export const theme = {
     colors,
     breakpoints,
     fontSizes,
+    lineHeights,
     fontFamilies,
     spacing,
     shadows,
 } as const;
 
-const smallText = stylelint.css`
-    font-size: ${theme.fontSizes.s};
-    line-height: 23px;
+const text16 = stylelint.css`
+    font-size: ${theme.fontSizes.xs16};
+    line-height: ${theme.lineHeights.xs21};
+`;
+
+const text18 = stylelint.css`
+    font-size: ${theme.fontSizes.s18};
+    line-height: ${theme.lineHeights.s23};
+`;
+
+const text20 = stylelint.css`
+    font-size: ${theme.fontSizes.m20};
+    line-height: ${theme.lineHeights.m26};
+`;
+
+const text24 = stylelint.css`
+    font-size: ${theme.fontSizes.l24};
+    line-height: ${theme.lineHeights.l31};
+`;
+
+const text32 = stylelint.css`
+    font-size: ${theme.fontSizes.xl32};
+    line-height: ${theme.lineHeights.xl41};
 `;
 
 export const typography = {
-    smallText,
+    text16,
+    text18,
+    text20,
+    text24,
+    text32,
 } as const;

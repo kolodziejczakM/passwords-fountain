@@ -21,8 +21,8 @@ const withError = stylelint.css`
 `;
 
 export const Wrapper = styled('input')`
-    ${typography.smallText}
-    padding: ${theme.spacing.l};
+    ${typography.text18}
+    padding: ${theme.spacing.m18};
     width: 360px;
     color: ${theme.colors.darkBlue};
     box-shadow: ${theme.shadows.clickableItem};

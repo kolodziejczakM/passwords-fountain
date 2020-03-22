@@ -8,15 +8,15 @@ export const Wrapper = styled('section')`
 `;
 
 export const LabelWrapper = styled('div')`
-    ${typography.smallText}
+    ${typography.text18}
     color: ${theme.colors.darkBlue};
-    margin-bottom: ${theme.spacing.s};
+    margin-bottom: ${theme.spacing.xs6};
 `;
 
 export const InputWrapper = styled('div')`
-    margin-bottom: ${theme.spacing.s};
+    margin-bottom: ${theme.spacing.xs6};
 `;
 export const ErrorWrapper = styled('div')`
-    ${typography.smallText}
+    ${typography.text18}
     color: ${theme.colors.red};
 `;
