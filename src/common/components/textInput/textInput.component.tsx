@@ -1,21 +1,15 @@
 import { h } from 'preact';
 import { TypedComponent } from '../../typings/prop-types';
-import { Wrapper } from './textInput.styles';
 import PropTypes from 'prop-types';
+import { forbidExtraProps } from 'airbnb-prop-types';
+import { Wrapper } from './textInput.styles';
 
-interface ComponentProps {
-    onChange: Function;
-    value?: string;
-    placeholder?: string;
-    hasError?: boolean;
-}
-
-export const TextInput: TypedComponent<ComponentProps> = ({
+export const TextInput: TypedComponent<Props> = ({
     value,
     onChange,
     placeholder,
     hasError,
-}) => {
+}: Props) => {
     return (
         <Wrapper
             type="text"
@@ -27,15 +21,22 @@ export const TextInput: TypedComponent<ComponentProps> = ({
     );
 };
 
-TextInput.propTypes = {
+interface Props {
+    onChange: Function;
+    value?: string;
+    placeholder?: string;
+    hasError?: boolean;
+}
+
+TextInput.propTypes = forbidExtraProps({
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     hasError: PropTypes.bool,
-};
+});
 
 TextInput.defaultProps = {
     value: '',
-    placeholder: undefined,
+    placeholder: '',
     hasError: false,
 };

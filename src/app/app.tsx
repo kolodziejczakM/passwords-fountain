@@ -1,18 +1,14 @@
 import { h, VNode } from 'preact';
-import { Link, Route } from 'wouter-preact';
 import { TypedComponent } from '../common/typings/prop-types';
+import PropTypes from 'prop-types';
+import { forbidExtraProps } from 'airbnb-prop-types';
+import { Link, Route } from 'wouter-preact';
 import { Home } from '../routes/home/home';
 import { AboutMe } from '../routes/aboutMe/aboutMe';
 import { Wrapper } from './app.styles';
 import { Icon } from '../common/components/icon';
 
-interface ComponentProps {
-    description: VNode<string>;
-}
-
-export const App: TypedComponent<ComponentProps> = ({
-    description,
-}: ComponentProps) => {
+export const App: TypedComponent<Props> = ({ description }: Props) => {
     return (
         <Wrapper>
             <h1>{description}</h1>
@@ -32,3 +28,9 @@ export const App: TypedComponent<ComponentProps> = ({
         </Wrapper>
     );
 };
+
+interface Props {
+    description: VNode<string>;
+}
+
+App.propTypes = forbidExtraProps({});

@@ -1,21 +1,19 @@
 import { h } from 'preact';
 import { TypedComponent } from '../../typings/prop-types';
 import PropTypes from 'prop-types';
+import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './button.styles';
 
-export const Button: TypedComponent<ComponentProps> = ({
-    children,
-    onClick,
-}) => {
+export const Button: TypedComponent<Props> = ({ children, onClick }: Props) => {
     return <Wrapper onClick={onClick}>{children}</Wrapper>;
 };
 
-interface ComponentProps {
+interface Props {
     onClick: Function;
     children: string;
 }
 
-Button.propTypes = {
-    children: PropTypes.string.isRequired,
+Button.propTypes = forbidExtraProps({
     onClick: PropTypes.func.isRequired,
-};
+    children: PropTypes.string.isRequired,
+});

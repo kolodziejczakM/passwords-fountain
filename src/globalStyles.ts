@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { setPragma, glob } from 'goober';
-import PTSansRegularWoff2 from './static/fonts/pt-sans-v11-latin_latin-ext-regular.woff2';
-import PTSansRegularWoff from './static/fonts/pt-sans-v11-latin_latin-ext-regular.woff';
-import PTSansBoldWoff2 from './static/fonts/pt-sans-v11-latin_latin-ext-700.woff2';
-import PTSansBoldWoff from './static/fonts/pt-sans-v11-latin_latin-ext-700.woff';
+import PTSansRegularWoff2 from './assets/fonts/pt-sans-v11-latin_latin-ext-regular.woff2';
+import PTSansRegularWoff from './assets/fonts/pt-sans-v11-latin_latin-ext-regular.woff';
+import PTSansBoldWoff2 from './assets/fonts/pt-sans-v11-latin_latin-ext-700.woff2';
+import PTSansBoldWoff from './assets/fonts/pt-sans-v11-latin_latin-ext-700.woff';
 import { theme } from './common/theme';
 
 setPragma(h);
