@@ -33,10 +33,16 @@ export const Home: TypedComponent<{}> = () => {
                 <h1>{<Text>description</Text>}</h1>
             </section>
             <section>
-                <Button onClick={showSnackbar.bind(null, 'XD', 'SUCCESS')}>
+                <Button
+                    onClick={showSnackbar.bind(
+                        null,
+                        'passwordCopiedToClipboard',
+                        'info'
+                    )}
+                >
                     Show snackbar with msg key XD and type SUCCESS
                 </Button>
-                <Button onClick={setCurrentLanguage.bind(null, 'en')}>
+                <Button onClick={setCurrentLanguage.bind(null, 'pl')}>
                     Set current language
                 </Button>
                 <Button onClick={createPasswordEntity}>

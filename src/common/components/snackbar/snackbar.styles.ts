@@ -37,14 +37,25 @@ const getVariantStyles = ({ type }: { type: SnackbarType }): string => {
 
 export const Wrapper = styled('section')`
     ${getVariantStyles}
-    ${typography.text18}
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: ${theme.spacing.s12};
     max-width: 500px;
     width: 100%;
     position: absolute;
-    bottom: 2px;
+    bottom: ${theme.spacing.xxs2};
     left: 50%;
     transform: translateX(-50%);
     padding: ${theme.spacing.s12};
     background: ${theme.colors.white};
     color: ${theme.colors.darkBlue};
+`;
+
+export const IconWrapper = styled('div')``;
+export const TextWrapper = styled('div')`
+    ${typography.text18}
+`;
+
+export const ErrorType = styled('strong')`
+    font-family: ${theme.fontFamilies.bold};
 `;

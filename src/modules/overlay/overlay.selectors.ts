@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { AppState } from '@/store';
 import { OverlayState } from './overlay.model';
+import { SnackbarType } from './overlay.constants';
 
 const selectOverlay = (state: AppState): OverlayState => state.overlay;
 
@@ -11,5 +12,5 @@ export const selectSnackbarMessageKey = createSelector(
 
 export const selectSnackbarType = createSelector(
     selectOverlay,
-    overlay => overlay.snackbarType
+    (overlay): SnackbarType | string => overlay.snackbarType
 );
