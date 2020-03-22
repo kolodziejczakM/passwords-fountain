@@ -33,4 +33,6 @@ interface Props {
     description: VNode<string>;
 }
 
-App.propTypes = forbidExtraProps({});
+App.propTypes = forbidExtraProps({
+    description: PropTypes.any.isRequired,
+});
