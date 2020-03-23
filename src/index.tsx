@@ -19,7 +19,7 @@ if ((module as any).hot) {
 render(
     <StoreProvider value={store}>
         <LocalisationProvider>
-            <App description={<Text>description</Text>} />
+            <App />
         </LocalisationProvider>
     </StoreProvider>,
     (document as any).getElementById('root')

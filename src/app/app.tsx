@@ -2,24 +2,17 @@ import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
-import { Link, Route } from 'wouter-preact';
+import { Route } from 'wouter-preact';
 import { Home } from '@/routes/home/home';
 import { AboutMe } from '@/routes/aboutMe/aboutMe';
 import { Wrapper } from './app.styles';
-import { Icon } from '@/common/components/icon';
+import { NavBar } from '@/common/components/navBar';
 
-export const App: TypedComponent<Props> = ({ description }: Props) => {
+export const App: TypedComponent<Props> = () => {
     return (
         <Wrapper>
-            <h1>{description}</h1>
             <header>
-                <Icon name="logo" width={200} height={200} />
-                <Link href="/">
-                    <a>Home</a>
-                </Link>
-                <Link href="/about-me">
-                    <a>About me</a>
-                </Link>
+                <NavBar />
             </header>
             <main>
                 <Route path="/" component={Home} />
@@ -29,10 +22,6 @@ export const App: TypedComponent<Props> = ({ description }: Props) => {
     );
 };
 
-interface Props {
-    description: VNode<string>;
-}
+interface Props {}
 
-App.propTypes = forbidExtraProps({
-    description: PropTypes.any.isRequired,
-});
+App.propTypes = forbidExtraProps({});

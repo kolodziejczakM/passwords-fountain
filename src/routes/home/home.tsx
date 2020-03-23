@@ -1,16 +1,13 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useState } from 'preact/hooks'; // TODO: move it to each model and export from there (also add module plop)
 import { TypedComponent } from '@/common/typings/prop-types';
 import db from '@/common/services/faunaDB';
-import {
-    useLocalisation,
-    Text,
-} from '@/modules/localisation/localisation.context';
+import { useLocalisation } from '@/modules/localisation/localisation.context';
 import { Button } from '@/common/components/button';
 import { TextInput } from '@/common/components/textInput';
 import { FormControl } from '@/common/components/formControl';
 import { Snackbar } from '@/common/components/snackbar';
-import { useAction } from '@preact-hooks/unistore';
+import { useAction } from '@preact-hooks/unistore'; // TODO: move it to each model and export from there (also add module plop)
 import { overlayActions } from '@/modules/overlay/overlay.model';
 
 export const Home: TypedComponent<{}> = () => {
@@ -29,9 +26,6 @@ export const Home: TypedComponent<{}> = () => {
 
     return (
         <div>
-            <section>
-                <h1>{<Text>description</Text>}</h1>
-            </section>
             <section>
                 <Button
                     onClick={showSnackbar.bind(
