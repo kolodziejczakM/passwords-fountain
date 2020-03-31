@@ -1,46 +1,102 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, typography } from '@/common/theme';
+import { theme, typography, media, stylelint } from '@/common/theme';
 setPragma(h);
 
 export const Wrapper = styled('section')`
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'logo . appLink'
+        'links links links';
+    padding: 0 ${theme.spacing.m18};
+
+    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+        grid-template-areas: 'logo links appLink';
+        padding: 0 ${theme.spacing.xl30};
+    `)}
 `;
-``;
+
 export const LogoWrapper = styled('div')`
+    grid-area: logo;
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: ${theme.spacing.s12};
     align-items: center;
+    padding: ${theme.spacing.m18} 0;
 `;
 
 export const AppName = styled('h1')``;
 
-export const Green = styled('span')`
-    ${typography.text24}
+export const AppLinkWrapper = styled('div')`
+    grid-area: appLink;
+    padding: ${theme.spacing.m18} 0;
+    display: grid;
+    place-items: center;
+`;
+
+const PrimaryText = stylelint.css`
     font-family: ${theme.fontFamilies.bold};
+    
+    ${media.gte(theme.breakpoints.s375)(stylelint.css`
+        ${typography.text24}
+    `)}
+    
+    ${typography.text20}
+`;
+
+export const AppLinkAnchor = styled('a')`
+    text-decoration: none;
+    font-family: ${theme.fontFamilies.bold};
+    color: ${theme.colors.darkBlue};
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    ${PrimaryText}
+`;
+
+export const Green = styled('span')`
     color: ${theme.colors.primaryGreen};
     margin-right: ${theme.spacing.xs6};
+    ${PrimaryText}
 `;
 
 export const Blue = styled('span')`
-    ${typography.text24}
-    font-family: ${theme.fontFamilies.bold};
     color: ${theme.colors.primaryBlue};
+    ${PrimaryText}
 `;
 
 export const LinksWrapper = styled('div')`
+    grid-area: links;
     display: grid;
     grid-auto-flow: column;
-    justify-content: flex-end;
-    padding: ${theme.spacing.m18} ${theme.spacing.s12};
+    justify-items: center;
+    align-items: center;
+    padding: ${theme.spacing.m18} 0 ${theme.spacing.m18};
+
+    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+        justify-content: flex-end;
+    `)}
 `;
 
-// TODO: desktop - text24, mobile - text20
 export const LinkAnchor = styled('a')`
-    ${typography.text24}
     color: ${theme.colors.darkBlue};
     text-decoration: none;
-    margin-right: ${theme.spacing.xxl60};
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    ${media.gte(theme.breakpoints.s375)(stylelint.css`
+        ${typography.text20}
+    `)}
+    
+    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+        ${typography.text24}
+        margin-right: ${theme.spacing.xxl60};
+    `)}
+     
+    ${typography.text18}
 `;

@@ -14,3 +14,5 @@ export const selectSnackbarType = createSelector(
     selectOverlay,
     (overlay): SnackbarType | string => overlay.snackbarType
 );
+
+export { useSelector } from '@preact-hooks/unistore';

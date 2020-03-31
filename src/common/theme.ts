@@ -24,10 +24,8 @@ enum fontFamilies {
 
 enum breakpoints {
     xs320 = '320px',
-    s480 = '480px',
-    m768 = '768px',
-    l1024 = '1024px',
-    xl1980 = '1980px',
+    s375 = '375px',
+    m880 = '880px',
 }
 
 enum spacing {

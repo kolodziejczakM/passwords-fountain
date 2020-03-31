@@ -11,6 +11,8 @@ import {
     Blue,
     LinksWrapper,
     LinkAnchor,
+    AppLinkWrapper,
+    AppLinkAnchor,
 } from './navBar.styles';
 import { Icon } from '@/common/components/icon';
 import { Text } from '@/modules/localisation/localisation.context';
@@ -39,6 +41,12 @@ const navLinks: NavLink[] = [
     },
 ];
 
+const appLink: NavLink = {
+    id: 3,
+    label: 'navBar.app',
+    href: '/app',
+};
+
 export const NavBar: TypedComponent<Props> = () => {
     const iconSize = 40;
 
@@ -62,6 +70,13 @@ export const NavBar: TypedComponent<Props> = () => {
                 </AppName>
             </LogoWrapper>
             <LinksWrapper>{renderNavLinks()}</LinksWrapper>
+            <AppLinkWrapper>
+                <Link href={appLink.href}>
+                    <AppLinkAnchor>
+                        <Text>{appLink.label}</Text>
+                    </AppLinkAnchor>
+                </Link>
+            </AppLinkWrapper>
         </Wrapper>
     );
 };
