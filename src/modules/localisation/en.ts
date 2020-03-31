@@ -10,5 +10,7 @@ export default {
         'navBar.pricing': 'Pricing',
         'navBar.authors': 'Authors',
         'navBar.app': 'App',
+        'optionsPanel.settings': 'Settings',
+        'optionsPanel.addNew': 'Add new',
     },
 };

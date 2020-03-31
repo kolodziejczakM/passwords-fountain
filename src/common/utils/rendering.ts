@@ -1,6 +1,6 @@
 import { VNode } from 'preact';
 
-type RenderFn = (...args: any[]) => VNode;
+type RenderFn = (...args: any[]) => VNode | VNode[];
 type CondFn = (arg: boolean) => ReturnType<RenderFn> | null;
 
 export const renderIfTrue = (renderFn: RenderFn): CondFn => (cond: boolean) =>

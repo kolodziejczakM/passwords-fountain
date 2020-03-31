@@ -2,7 +2,7 @@ import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
-import { Link } from 'wouter-preact';
+import { Link, useLocation } from 'wouter-preact';
 import {
     Wrapper,
     LogoWrapper,
@@ -13,9 +13,11 @@ import {
     LinkAnchor,
     AppLinkWrapper,
     AppLinkAnchor,
+    LogoAnchor,
 } from './navBar.styles';
 import { Icon } from '@/common/components/icon';
 import { Text } from '@/modules/localisation/localisation.context';
+import { renderIfTrue } from '@/common/utils/rendering';
 
 interface NavLink {
     id: number;
@@ -41,16 +43,17 @@ const navLinks: NavLink[] = [
     },
 ];
 
-const appLink: NavLink = {
-    id: 3,
-    label: 'navBar.app',
-    href: '/app',
-};
-
 export const NavBar: TypedComponent<Props> = () => {
-    const iconSize = 40;
+    const logoIconSize = 40;
+    const [location] = useLocation();
+    const isOnHomepage = location.length === 1;
+    const appLink: NavLink = {
+        id: 3,
+        label: 'navBar.app',
+        href: isOnHomepage ? '/app' : '/',
+    };
 
-    const renderNavLinks = (): VNode[] => {
+    const renderNavLinks = renderIfTrue((): VNode[] => {
         return navLinks.map(navLink => (
             <Link key={navLink.id} href={navLink.href}>
                 <LinkAnchor>
@@ -58,23 +61,39 @@ export const NavBar: TypedComponent<Props> = () => {
                 </LinkAnchor>
             </Link>
         ));
+    });
+
+    const renderAppLinkLabel = () => {
+        return isOnHomepage ? (
+            <Text>{appLink.label}</Text>
+        ) : (
+            <Icon name="home" width={32} height={32} />
+        );
     };
 
     return (
         <Wrapper>
             <LogoWrapper>
-                <Icon name="logo" width={iconSize} height={iconSize} />
-                <AppName>
-                    <Green>Passwords</Green>
-                    <Blue>Fountain</Blue>
-                </AppName>
+                <Link href="/">
+                    <LogoAnchor>
+                        <Icon
+                            name="logo"
+                            width={logoIconSize}
+                            height={logoIconSize}
+                        />
+                        <AppName>
+                            <Green>Passwords</Green>
+                            <Blue>Fountain</Blue>
+                        </AppName>
+                    </LogoAnchor>
+                </Link>
             </LogoWrapper>
-            <LinksWrapper>{renderNavLinks()}</LinksWrapper>
+            <LinksWrapper withoutPadding={!isOnHomepage}>
+                {renderNavLinks(isOnHomepage)}
+            </LinksWrapper>
             <AppLinkWrapper>
                 <Link href={appLink.href}>
-                    <AppLinkAnchor>
-                        <Text>{appLink.label}</Text>
-                    </AppLinkAnchor>
+                    <AppLinkAnchor>{renderAppLinkLabel()}</AppLinkAnchor>
                 </Link>
             </AppLinkWrapper>
         </Wrapper>

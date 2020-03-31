@@ -13,7 +13,7 @@
     "color-named": "never",
     "color-hex-length": "short",
     "color-hex-case": "lower",
-    "declaration-colon-newline-after": "always-multi-line",
+    "declaration-colon-newline-after": null,
     "length-zero-no-unit": [true, { ignore: ["custom-properties"] }],
     "max-empty-lines": [1, { ignore: ["comments"] }],
     "block-closing-brace-newline-after": "always-single-line",

@@ -9,16 +9,18 @@ export const Wrapper = styled('section')`
     grid-template-areas:
         'logo . appLink'
         'links links links';
-    padding: 0 ${theme.spacing.m18};
 
     ${media.gte(theme.breakpoints.m880)(stylelint.css`
         grid-template-areas: 'logo links appLink';
-        padding: 0 ${theme.spacing.xl30};
     `)}
 `;
 
 export const LogoWrapper = styled('div')`
     grid-area: logo;
+`;
+
+export const LogoAnchor = styled('a')`
+    text-decoration: none;
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: ${theme.spacing.s12};
@@ -46,6 +48,8 @@ const PrimaryText = stylelint.css`
 `;
 
 export const AppLinkAnchor = styled('a')`
+    display: flex;
+    align-items: center;
     text-decoration: none;
     font-family: ${theme.fontFamilies.bold};
     color: ${theme.colors.darkBlue};
@@ -68,13 +72,15 @@ export const Blue = styled('span')`
     ${PrimaryText}
 `;
 
+const LinksPadding = `${theme.spacing.m18} 0 ${theme.spacing.m18}`;
 export const LinksWrapper = styled('div')`
     grid-area: links;
     display: grid;
     grid-auto-flow: column;
     justify-items: center;
     align-items: center;
-    padding: ${theme.spacing.m18} 0 ${theme.spacing.m18};
+    padding: ${({ withoutPadding }: { withoutPadding: boolean }) =>
+        withoutPadding ? 0 : LinksPadding};
 
     ${media.gte(theme.breakpoints.m880)(stylelint.css`
         justify-content: flex-end;

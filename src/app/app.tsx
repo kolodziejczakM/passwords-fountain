@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
 import { Route } from 'wouter-preact';
 import { Home } from '@/routes/home/home';
-import { AboutMe } from '@/routes/aboutMe/aboutMe';
-import { Wrapper } from './app.styles';
+import { Settings } from '@/routes/settings/settings';
+import { PasswordList } from '@/routes/passwordList/passwordList';
+import { Wrapper, PageWrapper } from './app.styles';
 import { NavBar } from '@/common/components/navBar';
 
 export const App: TypedComponent<Props> = () => {
@@ -14,10 +15,11 @@ export const App: TypedComponent<Props> = () => {
             <header>
                 <NavBar />
             </header>
-            <main>
+            <PageWrapper>
                 <Route path="/" component={Home} />
-                <Route path="/about-me" component={AboutMe} />
-            </main>
+                <Route path="/settings" component={Settings} />
+                <Route path="/app" component={PasswordList} />
+            </PageWrapper>
         </Wrapper>
     );
 };

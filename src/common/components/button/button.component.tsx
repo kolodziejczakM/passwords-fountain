@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
@@ -10,7 +10,7 @@ export const Button: TypedComponent<Props> = ({ children, onClick }: Props) => {
 
 interface Props {
     onClick: Function;
-    children: string;
+    children: string | VNode;
 }
 
 Button.propTypes = forbidExtraProps({
