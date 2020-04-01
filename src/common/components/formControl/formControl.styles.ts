@@ -9,6 +9,7 @@ export const Wrapper = styled('section')`
 
 export const LabelWrapper = styled('div')`
     ${typography.text18}
+    font-family: ${theme.fontFamilies.bold};
     color: ${theme.colors.darkBlue};
     margin-bottom: ${theme.spacing.xs6};
 `;

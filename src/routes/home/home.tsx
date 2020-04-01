@@ -39,21 +39,21 @@ export const Home: TypedComponent<{}> = () => {
                 <Button onClick={createPasswordEntity}>
                     Create new password
                 </Button>
-                <TextInput onChange={setCurrentLanguage.bind(null, 'en')} />
+                <TextInput onInput={setCurrentLanguage.bind(null, 'en')} />
                 <hr />
                 <TextInput
                     value="Testowa wartosc"
-                    onChange={setCurrentLanguage.bind(null, 'en')}
+                    onInput={setCurrentLanguage.bind(null, 'en')}
                 />
                 <hr />
                 <TextInput
                     placeholder="xd"
-                    onChange={setCurrentLanguage.bind(null, 'en')}
+                    onInput={setCurrentLanguage.bind(null, 'en')}
                 />
                 <hr />
                 <TextInput
                     value="To jest test"
-                    onChange={setCurrentLanguage.bind(null, 'en')}
+                    onInput={setCurrentLanguage.bind(null, 'en')}
                     hasError
                 />
                 <hr />
@@ -64,7 +64,7 @@ export const Home: TypedComponent<{}> = () => {
                         <TextInput
                             hasError
                             value="Form input"
-                            onChange={setCurrentLanguage.bind(null, 'en')}
+                            onInput={setCurrentLanguage.bind(null, 'en')}
                         />
                     )}
                     renderError={() => <div>Error</div>}

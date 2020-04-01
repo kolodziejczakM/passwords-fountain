@@ -16,5 +16,7 @@ export default {
         'optionsPanel.confirm': 'Confirm',
         'optionsPanel.addNew': 'Add new',
         'optionsPanel.add': 'Add',
+        'optionsPanel.enterShelfKey': 'Enter your shelf key:',
+        'optionsPanel.shelfKeyTooShort': 'Shelf key minimum length is 6.',
     },
 };

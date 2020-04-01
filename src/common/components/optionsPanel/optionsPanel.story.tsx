@@ -8,3 +8,7 @@ export default {
 };
 
 export const defaultView = (): VNode => <OptionsPanel />;
+
+export const decodeExpanded = (): VNode => (
+    <OptionsPanel defaultVariantName="decodeExpanded" />
+);

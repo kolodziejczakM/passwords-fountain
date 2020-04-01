@@ -16,6 +16,11 @@ const development = {
         filename: 'bundle.js',
     },
     devtool: 'eval',
+    stats: {
+        colors: true,
+        entrypoints: false,
+        modules: false,
+    },
     devServer: {
         contentBase: './dist',
         hot: true,

@@ -6,37 +6,42 @@ import { Wrapper } from './textInput.styles';
 
 export const TextInput: TypedComponent<Props> = ({
     value,
-    onChange,
+    onInput,
     placeholder,
     hasError,
+    name,
 }: Props) => {
     return (
         <Wrapper
             type="text"
             value={value}
-            onChange={onChange}
+            onInput={onInput}
             placeholder={placeholder}
             hasError={hasError}
+            name={name}
         />
     );
 };
 
 interface Props {
-    onChange: Function;
+    onInput: Function;
     value?: string;
     placeholder?: string;
     hasError?: boolean;
+    name?: string;
 }
 
 TextInput.propTypes = forbidExtraProps({
-    onChange: PropTypes.func.isRequired,
+    onInput: PropTypes.func.isRequired,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     hasError: PropTypes.bool,
+    name: PropTypes.string,
 });
 
 TextInput.defaultProps = {
     value: '',
     placeholder: '',
     hasError: false,
+    name: '',
 };

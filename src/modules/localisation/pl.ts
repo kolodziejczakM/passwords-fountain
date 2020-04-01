@@ -16,5 +16,7 @@ export default {
         'optionsPanel.confirm': 'Zatwierdź',
         'optionsPanel.addNew': 'Dodaj nowe',
         'optionsPanel.add': 'Dodaj',
+        'optionsPanel.enterShelfKey': 'Wprowadź swój klucz półki:',
+        'optionsPanel.shelfKeyTooShort': 'Minimalna długość klucza półki to 6.',
     },
 };

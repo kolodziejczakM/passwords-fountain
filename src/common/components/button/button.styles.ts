@@ -6,7 +6,7 @@ setPragma(h);
 export const Wrapper = styled('button')`
     ${typography.text18}
     padding: ${theme.spacing.m18} ${theme.spacing.xl30};
-    min-width: 140px;
+    min-width: 120px;
     cursor: pointer;
     display: inline-block;
     text-transform: uppercase;
