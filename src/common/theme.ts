@@ -22,9 +22,10 @@ enum fontFamilies {
     bold = 'PT Sans Bold',
 }
 
-enum breakpoints {
+export enum breakpoints {
     xs320 = '320px',
     s375 = '375px',
+    s480 = '480px',
     m880 = '880px',
 }
 

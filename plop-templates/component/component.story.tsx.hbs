@@ -1,0 +1,10 @@
+import { h, VNode } from 'preact';
+import { {{pascalCase name}} } from './{{camelCase name}}.component';
+import { withA11y } from '@storybook/addon-a11y';
+
+export default {
+    title: '{{pascalCase name}}',
+    decorators: [withA11y],
+};
+
+export const defaultView = (): VNode => <{{pascalCase name}} />;

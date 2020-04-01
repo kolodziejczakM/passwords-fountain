@@ -15,5 +15,5 @@ interface Props {
 
 Button.propTypes = forbidExtraProps({
     onClick: PropTypes.func.isRequired,
-    children: PropTypes.string.isRequired,
+    children: PropTypes.any.isRequired,
 });

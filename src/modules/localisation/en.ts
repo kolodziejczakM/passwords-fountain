@@ -11,6 +11,10 @@ export default {
         'navBar.authors': 'Authors',
         'navBar.app': 'App',
         'optionsPanel.settings': 'Settings',
+        'optionsPanel.decode': 'Decode',
+        'optionsPanel.cancel': 'Cancel',
+        'optionsPanel.confirm': 'Confirm',
         'optionsPanel.addNew': 'Add new',
+        'optionsPanel.add': 'Add',
     },
 };

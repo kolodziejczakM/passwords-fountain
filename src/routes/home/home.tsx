@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
 import { TypedComponent } from '@/common/typings/prop-types';
 import db from '@/common/services/faunaDB';
 import { useLocalisation } from '@/modules/localisation/localisation.context';
@@ -8,10 +7,9 @@ import { TextInput } from '@/common/components/textInput';
 import { FormControl } from '@/common/components/formControl';
 import { Snackbar } from '@/common/components/snackbar';
 import { overlayActions, useAction } from '@/modules/overlay/overlay.model';
+import { OptionsPanel } from '@/common/components/optionsPanel';
 
 export const Home: TypedComponent<{}> = () => {
-    const [, setLimit] = useState(2);
-    const [data] = useState([]);
     const [, setCurrentLanguage] = useLocalisation();
     const showSnackbar = useAction(overlayActions.showSnackbar);
 
@@ -40,13 +38,6 @@ export const Home: TypedComponent<{}> = () => {
                 </Button>
                 <Button onClick={createPasswordEntity}>
                     Create new password
-                </Button>
-                <Button
-                    onClick={(): void => {
-                        setLimit(limit => limit + 2);
-                    }}
-                >
-                    Load more
                 </Button>
                 <TextInput onChange={setCurrentLanguage.bind(null, 'en')} />
                 <hr />
@@ -78,16 +69,9 @@ export const Home: TypedComponent<{}> = () => {
                     )}
                     renderError={() => <div>Error</div>}
                 />
+                <OptionsPanel />
                 <Snackbar />
             </section>
-            <div>
-                {data.map((photo: { thumbnailUrl: string; title: string }) => (
-                    <figure key={photo.thumbnailUrl}>
-                        <img src={photo.thumbnailUrl} alt={photo.title} />
-                        <figcaption>{photo.title}</figcaption>
-                    </figure>
-                ))}
-            </div>
         </div>
     );
 };
