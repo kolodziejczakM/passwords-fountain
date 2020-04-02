@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.0.4...v0.0.5) (2020-04-02)
+
+
+### Features
+
+* **options_panel:** moved variants to separated files, added validation ([c23e3ed](https://github.com/kolodziejczakM/passwords-fountain/commit/c23e3ed55b68cd32425d49d9087aba331eb3f590))
+
 ### [0.0.4](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.0.3...v0.0.4) (2020-04-01)
 
 
