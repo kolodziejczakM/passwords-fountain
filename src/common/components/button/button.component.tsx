@@ -4,16 +4,30 @@ import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './button.styles';
 
-export const Button: TypedComponent<Props> = ({ children, onClick }: Props) => {
-    return <Wrapper onClick={onClick}>{children}</Wrapper>;
+export const Button: TypedComponent<Props> = ({
+    children,
+    onClick,
+    disabled,
+}: Props) => {
+    return (
+        <Wrapper type="button" onClick={onClick} disabled={disabled}>
+            {children}
+        </Wrapper>
+    );
 };
 
 interface Props {
+    disabled?: boolean;
     onClick: Function;
     children: string | VNode;
 }
 
 Button.propTypes = forbidExtraProps({
+    disabled: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     children: PropTypes.any.isRequired,
 });
+
+Button.defaultProps = {
+    disabled: false,
+};

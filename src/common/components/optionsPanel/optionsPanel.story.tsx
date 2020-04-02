@@ -12,3 +12,11 @@ export const defaultView = (): VNode => <OptionsPanel />;
 export const decodeExpanded = (): VNode => (
     <OptionsPanel defaultVariantName="decodeExpanded" />
 );
+
+export const addNewCollapsed = (): VNode => (
+    <OptionsPanel defaultVariantName="addNewCollapsed" />
+);
+
+export const addNewExpanded = (): VNode => (
+    <OptionsPanel defaultVariantName="addNewExpanded" />
+);

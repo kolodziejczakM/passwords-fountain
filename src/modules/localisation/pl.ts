@@ -17,6 +17,13 @@ export default {
         'optionsPanel.addNew': 'Dodaj nowe',
         'optionsPanel.add': 'Dodaj',
         'optionsPanel.enterShelfKey': 'Wprowadź swój klucz półki:',
-        'optionsPanel.shelfKeyTooShort': 'Minimalna długość klucza półki to 6.',
+        'optionsPanel.shelfKeyTooShort':
+            'Minimalna długość klucza półki to 6 znaków.',
+        'optionsPanel.labelInputLabel': 'Nazwa',
+        'optionsPanel.loginInputLabel': 'Login',
+        'optionsPanel.passwordInputLabel': 'Hasło',
+        'optionsPanel.labelTooShort': 'Minimalna długość nazwy to 4 znaki.',
+        'optionsPanel.loginTooShort': 'Minimalna długość loginu to 6 znaków',
+        'optionsPanel.passwordTooShort': 'Minimalna długość hasła to 4 znaki.',
     },
 };

@@ -7,6 +7,7 @@ enum colors {
     pastelGreen = '#d1f5ea',
     white = '#fff',
     red = '#ff6465',
+    gray = '#c0c0c0',
 }
 
 enum fontSizes {

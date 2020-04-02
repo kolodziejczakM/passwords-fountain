@@ -7,7 +7,7 @@ const change = mergeState('overlay');
 export const overlayState = {
     snackbarMessageKey: invisibleSnackbarValue,
     snackbarType: invisibleSnackbarValue,
-};
+} as const;
 
 export type OverlayState = typeof overlayState;
 
@@ -25,6 +25,6 @@ export const overlayActions = {
             snackbarType: invisibleSnackbarValue,
         });
     },
-};
+} as const;
 
 export { useAction } from '@preact-hooks/unistore';

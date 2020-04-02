@@ -40,6 +40,12 @@ module.exports = plop => {
             },
             {
                 type: 'add',
+                path:
+                    'src/{{directory}}/{{camelCase name}}/{{camelCase name}}.story.tsx',
+                templateFile: 'plop-templates/component/component.story.tsx.hbs',
+            },
+            {
+                type: 'add',
                 path: 'src/{{directory}}/{{camelCase name}}/index.ts',
                 templateFile: 'plop-templates/component/index.ts.hbs',
             },

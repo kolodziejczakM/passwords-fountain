@@ -18,5 +18,11 @@ export default {
         'optionsPanel.add': 'Add',
         'optionsPanel.enterShelfKey': 'Enter your shelf key:',
         'optionsPanel.shelfKeyTooShort': 'Shelf key minimum length is 6.',
+        'optionsPanel.labelInputLabel': 'Label',
+        'optionsPanel.loginInputLabel': 'Login',
+        'optionsPanel.passwordInputLabel': 'Password',
+        'optionsPanel.labelTooShort': 'Label minimum length is 4.',
+        'optionsPanel.loginTooShort': 'Login minimum length is 6.',
+        'optionsPanel.passwordTooShort': 'Password minimum length is 4.',
     },
 };

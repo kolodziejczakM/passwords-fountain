@@ -7,16 +7,11 @@ export const Wrapper = styled('button')`
     ${typography.text18}
     padding: ${theme.spacing.m18} ${theme.spacing.xl30};
     min-width: 120px;
-    cursor: pointer;
     display: inline-block;
     text-transform: uppercase;
     background: ${theme.colors.primaryBlue};
     color: ${theme.colors.white};
     box-shadow: ${theme.shadows.clickableItem};
-
-    &:hover {
-        text-decoration: underline;
-    }
 
     &:focus {
         border: none;
@@ -25,5 +20,15 @@ export const Wrapper = styled('button')`
 
     &:active {
         box-shadow: none;
+    }
+    
+    &:disabled {
+        box-shadow: none;
+        background: ${theme.colors.gray};
+    }
+    
+    &:hover:enabled {
+        cursor: pointer;
+        text-decoration: underline;
     }
 `;
