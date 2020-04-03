@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.0.5...v0.0.6) (2020-04-03)
+
+
+### Features
+
+* **module_plop:** added module plop, mitt (side-effects via events), ([241b569](https://github.com/kolodziejczakM/passwords-fountain/commit/241b569d892ba46f64b272303bb8754120ea6237))
+
 ### [0.0.5](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.0.4...v0.0.5) (2020-04-02)
 
 
