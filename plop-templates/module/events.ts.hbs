@@ -1,0 +1,29 @@
+import mitt from 'mitt';
+import { asyncListener, syncListener } from '@/common/utils/eventListeners';
+import { store } from '@/store';
+import { {{camelCase name}}Actions } from './{{camelCase name}}.model';
+const emitter = mitt();
+
+export enum {{camelCase name}}EventTypes {
+    noop = 'noop',
+}
+
+emitter.on(
+    {{camelCase name}}EventTypes.noop,
+    asyncListener(() => {
+        console.log(
+            "When emitted from reducer's handler - will be called after state change."
+        );
+    })
+);
+
+emitter.on(
+    {{camelCase name}}EventTypes.noop,
+    syncListener(() => {
+        console.log(
+            "When emitted from reducer's handler - will be called before state change."
+        );
+    })
+);
+
+export { emitter as {{camelCase name}}Emitter };

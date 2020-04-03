@@ -1,11 +1,14 @@
 import createStore from 'unistore';
 import devtools from 'unistore/devtools';
 
-import { overlayState } from './modules/overlay/overlay.model';
+import { overlayState } from '@/modules/overlay/overlay.model';
+import { passwordListState } from '@/modules/passwordList/passwordList.model';
+//<-- IMPORT MODULE STATE -->
 
 const appState = {
-    test: 'xd',
     overlay: overlayState,
+    passwordList: passwordListState,
+    //<-- INJECT MODULE STATE -->
 } as const;
 
 export type AppState = typeof appState;

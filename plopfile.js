@@ -42,12 +42,58 @@ module.exports = plop => {
                 type: 'add',
                 path:
                     'src/{{directory}}/{{camelCase name}}/{{camelCase name}}.story.tsx',
-                templateFile: 'plop-templates/component/component.story.tsx.hbs',
+                templateFile:
+                    'plop-templates/component/component.story.tsx.hbs',
             },
             {
                 type: 'add',
                 path: 'src/{{directory}}/{{camelCase name}}/index.ts',
                 templateFile: 'plop-templates/component/index.ts.hbs',
+            },
+        ],
+    });
+
+    plop.setGenerator('module', {
+        description: 'Generate an application module boilerplate',
+        prompts: [
+            {
+                type: 'input',
+                name: 'name',
+                message: 'Please choose module name:',
+            },
+        ],
+        actions: [
+            {
+                type: 'add',
+                path:
+                    'src/modules/{{camelCase name}}/{{camelCase name}}.model.ts',
+                templateFile: 'plop-templates/module/model.ts.hbs',
+            },
+            {
+                type: 'add',
+                path:
+                    'src/modules/{{camelCase name}}/{{camelCase name}}.selectors.ts',
+                templateFile: 'plop-templates/module/selectors.ts.hbs',
+            },
+            {
+                type: 'add',
+                path:
+                    'src/modules/{{camelCase name}}/{{camelCase name}}.events.ts',
+                templateFile: 'plop-templates/module/events.ts.hbs',
+            },
+            {
+                type: 'modify',
+                path: 'src/store.ts',
+                pattern: /(\/\/<-- IMPORT MODULE STATE -->)/g,
+                template:
+                    "import { {{ camelCase name }}State } from '@/modules/{{ camelCase name }}/{{ camelCase name }}.model';\n$1",
+            },
+            {
+                type: 'modify',
+                path: 'src/store.ts',
+                pattern: /(\/\/<-- INJECT MODULE STATE -->)/g,
+                template:
+                    '{{ camelCase name }}: {{ camelCase name }}State,\n    $1',
             },
         ],
     });

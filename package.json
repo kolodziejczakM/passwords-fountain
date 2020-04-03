@@ -89,6 +89,7 @@
         "faunadb": "^2.11.1",
         "formee": "^1.0.0",
         "goober": "^1.5.0",
+        "mitt": "^1.2.0",
         "preact": "^10.0.0",
         "prop-types": "^15.7.2",
         "reselect": "^4.0.0",
