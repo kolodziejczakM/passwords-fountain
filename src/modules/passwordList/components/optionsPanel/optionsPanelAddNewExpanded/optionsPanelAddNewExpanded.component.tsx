@@ -6,16 +6,9 @@ import {
     Wrapper,
     FormControlWrapper,
 } from './optionsPanelAddNewExpanded.styles';
-import {
-    variantNames,
-    VariantProps,
-} from '@/common/components/optionsPanel/optionsPanel.component';
+import { variantNames, VariantProps } from '../optionsPanel.component';
 import { FormControl } from '@/common/components/formControl';
-import {
-    ButtonWrapper,
-    Content,
-    ContentWrapper,
-} from '@/common/components/optionsPanel/optionsPanel.styles';
+import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/localisation.context';
 import { useRef, useState } from 'preact/hooks';

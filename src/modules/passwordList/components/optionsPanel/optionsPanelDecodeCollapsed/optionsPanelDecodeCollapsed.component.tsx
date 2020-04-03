@@ -3,14 +3,8 @@ import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './optionsPanelDecodeCollapsed.styles';
-import {
-    ButtonWrapper,
-    ContentWrapper,
-} from '@/common/components/optionsPanel/optionsPanel.styles';
-import {
-    variantNames,
-    VariantProps,
-} from '@/common/components/optionsPanel/optionsPanel.component';
+import { ButtonWrapper, ContentWrapper } from '../optionsPanel.styles';
+import { variantNames, VariantProps } from '../optionsPanel.component';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/localisation.context';
 import { useLocation } from 'wouter-preact';

@@ -7,7 +7,7 @@ import { TextInput } from '@/common/components/textInput';
 import { FormControl } from '@/common/components/formControl';
 import { Snackbar } from '@/common/components/snackbar';
 import { overlayActions, useAction } from '@/modules/overlay/overlay.model';
-import { OptionsPanel } from '@/common/components/optionsPanel';
+import { OptionsPanel } from '@/modules/passwordList/components/optionsPanel';
 
 export const Home: TypedComponent<{}> = () => {
     const [, setCurrentLanguage] = useLocalisation();

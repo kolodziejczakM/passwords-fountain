@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './optionsPanel.styles';
 import { useState } from 'preact/hooks';
-import { OptionsPanelDecodeCollapsed } from '@/common/components/optionsPanel/optionsPanelDecodeCollapsed';
-import { OptionsPanelDecodeExpanded } from '@/common/components/optionsPanel/optionsPanelDecodeExpanded';
-import { OptionsPanelAddNewCollapsed } from '@/common/components/optionsPanel/optionsPanelAddNewCollapsed';
-import { OptionsPanelAddNewExpanded } from '@/common/components/optionsPanel/optionsPanelAddNewExpanded';
+import { OptionsPanelDecodeCollapsed } from './optionsPanelDecodeCollapsed';
+import { OptionsPanelDecodeExpanded } from './optionsPanelDecodeExpanded';
+import { OptionsPanelAddNewCollapsed } from './optionsPanelAddNewCollapsed';
+import { OptionsPanelAddNewExpanded } from './optionsPanelAddNewExpanded';
 
 export enum variantNames {
     decodeCollapsed = 'decodeCollapsed',

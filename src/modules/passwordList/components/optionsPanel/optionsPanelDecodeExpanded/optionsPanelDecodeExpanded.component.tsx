@@ -3,17 +3,10 @@ import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './optionsPanelDecodeExpanded.styles';
-import {
-    ButtonWrapper,
-    Content,
-    ContentWrapper,
-} from '@/common/components/optionsPanel/optionsPanel.styles';
+import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/localisation.context';
-import {
-    variantNames,
-    VariantProps,
-} from '@/common/components/optionsPanel/optionsPanel.component';
+import { variantNames, VariantProps } from '../optionsPanel.component';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
 import { useRef, useState } from 'preact/hooks';
