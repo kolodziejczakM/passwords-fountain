@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.0.9...v0.0.10) (2020-04-03)
+
+
+### Features
+
+* **pages:** unified pages definition ([3880b03](https://github.com/kolodziejczakM/passwords-fountain/commit/3880b03b1ebec5466c40334b1169d7e61bab115b))
+
 ### [0.0.9](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.0.8...v0.0.9) (2020-04-03)
 
 ### [0.0.8](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.0.7...v0.0.8) (2020-04-03)
