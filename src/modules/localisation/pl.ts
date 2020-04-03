@@ -25,5 +25,8 @@ export default {
         'optionsPanel.labelTooShort': 'Minimalna długość nazwy to 4 znaki.',
         'optionsPanel.loginTooShort': 'Minimalna długość loginu to 6 znaków',
         'optionsPanel.passwordTooShort': 'Minimalna długość hasła to 4 znaki.',
+        'passwordEntity.label': 'Nazwa',
+        'passwordEntity.login': 'Login',
+        'passwordEntity.password': 'Hasło',
     },
 };

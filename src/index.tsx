@@ -4,10 +4,7 @@ import { store } from './store';
 import { App } from './app/app';
 import './globalStyles';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
-import {
-    LocalisationProvider,
-    Text,
-} from './modules/localisation/localisation.context';
+import { LocalisationProvider } from './modules/localisation/localisation.context';
 
 OfflinePluginRuntime.install();
 

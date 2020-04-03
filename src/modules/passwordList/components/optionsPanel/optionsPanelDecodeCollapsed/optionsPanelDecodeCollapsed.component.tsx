@@ -1,9 +1,8 @@
 import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './optionsPanelDecodeCollapsed.styles';
-import { ButtonWrapper, ContentWrapper } from '../optionsPanel.styles';
+import { ButtonWrapper } from '../optionsPanel.styles';
 import { variantNames, VariantProps } from '../optionsPanel.component';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/localisation.context';
@@ -31,6 +30,6 @@ export const OptionsPanelDecodeCollapsed: TypedComponent<VariantProps> = ({
     );
 };
 
-OptionsPanelDecodeCollapsed.propTypes = forbidExtraProps({
+OptionsPanelDecodeCollapsed.propTypes = {
     switchCurrentVariantName: PropTypes.func.isRequired,
-});
+};

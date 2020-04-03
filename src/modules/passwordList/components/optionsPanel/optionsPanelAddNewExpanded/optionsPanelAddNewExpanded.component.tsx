@@ -1,7 +1,6 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import {
     Wrapper,
     FormControlWrapper,
@@ -151,6 +150,6 @@ export const OptionsPanelAddNewExpanded: TypedComponent<VariantProps> = ({
     );
 };
 
-OptionsPanelAddNewExpanded.propTypes = forbidExtraProps({
+OptionsPanelAddNewExpanded.propTypes = {
     switchCurrentVariantName: PropTypes.func.isRequired,
-});
+};

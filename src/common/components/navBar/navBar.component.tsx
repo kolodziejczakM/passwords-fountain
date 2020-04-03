@@ -1,7 +1,5 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
-import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { Link, useLocation } from 'wouter-preact';
 import {
     Wrapper,
@@ -102,4 +100,4 @@ export const NavBar: TypedComponent<Props> = () => {
 
 interface Props {}
 
-NavBar.propTypes = forbidExtraProps({});
+NavBar.propTypes = {};

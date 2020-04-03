@@ -1,7 +1,5 @@
 import mitt from 'mitt';
 import { asyncListener, syncListener } from '@/common/utils/eventListeners';
-import { store } from '@/store';
-import { passwordListActions } from './passwordList.model';
 const emitter = mitt();
 
 export enum passwordListEventTypes {

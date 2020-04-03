@@ -1,7 +1,6 @@
 import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './optionsPanel.styles';
 import { useState } from 'preact/hooks';
 import { OptionsPanelDecodeCollapsed } from './optionsPanelDecodeCollapsed';
@@ -52,9 +51,9 @@ interface Props {
     defaultVariantName?: VariantName;
 }
 
-OptionsPanel.propTypes = forbidExtraProps({
+OptionsPanel.propTypes = {
     defaultVariantName: PropTypes.any,
-});
+};
 
 OptionsPanel.defaultProps = {
     defaultVariantName: variantNames.decodeCollapsed,

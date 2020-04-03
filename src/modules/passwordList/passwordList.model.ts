@@ -1,9 +1,5 @@
 import { AppState } from '@/store';
 import { mergeState } from '@/common/utils/store';
-import {
-    passwordListEmitter,
-    passwordListEventTypes,
-} from '@/modules/passwordList/passwordList.events';
 
 const change = mergeState('passwordList');
 

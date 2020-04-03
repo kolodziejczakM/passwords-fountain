@@ -1,7 +1,6 @@
 import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import {
     Wrapper,
     LabelWrapper,
@@ -31,10 +30,10 @@ interface Props {
     renderError: Function;
 }
 
-FormControl.propTypes = forbidExtraProps({
+FormControl.propTypes = {
     hasError: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
         .isRequired,
     renderLabel: PropTypes.func.isRequired,
     renderInput: PropTypes.func.isRequired,
     renderError: PropTypes.func.isRequired,
-});
+};

@@ -1,7 +1,5 @@
-import { h, VNode } from 'preact';
+import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
-import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { Route } from 'wouter-preact';
 import { Home } from '@/routes/home/home';
 import { Settings } from '@/routes/settings/settings';
@@ -26,4 +24,4 @@ export const App: TypedComponent<Props> = () => {
 
 interface Props {}
 
-App.propTypes = forbidExtraProps({});
+App.propTypes = {};

@@ -1,7 +1,6 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { Wrapper } from './button.styles';
 
 export const Button: TypedComponent<Props> = ({
@@ -22,11 +21,11 @@ interface Props {
     children: string | VNode;
 }
 
-Button.propTypes = forbidExtraProps({
+Button.propTypes = {
     disabled: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     children: PropTypes.any.isRequired,
-});
+};
 
 Button.defaultProps = {
     disabled: false,

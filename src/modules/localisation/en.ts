@@ -24,5 +24,8 @@ export default {
         'optionsPanel.labelTooShort': 'Label minimum length is 4.',
         'optionsPanel.loginTooShort': 'Login minimum length is 6.',
         'optionsPanel.passwordTooShort': 'Password minimum length is 4.',
+        'passwordEntity.label': 'Label',
+        'passwordEntity.login': 'Login',
+        'passwordEntity.password': 'Password',
     },
 };

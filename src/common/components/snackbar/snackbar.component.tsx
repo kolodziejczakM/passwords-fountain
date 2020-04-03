@@ -1,7 +1,5 @@
 import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
-import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import {
     Wrapper,
     IconWrapper,
@@ -39,4 +37,4 @@ export const Snackbar: TypedComponent<Props> = () => {
 };
 
 interface Props {}
-Snackbar.propTypes = forbidExtraProps({});
+Snackbar.propTypes = {};
