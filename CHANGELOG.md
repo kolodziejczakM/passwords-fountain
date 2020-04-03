@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.2...v0.1.3) (2020-04-03)
+
+
+### Features
+
+* **commitizen:** replaced commitlint & husky with commitizen ([2179b1d](https://github.com/kolodziejczakM/passwords-fountain/commit/2179b1dc73037ccd96d2c46c9d189a2dd9cbd595))
+
 ### [0.1.2](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.1...v0.1.2) (2020-04-03)
 
 
