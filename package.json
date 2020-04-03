@@ -19,13 +19,9 @@
         "build-storybook": "build-storybook",
         "release": "standard-version",
         "release:tags": "git push --follow-tags origin master",
-        "postrelease": "npm run release:tags"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "run-s check:types lint:scripts lint:styles",
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
+        "postrelease": "npm run release:tags",
+        "precommit": "run-s check:types lint:scripts lint:styles",
+        "commit": "git-cz"
     },
     "devDependencies": {
         "@babel/core": "^7.6.4",
@@ -33,8 +29,6 @@
         "@babel/plugin-transform-react-jsx": "^7.3.0",
         "@babel/preset-env": "^7.9.0",
         "@babel/preset-typescript": "^7.6.0",
-        "@commitlint/cli": "^8.3.5",
-        "@commitlint/config-conventional": "^8.3.4",
         "@storybook/addon-a11y": "^5.3.18",
         "@storybook/addon-actions": "^5.2.3",
         "@storybook/addon-backgrounds": "^5.3.18",
@@ -56,12 +50,12 @@
         "babel-loader": "^8.0.6",
         "babel-plugin-module-resolver": "^4.0.0",
         "clean-webpack-plugin": "^3.0.0",
+        "cz-conventional-changelog": "^3.1.0",
         "eslint": "^6.5.1",
         "eslint-config-prettier": "^6.4.0",
         "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-react": "^7.16.0",
         "html-webpack-plugin": "^3.2.0",
-        "husky": "^3.0.8",
         "inquirer-directory": "^2.2.0",
         "jest": "^24.9.0",
         "jest-svg-transformer": "^1.0.0",
@@ -94,5 +88,10 @@
         "reselect": "^4.0.0",
         "unistore": "^3.4.1",
         "wouter-preact": "^2.3.1"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }
