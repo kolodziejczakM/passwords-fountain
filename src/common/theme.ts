@@ -37,6 +37,7 @@ enum spacing {
     m18 = '18px',
     l24 = '24px',
     xl30 = '30px',
+    xl40 = '40px',
     xxl60 = '60px',
 }
 

@@ -17,6 +17,7 @@ export const Wrapper = styled('section')`
 
 export const LogoWrapper = styled('div')`
     grid-area: logo;
+    display: flex;
 `;
 
 export const LogoAnchor = styled('a')`

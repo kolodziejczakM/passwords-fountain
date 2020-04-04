@@ -3,9 +3,10 @@ export default {
         error: 'Błąd',
         success: 'Sukces',
         info: 'Info',
-        dbConnectionError: 'połączenie z bazą danych nie powiodło się.',
-        newPasswordAdded: 'dodano nowe hasło!',
-        passwordCopiedToClipboard: 'skopiowano do schowka.',
+        'snackbar.dbConnectionError':
+            'połączenie z bazą danych nie powiodło się.',
+        'snackbar.newPasswordAdded': 'dodano nowe hasło!',
+        'snackbar.passwordCopiedToClipboard': 'skopiowano do schowka.',
         'navBar.howToStart': 'Jak zacząć',
         'navBar.pricing': 'Cennik',
         'navBar.authors': 'Autorzy',
@@ -28,5 +29,21 @@ export default {
         'passwordEntity.label': 'Nazwa',
         'passwordEntity.login': 'Login',
         'passwordEntity.password': 'Hasło',
+        'settings.connectToDB': 'Połącz z bazą danych',
+        'settings.currentDBConnection:': 'Połączenie z bazą danych',
+        'settings.adminKeyLabel': 'Klucz admina FaunaDB',
+        'settings.adminKeyLabelDescription':
+            'znajdziesz go na swoim koncie FaunaDB.',
+        'settings.shelfKeyLabel': 'Klucz półki',
+        'settings.shelfKeyLabelDescription':
+            'będzie Ci potrzebny za każdym razem gdy będziesz chciał odszyfrować hasła. Zapamiętaj go!',
+        'settings.connect': 'Połącz',
+        'settings.back': 'Cofnij',
+        'settings.reConnect': 'Połącz ponownie',
+        'settings.noteLabel': 'Ważne:',
+        'settings.noteLabelDescription':
+            'jeśli chcesz połączyć się z bazą danych, która już posiada zaszyfrowane hasła - użyj tego samego klucza półki jak podczas pierwszego połączenia.',
+        'settings.adminKeyTooShort':
+            'Minimalna długość klucza admina to 10 znaków.',
     },
 };

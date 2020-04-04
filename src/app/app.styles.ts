@@ -13,5 +13,5 @@ export const Wrapper = styled('section')`
 `;
 
 export const PageWrapper = styled('main')`
-    padding-top: ${theme.spacing.xl30};
+    padding: ${theme.spacing.xl30} 0;
 `;

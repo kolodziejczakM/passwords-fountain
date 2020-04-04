@@ -3,9 +3,10 @@ export default {
         error: 'Error',
         success: 'Success',
         info: 'Info',
-        dbConnectionError: "connection to database couldn't be established.",
-        newPasswordAdded: "you've added new password entity!",
-        passwordCopiedToClipboard: 'password copied to clipboard.',
+        'snackbar.dbConnectionError':
+            "connection to database couldn't be established.",
+        'snackbar.newPasswordAdded': "you've added new password entity!",
+        'snackbar.passwordCopiedToClipboard': 'password copied to clipboard.',
         'navBar.howToStart': 'How to start',
         'navBar.pricing': 'Pricing',
         'navBar.authors': 'Authors',
@@ -27,5 +28,20 @@ export default {
         'passwordEntity.label': 'Label',
         'passwordEntity.login': 'Login',
         'passwordEntity.password': 'Password',
+        'settings.connectToDB': 'Connect to existing database',
+        'settings.currentDBConnection:': 'Current database connection',
+        'settings.adminKeyLabel': 'FaunaDB admin key',
+        'settings.adminKeyLabelDescription':
+            'you can find it on your FaunaDB account.',
+        'settings.shelfKeyLabel': 'Shelf key',
+        'settings.shelfKeyLabelDescription':
+            "you'll use that key every time you'll want to decode your passwords. Remember it!",
+        'settings.connect': 'Connect',
+        'settings.back': 'Back',
+        'settings.reConnect': 'Re-connect',
+        'settings.noteLabel': 'Note:',
+        'settings.noteLabelDescription':
+            'if you want to connect to database which already has encoded passwords - use the same shelf key as during initial connection.',
+        'settings.adminKeyTooShort': 'Admin key minimum length is 10.',
     },
 };
