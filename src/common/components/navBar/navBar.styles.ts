@@ -3,7 +3,7 @@ import { styled, setPragma } from 'goober';
 import { theme, typography, media, stylelint } from '@/common/theme';
 setPragma(h);
 
-export const Wrapper = styled('section')`
+export const Wrapper = styled('nav')`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:

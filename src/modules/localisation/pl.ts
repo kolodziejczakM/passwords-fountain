@@ -45,5 +45,6 @@ export default {
             'jeśli chcesz połączyć się z bazą danych, która już posiada zaszyfrowane hasła - użyj tego samego klucza półki jak podczas pierwszego połączenia.',
         'settings.adminKeyTooShort':
             'Minimalna długość klucza admina to 10 znaków.',
+        'footer.createdBy': 'Stworzone przez Marcina Kołodziejczaka',
     },
 };

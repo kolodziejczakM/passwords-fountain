@@ -43,5 +43,6 @@ export default {
         'settings.noteLabelDescription':
             'if you want to connect to database which already has encoded passwords - use the same shelf key as during initial connection.',
         'settings.adminKeyTooShort': 'Admin key minimum length is 10.',
+        'footer.createdBy': 'Created by Marcin Kołodziejczak',
     },
 };
