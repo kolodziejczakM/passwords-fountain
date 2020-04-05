@@ -46,5 +46,11 @@ export default {
         'settings.adminKeyTooShort':
             'Minimalna długość klucza admina to 10 znaków.',
         'footer.createdBy': 'Stworzone przez Marcina Kołodziejczaka',
+        'banner.ourInterface': 'Nasz interfejs',
+        'banner.yourDatabase': 'Twoja baza danych',
+        'banner.allPasswords': 'Wszystkie hasła w jednym miejscu. Za darmo.',
+        'home.howToStart': 'Jak zacząć - tworzenie bazy danych',
+        'home.pricing': 'Cennik',
+        'home.authors': 'Autorzy',
     },
 };

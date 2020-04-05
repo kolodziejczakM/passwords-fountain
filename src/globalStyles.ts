@@ -90,6 +90,15 @@ const resetCss = `
     html, body, #root {
         height: 100%;
     }
+    
+    #root {
+        margin: 0 auto;
+        max-width: 1920px;
+    }
+    
+    .sanitized-translation strong {
+        font-family: ${theme.fontFamilies.bold};
+    }
 
     * {
         box-sizing: border-box;

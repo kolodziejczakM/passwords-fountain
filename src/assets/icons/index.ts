@@ -3,6 +3,7 @@ import error from './error.svg';
 import home from './home.svg';
 import info from './info.svg';
 import logo from './logo.svg';
+import logoAnimated from './logoAnimated.svg';
 import love from './love.svg';
 import success from './success.svg';
 
@@ -12,6 +13,7 @@ export type IconName =
     | 'home'
     | 'info'
     | 'logo'
+    | 'logoAnimated'
     | 'love'
     | 'success';
 
@@ -27,6 +29,7 @@ export const icons: Icons = {
     home,
     info,
     logo,
+    logoAnimated,
     love,
     success,
 } as const;

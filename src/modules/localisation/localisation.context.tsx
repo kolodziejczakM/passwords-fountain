@@ -47,7 +47,24 @@ export const useLocalisation = (): ContextValue => {
     return context;
 };
 
-export const Text = ({ children }: { children: string }): VNode<string> => {
+export const Text = ({
+    children,
+    withMarkup = false,
+}: {
+    children: string;
+    withMarkup?: boolean;
+}): VNode<string> => {
     useContext(LocalisationContext);
-    return <Fragment>{i18n._(children)}</Fragment>;
+
+    // TODO: sanitize markup
+    return withMarkup ? (
+        <span
+            className="sanitized-translation"
+            dangerouslySetInnerHTML={{
+                __html: i18n._(children),
+            }}
+        />
+    ) : (
+        <Fragment>{i18n._(children)}</Fragment>
+    );
 };

@@ -44,5 +44,15 @@ export default {
             'if you want to connect to database which already has encoded passwords - use the same shelf key as during initial connection.',
         'settings.adminKeyTooShort': 'Admin key minimum length is 10.',
         'footer.createdBy': 'Created by Marcin Kołodziejczak',
+        'banner.ourInterface': 'Our interface',
+        'banner.yourDatabase': 'Your database',
+        'banner.allPasswords': 'All passwords in one place. For free.',
+        'home.howToStart': 'How to start - creating database',
+        'home.pricing': 'Pricing',
+        'home.authors': 'Authors',
+        'home.toStart':
+            'To start using this app you need to create a <strong>database</strong> to which your passwords will be stored.',
+        'home.followGuide':
+            'Follow our <strong>5-step guide</strong> and start the journey!',
     },
 };

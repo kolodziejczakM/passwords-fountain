@@ -110,6 +110,8 @@ const text32 = stylelint.css`
     line-height: ${theme.lineHeights.xl41};
 `;
 
+export const negative = (x: string): string => `-${x}`;
+
 export const typography = {
     text16,
     text18,
