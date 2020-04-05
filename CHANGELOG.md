@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.5...v0.1.6) (2020-04-05)
+
+
+### Features
+
+* **homepage:** homepage route (major changes), homepage module added ([37b40d1](https://github.com/kolodziejczakM/passwords-fountain/commit/37b40d1a3cfd3a72ac96af3bfa591eb46cb9fe83))
+
 ### [0.1.5](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.4...v0.1.5) (2020-04-05)
 
 
