@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.4...v0.1.5) (2020-04-05)
+
+
+### Features
+
+* **footer:** added app footer ([1adbec0](https://github.com/kolodziejczakM/passwords-fountain/commit/1adbec06de8576c882dd250282f446c524acc62e))
+
 ### [0.1.4](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.3...v0.1.4) (2020-04-04)
 
 
