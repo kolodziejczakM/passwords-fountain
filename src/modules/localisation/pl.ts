@@ -52,5 +52,27 @@ export default {
         'home.howToStart': 'Jak zacząć - tworzenie bazy danych',
         'home.pricing': 'Cennik',
         'home.authors': 'Autorzy',
+        'home.toStart':
+            'Aby móc skorzystać z aplikacji będziesz potrzebował <strong>bazy danych</strong>, w której Twoje hasła będą przechowywane.',
+        'home.followGuide':
+            'Przejdź przez poradnik składający się z <strong>5 kroków</strong> i rozpocznij przygodę!',
+        'home.completelyFree':
+            'Passwords Fountain to całkowicie <strong>darmowa</strong> aplikacja.',
+        'home.visitFaunaPricing':
+            'Odwiedź <strong><a href="https://fauna.com/pricing">https://fauna.com/pricing</a></strong> aby dowiedzieć się więcej w temacie płatności faunadb.',
+        'home.helloFromAuthor':
+            'Cześć, jestem Marcin i chętnie przeczytam Twoją opinię na temat tej aplikacji.',
+        'home.dontHesitateToContact': 'Napisz do mnie na:',
+        'home.thanksToIconAuthors': 'Wielkie podziękowania do autorów ikon:',
+        'startGuide.step1':
+            'Przejdź do <strong><a href="https://fauna.com/">https://fauna.com/</a></strong> a następnie utwórz darmowe konto i zaloguj się.',
+        'startGuide.step2':
+            'Kliknij na <strong>NEW DATABASE</strong> i wprowadź <strong>PASSWORDS_FOUNTAIN</strong> jako nazwę dla bazy danych.<br>To ważne, nie zrób literówki!',
+        'startGuide.step3':
+            'Przejdź do Settings -> Account API Keys.<br> a następnie wybierz nazwę dla klucza admina i kliknij <strong>CREATE NEW ADMIN KEY.</strong>',
+        'startGuide.step4':
+            'Twój klucz admina pojawi się tylko raz, skopiuj go. Nie pokazuj go nikomu.<br> Jeśli z jakiegoś powodu zgubisz klucz admina (nie powinieneś!), to będziesz mógł wygenerować nowy.',
+        'startGuide.step5':
+            'Teraz możesz połączyć nasz interfejs z Twoją bazą danych.<br>Kliknij na <strong>App</strong> (prawy górny róg) i rozpocznij przygodę!',
     },
 };

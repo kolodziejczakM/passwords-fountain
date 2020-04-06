@@ -71,6 +71,6 @@ export default {
         'startGuide.step4':
             "Your admin key will be shown only once, copy it. Don't show it to other people.<br> If you somehow lose admin key (you shouldn't) you can generate new one.",
         'startGuide.step5':
-            'Now you can connect our app to your database.<br>Click on <strong>App</strong> (upper-right corner) and start your journey!',
+            'Now you can connect our interface to your database.<br>Click on <strong>App</strong> (upper-right corner) and start your journey!',
     },
 };
