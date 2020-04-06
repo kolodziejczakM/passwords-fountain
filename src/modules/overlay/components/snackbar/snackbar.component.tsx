@@ -12,7 +12,7 @@ import {
     selectSnackbarType,
 } from '@/modules/overlay/overlay.selectors';
 import { SnackbarType } from '@/modules/overlay/overlay.constants';
-import { Icon } from '../icon';
+import { Icon } from '@/common/components/icon';
 import { Text } from '@/modules/localisation/localisation.context';
 
 export const Snackbar: TypedComponent<Props> = () => {
