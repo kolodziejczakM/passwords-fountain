@@ -54,5 +54,23 @@ export default {
             'To start using this app you need to create a <strong>database</strong> to which your passwords will be stored.',
         'home.followGuide':
             'Follow our <strong>5-step guide</strong> and start the journey!',
+        'home.completelyFree':
+            'Passwords Fountain is a completely <strong>free</strong> app.',
+        'home.visitFaunaPricing':
+            'Visit <strong><a href="https://fauna.com/pricing">https://fauna.com/pricing</a></strong> to explore their pricing plans.',
+        'home.helloFromAuthor':
+            "Hello, I'm Marcin and I'd love to hear your opinion about this application.",
+        'home.dontHesitateToContact': "Don't hestitate to contact me:",
+        'home.thanksToIconAuthors': 'Huge thanks to icon authors:',
+        'startGuide.step1':
+            'Go to <strong><a href="https://fauna.com/">https://fauna.com/</a></strong> and create free account, login.',
+        'startGuide.step2':
+            "Click <strong>NEW DATABASE</strong> and use <strong>PASSWORDS_FOUNTAIN</strong> as a database name.<br>This is important so please don't misspell it!",
+        'startGuide.step3':
+            'Go to Settings -> Account API Keys.<br> Now choose any name for your admin key and click <strong>CREATE NEW ADMIN KEY.</strong>',
+        'startGuide.step4':
+            "Your admin key will be shown only once, copy it. Don't show it to other people.<br> If you somehow lose admin key (you shouldn't) you can generate new one.",
+        'startGuide.step5':
+            'Now you can connect our app to your database.<br>Click on <strong>App</strong> (upper-right corner) and start your journey!',
     },
 };

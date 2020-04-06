@@ -4,9 +4,15 @@ import PropTypes from 'prop-types';
 import { Wrapper, TitleBar, Title, ContentWrapper } from './segment.styles';
 import { Text } from '@/modules/localisation/localisation.context';
 
-export const Segment: TypedComponent<Props> = ({ title, children }: Props) => {
+export const Segment: TypedComponent<Props> = ({
+    id,
+    title,
+    children,
+}: Props) => {
+    const rootProps = id ? { id } : {};
+
     return (
-        <Wrapper>
+        <Wrapper {...rootProps}>
             <TitleBar>
                 <Title>
                     <Text>{title}</Text>
@@ -18,11 +24,13 @@ export const Segment: TypedComponent<Props> = ({ title, children }: Props) => {
 };
 
 interface Props {
+    id?: string;
     title: string;
     children: VNode | VNode[];
 }
 
 Segment.propTypes = {
+    id: PropTypes.string,
     title: PropTypes.string.isRequired,
     children: PropTypes.any.isRequired,
 };

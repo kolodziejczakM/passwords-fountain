@@ -53,11 +53,9 @@ export const NavBar: TypedComponent<Props> = () => {
 
     const renderNavLinks = renderIfTrue((): VNode[] => {
         return navLinks.map(navLink => (
-            <Link key={navLink.id} href={navLink.href}>
-                <LinkAnchor>
-                    <Text>{navLink.label}</Text>
-                </LinkAnchor>
-            </Link>
+            <LinkAnchor key={navLink.id} href={navLink.href}>
+                <Text>{navLink.label}</Text>
+            </LinkAnchor>
         ));
     });
 

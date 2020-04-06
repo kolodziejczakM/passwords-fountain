@@ -28,6 +28,7 @@ export enum breakpoints {
     s375 = '375px',
     s480 = '480px',
     m880 = '880px',
+    m1100 = '1100px',
 }
 
 enum spacing {

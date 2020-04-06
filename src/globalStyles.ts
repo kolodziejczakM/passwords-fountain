@@ -89,6 +89,7 @@ const resetCss = `
     
     html, body, #root {
         height: 100%;
+        scroll-behavior: smooth;
     }
     
     #root {
