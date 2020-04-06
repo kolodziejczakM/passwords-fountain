@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.7...v0.1.8) (2020-04-06)
+
+
+### Features
+
+* **polish translations homepage:** missing polish translations (mainly startGuide's ones) ([1a88332](https://github.com/kolodziejczakM/passwords-fountain/commit/1a883327a8ff7e4a3b976b421037d997aac95c9e))
+
 ### [0.1.7](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.6...v0.1.7) (2020-04-06)
 
 
