@@ -2,6 +2,7 @@ import { h, Fragment, VNode } from 'preact';
 import { createContext } from 'preact';
 import { useContext, useState, useMemo } from 'preact/hooks';
 import i18n from './i18n';
+import DOMPurify from 'dompurify';
 
 type ContextValue = [string, (v: string) => void];
 
@@ -47,6 +48,7 @@ export const useLocalisation = (): ContextValue => {
     return context;
 };
 
+// TODO: move it to localisation/components/Text
 export const Text = ({
     children,
     withMarkup = false,
@@ -56,12 +58,11 @@ export const Text = ({
 }): VNode<string> => {
     useContext(LocalisationContext);
 
-    // TODO: sanitize markup
     return withMarkup ? (
         <span
             className="sanitized-translation"
             dangerouslySetInnerHTML={{
-                __html: i18n._(children),
+                __html: DOMPurify.sanitize(i18n._(children)),
             }}
         />
     ) : (

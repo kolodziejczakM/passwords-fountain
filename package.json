@@ -40,6 +40,7 @@
         "@testing-library/jest-dom": "^4.1.1",
         "@testing-library/preact": "^1.0.2",
         "@types/airbnb-prop-types": "^2.13.1",
+        "@types/dompurify": "^2.0.1",
         "@types/jest": "^24.0.18",
         "@types/lingui__core": "^2.7.0",
         "@types/node": "^12.7.11",
@@ -80,6 +81,7 @@
     "dependencies": {
         "@lingui/core": "^2.9.1",
         "@preact-hooks/unistore": "^1.0.9",
+        "dompurify": "^2.0.8",
         "faunadb": "^2.11.1",
         "formee": "^1.0.0",
         "goober": "^1.5.0",
