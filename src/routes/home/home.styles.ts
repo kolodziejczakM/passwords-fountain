@@ -5,6 +5,11 @@ setPragma(h);
 
 export const Wrapper = styled('section')``;
 
+export const Center = styled('div')`
+    display: grid;
+    place-items: center;
+`;
+
 export const Paragraph = styled('p')`
     color: ${theme.colors.darkBlue};
     margin-bottom: ${theme.spacing.xs6};

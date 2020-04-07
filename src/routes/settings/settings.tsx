@@ -30,6 +30,7 @@ const formValidation = {
 } as const;
 
 export const Settings: TypedComponent<{}> = () => {
+    // TODO: Add info that here user sees hashed version of admin key (when coming back)
     const [, setLocation] = useLocation();
     const formRef = useRef(undefined as any);
     const [adminKeyValue, setAdminKeyValue] = useState('');

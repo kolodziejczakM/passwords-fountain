@@ -25,6 +25,10 @@ export const TagLine = styled('h2')`
     font-family: ${theme.fontFamilies.bold};
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
+        ${typography.text24}
+    `)}
+    
+    ${media.gte(theme.breakpoints.m700)(stylelint.css`
         ${typography.text32}
     `)}
 

@@ -10,7 +10,7 @@ export const Wrapper = styled('nav')`
         'logo . appLink'
         'links links links';
 
-    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+    ${media.gte(theme.breakpoints.m920)(stylelint.css`
         grid-template-areas: 'logo links appLink';
     `)}
 `;
@@ -83,7 +83,7 @@ export const LinksWrapper = styled('div')`
     padding: ${({ withoutPadding }: { withoutPadding: boolean }) =>
         withoutPadding ? 0 : LinksPadding};
 
-    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+    ${media.gte(theme.breakpoints.m920)(stylelint.css`
         justify-content: flex-end;
     `)}
 `;
@@ -100,8 +100,11 @@ export const LinkAnchor = styled('a')`
         ${typography.text20}
     `)}
     
-    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+    ${media.gte(theme.breakpoints.m700)(stylelint.css`
         ${typography.text24}
+    `)}
+    
+    ${media.gte(theme.breakpoints.m920)(stylelint.css`
         margin-right: ${theme.spacing.xxl60};
     `)}
      

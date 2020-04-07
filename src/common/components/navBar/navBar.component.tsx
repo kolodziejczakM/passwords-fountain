@@ -26,18 +26,18 @@ interface NavLink {
 const navLinks: NavLink[] = [
     {
         id: 0,
+        label: 'navBar.howItWorks',
+        href: '#how-it-works',
+    },
+    {
+        id: 1,
         label: 'navBar.howToStart',
         href: '#how-to-start',
     },
     {
-        id: 1,
+        id: 2,
         label: 'navBar.pricing',
         href: '#pricing',
-    },
-    {
-        id: 2,
-        label: 'navBar.authors',
-        href: '#authors',
     },
 ];
 

@@ -9,6 +9,7 @@ import {
     ParagraphsWrapper,
     IconWrapper,
     AuthorsWrapper,
+    Center,
 } from './home.styles';
 import { Banner } from '@/modules/home/components/banner';
 import { Segment } from '@/modules/home/components/segment';
@@ -16,12 +17,17 @@ import { Text } from '@/modules/localisation/localisation.context';
 import { IconAuthors } from '@/modules/home/components/iconAuthors';
 import { StartGuide } from '@/modules/home/components/startGuide';
 import { Icon } from '@/common/components/icon';
+import { PhoneChat } from '@/modules/home/components/phoneChat';
 
 export const Home: TypedComponent<{}> = () => {
-    // TODO: add polish translations
     return (
         <Wrapper>
             <Banner />
+            <Segment id="how-it-works" title="home.howItWorks">
+                <Center>
+                    <PhoneChat />
+                </Center>
+            </Segment>
             <Segment id="how-to-start" title="home.howToStart">
                 <InnerWrapper>
                     <div>

@@ -7,6 +7,7 @@ export default {
             'połączenie z bazą danych nie powiodło się.',
         'snackbar.newPasswordAdded': 'dodano nowe hasło!',
         'snackbar.passwordCopiedToClipboard': 'skopiowano do schowka.',
+        'navBar.howItWorks': 'Jak to działa',
         'navBar.howToStart': 'Jak zacząć',
         'navBar.pricing': 'Cennik',
         'navBar.authors': 'Autorzy',
@@ -49,6 +50,7 @@ export default {
         'banner.ourInterface': 'Nasz interfejs',
         'banner.yourDatabase': 'Twoja baza danych',
         'banner.allPasswords': 'Wszystkie hasła w jednym miejscu. Za darmo.',
+        'home.howItWorks': 'Jak to działa',
         'home.howToStart': 'Jak zacząć - tworzenie bazy danych',
         'home.pricing': 'Cennik',
         'home.authors': 'Autorzy',
@@ -74,5 +76,16 @@ export default {
             'Twój klucz admina pojawi się tylko raz, skopiuj go. Nie pokazuj go nikomu.<br> Jeśli z jakiegoś powodu zgubisz klucz admina (nie powinieneś!), to będziesz mógł wygenerować nowy.',
         'startGuide.step5':
             'Teraz możesz połączyć nasz interfejs z Twoją bazą danych.<br>Kliknij na <strong>App</strong> (prawy górny róg) i rozpocznij przygodę!',
+        'phoneChat.soAnotherAccount':
+            'Eh... muszę założyć kolejne konto? :\xa0( Suuabo.',
+        'phoneChat.dontYouUse': 'Tak, ale nie używasz żadnego menadżera haseł?',
+        'phoneChat.iTried':
+            'Próbowałam, ale jakoś nie jestem w stanie zaufać takim programom.',
+        'phoneChat.usually':
+            'Zazwyczaj jest tak: nic nie wiesz o tym gdzie te hasła są zapisywane, w jakim formacie... i kto ma do nich dostęp?',
+        'phoneChat.tryThen':
+            'Spróbuj Passwords Fountain.<br> To tylko niewielki interfejs użytkownika, za pomocą którego łączysz się ze swoją bazą danych.',
+        'phoneChat.itEncodes':
+            'Szyfruje wszystkie hasła przed ich wysłaniem do bazy danych + cały kod aplikacji jest open source, więc możesz być pewna, że nic nie jest kradzione.',
     },
 };

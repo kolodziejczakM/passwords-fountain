@@ -7,6 +7,7 @@ export default {
             "connection to database couldn't be established.",
         'snackbar.newPasswordAdded': "you've added new password entity!",
         'snackbar.passwordCopiedToClipboard': 'password copied to clipboard.',
+        'navBar.howItWorks': 'How it works',
         'navBar.howToStart': 'How to start',
         'navBar.pricing': 'Pricing',
         'navBar.authors': 'Authors',
@@ -47,6 +48,7 @@ export default {
         'banner.ourInterface': 'Our interface',
         'banner.yourDatabase': 'Your database',
         'banner.allPasswords': 'All passwords in one place. For free.',
+        'home.howItWorks': 'How it works',
         'home.howToStart': 'How to start - creating database',
         'home.pricing': 'Pricing',
         'home.authors': 'Authors',
@@ -72,5 +74,15 @@ export default {
             "Your admin key will be shown only once, copy it. Don't show it to other people.<br> If you somehow lose admin key (you shouldn't) you can generate new one.",
         'startGuide.step5':
             'Now you can connect our interface to your database.<br>Click on <strong>App</strong> (upper-right corner) and start your journey!',
+        'phoneChat.soAnotherAccount':
+            "Oh... so I have to create another account? :\xa0( I don't like it.",
+        'phoneChat.dontYouUse': "Yes, but don't you use any Password manager?",
+        'phoneChat.iTried': "I've tried. I'm not able to trust any of them.",
+        'phoneChat.usually':
+            "Usually it's like: you know nothing about where passwords are saved and in which format... and who has access to them?",
+        'phoneChat.tryThen':
+            "Try Passwords Fountain then.<br> It's only lightweight user interface that you use to access your own database.",
+        'phoneChat.itEncodes':
+            'It encodes all your passwords before sending them + whole code is open source so you be sure that nothing can be stolen.',
     },
 };

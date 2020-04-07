@@ -36,7 +36,7 @@ const development = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.(svg|woff|woff2)$/,
+                test: /\.(jpg|png|svg|woff|woff2)$/,
                 loader: 'url-loader',
                 options: {
                     limit: 8192,

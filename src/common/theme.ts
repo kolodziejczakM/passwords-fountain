@@ -24,10 +24,11 @@ enum fontFamilies {
 }
 
 export enum breakpoints {
-    xs320 = '320px',
     s375 = '375px',
     s480 = '480px',
+    m700 = '700px',
     m880 = '880px',
+    m920 = '920px',
     m1100 = '1100px',
 }
 

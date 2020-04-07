@@ -13,8 +13,12 @@ export const GuideStep = styled('div')`
     }
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
-        ${typography.text20}
+        ${typography.text18}
         margin-bottom: ${theme.spacing.xl30};
+    `)}
+    
+    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+        ${typography.text20}
     `)}
 `;
 
