@@ -9,8 +9,8 @@ import {
     ChatCloud,
     Avatar,
 } from './phoneChat.styles';
-import she from '@/assets/images/she.jpg';
-import he from '@/assets/images/he.png';
+import she from '@/assets/images/she.webp';
+import he from '@/assets/images/he.webp';
 import { Text } from '@/modules/localisation/localisation.context';
 
 export const PhoneChat: TypedComponent<Props> = () => {
