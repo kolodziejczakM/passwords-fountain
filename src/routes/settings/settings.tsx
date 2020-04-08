@@ -11,7 +11,7 @@ import {
     NoteLabelWrapper,
     ControlsWrapper,
 } from './settings.styles';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 import { useRef, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { validateInputField } from '@/common/utils/form';

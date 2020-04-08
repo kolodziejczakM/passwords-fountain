@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Wrapper } from './optionsPanelDecodeExpanded.styles';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 import { variantNames, VariantProps } from '../optionsPanel.component';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';

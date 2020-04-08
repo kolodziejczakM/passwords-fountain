@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { Wrapper, Row, Label, Value } from './passwordEntity.styles';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 
 export const PasswordEntity: TypedComponent<Props> = ({
     label,

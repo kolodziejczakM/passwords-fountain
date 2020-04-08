@@ -13,7 +13,7 @@ import {
 } from './home.styles';
 import { Banner } from '@/modules/home/components/banner';
 import { Segment } from '@/modules/home/components/segment';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 import { IconAuthors } from '@/modules/home/components/iconAuthors';
 import { StartGuide } from '@/modules/home/components/startGuide';
 import { Icon } from '@/common/components/icon';

@@ -8,7 +8,7 @@ import {
     Blue,
     IconSizer,
 } from './banner.styles';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 import { Icon } from '@/common/components/icon';
 
 export const Banner: TypedComponent<Props> = () => {

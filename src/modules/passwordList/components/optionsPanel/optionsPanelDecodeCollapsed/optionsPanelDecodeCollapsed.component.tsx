@@ -5,7 +5,7 @@ import { Wrapper } from './optionsPanelDecodeCollapsed.styles';
 import { ButtonWrapper } from '../optionsPanel.styles';
 import { variantNames, VariantProps } from '../optionsPanel.component';
 import { Button } from '@/common/components/button';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 import { useLocation } from 'wouter-preact';
 
 export const OptionsPanelDecodeCollapsed: TypedComponent<VariantProps> = ({

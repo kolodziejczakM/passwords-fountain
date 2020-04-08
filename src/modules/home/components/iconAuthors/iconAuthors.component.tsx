@@ -6,7 +6,7 @@ import {
     IconAuthorList,
     IconInfo,
 } from './iconAuthors.styles';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 
 interface IconAuthor {
     id: number;

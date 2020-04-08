@@ -2,7 +2,7 @@ import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { Wrapper, TitleBar, Title, ContentWrapper } from './segment.styles';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 
 export const Segment: TypedComponent<Props> = ({
     id,

@@ -14,7 +14,7 @@ import {
     LogoAnchor,
 } from './navBar.styles';
 import { Icon } from '@/common/components/icon';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 import { renderIfTrue } from '@/common/utils/rendering';
 
 interface NavLink {

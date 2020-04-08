@@ -9,7 +9,7 @@ import { variantNames, VariantProps } from '../optionsPanel.component';
 import { FormControl } from '@/common/components/formControl';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 import { useRef, useState } from 'preact/hooks';
 import { validateInputField } from '@/common/utils/form';
 import { TextInput } from '@/common/components/textInput';

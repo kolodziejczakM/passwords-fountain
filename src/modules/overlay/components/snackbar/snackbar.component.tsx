@@ -13,7 +13,7 @@ import {
 } from '@/modules/overlay/overlay.selectors';
 import { SnackbarType } from '@/modules/overlay/overlay.constants';
 import { Icon } from '@/common/components/icon';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 
 export const Snackbar: TypedComponent<Props> = () => {
     const messageKey = useSelector(selectSnackbarMessageKey);

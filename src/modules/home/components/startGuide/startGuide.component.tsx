@@ -1,7 +1,7 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import { Wrapper, GuideStep } from './startGuide.styles';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 
 interface Step {
     id: number;

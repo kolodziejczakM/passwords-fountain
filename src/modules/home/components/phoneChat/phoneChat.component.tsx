@@ -11,7 +11,7 @@ import {
 } from './phoneChat.styles';
 import she from '@/assets/images/she.webp';
 import he from '@/assets/images/he.webp';
-import { Text } from '@/modules/localisation/localisation.context';
+import { Text } from '@/modules/localisation/components/text';
 
 export const PhoneChat: TypedComponent<Props> = () => {
     return (
