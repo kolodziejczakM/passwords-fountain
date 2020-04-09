@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.14...v0.1.15) (2020-04-09)
+
+
+### Features
+
+* **async routes:** added async routes, pre-rendering fixes, seo adjustments ([c7c1bad](https://github.com/kolodziejczakM/passwords-fountain/commit/c7c1bad7f64bf32db3ef5a3e02e179b6ab0db791))
+
 ### [0.1.14](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.13...v0.1.14) (2020-04-09)
 
 
