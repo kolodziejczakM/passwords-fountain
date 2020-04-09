@@ -1,6 +1,6 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
-import { Link, useLocation } from 'wouter-preact';
+import { useLocation } from 'wouter-preact';
 import {
     Wrapper,
     LogoWrapper,
@@ -53,7 +53,7 @@ export const NavBar: TypedComponent<Props> = () => {
 
     const renderNavLinks = renderIfTrue((): VNode[] => {
         return navLinks.map(navLink => (
-            <LinkAnchor key={navLink.id} href={navLink.href}>
+            <LinkAnchor key={navLink.id} href={navLink.href} native>
                 <Text>{navLink.label}</Text>
             </LinkAnchor>
         ));
@@ -70,27 +70,25 @@ export const NavBar: TypedComponent<Props> = () => {
     return (
         <Wrapper>
             <LogoWrapper>
-                <Link href="/">
-                    <LogoAnchor>
-                        <Icon
-                            name="logo"
-                            width={logoIconSize}
-                            height={logoIconSize}
-                        />
-                        <AppName>
-                            <Green>Passwords</Green>
-                            <Blue>Fountain</Blue>
-                        </AppName>
-                    </LogoAnchor>
-                </Link>
+                <LogoAnchor href="/">
+                    <Icon
+                        name="logo"
+                        width={logoIconSize}
+                        height={logoIconSize}
+                    />
+                    <AppName>
+                        <Green>Passwords</Green>
+                        <Blue>Fountain</Blue>
+                    </AppName>
+                </LogoAnchor>
             </LogoWrapper>
             <LinksWrapper withoutPadding={!isOnHomepage}>
                 {renderNavLinks(isOnHomepage)}
             </LinksWrapper>
             <AppLinkWrapper>
-                <Link href={appLink.href}>
-                    <AppLinkAnchor>{renderAppLinkLabel()}</AppLinkAnchor>
-                </Link>
+                <AppLinkAnchor href={appLink.href}>
+                    {renderAppLinkLabel()}
+                </AppLinkAnchor>
             </AppLinkWrapper>
         </Wrapper>
     );

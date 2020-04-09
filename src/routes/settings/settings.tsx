@@ -29,7 +29,7 @@ const formValidation = {
     },
 } as const;
 
-export const Settings: TypedComponent<{}> = () => {
+export const Settings: TypedComponent<Props> = () => {
     // TODO: Add info that here user sees hashed version of admin key (when coming back)
     const [, setLocation] = useLocation();
     const formRef = useRef(undefined as any);
@@ -160,3 +160,5 @@ export const Settings: TypedComponent<{}> = () => {
         </Wrapper>
     );
 };
+
+export interface Props {}

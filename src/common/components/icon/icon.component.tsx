@@ -9,7 +9,9 @@ export const Icon: TypedComponent<Props> = ({
     width = 100,
     height = 100,
 }: Props) => {
-    return <Wrapper src={icons[name]} width={width} height={height} />;
+    return (
+        <Wrapper src={icons[name]} width={width} height={height} alt="icon" />
+    );
 };
 
 interface Props {

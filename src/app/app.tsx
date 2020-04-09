@@ -1,9 +1,10 @@
 import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
-import { Route } from 'wouter-preact';
+import Router from 'preact-router';
+import AsyncRoute from 'preact-async-route';
 import { Home } from '@/routes/home/home';
-import { Settings } from '@/routes/settings/settings';
-import { PasswordList } from '@/routes/passwordList/passwordList';
+import { Props as SettingsProps } from '@/routes/settings/settings';
+import { Props as PasswordListProps } from '@/routes/passwordList/passwordList';
 import { Wrapper, PageWrapper, Header } from './app.styles';
 import { NavBar } from '@/common/components/navBar';
 import { Footer } from '@/common/components/footer';
@@ -15,9 +16,29 @@ export const App: TypedComponent<Props> = () => {
                 <NavBar />
             </Header>
             <PageWrapper>
-                <Route path="/" component={Home} />
-                <Route path="/settings" component={Settings} />
-                <Route path="/app" component={PasswordList} />
+                <Router>
+                    <Home path="/" />
+                    <AsyncRoute
+                        path="/settings"
+                        getComponent={(): Promise<
+                            TypedComponent<SettingsProps>
+                        > =>
+                            import('@/routes/settings/settings').then(
+                                module => module.Settings
+                            )
+                        }
+                    />
+                    <AsyncRoute
+                        path="/app"
+                        getComponent={(): Promise<
+                            TypedComponent<PasswordListProps>
+                        > =>
+                            import('@/routes/passwordList/passwordList').then(
+                                module => module.PasswordList
+                            )
+                        }
+                    />
+                </Router>
             </PageWrapper>
             <Footer />
         </Wrapper>

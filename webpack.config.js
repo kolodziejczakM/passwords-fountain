@@ -76,7 +76,7 @@ const production = {
         }),
         new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, 'dist'),
-            routes: ['/', '/about-me'], // These pages will be pre-rendered
+            routes: ['/', '/app', '/settings'], // These pages will be pre-rendered
             minify: {
                 collapseBooleanAttributes: true,
                 collapseWhitespace: true,

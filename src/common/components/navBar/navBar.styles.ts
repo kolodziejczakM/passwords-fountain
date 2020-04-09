@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
 import { theme, typography, media, stylelint } from '@/common/theme';
+import { Link } from 'preact-router/match';
 setPragma(h);
 
 export const Wrapper = styled('nav')`
@@ -20,7 +21,7 @@ export const LogoWrapper = styled('div')`
     display: flex;
 `;
 
-export const LogoAnchor = styled('a')`
+export const LogoAnchor = styled(Link)`
     text-decoration: none;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -48,7 +49,7 @@ const PrimaryText = stylelint.css`
     ${typography.text20}
 `;
 
-export const AppLinkAnchor = styled('a')`
+export const AppLinkAnchor = styled(Link)`
     display: flex;
     align-items: center;
     text-decoration: none;

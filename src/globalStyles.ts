@@ -13,6 +13,7 @@ const fontFaces = `
         font-family: ${theme.fontFamilies.regular};
         font-style: normal;
         font-weight: 400;
+        font-display: fallback;
         src: local(${theme.fontFamilies.regular}),
             local('PTSans-Regular'),
             url(${PTSansRegularWoff2}) format('woff2'),
@@ -23,6 +24,7 @@ const fontFaces = `
         font-family: ${theme.fontFamilies.bold};
         font-style: bold;
         font-weight: 700;
+        font-display: fallback;
         src: local(${theme.fontFamilies.bold}),
             local('PTSans-Bold'),
                 url(${PTSansBoldWoff2}) format('woff2'),
