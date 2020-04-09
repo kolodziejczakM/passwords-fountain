@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.13...v0.1.14) (2020-04-09)
+
+
+### Features
+
+* **database service:** database connection service - faunaDB ([2ec7e45](https://github.com/kolodziejczakM/passwords-fountain/commit/2ec7e45f25a9800cc32cfb16d9384f1eed03e80d))
+
 ### [0.1.13](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.12...v0.1.13) (2020-04-08)
 
 ### [0.1.12](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.11...v0.1.12) (2020-04-07)
