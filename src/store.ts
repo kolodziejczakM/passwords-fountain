@@ -5,6 +5,7 @@ import { overlayState } from '@/modules/overlay/overlay.model';
 import { passwordListState } from '@/modules/passwordList/passwordList.model';
 import { homeState } from '@/modules/home/home.model';
 import { cipherState } from '@/modules/cipher/cipher.model';
+import { databaseState } from '@/modules/database/database.model';
 //<-- IMPORT MODULE STATE -->
 
 const appState = {
@@ -12,6 +13,7 @@ const appState = {
     passwordList: passwordListState,
     home: homeState,
     cipher: cipherState,
+    database: databaseState,
     //<-- INJECT MODULE STATE -->
 } as const;
 

@@ -3,7 +3,6 @@ import faunadb, { ClientConfig, Client } from 'faunadb';
 const { query } = faunadb;
 const collectionName = process.env.COLLECTION_NAME as string;
 const indexName = process.env.INDEX_NAME as string;
-let client: Client | null = null;
 
 interface PasswordListRaw {
     data: PasswordEntityRaw[];
@@ -29,16 +28,16 @@ interface PasswordEntity {
     login: string;
 }
 
-const hasCollections = async (): Promise<boolean> => {
-    const collections: { data: object[] } = await client!.query(
+const hasCollections = async (client: Client): Promise<boolean> => {
+    const collections: { data: object[] } = await client.query(
         query.Paginate(query.Collections())
     );
 
     return Boolean(collections.data.length);
 };
 
-const hasAllPasswordsIndex = async (): Promise<boolean> => {
-    const indexes: { data: object[] } = await client!.query(
+const hasAllPasswordsIndex = async (client: Client): Promise<boolean> => {
+    const indexes: { data: object[] } = await client.query(
         query.Paginate(query.Indexes())
     );
 
@@ -61,19 +60,19 @@ const normalizePasswordEntities = (
     );
 };
 
-export const setupClient = async (options: ClientConfig): Promise<void> => {
+export const setupClient = async (options: ClientConfig): Promise<Client> => {
     const adminClient = new faunadb.Client(options);
     const serverKey: { secret: string } = await adminClient.query(
         query.CreateKey({ role: 'server' })
     );
 
-    client = new faunadb.Client({ secret: serverKey.secret });
+    const client = new faunadb.Client({ secret: serverKey.secret });
 
-    if (!(await hasCollections())) {
+    if (!(await hasCollections(client))) {
         await client.query(query.CreateCollection({ name: collectionName }));
     }
 
-    if (!(await hasAllPasswordsIndex())) {
+    if (!(await hasAllPasswordsIndex(client))) {
         await client.query(
             query.CreateIndex({
                 name: indexName,
@@ -81,11 +80,15 @@ export const setupClient = async (options: ClientConfig): Promise<void> => {
             })
         );
     }
+
+    return client;
 };
 
-export const fetchAllPasswordEntities = async (): Promise<PasswordEntity[]> => {
+export const fetchAllPasswordEntities = async (
+    client: Client
+): Promise<PasswordEntity[]> => {
     const paramName = 'placeholderValue';
-    const response: PasswordListRaw = await client!.query(
+    const response: PasswordListRaw = await client.query(
         query.Map(
             query.Paginate(query.Match(query.Index(indexName))),
             query.Lambda(paramName, query.Get(query.Var(paramName)))
@@ -96,11 +99,10 @@ export const fetchAllPasswordEntities = async (): Promise<PasswordEntity[]> => {
 };
 
 export const createPasswordEntity = async (
-    label: string,
-    password: string,
-    login: string
+    client: Client,
+    { label, password, login }: PasswordEntityPayload
 ): Promise<void> => {
-    await client!.query(
+    await client.query(
         query.Create(query.Collection(collectionName), {
             data: {
                 label,
@@ -112,18 +114,22 @@ export const createPasswordEntity = async (
 };
 
 export const updatePasswordEntity = async (
+    client: Client,
     refId: string,
     updatedFields: Partial<PasswordEntityPayload>
 ): Promise<void> => {
-    await client!.query(
+    await client.query(
         query.Update(query.Ref(query.Collection(collectionName), refId), {
             data: updatedFields,
         })
     );
 };
 
-export const deletePasswordEntity = async (refId: string): Promise<void> => {
-    await client!.query(
+export const deletePasswordEntity = async (
+    client: Client,
+    refId: string
+): Promise<void> => {
+    await client.query(
         query.Delete(query.Ref(query.Collection(collectionName), refId))
     );
 };
