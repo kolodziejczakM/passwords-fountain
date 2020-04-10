@@ -1,15 +1,21 @@
-import { invisibleSnackbarValue, SnackbarType } from './overlay.constants';
 import { AppState } from '@/store';
-import { mergeState } from '@/common/utils/store';
-
-const change = mergeState('overlay');
+import { mergeState, callAction } from '@/common/utils/store';
+import {
+    invisibleSnackbarValue,
+    snackbarVisibilityTime,
+    SnackbarType,
+} from './overlay.constants';
 
 export const overlayState = {
     snackbarMessageKey: invisibleSnackbarValue,
     snackbarType: invisibleSnackbarValue,
-} as const;
+    fetchedPhotos: false,
+    fetchedPosts: false,
+    fetchedAll: false,
+};
 
 export type OverlayState = typeof overlayState;
+const merge = mergeState<OverlayState>('overlay');
 
 export const overlayActions = {
     showSnackbar(
@@ -17,10 +23,14 @@ export const overlayActions = {
         messageKey: string,
         type: SnackbarType
     ): Partial<AppState> {
-        return change({ snackbarMessageKey: messageKey, snackbarType: type });
+        setTimeout(() => {
+            callAction(overlayActions.hideSnackbar);
+        }, snackbarVisibilityTime);
+
+        return merge({ snackbarMessageKey: messageKey, snackbarType: type });
     },
     hideSnackbar(): Partial<AppState> {
-        return change({
+        return merge({
             snackbarMessageKey: invisibleSnackbarValue,
             snackbarType: invisibleSnackbarValue,
         });

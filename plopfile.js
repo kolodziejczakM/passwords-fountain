@@ -76,12 +76,6 @@ module.exports = plop => {
                 templateFile: 'plop-templates/module/selectors.ts.hbs',
             },
             {
-                type: 'add',
-                path:
-                    'src/modules/{{camelCase name}}/{{camelCase name}}.events.ts',
-                templateFile: 'plop-templates/module/events.ts.hbs',
-            },
-            {
                 type: 'modify',
                 path: 'src/store.ts',
                 pattern: /(\/\/<-- IMPORT MODULE STATE -->)/g,

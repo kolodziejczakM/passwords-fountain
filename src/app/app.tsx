@@ -8,8 +8,13 @@ import { Props as PasswordListProps } from '@/routes/passwordList/passwordList';
 import { Wrapper, PageWrapper, Header } from './app.styles';
 import { NavBar } from '@/common/components/navBar';
 import { Footer } from '@/common/components/footer';
+import { Snackbar } from '@/modules/overlay/components/snackbar';
+import { useSelector } from '@preact-hooks/unistore';
+import { selectIsSnackbarVisible } from '@/modules/overlay/overlay.selectors';
+import { renderIfTrue } from '@/common/utils/rendering';
 
 export const App: TypedComponent<Props> = () => {
+    const isSnackbarVisible = useSelector(selectIsSnackbarVisible);
     return (
         <Wrapper>
             <Header>
@@ -41,6 +46,7 @@ export const App: TypedComponent<Props> = () => {
                 </Router>
             </PageWrapper>
             <Footer />
+            {renderIfTrue(() => <Snackbar />)(isSnackbarVisible)}
         </Wrapper>
     );
 };

@@ -85,7 +85,6 @@
         "faunadb": "^2.11.1",
         "formee": "^1.0.0",
         "goober": "^1.5.0",
-        "mitt": "^1.2.0",
         "preact": "^10.4.0",
         "preact-async-route": "^2.2.1",
         "preact-router": "^3.2.1",

@@ -51,6 +51,11 @@ enum lineHeights {
     xl41 = '41px',
 }
 
+enum zIndexes {
+    xs = 1,
+    s,
+}
+
 enum shadows {
     clickableItem = `0 2px 2px 0 rgba(0, 0, 0, 0.2)`,
 }
@@ -84,6 +89,7 @@ export const theme = {
     lineHeights,
     fontFamilies,
     spacing,
+    zIndexes,
     shadows,
 } as const;
 

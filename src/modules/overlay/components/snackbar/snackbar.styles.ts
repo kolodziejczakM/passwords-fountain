@@ -37,12 +37,13 @@ const getVariantStyles = ({ type }: { type: SnackbarType }): string => {
 
 export const Wrapper = styled('section')`
     ${getVariantStyles}
+    z-index: ${theme.zIndexes.s};
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: ${theme.spacing.s12};
     max-width: 500px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: ${theme.spacing.xxs2};
     left: 50%;
     transform: translateX(-50%);

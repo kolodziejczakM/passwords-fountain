@@ -57,7 +57,7 @@ export const ChatCloud = styled('div')`
 export const Avatar = styled('img')`
     object-fit: contain;
     position: absolute;
-    z-index: 1;
+    z-index: ${theme.zIndexes.xs};
     top: 20%;
     ${({ isRight }: { isRight: boolean }) =>
         isRight ? 'right: -34px;' : 'left: -34px;'}

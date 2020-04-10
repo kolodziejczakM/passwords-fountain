@@ -15,4 +15,9 @@ export const selectSnackbarType = createSelector(
     (overlay): SnackbarType | string => overlay.snackbarType
 );
 
+export const selectIsSnackbarVisible = createSelector(
+    selectSnackbarMessageKey,
+    (messageKey: string): boolean => Boolean(messageKey.length)
+);
+
 export { useSelector } from '@preact-hooks/unistore';

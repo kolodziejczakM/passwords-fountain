@@ -6,4 +6,6 @@ export enum snackbarTypes {
     error = 'error',
 }
 
+export const snackbarVisibilityTime = 3000;
+
 export type SnackbarType = keyof typeof snackbarTypes;

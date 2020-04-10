@@ -1,21 +1,16 @@
 import { AppState } from '@/store';
 import { mergeState } from '@/common/utils/store';
-import {
-    {{camelCase name}}Emitter,
-    {{camelCase name}}EventTypes,
-} from '@/modules/{{camelCase name}}/{{camelCase name}}.events';
 
-const change = mergeState('{{camelCase name}}');
-
-export const {{camelCase name}}State = {} as const;
+export const {{camelCase name}}State = {};
 
 export type {{pascalCase name}}State = typeof {{camelCase name}}State;
+const merge = mergeState<{{pascalCase name}}State>('{{camelCase name}}');
 
 export const {{camelCase name}}Actions = {
     noop(
         appState: AppState,
     ): Partial<AppState> {
-        return change({});
+        return merge({});
     },
 } as const;
 

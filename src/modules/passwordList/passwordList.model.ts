@@ -1,16 +1,11 @@
 import { AppState } from '@/store';
 import { mergeState } from '@/common/utils/store';
 
-const change = mergeState('passwordList');
-
-export const passwordListState = {} as const;
+export const passwordListState = {};
 
 export type PasswordListState = typeof passwordListState;
+const merge = mergeState<PasswordListState>('passwordList');
 
-export const passwordListActions = {
-    noop(appState: AppState): Partial<AppState> {
-        return change({});
-    },
-} as const;
+export const passwordListActions = {} as const;
 
 export { useAction } from '@preact-hooks/unistore';
