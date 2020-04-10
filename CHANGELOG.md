@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.17...v0.1.18) (2020-04-10)
+
+
+### Features
+
+* **database module:** module responsible for connecting password fountain UI with faunaDB ([b19bc91](https://github.com/kolodziejczakM/passwords-fountain/commit/b19bc91ea39fa0827174d88a9163d14b4b321e3d))
+
 ### [0.1.17](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.16...v0.1.17) (2020-04-10)
 
 ### [0.1.16](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.15...v0.1.16) (2020-04-10)
