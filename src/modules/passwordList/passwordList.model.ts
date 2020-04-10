@@ -7,5 +7,3 @@ export type PasswordListState = typeof passwordListState;
 const merge = mergeState<PasswordListState>('passwordList');
 
 export const passwordListActions = {} as const;
-
-export { useAction } from '@preact-hooks/unistore';

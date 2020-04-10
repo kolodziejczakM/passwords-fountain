@@ -6,8 +6,8 @@ import {
     TextWrapper,
     ErrorType,
 } from './snackbar.styles';
+import { useSelector } from '@preact-hooks/unistore';
 import {
-    useSelector,
     selectSnackbarMessageKey,
     selectSnackbarType,
 } from '@/modules/overlay/overlay.selectors';

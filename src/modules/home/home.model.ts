@@ -7,5 +7,3 @@ export type HomeState = typeof homeState;
 const merge = mergeState<HomeState>('home');
 
 export const homeActions = {} as const;
-
-export { useAction } from '@preact-hooks/unistore';

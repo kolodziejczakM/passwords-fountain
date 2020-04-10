@@ -36,5 +36,3 @@ export const overlayActions = {
         });
     },
 } as const;
-
-export { useAction } from '@preact-hooks/unistore';
