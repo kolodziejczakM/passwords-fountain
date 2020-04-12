@@ -9,6 +9,7 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "target": "es6",
+        "lib": ["es2019", "dom"],
         "jsx": "react",
         "jsxFactory": "h",
         "allowJs": true,

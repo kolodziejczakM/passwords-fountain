@@ -20,9 +20,9 @@ interface PasswordEntityPayload {
     login: string;
 }
 
-interface PasswordEntity {
+export interface PasswordEntity {
     refId: string;
-    createdAt: number;
+    createdAt: string;
     label: string;
     password: string;
     login: string;
@@ -51,7 +51,7 @@ const normalizePasswordEntities = (
         (entity: PasswordEntityRaw): PasswordEntity => {
             return {
                 refId: entity.ref.id,
-                createdAt: entity.ts,
+                createdAt: String(entity.ts),
                 label: entity.data.label,
                 password: entity.data.password,
                 login: entity.data.login,
