@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.18...v0.1.19) (2020-04-12)
+
+
+### Features
+
+* **cipher service:** service responsible for password encryption / decryption ([c82c9bf](https://github.com/kolodziejczakM/passwords-fountain/commit/c82c9bf8c259d7f93173c735e07acadf858f0ce3))
+
 ### [0.1.18](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.17...v0.1.18) (2020-04-10)
 
 
