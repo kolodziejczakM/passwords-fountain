@@ -85,20 +85,20 @@ export const Settings: TypedComponent<Props> = () => {
         />
     );
 
-    const renderNoteLabel = renderIfTrue(
-        (): VNode => (
+    const renderNoteLabel = (labelDescription: string, shouldRender: boolean) =>
+        renderIfTrue(() => (
             <NoteLabelWrapper>
                 <Text>settings.noteLabel</Text>{' '}
                 <DescriptiveText>
-                    <Text>settings.noteLabelDescription</Text>
+                    <Text>{labelDescription}</Text>
                 </DescriptiveText>
             </NoteLabelWrapper>
-        )
-    );
+        ))(shouldRender);
 
     const renderLabel = (
         label: string,
         labelDescription: string,
+        noteLabelDescription: string,
         shouldRenderNote = false
     ) => (): VNode => {
         return (
@@ -109,7 +109,7 @@ export const Settings: TypedComponent<Props> = () => {
                         <Text>{labelDescription}</Text>
                     </DescriptiveText>
                 </LabelWrapper>
-                {renderNoteLabel(shouldRenderNote)}
+                {renderNoteLabel(noteLabelDescription, shouldRenderNote)}
             </Fragment>
         );
     };
@@ -129,7 +129,9 @@ export const Settings: TypedComponent<Props> = () => {
                             hasError={Boolean(adminKeyErrors)}
                             renderLabel={renderLabel(
                                 'settings.adminKeyLabel',
-                                'settings.adminKeyLabelDescription'
+                                'settings.adminKeyLabelDescription',
+                                'settings.noteLabelDescriptionAdminKey',
+                                !isFirstTimeOnDevice
                             )}
                             renderInput={renderAdminKeyInput}
                             renderError={renderError(adminKeyErrors)}
@@ -141,6 +143,7 @@ export const Settings: TypedComponent<Props> = () => {
                             renderLabel={renderLabel(
                                 'settings.shelfKeyLabel',
                                 'settings.shelfKeyLabelDescription',
+                                'settings.noteLabelDescription',
                                 true
                             )}
                             renderInput={renderShelfKeyInput}

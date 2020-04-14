@@ -44,6 +44,8 @@ export default {
         'settings.noteLabel': 'Ważne:',
         'settings.noteLabelDescription':
             'jeśli chcesz połączyć się z bazą danych, która już posiada zaszyfrowane hasła - użyj tego samego klucza półki jak podczas pierwszego połączenia.',
+        'settings.noteLabelDescriptionAdminKey':
+            'Ze względów bezpieczeństwa - jest to zaszyfrowana wersja Twojego klucza admina, a nie ta, którą tutaj skopiowałeś.',
         'settings.adminKeyTooShort':
             'Minimalna długość klucza admina to 10 znaków.',
         'footer.createdBy': 'Stworzone przez Marcina Kołodziejczaka',

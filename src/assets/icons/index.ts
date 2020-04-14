@@ -6,6 +6,8 @@ import logo from './logo.svg';
 import logoAnimated from './logoAnimated.svg';
 import love from './love.svg';
 import success from './success.svg';
+import bin from './bin.svg';
+import globe from './globe.svg';
 
 export type IconName =
     | 'database'
@@ -15,7 +17,9 @@ export type IconName =
     | 'logo'
     | 'logoAnimated'
     | 'love'
-    | 'success';
+    | 'success'
+    | 'bin'
+    | 'globe';
 
 type Base64orURL = string;
 
@@ -32,4 +36,6 @@ export const icons: Icons = {
     logoAnimated,
     love,
     success,
+    bin,
+    globe,
 } as const;

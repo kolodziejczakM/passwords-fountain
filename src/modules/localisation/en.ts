@@ -43,6 +43,8 @@ export default {
         'settings.noteLabel': 'Note:',
         'settings.noteLabelDescription':
             'if you want to connect to database which already has encoded passwords - use the same shelf key as during initial connection.',
+        'settings.noteLabelDescriptionAdminKey':
+            'For security purposes - this is encrypted version of your admin key, not the one you’ve copied here.',
         'settings.adminKeyTooShort': 'Admin key minimum length is 10.',
         'footer.createdBy': 'Created by Marcin Kołodziejczak',
         'banner.ourInterface': 'Our interface',

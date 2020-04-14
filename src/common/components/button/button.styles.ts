@@ -7,7 +7,7 @@ export const Wrapper = styled('button')`
     ${typography.text18}
     padding: ${theme.spacing.m18} ${theme.spacing.xl30};
     min-width: 120px;
-    display: inline-block;
+    display: grid;
     text-transform: uppercase;
     background: ${theme.colors.primaryBlue};
     color: ${theme.colors.white};
