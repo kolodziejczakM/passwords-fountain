@@ -89,5 +89,6 @@ export default {
             'Spróbuj Passwords Fountain.<br> To tylko niewielki interfejs użytkownika, za pomocą którego łączysz się ze swoją bazą danych.',
         'phoneChat.itEncodes':
             'Szyfruje wszystkie hasła przed ich wysłaniem do bazy danych + cały kod aplikacji jest open source, więc możesz być pewna, że nic nie jest kradzione.',
+        'dropdown.choose': 'Wybierz',
     },
 };

@@ -86,5 +86,6 @@ export default {
             "Try Passwords Fountain then.<br> It's only lightweight user interface that you use to access your own database.",
         'phoneChat.itEncodes':
             'It encodes all your passwords before sending them + whole code is open source so you be sure that nothing can be stolen.',
+        'dropdown.choose': 'Choose',
     },
 };
