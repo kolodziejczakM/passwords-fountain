@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.21...v0.1.22) (2020-04-15)
+
+
+### Features
+
+* **dropdown:** generic dropdown component ([8c0c55f](https://github.com/kolodziejczakM/passwords-fountain/commit/8c0c55f01e97ceddbc1014e5ba73853eb9e6771b))
+
 ### [0.1.21](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.20...v0.1.21) (2020-04-14)
 
 
