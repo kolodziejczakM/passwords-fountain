@@ -90,5 +90,7 @@ export default {
         'phoneChat.itEncodes':
             'Szyfruje wszystkie hasła przed ich wysłaniem do bazy danych + cały kod aplikacji jest open source, więc możesz być pewna, że nic nie jest kradzione.',
         'dropdown.choose': 'Wybierz',
+        'language.english': 'Angielski',
+        'language.polish': 'Polski',
     },
 };

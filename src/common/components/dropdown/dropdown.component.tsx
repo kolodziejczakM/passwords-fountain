@@ -4,8 +4,8 @@ import { useState } from 'preact/hooks';
 import PropTypes from 'prop-types';
 import {
     Wrapper,
-    OptionListWrapper,
-    OptionList,
+    OptionsWrapper,
+    Options,
     Option,
     SelectedOptionWrapper,
     ExpansionIcon,
@@ -32,10 +32,11 @@ export const Dropdown: TypedComponent<Props> = ({
     renderSelectedOption,
     renderOptionList,
     renderExpandIcon,
+    withDefaultOption,
 }: Props) => {
     const [expanded, setExpansion] = useState(false);
     const [selectedOption, setSelectedOption] = useState<DropdownOption>(
-        initialOption
+        withDefaultOption ?? initialOption
     );
 
     const onOptionClick = (option: DropdownOption): void => {
@@ -44,18 +45,24 @@ export const Dropdown: TypedComponent<Props> = ({
     };
 
     const renderOptions = () => {
-        return renderIfTrue(() =>
-            renderOptionList(
-                Option,
-                onOptionClick,
-                selectedOption,
-                initialOption
-            )
-        )(expanded);
+        return renderIfTrue(() => (
+            <Options>
+                {renderOptionList(
+                    Option,
+                    onOptionClick,
+                    selectedOption,
+                    initialOption
+                )}
+            </Options>
+        ))(expanded);
     };
 
     const onOptionSelection = (): void => {
         setExpansion(prevState => !prevState);
+    };
+
+    const onOutClick = (): void => {
+        expanded && onOptionSelection();
     };
 
     const renderExpansionIcon = (): VNode => {
@@ -67,14 +74,12 @@ export const Dropdown: TypedComponent<Props> = ({
     };
 
     return (
-        <Wrapper tabindex={0} onblur={onOptionSelection}>
+        <Wrapper tabindex={0} onblur={onOutClick}>
             <SelectedOptionWrapper onClick={onOptionSelection}>
                 {renderSelectedOption(selectedOption, initialOption)}
                 {renderExpansionIcon()}
             </SelectedOptionWrapper>
-            <OptionListWrapper>
-                <OptionList>{renderOptions()}</OptionList>
-            </OptionListWrapper>
+            <OptionsWrapper>{renderOptions()}</OptionsWrapper>
         </Wrapper>
     );
 };
@@ -90,12 +95,14 @@ interface Props {
     renderSelectedOption: (
         selectedOption: DropdownOption,
         initialOption: DropdownOption
-    ) => VNode;
+    ) => VNode | null;
     renderExpandIcon?: () => VNode;
+    withDefaultOption?: DropdownOption;
 }
 
 Dropdown.propTypes = {
     renderOptionList: PropTypes.func.isRequired,
     renderSelectedOption: PropTypes.func.isRequired,
     renderExpandIcon: PropTypes.func,
+    withDefaultOption: PropTypes.any,
 };

@@ -1,9 +1,10 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, typography, stylelint } from '@/common/theme';
+import { theme, stylelint } from '@/common/theme';
 setPragma(h);
 
 export const Wrapper = styled('section')`
+    position: relative;
     display: grid;
     min-width: 120px;
     max-width: 360px;
@@ -35,15 +36,20 @@ export const SelectedOptionWrapper = styled('div')`
     }
 `;
 
-export const OptionListWrapper = styled('div')``;
+export const OptionsWrapper = styled('div')`
+    position: absolute;
+    width: 100%;
+    top: 100%;
+`;
 
-export const OptionList = styled('ul')`
+export const Options = styled('ul')`
     border: 1px solid ${theme.colors.primaryBlue};
 `;
 
 export const Option = styled('li')`
     ${optionCommon}
     color: ${theme.colors.darkBlue};
+    background: ${theme.colors.white};
 
     &:hover {
         cursor: pointer;

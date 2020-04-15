@@ -9,12 +9,12 @@ import {
     Blue,
     LinksWrapper,
     LinkAnchor,
-    AppLinkWrapper,
-    AppLinkAnchor,
+    LanguageSelectorWrapper,
     LogoAnchor,
 } from './navBar.styles';
 import { Icon } from '@/common/components/icon';
 import { Text } from '@/modules/localisation/components/text';
+import { LanguageSelector } from '@/modules/localisation/components/languageSelector';
 import { renderIfTrue } from '@/common/utils/rendering';
 
 interface NavLink {
@@ -45,11 +45,6 @@ export const NavBar: TypedComponent<Props> = () => {
     const logoIconSize = 40;
     const [location] = useLocation();
     const isOnHomepage = location.length === 1;
-    const appLink: NavLink = {
-        id: 3,
-        label: 'navBar.app',
-        href: isOnHomepage ? '/app' : '/',
-    };
 
     const renderNavLinks = renderIfTrue((): VNode[] => {
         return navLinks.map(navLink => (
@@ -58,14 +53,6 @@ export const NavBar: TypedComponent<Props> = () => {
             </LinkAnchor>
         ));
     });
-
-    const renderAppLinkLabel = () => {
-        return isOnHomepage ? (
-            <Text>{appLink.label}</Text>
-        ) : (
-            <Icon name="home" width={32} height={32} />
-        );
-    };
 
     return (
         <Wrapper>
@@ -85,11 +72,9 @@ export const NavBar: TypedComponent<Props> = () => {
             <LinksWrapper withoutPadding={!isOnHomepage}>
                 {renderNavLinks(isOnHomepage)}
             </LinksWrapper>
-            <AppLinkWrapper>
-                <AppLinkAnchor href={appLink.href}>
-                    {renderAppLinkLabel()}
-                </AppLinkAnchor>
-            </AppLinkWrapper>
+            <LanguageSelectorWrapper>
+                <LanguageSelector />
+            </LanguageSelectorWrapper>
         </Wrapper>
     );
 };

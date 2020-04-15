@@ -87,5 +87,7 @@ export default {
         'phoneChat.itEncodes':
             'It encodes all your passwords before sending them + whole code is open source so you be sure that nothing can be stolen.',
         'dropdown.choose': 'Choose',
+        'language.english': 'English',
+        'language.polish': 'Polish',
     },
 };

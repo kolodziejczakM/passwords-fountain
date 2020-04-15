@@ -1,6 +1,6 @@
 import { h, VNode } from 'preact';
 import { createContext } from 'preact';
-import { useState, useMemo } from 'preact/hooks';
+import { useContext, useState, useMemo } from 'preact/hooks';
 import i18n from './i18n';
 
 type ContextValue = [string, (v: string) => void];
@@ -11,6 +11,18 @@ export const LocalisationContext = createContext<ContextValue>([
         // placeholder setter fn
     },
 ]);
+
+export const useLocalisation = (): ContextValue => {
+    const context: ContextValue = useContext(LocalisationContext);
+
+    if (!context) {
+        throw new Error(
+            `useLocalisation must be used within a LocalisationProvider`
+        );
+    }
+
+    return context;
+};
 
 export const LocalisationProvider = ({
     children,

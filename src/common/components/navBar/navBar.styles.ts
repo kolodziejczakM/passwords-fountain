@@ -8,11 +8,11 @@ export const Wrapper = styled('nav')`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-        'logo . appLink'
+        'logo . languageSelector'
         'links links links';
 
     ${media.gte(theme.breakpoints.m920)(stylelint.css`
-        grid-template-areas: 'logo links appLink';
+        grid-template-areas: 'logo links languageSelector';
     `)}
 `;
 
@@ -32,8 +32,8 @@ export const LogoAnchor = styled(Link)`
 
 export const AppName = styled('h1')``;
 
-export const AppLinkWrapper = styled('div')`
-    grid-area: appLink;
+export const LanguageSelectorWrapper = styled('div')`
+    grid-area: languageSelector;
     padding: ${theme.spacing.m18} 0;
     display: grid;
     place-items: center;
@@ -47,20 +47,6 @@ const PrimaryText = stylelint.css`
     `)}
     
     ${typography.text20}
-`;
-
-export const AppLinkAnchor = styled(Link)`
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-family: ${theme.fontFamilies.bold};
-    color: ${theme.colors.darkBlue};
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-    ${PrimaryText}
 `;
 
 export const Green = styled('span')`
