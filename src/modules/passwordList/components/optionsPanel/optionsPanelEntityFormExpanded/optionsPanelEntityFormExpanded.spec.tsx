@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom/extend-expect';
 import { h } from 'preact';
 import { render } from '@testing-library/preact';
-import { OptionsPanelAddNewCollapsed } from './optionsPanelAddNewCollapsed.component';
+import { OptionsPanelEntityFormExpanded } from './optionsPanelEntityFormExpanded.component';
 
-describe('OptionsPanelAddNewCollapsed', () => {
+describe('OptionsPanelAddNewExpanded', () => {
     it('should render correctly', () => {
         const { asFragment } = render(
-            <OptionsPanelAddNewCollapsed
+            <OptionsPanelEntityFormExpanded
                 switchCurrentVariantName={(): void => {
                     // TODO
                 }}

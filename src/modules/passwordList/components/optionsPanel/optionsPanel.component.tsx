@@ -5,14 +5,14 @@ import { Wrapper } from './optionsPanel.styles';
 import { useState } from 'preact/hooks';
 import { OptionsPanelDecodeCollapsed } from './optionsPanelDecodeCollapsed';
 import { OptionsPanelDecodeExpanded } from './optionsPanelDecodeExpanded';
-import { OptionsPanelAddNewCollapsed } from './optionsPanelAddNewCollapsed';
-import { OptionsPanelAddNewExpanded } from './optionsPanelAddNewExpanded';
+import { OptionsPanelEntityFormCollapsed } from './optionsPanelEntityFormCollapsed';
+import { OptionsPanelEntityFormExpanded } from './optionsPanelEntityFormExpanded';
 
 export enum variantNames {
     decodeCollapsed = 'decodeCollapsed',
     decodeExpanded = 'decodeExpanded',
-    addNewCollapsed = 'addNewCollapsed',
-    addNewExpanded = 'addNewExpanded',
+    entityFormCollapsed = 'entityFormCollapsed',
+    entityFormExpanded = 'entityFormExpanded',
 }
 
 type VariantName = keyof typeof variantNames;
@@ -35,8 +35,8 @@ export const OptionsPanel: TypedComponent<Props> = ({
     const variants: VariantInstances = {
         decodeCollapsed: OptionsPanelDecodeCollapsed,
         decodeExpanded: OptionsPanelDecodeExpanded,
-        addNewCollapsed: OptionsPanelAddNewCollapsed,
-        addNewExpanded: OptionsPanelAddNewExpanded,
+        entityFormCollapsed: OptionsPanelEntityFormCollapsed,
+        entityFormExpanded: OptionsPanelEntityFormExpanded,
     };
 
     const CurrentVariant = variants[currentVariantName as VariantName];

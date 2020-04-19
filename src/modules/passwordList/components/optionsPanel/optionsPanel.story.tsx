@@ -14,9 +14,9 @@ export const decodeExpanded = (): VNode => (
 );
 
 export const addNewCollapsed = (): VNode => (
-    <OptionsPanel defaultVariantName="addNewCollapsed" />
+    <OptionsPanel defaultVariantName="entityFormCollapsed" />
 );
 
 export const addNewExpanded = (): VNode => (
-    <OptionsPanel defaultVariantName="addNewExpanded" />
+    <OptionsPanel defaultVariantName="entityFormExpanded" />
 );

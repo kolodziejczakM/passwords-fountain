@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
     Wrapper,
     FormControlWrapper,
-} from './optionsPanelAddNewExpanded.styles';
+} from './optionsPanelEntityFormExpanded.styles';
 import { variantNames, VariantProps } from '../optionsPanel.component';
 import { FormControl } from '@/common/components/formControl';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
@@ -26,7 +26,7 @@ const formValidation = {
     },
 } as const;
 
-export const OptionsPanelAddNewExpanded: TypedComponent<VariantProps> = ({
+export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
 }: VariantProps) => {
     const formRef = useRef(undefined as any);
@@ -40,11 +40,11 @@ export const OptionsPanelAddNewExpanded: TypedComponent<VariantProps> = ({
     const [passwordErrors, setPasswordErrors] = useState('');
 
     const handleCancelClick = (): void =>
-        switchCurrentVariantName(variantNames.addNewCollapsed);
+        switchCurrentVariantName(variantNames.entityFormCollapsed);
 
     const handleAddClick = (): void => {
         // TODO: dispatchAction addNewPassword
-        switchCurrentVariantName(variantNames.addNewCollapsed);
+        switchCurrentVariantName(variantNames.entityFormCollapsed);
     };
 
     const renderLabelInput = (): VNode => (
@@ -150,6 +150,6 @@ export const OptionsPanelAddNewExpanded: TypedComponent<VariantProps> = ({
     );
 };
 
-OptionsPanelAddNewExpanded.propTypes = {
+OptionsPanelEntityFormExpanded.propTypes = {
     switchCurrentVariantName: PropTypes.func.isRequired,
 };

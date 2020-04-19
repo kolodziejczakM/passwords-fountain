@@ -32,7 +32,7 @@ export const OptionsPanelDecodeExpanded: TypedComponent<VariantProps> = ({
         // TODO: useSelector to check if decoded successfully or not
         const successfulDecode = true;
         if (successfulDecode) {
-            switchCurrentVariantName(variantNames.addNewCollapsed);
+            switchCurrentVariantName(variantNames.entityFormCollapsed);
         } else {
             // TODO: Show error snackbar
         }
