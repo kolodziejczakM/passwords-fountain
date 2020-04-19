@@ -66,6 +66,7 @@ export default {
             "Hello, I'm Marcin and I'd love to hear your opinion about this application.",
         'home.dontHesitateToContact': "Don't hestitate to contact me:",
         'home.thanksToIconAuthors': 'Huge thanks to icon authors:',
+        'home.startApp': 'Start now',
         'startGuide.step1':
             'Go to <strong><a href="https://fauna.com/">https://fauna.com/</a></strong> and create free account, login.',
         'startGuide.step2':

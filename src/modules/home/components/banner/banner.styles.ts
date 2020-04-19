@@ -5,7 +5,6 @@ setPragma(h);
 
 export const Wrapper = styled('section')`
     text-align: center;
-    padding: 0 ${theme.spacing.m18} ${theme.spacing.m18} ${theme.spacing.m18};
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
         padding: 0 ${theme.spacing.xl40} ${theme.spacing.xl40} ${theme.spacing.xl40};
@@ -60,4 +59,8 @@ export const IconSizer = styled('div')`
             height: 280px;
         }
     `)}
+`;
+
+export const StartAppAnchorWrapper = styled('div')`
+    padding: ${theme.spacing.xl30} 0;
 `;

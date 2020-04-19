@@ -68,6 +68,7 @@ export default {
             'Cześć, jestem Marcin i chętnie przeczytam Twoją opinię na temat tej aplikacji.',
         'home.dontHesitateToContact': 'Napisz do mnie na:',
         'home.thanksToIconAuthors': 'Wielkie podziękowania do autorów ikon:',
+        'home.startApp': 'Uruchom',
         'startGuide.step1':
             'Przejdź do <strong><a href="https://fauna.com/">https://fauna.com/</a></strong> a następnie utwórz darmowe konto i zaloguj się.',
         'startGuide.step2':

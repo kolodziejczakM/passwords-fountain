@@ -7,9 +7,11 @@ import {
     Green,
     Blue,
     IconSizer,
+    StartAppAnchorWrapper,
 } from './banner.styles';
 import { Text } from '@/modules/localisation/components/text';
 import { Icon } from '@/common/components/icon';
+import { StartAppAnchor } from '@/modules/home/components/startAppAnchor';
 
 export const Banner: TypedComponent<Props> = () => {
     return (
@@ -31,6 +33,9 @@ export const Banner: TypedComponent<Props> = () => {
             <IconSizer>
                 <Icon name="logoAnimated" />
             </IconSizer>
+            <StartAppAnchorWrapper>
+                <StartAppAnchor />
+            </StartAppAnchorWrapper>
         </Wrapper>
     );
 };
