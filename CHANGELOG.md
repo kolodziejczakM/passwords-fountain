@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.28](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.27...v0.1.28) (2020-04-19)
+
 ### [0.1.27](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.26...v0.1.27) (2020-04-19)
 
 ### [0.1.26](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.25...v0.1.26) (2020-04-19)
