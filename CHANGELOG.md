@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.25](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.24...v0.1.25) (2020-04-19)
+
+
+### Features
+
+* **start app anchor:** anchor redirecting to actual application part ([a7329d8](https://github.com/kolodziejczakM/passwords-fountain/commit/a7329d84e852870b57917af0f57927b1d68bdc0b))
+
 ### [0.1.24](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.23...v0.1.24) (2020-04-15)
 
 ### [0.1.23](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.22...v0.1.23) (2020-04-15)
