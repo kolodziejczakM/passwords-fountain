@@ -4,6 +4,7 @@ import { theme } from '@/common/theme';
 setPragma(h);
 
 export const Wrapper = styled('section')`
+    width: 100%;
     max-width: ${theme.breakpoints.s480};
     background: ${theme.colors.white};
     padding: ${theme.spacing.m18};

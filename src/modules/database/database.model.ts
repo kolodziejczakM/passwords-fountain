@@ -1,13 +1,32 @@
 import { AppState } from '@/store';
 import { mergeState } from '@/common/utils/store';
+import { adminKeyLocalStorageKeyName } from './database.constants';
+import { setupClient } from './database.service';
+import { encode, decode } from '@/modules/cipher/cipher.service';
+import { Client } from 'faunadb';
+import { selectAdminKey } from '@/modules/database/database.selectors';
 
-export const databaseState = {};
+export const databaseState = {
+    client: {},
+};
 
 export type DatabaseState = typeof databaseState;
 const merge = mergeState<DatabaseState>('database');
 
 export const databaseActions = {
-    noop(appState: AppState): Partial<AppState> {
-        return merge({});
+    setClient: async (
+        appState: AppState,
+        shelfKey: string,
+        adminKey: string
+    ): Promise<Partial<AppState>> => {
+        const rawAdminKey =
+            adminKey === selectAdminKey()
+                ? decode(adminKey, shelfKey)
+                : adminKey;
+
+        const client: Client = await setupClient({ secret: rawAdminKey });
+        const encodedAdminKey = encode(rawAdminKey, shelfKey);
+        localStorage.setItem(adminKeyLocalStorageKeyName, encodedAdminKey);
+        return merge({ client });
     },
 } as const;

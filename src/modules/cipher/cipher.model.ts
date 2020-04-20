@@ -6,8 +6,4 @@ export const cipherState = {};
 export type CipherState = typeof cipherState;
 const merge = mergeState<CipherState>('cipher');
 
-export const cipherActions = {
-    noop(appState: AppState): Partial<AppState> {
-        return merge({});
-    },
-} as const;
+export const cipherActions = {} as const;

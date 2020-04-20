@@ -1,5 +1,6 @@
 import { h, VNode, Fragment } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
+import { route } from 'preact-router';
 import {
     Wrapper,
     Header,
@@ -13,12 +14,14 @@ import {
 } from './settings.styles';
 import { Text } from '@/modules/localisation/components/text';
 import { useRef, useState } from 'preact/hooks';
-import { useLocation } from 'wouter-preact';
 import { validateInputField } from '@/common/utils/form';
 import { TextInput } from '@/common/components/textInput';
 import { FormControl } from '@/common/components/formControl';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Button } from '@/common/components/button';
+import { selectIsFirstTimeOnDevice } from '@/modules/database/database.selectors';
+import { useSelector, useAction } from '@preact-hooks/unistore';
+import { passwordListActions } from '@/modules/passwordList/passwordList.model';
 
 const formValidation = {
     adminKey(val?: string): boolean | string {
@@ -31,7 +34,7 @@ const formValidation = {
 
 export const Settings: TypedComponent<Props> = () => {
     // TODO: Add info that here user sees hashed version of admin key (when coming back)
-    const [, setLocation] = useLocation();
+    const fetchPasswords = useAction(passwordListActions.fetchPasswords);
     const formRef = useRef(undefined as any);
     const [adminKeyValue, setAdminKeyValue] = useState('');
     const [adminKeyErrors, setAdminKeyErrors] = useState('');
@@ -39,7 +42,7 @@ export const Settings: TypedComponent<Props> = () => {
     const [shelfKeyValue, setShelfKeyValue] = useState('');
     const [shelfKeyErrors, setShelfKeyErrors] = useState('');
 
-    const isFirstTimeOnDevice = true;
+    const isFirstTimeOnDevice = useSelector(selectIsFirstTimeOnDevice);
     const heading = isFirstTimeOnDevice
         ? 'settings.connectToDB'
         : 'settings.currentDBConnection';
@@ -48,10 +51,13 @@ export const Settings: TypedComponent<Props> = () => {
         ? 'settings.connect'
         : 'settings.reConnect';
 
-    const handleConnectClick = () => {
-        // TODO: connect / re-connect action
+    const handleConnectClick = async (): Promise<void> => {
+        await fetchPasswords(shelfKeyValue, adminKeyValue);
+        route('/app');
     };
-    const handleBackClick = () => setLocation('/app');
+    const handleBackClick = (): void => {
+        history.back();
+    };
 
     const renderAdminKeyInput = (): VNode => (
         <TextInput

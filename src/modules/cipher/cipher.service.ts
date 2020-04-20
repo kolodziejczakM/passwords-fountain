@@ -19,7 +19,7 @@ export const decode: Modifier = (
     );
 };
 
-export const modifyEntity = (
+const modifyEntity = (
     entity: PasswordEntity,
     secretPassphrase: string,
     modifier: Modifier

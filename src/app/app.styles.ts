@@ -18,5 +18,5 @@ export const Wrapper = styled('section')`
 export const Header = styled('header')``;
 
 export const PageWrapper = styled('main')`
-    padding: ${theme.spacing.xl30} 0;
+    padding: 0 0 ${theme.spacing.xl30} 0;
 `;

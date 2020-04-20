@@ -1,0 +1,1 @@
+export const adminKeyLocalStorageKeyName = 'ak';

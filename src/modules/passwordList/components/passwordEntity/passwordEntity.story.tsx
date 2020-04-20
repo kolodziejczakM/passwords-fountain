@@ -9,8 +9,12 @@ export default {
 
 export const defaultView = (): VNode => (
     <PasswordEntity
-        label="Company bank"
-        login="theGreatest1292"
-        password="xa12j!@sfpsqw"
+        data={{
+            refId: 'xd12',
+            createdAt: '10.02.2010',
+            label: 'Company bank',
+            login: 'theGreatest1292',
+            password: 'xa12j!@sfpsqw',
+        }}
     />
 );

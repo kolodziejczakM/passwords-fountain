@@ -7,7 +7,7 @@ export const Wrapper = styled('section')`
     text-align: center;
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
-        padding: 0 ${theme.spacing.xl40} ${theme.spacing.xl40} ${theme.spacing.xl40};
+        padding: ${theme.spacing.xl40};
     `)}
 `;
 
