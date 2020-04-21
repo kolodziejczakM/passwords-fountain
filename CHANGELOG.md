@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.30](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.29...v0.1.30) (2020-04-21)
+
+
+### Bug Fixes
+
+* **icons:** icons update, removed unused icon ([1b89a8b](https://github.com/kolodziejczakM/passwords-fountain/commit/1b89a8b62615a40dda4195d880d7f05b593f8cb1))
+
 ### [0.1.29](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.28...v0.1.29) (2020-04-20)
 
 
