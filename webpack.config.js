@@ -74,6 +74,7 @@ const production = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
+        new Dotenv(),
         new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, 'dist'),
             routes: ['/', '/app', '/settings'], // These pages will be pre-rendered

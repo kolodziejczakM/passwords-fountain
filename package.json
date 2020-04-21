@@ -82,7 +82,7 @@
     "dependencies": {
         "@lingui/core": "^2.9.1",
         "@preact-hooks/unistore": "^1.0.9",
-        "crypto-js": "^4.0.0",
+        "crypto-js": "3.3.0",
         "dompurify": "^2.0.8",
         "faunadb": "^2.11.1",
         "formee": "^1.0.0",

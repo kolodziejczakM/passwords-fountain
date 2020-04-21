@@ -1,4 +1,5 @@
-import CryptoJS from 'crypto-js';
+import AES from 'crypto-js/aes';
+import UTF8 from 'crypto-js/enc-utf8';
 import { PasswordEntity } from '../database/database.service';
 
 type Modifier = (vulnerable: string, secretPassphrase: string) => string;
@@ -7,16 +8,14 @@ export const encode: Modifier = (
     vulnerable: string,
     secretPassphrase: string
 ): string => {
-    return CryptoJS.AES.encrypt(vulnerable, secretPassphrase).toString();
+    return AES.encrypt(vulnerable, secretPassphrase).toString();
 };
 
 export const decode: Modifier = (
     vulnerableHashed: string,
     secretPassphrase: string
 ): string => {
-    return CryptoJS.AES.decrypt(vulnerableHashed, secretPassphrase).toString(
-        CryptoJS.enc.Utf8
-    );
+    return AES.decrypt(vulnerableHashed, secretPassphrase).toString(UTF8);
 };
 
 const modifyEntity = (

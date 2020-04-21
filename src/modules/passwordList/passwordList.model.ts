@@ -6,11 +6,7 @@ import {
     selectIsClientSet,
     selectClient,
 } from '@/modules/database/database.selectors';
-import {
-    fetchAllPasswordEntities,
-    PasswordEntity,
-} from '@/modules/database/database.service';
-import { decodeEntity } from '@/modules/cipher/cipher.service';
+import { PasswordEntity } from '@/modules/database/database.service';
 
 export const passwordListState = {
     passwords: [] as PasswordEntity[],
@@ -26,6 +22,10 @@ export const passwordListActions = {
         adminKey: string
     ): Promise<Partial<AppState>> => {
         // TODO: Show global loader
+        const { fetchAllPasswordEntities } = await import(
+            '@/modules/database/database.service'
+        );
+
         if (!selectIsClientSet(appState)) {
             await callAction(databaseActions.setClient, shelfKey, adminKey);
         }
