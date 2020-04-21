@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.31...v0.2.0) (2020-04-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **options panel:** Actions (group of reducers) are now defined as functions with required param -
+store.
+
+* **options panel:** removed dangerous circular deps - were blocking while using storybook ([29675ab](https://github.com/kolodziejczakM/passwords-fountain/commit/29675abb6b7a3aca0d1a39af3a9f35e46cd52283))
+
 ### [0.1.31](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.30...v0.1.31) (2020-04-21)
 
 ### [0.1.30](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.29...v0.1.30) (2020-04-21)
