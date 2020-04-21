@@ -1,31 +1,32 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { Wrapper } from './optionsPanelDecodeExpanded.styles';
+import { Wrapper } from './optionsPanelConnectExpanded.styles';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
-import { variantNames, VariantProps } from '../optionsPanel.component';
+import { VariantProps } from '../optionsPanel.component';
+import { variantNames } from '@/modules/passwordList/passwordList.contants';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
 import { useRef, useState } from 'preact/hooks';
 import { validateInputField } from '@/common/utils/form';
 
 const formValidation = {
-    shelfKey(val?: string) {
-        return (val && val.length >= 6) || 'optionsPanel.shelfKeyTooShort';
+    masterKey(val?: string) {
+        return (val && val.length >= 6) || 'optionsPanel.masterKeyTooShort';
     },
 } as const;
 
-export const OptionsPanelDecodeExpanded: TypedComponent<VariantProps> = ({
+export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
 }: VariantProps) => {
     const formRef = useRef(undefined as any);
-    const [shelfKeyValue, setShelfKeyValue] = useState('');
-    const [shelfKeyErrors, setShelfKeyErrors] = useState('');
+    const [masterKeyValue, setMasterKeyValue] = useState('');
+    const [masterKeyErrors, setMasterKeyErrors] = useState('');
 
     const handleCancelClick = (): void =>
-        switchCurrentVariantName(variantNames.decodeCollapsed);
+        switchCurrentVariantName(variantNames.connectCollapsed);
 
     const handleConfirmClick = (): void => {
         // TODO: dispatchAction decode
@@ -41,28 +42,28 @@ export const OptionsPanelDecodeExpanded: TypedComponent<VariantProps> = ({
     const renderInput = (): VNode => (
         <TextInput
             placeholder="e.g. MyStrongPassword1234"
-            hasError={Boolean(shelfKeyErrors)}
-            name="shelfKey"
-            value={shelfKeyValue}
+            hasError={Boolean(masterKeyErrors)}
+            name="masterKey"
+            value={masterKeyValue}
             onInput={validateInputField(
-                'shelfKey',
+                'masterKey',
                 formRef,
                 formValidation,
-                setShelfKeyValue,
-                setShelfKeyErrors
+                setMasterKeyValue,
+                setMasterKeyErrors
             )}
         />
     );
 
-    const renderLabel = (): VNode => <Text>optionsPanel.enterShelfKey</Text>;
-    const renderError = (): VNode => <Text>{shelfKeyErrors}</Text>;
+    const renderLabel = (): VNode => <Text>optionsPanel.enterMasterKey</Text>;
+    const renderError = (): VNode => <Text>{masterKeyErrors}</Text>;
     return (
         <Wrapper>
             <ContentWrapper>
                 <Content>
                     <form ref={formRef}>
                         <FormControl
-                            hasError={Boolean(shelfKeyErrors)}
+                            hasError={Boolean(masterKeyErrors)}
                             renderLabel={renderLabel}
                             renderInput={renderInput}
                             renderError={renderError}
@@ -76,7 +77,7 @@ export const OptionsPanelDecodeExpanded: TypedComponent<VariantProps> = ({
                 </Button>
                 <Button
                     onClick={handleConfirmClick}
-                    disabled={Boolean(shelfKeyErrors)}
+                    disabled={Boolean(masterKeyErrors)}
                 >
                     <Text>optionsPanel.confirm</Text>
                 </Button>
@@ -85,6 +86,6 @@ export const OptionsPanelDecodeExpanded: TypedComponent<VariantProps> = ({
     );
 };
 
-OptionsPanelDecodeExpanded.propTypes = {
+OptionsPanelConnectExpanded.propTypes = {
     switchCurrentVariantName: PropTypes.func.isRequired,
 };

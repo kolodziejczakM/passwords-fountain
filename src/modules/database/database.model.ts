@@ -2,6 +2,7 @@ import { AppState } from '@/store';
 import { mergeState } from '@/common/utils/store';
 import { adminKeyLocalStorageKeyName } from './database.constants';
 import { Client } from 'faunadb';
+import { Store } from 'unistore';
 import { selectAdminKey } from '@/modules/database/database.selectors';
 
 export const databaseState = {
@@ -11,27 +12,32 @@ export const databaseState = {
 export type DatabaseState = typeof databaseState;
 const merge = mergeState<DatabaseState>('database');
 
-export const databaseActions = {
-    setClient: async (
-        appState: AppState,
-        shelfKey: string,
-        adminKey: string
-    ): Promise<Partial<AppState>> => {
-        const { setupClient } = await import('./database.service');
-        const { encode, decode } = await import(
-            '@/modules/cipher/cipher.service'
-        );
+export const databaseActions = (store: Store<AppState>) =>
+    ({
+        setClient: async (
+            appState: AppState,
+            masterKey: string,
+            adminKey: string
+        ): Promise<Partial<AppState>> => {
+            const { setupClient } = await import('./database.service');
+            const { encrypt, decrypt } = await import(
+                '@/modules/cipher/cipher.service'
+            );
 
-        const rawAdminKey =
-            adminKey === selectAdminKey()
-                ? decode(adminKey, shelfKey)
-                : adminKey;
+            const decryptedAdminKey =
+                adminKey === selectAdminKey()
+                    ? decrypt(adminKey, masterKey)
+                    : adminKey;
 
-        const client: Client = await setupClient({
-            secret: rawAdminKey,
-        });
-        const encodedAdminKey = encode(rawAdminKey, shelfKey);
-        localStorage.setItem(adminKeyLocalStorageKeyName, encodedAdminKey);
-        return merge({ client });
-    },
-} as const;
+            const client: Client = await setupClient({
+                secret: decryptedAdminKey,
+            });
+
+            const encryptedAdminKey = encrypt(decryptedAdminKey, masterKey);
+            localStorage.setItem(
+                adminKeyLocalStorageKeyName,
+                encryptedAdminKey
+            );
+            return merge({ client }, store);
+        },
+    } as const);

@@ -1,21 +1,15 @@
 import { h } from 'preact';
+import { store, useSelector, useAction } from '@/store';
 import { TypedComponent } from '@/common/typings/prop-types';
-import PropTypes from 'prop-types';
 import { Wrapper } from './optionsPanel.styles';
-import { useState } from 'preact/hooks';
-import { OptionsPanelDecodeCollapsed } from './optionsPanelDecodeCollapsed';
-import { OptionsPanelDecodeExpanded } from './optionsPanelDecodeExpanded';
+import { OptionsPanelConnectCollapsed } from './optionsPanelConnectCollapsed';
+import { OptionsPanelConnectExpanded } from './optionsPanelConnectExpanded';
 import { OptionsPanelEntityFormCollapsed } from './optionsPanelEntityFormCollapsed';
 import { OptionsPanelEntityFormExpanded } from './optionsPanelEntityFormExpanded';
+import { selectCurrentOptionPanelVariantName } from '@/modules/passwordList/passwordList.selectors';
+import { passwordListActions } from '@/modules/passwordList/passwordList.model';
+import { VariantName } from '@/modules/passwordList/passwordList.contants';
 
-export enum variantNames {
-    decodeCollapsed = 'decodeCollapsed',
-    decodeExpanded = 'decodeExpanded',
-    entityFormCollapsed = 'entityFormCollapsed',
-    entityFormExpanded = 'entityFormExpanded',
-}
-
-type VariantName = keyof typeof variantNames;
 type VariantSwitcher = (destination: VariantName) => void;
 
 export interface VariantProps {
@@ -26,15 +20,15 @@ type VariantInstances = {
     [key in VariantName]: TypedComponent<VariantProps>;
 };
 
-export const OptionsPanel: TypedComponent<Props> = ({
-    defaultVariantName,
-}: Props) => {
-    const [currentVariantName, setCurrentVariantName] = useState(
-        defaultVariantName
+export const OptionsPanel: TypedComponent<Props> = () => {
+    const currentVariantName = useSelector(selectCurrentOptionPanelVariantName);
+    const setCurrentVariantName = useAction(
+        passwordListActions(store).switchOptionPanelVariant
     );
+
     const variants: VariantInstances = {
-        decodeCollapsed: OptionsPanelDecodeCollapsed,
-        decodeExpanded: OptionsPanelDecodeExpanded,
+        connectCollapsed: OptionsPanelConnectCollapsed,
+        connectExpanded: OptionsPanelConnectExpanded,
         entityFormCollapsed: OptionsPanelEntityFormCollapsed,
         entityFormExpanded: OptionsPanelEntityFormExpanded,
     };
@@ -47,14 +41,6 @@ export const OptionsPanel: TypedComponent<Props> = ({
     );
 };
 
-interface Props {
-    defaultVariantName?: VariantName;
-}
+interface Props {}
 
-OptionsPanel.propTypes = {
-    defaultVariantName: PropTypes.any,
-};
-
-OptionsPanel.defaultProps = {
-    defaultVariantName: variantNames.decodeCollapsed,
-};
+OptionsPanel.propTypes = {};

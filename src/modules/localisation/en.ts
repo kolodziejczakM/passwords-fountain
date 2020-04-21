@@ -13,13 +13,13 @@ export default {
         'navBar.authors': 'Authors',
         'navBar.app': 'App',
         'optionsPanel.settings': 'Settings',
-        'optionsPanel.decode': 'Decode',
+        'optionsPanel.connect': 'Connect',
         'optionsPanel.cancel': 'Cancel',
         'optionsPanel.confirm': 'Confirm',
         'optionsPanel.addNew': 'Add new',
         'optionsPanel.add': 'Add',
-        'optionsPanel.enterShelfKey': 'Enter your shelf key:',
-        'optionsPanel.shelfKeyTooShort': 'Shelf key minimum length is 6.',
+        'optionsPanel.enterMasterKey': 'Enter your master key:',
+        'optionsPanel.masterKeyTooShort': 'Master key minimum length is 6.',
         'optionsPanel.labelInputLabel': 'Label',
         'optionsPanel.loginInputLabel': 'Login',
         'optionsPanel.passwordInputLabel': 'Password',
@@ -34,15 +34,15 @@ export default {
         'settings.adminKeyLabel': 'FaunaDB admin key',
         'settings.adminKeyLabelDescription':
             'you can find it on your FaunaDB account.',
-        'settings.shelfKeyLabel': 'Shelf key',
-        'settings.shelfKeyLabelDescription':
-            "you'll use that key every time you'll want to decode your passwords. Remember it!",
+        'settings.masterKeyLabel': 'Master key',
+        'settings.masterKeyLabelDescription':
+            "you'll use that key every time you'll want to decrypt your passwords. Remember it!",
         'settings.connect': 'Connect',
         'settings.back': 'Back',
         'settings.reConnect': 'Re-connect',
         'settings.noteLabel': 'Note:',
         'settings.noteLabelDescription':
-            'if you want to connect to database which already has encoded passwords - use the same shelf key as during initial connection.',
+            'if you want to connect to database which already has encrypted passwords - use the same master key as during initial connection.',
         'settings.noteLabelDescriptionAdminKey':
             'For security purposes - this is encrypted version of your admin key, not the one you’ve copied here.',
         'settings.adminKeyTooShort': 'Admin key minimum length is 10.',
@@ -85,8 +85,8 @@ export default {
             "Usually it's like: you know nothing about where passwords are saved and in which format... and who has access to them?",
         'phoneChat.tryThen':
             "Try Passwords Fountain then.<br> It's only lightweight user interface that you use to access your own database.",
-        'phoneChat.itEncodes':
-            'It encodes all your passwords before sending them + whole code is open source so you be sure that nothing can be stolen.',
+        'phoneChat.itEncrypts':
+            'It encrypts all your passwords before sending them + whole code is open source so you be sure that nothing can be stolen.',
         'dropdown.choose': 'Choose',
         'language.english': 'English',
         'language.polish': 'Polish',

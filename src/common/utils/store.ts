@@ -1,18 +1,12 @@
-import { AppState, store } from '@/store';
-import { Action } from 'unistore';
+import { AppState } from '@/store';
+import { Store } from 'unistore';
 
 export const mergeState = <T>(moduleName: keyof AppState) => (
-    changedState: Partial<T>
+    changedState: Partial<T>,
+    store: Store<AppState>
 ): Partial<AppState> => ({
     [moduleName]: { ...store.getState()[moduleName], ...changedState },
 });
-
-export const callAction = (
-    action: Action<AppState>,
-    ...args: any[]
-): Promise<void> | void => {
-    return store.action(action)(...args);
-};
 
 export const callAfterReturn = (callback: () => any): void => {
     setTimeout((): void => {

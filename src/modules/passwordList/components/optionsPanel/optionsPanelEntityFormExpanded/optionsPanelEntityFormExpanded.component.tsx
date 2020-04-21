@@ -5,7 +5,8 @@ import {
     Wrapper,
     FormControlWrapper,
 } from './optionsPanelEntityFormExpanded.styles';
-import { variantNames, VariantProps } from '../optionsPanel.component';
+import { VariantProps } from '../optionsPanel.component';
+import { variantNames } from '@/modules/passwordList/passwordList.contants';
 import { FormControl } from '@/common/components/formControl';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';

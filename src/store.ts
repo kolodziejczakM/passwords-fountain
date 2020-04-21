@@ -23,3 +23,5 @@ export const store =
     process.env.NODE_ENV === 'production'
         ? createStore(appState)
         : devtools(createStore(appState));
+
+export { useSelector, useAction } from '@preact-hooks/unistore';

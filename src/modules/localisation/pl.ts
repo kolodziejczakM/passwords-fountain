@@ -13,14 +13,14 @@ export default {
         'navBar.authors': 'Autorzy',
         'navBar.app': 'App',
         'optionsPanel.settings': 'Ustawienia',
-        'optionsPanel.decode': 'Odszyfruj',
+        'optionsPanel.connect': 'Połącz',
         'optionsPanel.cancel': 'Anuluj',
         'optionsPanel.confirm': 'Zatwierdź',
         'optionsPanel.addNew': 'Dodaj nowe',
         'optionsPanel.add': 'Dodaj',
-        'optionsPanel.enterShelfKey': 'Wprowadź swój klucz półki:',
-        'optionsPanel.shelfKeyTooShort':
-            'Minimalna długość klucza półki to 6 znaków.',
+        'optionsPanel.enterMasterKey': 'Wprowadź swój klucz główny:',
+        'optionsPanel.masterKeyTooShort':
+            'Minimalna długość klucza głównego to 6 znaków.',
         'optionsPanel.labelInputLabel': 'Nazwa',
         'optionsPanel.loginInputLabel': 'Login',
         'optionsPanel.passwordInputLabel': 'Hasło',
@@ -35,15 +35,15 @@ export default {
         'settings.adminKeyLabel': 'Klucz admina FaunaDB',
         'settings.adminKeyLabelDescription':
             'znajdziesz go na swoim koncie FaunaDB.',
-        'settings.shelfKeyLabel': 'Klucz półki',
-        'settings.shelfKeyLabelDescription':
+        'settings.masterKeyLabel': 'Klucz główny',
+        'settings.masterKeyLabelDescription':
             'będzie Ci potrzebny za każdym razem gdy będziesz chciał odszyfrować hasła. Zapamiętaj go!',
         'settings.connect': 'Połącz',
         'settings.back': 'Cofnij',
         'settings.reConnect': 'Połącz ponownie',
         'settings.noteLabel': 'Ważne:',
         'settings.noteLabelDescription':
-            'jeśli chcesz połączyć się z bazą danych, która już posiada zaszyfrowane hasła - użyj tego samego klucza półki jak podczas pierwszego połączenia.',
+            'jeśli chcesz połączyć się z bazą danych, która już posiada zaszyfrowane hasła - użyj tego samego klucza głównego jak podczas pierwszego połączenia.',
         'settings.noteLabelDescriptionAdminKey':
             'Ze względów bezpieczeństwa - jest to zaszyfrowana wersja Twojego klucza admina, a nie ta, którą tutaj skopiowałeś.',
         'settings.adminKeyTooShort':
@@ -88,7 +88,7 @@ export default {
             'Zazwyczaj jest tak: nic nie wiesz o tym gdzie te hasła są zapisywane, w jakim formacie... i kto ma do nich dostęp?',
         'phoneChat.tryThen':
             'Spróbuj Passwords Fountain.<br> To tylko niewielki interfejs użytkownika, za pomocą którego łączysz się ze swoją bazą danych.',
-        'phoneChat.itEncodes':
+        'phoneChat.itEncrypts':
             'Szyfruje wszystkie hasła przed ich wysłaniem do bazy danych + cały kod aplikacji jest open source, więc możesz być pewna, że nic nie jest kradzione.',
         'dropdown.choose': 'Wybierz',
         'language.english': 'Angielski',

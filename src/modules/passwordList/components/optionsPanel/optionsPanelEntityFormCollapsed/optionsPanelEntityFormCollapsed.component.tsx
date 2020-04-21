@@ -2,17 +2,19 @@ import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { Wrapper } from './optionsPanelEntityFormCollapsed.styles';
-import { variantNames, VariantProps } from '../optionsPanel.component';
+import { VariantProps } from '../optionsPanel.component';
+import { variantNames } from '@/modules/passwordList/passwordList.contants';
 import { ButtonWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
-import { useLocation } from 'wouter-preact';
+import { route } from 'preact-router';
 
 export const OptionsPanelEntityFormCollapsed: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
 }: VariantProps) => {
-    const [, setLocation] = useLocation();
-    const handleSettingsClick = (): void => setLocation('/settings');
+    const handleSettingsClick = (): void => {
+        route('/settings');
+    };
     const handleAddNewClick = (): void =>
         switchCurrentVariantName(variantNames.entityFormExpanded);
 

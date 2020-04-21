@@ -19,40 +19,29 @@ import { TextInput } from '@/common/components/textInput';
 import { FormControl } from '@/common/components/formControl';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Button } from '@/common/components/button';
-import { selectIsFirstTimeOnDevice } from '@/modules/database/database.selectors';
-import { useSelector, useAction } from '@preact-hooks/unistore';
+import { useAction, store } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.model';
 
 const formValidation = {
     adminKey(val?: string): boolean | string {
         return (val && val.length >= 10) || 'settings.adminKeyTooShort';
     },
-    shelfKey(val?: string): boolean | string {
-        return (val && val.length >= 6) || 'optionsPanel.shelfKeyTooShort';
+    masterKey(val?: string): boolean | string {
+        return (val && val.length >= 6) || 'optionsPanel.masterKeyTooShort';
     },
 } as const;
 
 export const Settings: TypedComponent<Props> = () => {
-    // TODO: Add info that here user sees hashed version of admin key (when coming back)
-    const fetchPasswords = useAction(passwordListActions.fetchPasswords);
+    const fetchPasswords = useAction(passwordListActions(store).fetchPasswords);
     const formRef = useRef(undefined as any);
     const [adminKeyValue, setAdminKeyValue] = useState('');
     const [adminKeyErrors, setAdminKeyErrors] = useState('');
 
-    const [shelfKeyValue, setShelfKeyValue] = useState('');
-    const [shelfKeyErrors, setShelfKeyErrors] = useState('');
-
-    const isFirstTimeOnDevice = useSelector(selectIsFirstTimeOnDevice);
-    const heading = isFirstTimeOnDevice
-        ? 'settings.connectToDB'
-        : 'settings.currentDBConnection';
-
-    const connectButtonLabel = isFirstTimeOnDevice
-        ? 'settings.connect'
-        : 'settings.reConnect';
+    const [masterKeyValue, setMasterKeyValue] = useState('');
+    const [masterKeyErrors, setMasterKeyErrors] = useState('');
 
     const handleConnectClick = async (): Promise<void> => {
-        await fetchPasswords(shelfKeyValue, adminKeyValue);
+        await fetchPasswords(masterKeyValue, adminKeyValue);
         route('/app');
     };
     const handleBackClick = (): void => {
@@ -75,18 +64,18 @@ export const Settings: TypedComponent<Props> = () => {
         />
     );
 
-    const renderShelfKeyInput = (): VNode => (
+    const renderMasterKeyInput = (): VNode => (
         <TextInput
-            placeholder="myShelfPassword1234"
-            hasError={Boolean(shelfKeyErrors)}
-            name="shelfKey"
-            value={shelfKeyValue}
+            placeholder="myMasterPassword1234"
+            hasError={Boolean(masterKeyErrors)}
+            name="masterKey"
+            value={masterKeyValue}
             onInput={validateInputField(
-                'shelfKey',
+                'masterKey',
                 formRef,
                 formValidation,
-                setShelfKeyValue,
-                setShelfKeyErrors
+                setMasterKeyValue,
+                setMasterKeyErrors
             )}
         />
     );
@@ -125,7 +114,7 @@ export const Settings: TypedComponent<Props> = () => {
         <Wrapper>
             <Header>
                 <Heading>
-                    <Text>{heading}</Text>
+                    <Text>settings.connectToDB</Text>
                 </Heading>
             </Header>
             <FormWrapper>
@@ -136,8 +125,7 @@ export const Settings: TypedComponent<Props> = () => {
                             renderLabel={renderLabel(
                                 'settings.adminKeyLabel',
                                 'settings.adminKeyLabelDescription',
-                                'settings.noteLabelDescriptionAdminKey',
-                                !isFirstTimeOnDevice
+                                'settings.noteLabelDescriptionAdminKey'
                             )}
                             renderInput={renderAdminKeyInput}
                             renderError={renderError(adminKeyErrors)}
@@ -145,15 +133,15 @@ export const Settings: TypedComponent<Props> = () => {
                     </FormControlWrapper>
                     <FormControlWrapper>
                         <FormControl
-                            hasError={Boolean(shelfKeyErrors)}
+                            hasError={Boolean(masterKeyErrors)}
                             renderLabel={renderLabel(
-                                'settings.shelfKeyLabel',
-                                'settings.shelfKeyLabelDescription',
+                                'settings.masterKeyLabel',
+                                'settings.masterKeyLabelDescription',
                                 'settings.noteLabelDescription',
                                 true
                             )}
-                            renderInput={renderShelfKeyInput}
-                            renderError={renderError(shelfKeyErrors)}
+                            renderInput={renderMasterKeyInput}
+                            renderError={renderError(masterKeyErrors)}
                         />
                     </FormControlWrapper>
                     <ControlsWrapper>
@@ -161,7 +149,7 @@ export const Settings: TypedComponent<Props> = () => {
                             <Text>settings.back</Text>
                         </Button>
                         <Button onClick={handleConnectClick}>
-                            <Text>{connectButtonLabel}</Text>
+                            <Text>settings.connect</Text>
                         </Button>
                     </ControlsWrapper>
                 </form>

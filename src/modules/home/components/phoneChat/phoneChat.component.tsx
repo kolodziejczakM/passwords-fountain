@@ -41,7 +41,7 @@ export const PhoneChat: TypedComponent<Props> = () => {
                     <Avatar src={he} alt="avatar" isRight />
                 </ChatCloud>
                 <ChatCloud isRight>
-                    <Text>phoneChat.itEncodes</Text>
+                    <Text>phoneChat.itEncrypts</Text>
                     <Avatar src={he} alt="avatar" isRight />
                 </ChatCloud>
             </Screen>

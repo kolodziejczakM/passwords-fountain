@@ -35,7 +35,14 @@ const mock = [
         password: 'AMYamy1^3^5',
     },
 ];
+
 export const selectPasswords = createSelector(
     selectPasswordList,
     (passwordListState: PasswordListState) => mock // passwordListState.passwords
+);
+
+export const selectCurrentOptionPanelVariantName = createSelector(
+    selectPasswordList,
+    (passwordListState: PasswordListState) =>
+        passwordListState.currentOptionPanelVariantName
 );

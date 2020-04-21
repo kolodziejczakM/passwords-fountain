@@ -1,22 +1,34 @@
 import { h, VNode } from 'preact';
 import { OptionsPanel } from './optionsPanel.component';
 import { withA11y } from '@storybook/addon-a11y';
+import { StoreProvider } from '@preact-hooks/unistore';
+import createStore from 'unistore';
 
 export default {
     title: 'OptionsPanel',
     decorators: [withA11y],
 };
+const storeMock = (variant: any): any =>
+    createStore({
+        passwordList: {
+            currentOptionPanelVariantName: variant,
+        },
+    });
 
-export const defaultView = (): VNode => <OptionsPanel />;
+const withStoreMock = (render: () => VNode, variant: any): VNode => {
+    const store = storeMock(variant);
 
-export const decodeExpanded = (): VNode => (
-    <OptionsPanel defaultVariantName="decodeExpanded" />
-);
+    return <StoreProvider value={store}>{render()}</StoreProvider>;
+};
 
-export const addNewCollapsed = (): VNode => (
-    <OptionsPanel defaultVariantName="entityFormCollapsed" />
-);
+export const defaultView = (): VNode =>
+    withStoreMock(() => <OptionsPanel />, 'connectCollapsed');
 
-export const addNewExpanded = (): VNode => (
-    <OptionsPanel defaultVariantName="entityFormExpanded" />
-);
+export const connectExpanded = (): VNode =>
+    withStoreMock(() => <OptionsPanel />, 'connectExpanded');
+
+export const entityFormCollapsed = (): VNode =>
+    withStoreMock(() => <OptionsPanel />, 'entityFormCollapsed');
+
+export const entityFormExpanded = (): VNode =>
+    withStoreMock(() => <OptionsPanel />, 'entityFormExpanded');

@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom/extend-expect';
 import { h } from 'preact';
 import { render } from '@testing-library/preact';
-import { OptionsPanelDecodeCollapsed } from './optionsPanelDecodeCollapsed.component';
+import { OptionsPanelConnectCollapsed } from './optionsPanelConnectCollapsed.component';
 
-describe('OptionsPanelDecodeCollapsed', () => {
+describe('OptionsPanelConnectCollapsed', () => {
     it('should render correctly', () => {
         const { asFragment } = render(
-            <OptionsPanelDecodeCollapsed
+            <OptionsPanelConnectCollapsed
                 switchCurrentVariantName={(): void => {
                     // TODO
                 }}

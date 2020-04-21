@@ -1,6 +1,6 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
-import { useSelector } from '@preact-hooks/unistore';
+import { useSelector } from '@/store';
 import {
     Wrapper,
     PasswordEntityWrapper,

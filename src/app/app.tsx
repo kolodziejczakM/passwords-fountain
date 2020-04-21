@@ -9,7 +9,7 @@ import { Wrapper, PageWrapper, Header } from './app.styles';
 import { NavBar } from '@/common/components/navBar';
 import { Footer } from '@/common/components/footer';
 import { Snackbar } from '@/modules/overlay/components/snackbar';
-import { useSelector } from '@preact-hooks/unistore';
+import { useSelector } from '@/store';
 import { selectIsSnackbarVisible } from '@/modules/overlay/overlay.selectors';
 import { renderIfTrue } from '@/common/utils/rendering';
 
