@@ -1,6 +1,5 @@
 import database from './database.svg';
 import error from './error.svg';
-import home from './home.svg';
 import info from './info.svg';
 import logo from './logo.svg';
 import logoAnimated from './logoAnimated.svg';
@@ -8,18 +7,21 @@ import love from './love.svg';
 import success from './success.svg';
 import bin from './bin.svg';
 import globe from './globe.svg';
+import eye from './eye.svg';
+import eyeFilled from './eyeFilled.svg';
 
 export type IconName =
     | 'database'
     | 'error'
-    | 'home'
     | 'info'
     | 'logo'
     | 'logoAnimated'
     | 'love'
     | 'success'
     | 'bin'
-    | 'globe';
+    | 'globe'
+    | 'eye'
+    | 'eyeFilled';
 
 type Base64orURL = string;
 
@@ -30,7 +32,6 @@ type Icons = {
 export const icons: Icons = {
     database,
     error,
-    home,
     info,
     logo,
     logoAnimated,
@@ -38,4 +39,6 @@ export const icons: Icons = {
     success,
     bin,
     globe,
+    eye,
+    eyeFilled,
 } as const;
