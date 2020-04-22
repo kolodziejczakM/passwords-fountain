@@ -8,6 +8,16 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const OfflinePlugin = require('offline-plugin');
 const Dotenv = require('dotenv-webpack');
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
+const CircularDependencyPlugin = require('circular-dependency-plugin');
+
+const pwaManifest = new WebpackPwaManifest({
+    name: 'Passwords fountain',
+    short_name: 'PasswordsFountain',
+    description: 'Minimalistic & modern password manager',
+    background_color: '#ffffff',
+    crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
+    icons: [],
+});
 
 const development = {
     entry: './src/index.tsx',
@@ -51,15 +61,11 @@ const development = {
         }),
         new Dotenv(),
         new webpack.HotModuleReplacementPlugin(),
-        new WebpackPwaManifest({
-            name: 'Passwords fountain',
-            short_name: 'PasswordsFountain',
-            description: 'Minimalistic & modern password manager',
-            background_color: '#ffffff',
-            crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
-            icons: [],
-        }),
+        pwaManifest,
         new OfflinePlugin(),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+        }),
     ],
 };
 
@@ -74,7 +80,7 @@ const production = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
-        new Dotenv(),
+        new Dotenv(), // TODO: when released - will be provided via hosting service instead of .env file
         new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, 'dist'),
             routes: ['/', '/app', '/settings'], // These pages will be pre-rendered
@@ -87,14 +93,7 @@ const production = {
             },
             renderer: new Renderer(),
         }),
-        new WebpackPwaManifest({
-            name: 'Passwords fountain',
-            short_name: 'PasswordsFountain',
-            description: 'Minimalistic & modern password manager',
-            background_color: '#ffffff',
-            crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
-            icons: [],
-        }),
+        pwaManifest,
         new OfflinePlugin(),
     ],
 };
