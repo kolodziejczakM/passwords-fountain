@@ -8,13 +8,13 @@ interface PasswordListRaw {
     data: PasswordEntityRaw[];
 }
 
-interface PasswordEntityRaw {
+export interface PasswordEntityRaw {
     ref: { id: string; value: { id: string } };
     ts: number;
-    data: PasswordEntityPayload;
+    data: { value: string }; // all passwords are stored in db as encrypted strings
 }
 
-interface PasswordEntityPayload {
+export interface PasswordEntityPayload {
     label: string;
     password: string;
     login: string;
@@ -44,22 +44,6 @@ const hasAllPasswordsIndex = async (client: Client): Promise<boolean> => {
     return Boolean(indexes.data.length);
 };
 
-const normalizePasswordEntities = (
-    rawPasswordList: PasswordListRaw
-): PasswordEntity[] => {
-    return rawPasswordList.data.map(
-        (entity: PasswordEntityRaw): PasswordEntity => {
-            return {
-                refId: entity.ref.id,
-                createdAt: String(entity.ts),
-                label: entity.data.label,
-                password: entity.data.password,
-                login: entity.data.login,
-            };
-        }
-    );
-};
-
 export const setupClient = async (options: ClientConfig): Promise<Client> => {
     const adminClient = new faunadb.Client(options);
     const serverKey: { secret: string } = await adminClient.query(
@@ -86,7 +70,7 @@ export const setupClient = async (options: ClientConfig): Promise<Client> => {
 
 export const fetchAllPasswordEntities = async (
     client: Client
-): Promise<PasswordEntity[]> => {
+): Promise<PasswordEntityRaw[]> => {
     const paramName = 'placeholderValue';
     const response: PasswordListRaw = await client.query(
         query.Map(
@@ -95,20 +79,16 @@ export const fetchAllPasswordEntities = async (
         )
     );
 
-    return normalizePasswordEntities(response);
+    return response.data;
 };
 
 export const createPasswordEntity = async (
     client: Client,
-    { label, password, login }: PasswordEntityPayload
+    encryptedEntity: string
 ): Promise<void> => {
     await client.query(
         query.Create(query.Collection(collectionName), {
-            data: {
-                label,
-                password,
-                login,
-            },
+            data: { value: encryptedEntity },
         })
     );
 };

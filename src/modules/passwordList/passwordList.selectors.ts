@@ -7,32 +7,24 @@ const selectPasswordList = (state: AppState): PasswordListState =>
 
 const mock = [
     {
-        refId: 'x1',
-        createdAt: '20-11-2018',
-        label: 'Bank account',
-        login: 'amy126_1998',
-        password: 'amy1^3^5',
+        ref: { id: 'x1', value: { id: 'x1 ' } },
+        ts: Date.now(),
+        data: { value: 'v1' },
     },
     {
-        refId: 'x2',
-        createdAt: '02-01-2019',
-        label: 'EA games',
-        login: 'Wh4tsApp!',
-        password: 'amy1^3^5',
+        ref: { id: 'x2', value: { id: 'x2 ' } },
+        ts: Date.now(),
+        data: { value: 'v2' },
     },
     {
-        refId: 'x3',
-        createdAt: '24-01-2019',
-        label: 'Origin',
-        login: 'AmyIsGreat415',
-        password: '415A^-+$=&#_)(*',
+        ref: { id: 'x3', value: { id: 'x3 ' } },
+        ts: Date.now(),
+        data: { value: 'v3' },
     },
     {
-        refId: 'x4',
-        createdAt: '28-02-2019',
-        label: 'GMail',
-        login: 'amy4124@gmail.com',
-        password: 'AMYamy1^3^5',
+        ref: { id: 'x4', value: { id: 'x4' } },
+        ts: Date.now(),
+        data: { value: 'v4' },
     },
 ];
 

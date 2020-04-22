@@ -1,24 +1,25 @@
 import AES from 'crypto-js/aes';
 import UTF8 from 'crypto-js/enc-utf8';
-import { PasswordEntity } from '../database/database.service';
+import { PasswordEntityPayload } from '../database/database.service';
 
-type Cipher = (vulnerable: string, secretPassphrase: string) => string;
-
-export const encrypt: Cipher = (
-    vulnerable: string | PasswordEntity,
-    secretPassphrase: string
+export const encrypt = (
+    vulnerable: string | PasswordEntityPayload,
+    masterKey: string,
+    withJSONStringify = false
 ): string => {
-    return AES.encrypt(JSON.stringify(vulnerable), secretPassphrase).toString();
+    const data = withJSONStringify
+        ? JSON.stringify(vulnerable)
+        : (vulnerable as string);
+
+    return AES.encrypt(data, masterKey).toString();
 };
 
-export const decrypt: Cipher = (
+export const decrypt = (
     vulnerableHashed: string,
-    secretPassphrase: string,
+    masterKey: string,
     withJSONParsing = false
-): string => {
-    const decrypted = AES.decrypt(vulnerableHashed, secretPassphrase).toString(
-        UTF8
-    );
+): string | PasswordEntityPayload => {
+    const decrypted = AES.decrypt(vulnerableHashed, masterKey).toString(UTF8);
 
     return withJSONParsing ? JSON.parse(decrypted) : decrypted;
 };

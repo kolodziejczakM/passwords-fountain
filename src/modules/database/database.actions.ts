@@ -20,7 +20,7 @@ export const databaseActions = {
 
         const decryptedAdminKey =
             adminKey === selectAdminKey()
-                ? decrypt(adminKey, masterKey)
+                ? (decrypt(adminKey, masterKey) as string)
                 : adminKey;
 
         const client: Client = await setupClient({

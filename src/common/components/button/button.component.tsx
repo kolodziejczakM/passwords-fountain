@@ -1,7 +1,7 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { Wrapper } from './button.styles';
+import { Wrapper, GridWrapper } from './button.styles';
 
 export const Button: TypedComponent<Props> = ({
     children,
@@ -10,7 +10,7 @@ export const Button: TypedComponent<Props> = ({
 }: Props) => {
     return (
         <Wrapper type="button" onClick={onClick} disabled={disabled}>
-            {children}
+            <GridWrapper>{children}</GridWrapper>
         </Wrapper>
     );
 };

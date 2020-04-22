@@ -11,6 +11,9 @@ import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
 import { useRef, useState } from 'preact/hooks';
 import { validateInputField } from '@/common/utils/form';
+import { useAction, useSelector } from '@/store';
+import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
+import { selectAdminKey } from '@/modules/database/database.selectors';
 
 const formValidation = {
     masterKey(val?: string) {
@@ -21,6 +24,8 @@ const formValidation = {
 export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
 }: VariantProps) => {
+    const encryptedAdminKey = useSelector(selectAdminKey);
+    const fetchPasswords = useAction(passwordListActions.fetchPasswords);
     const formRef = useRef(undefined as any);
     const [masterKeyValue, setMasterKeyValue] = useState('');
     const [masterKeyErrors, setMasterKeyErrors] = useState('');
@@ -28,15 +33,9 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     const handleCancelClick = (): void =>
         switchCurrentVariantName(variantNames.connectCollapsed);
 
-    const handleConfirmClick = (): void => {
-        // TODO: dispatchAction decode
-        // TODO: useSelector to check if decoded successfully or not
-        const successfulDecode = true;
-        if (successfulDecode) {
-            switchCurrentVariantName(variantNames.entityFormCollapsed);
-        } else {
-            // TODO: Show error snackbar
-        }
+    const handleConfirmClick = async (): Promise<void> => {
+        await fetchPasswords(masterKeyValue, encryptedAdminKey);
+        switchCurrentVariantName(variantNames.entityFormCollapsed);
     };
 
     const renderInput = (): VNode => (

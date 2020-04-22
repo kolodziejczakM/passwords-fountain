@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, typography } from '@/common/theme';
+import { theme } from '@/common/theme';
 import { Wrapper as Button } from '@/common/components/button/button.styles';
 setPragma(h);
 

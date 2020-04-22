@@ -6,13 +6,19 @@ import {
     PasswordEntityWrapper,
     OptionsPanelWrapper,
 } from './passwordList.styles';
-import { selectIsFirstTimeOnDevice } from '@/modules/database/database.selectors';
+import {
+    selectIsClientSet,
+    selectIsFirstTimeOnDevice,
+} from '@/modules/database/database.selectors';
 import { route } from 'preact-router';
-import { useEffect } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { OptionsPanel } from '@/modules/passwordList/components/optionsPanel';
 import { selectPasswords } from '@/modules/passwordList/passwordList.selectors';
-import { PasswordEntity as IPasswordEntity } from '@/modules/database/database.service';
+import { PasswordEntityRaw } from '@/modules/database/database.service';
 import { PasswordEntity } from '@/modules/passwordList/components/passwordEntity';
+import { useAction } from '@preact-hooks/unistore';
+import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
+import { variantNames } from '@/modules/passwordList/passwordList.contants';
 
 export const useFirstTimeRedirection = (): void => {
     useEffect(() => {
@@ -30,11 +36,30 @@ export const useFirstTimeRedirection = (): void => {
 export const PasswordList: TypedComponent<Props> = () => {
     useFirstTimeRedirection();
     const passwords = useSelector(selectPasswords);
+    const isClientSet = useSelector(selectIsClientSet);
+    const switchOptionsPanelVariant = useAction(
+        passwordListActions.switchOptionPanelVariant
+    );
+    const [
+        selectedEntity,
+        setSelectedEntity,
+    ] = useState<PasswordEntityRaw | null>(null);
+
+    useEffect(() => {
+        if (isClientSet) {
+            switchOptionsPanelVariant(variantNames.entityFormCollapsed);
+        }
+    }, []);
+
     const renderPasswords = (): VNode[] => {
         return passwords.map(
-            (entity: IPasswordEntity): VNode => (
-                <PasswordEntityWrapper key={entity.refId}>
-                    <PasswordEntity data={entity} />
+            (entity: PasswordEntityRaw): VNode => (
+                <PasswordEntityWrapper key={entity.ref.id}>
+                    <PasswordEntity
+                        data={entity}
+                        isSelected={selectedEntity === entity}
+                        onClick={setSelectedEntity}
+                    />
                 </PasswordEntityWrapper>
             )
         );

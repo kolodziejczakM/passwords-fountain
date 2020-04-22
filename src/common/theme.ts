@@ -5,6 +5,7 @@ enum colors {
     darkBlue = '#004973',
     primaryGreen = '#46b29d',
     pastelGreen = '#d1f5ea',
+    significantGreen = '#65ddb9',
     white = '#fff',
     red = '#ff6465',
     gray = '#c0c0c0',

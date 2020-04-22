@@ -6,3 +6,5 @@ export enum variantNames {
 }
 
 export type VariantName = keyof typeof variantNames;
+
+export const placeholderEntityValue = 'XXX';

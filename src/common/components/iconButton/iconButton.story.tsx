@@ -7,4 +7,7 @@ export default {
     decorators: [withA11y],
 };
 
-export const defaultView = (): VNode => <IconButton iconName="bin" />;
+export const defaultView = (): VNode => (
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    <IconButton onClick={(): void => {}} iconName="bin" />
+);

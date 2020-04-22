@@ -14,6 +14,8 @@ import { Text } from '@/modules/localisation/components/text';
 import { useRef, useState } from 'preact/hooks';
 import { validateInputField } from '@/common/utils/form';
 import { TextInput } from '@/common/components/textInput';
+import { useAction } from '@/store';
+import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 
 const formValidation = {
     label(val?: string): boolean | string {
@@ -25,12 +27,16 @@ const formValidation = {
     password(val?: string): boolean | string {
         return (val && val.length >= 4) || 'optionsPanel.passwordTooShort';
     },
+    masterKey(val?: string) {
+        return (val && val.length >= 6) || 'optionsPanel.masterKeyTooShort';
+    },
 } as const;
 
 export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
 }: VariantProps) => {
     const formRef = useRef(undefined as any);
+    const addNewPassword = useAction(passwordListActions.addNewPassword);
     const [labelValue, setLabelValue] = useState('');
     const [labelErrors, setLabelErrors] = useState('');
 
@@ -40,11 +46,21 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     const [passwordValue, setPasswordValue] = useState('');
     const [passwordErrors, setPasswordErrors] = useState('');
 
+    const [masterKeyValue, setMasterKeyValue] = useState('');
+    const [masterKeyErrors, setMasterKeyErrors] = useState('');
+
     const handleCancelClick = (): void =>
         switchCurrentVariantName(variantNames.entityFormCollapsed);
 
-    const handleAddClick = (): void => {
-        // TODO: dispatchAction addNewPassword
+    const handleAddClick = async (): Promise<void> => {
+        await addNewPassword(
+            {
+                label: labelValue,
+                login: loginValue,
+                password: passwordValue,
+            },
+            masterKeyValue
+        );
         switchCurrentVariantName(variantNames.entityFormCollapsed);
     };
 
@@ -96,9 +112,28 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
         />
     );
 
-    const isSubmitDisabled = [labelErrors, loginErrors, passwordErrors].some(
-        Boolean
+    const renderMasterKeyInput = (): VNode => (
+        <TextInput
+            placeholder="e.g. MyStrongPassword1234"
+            hasError={Boolean(masterKeyErrors)}
+            name="masterKey"
+            value={masterKeyValue}
+            onInput={validateInputField(
+                'masterKey',
+                formRef,
+                formValidation,
+                setMasterKeyValue,
+                setMasterKeyErrors
+            )}
+        />
     );
+
+    const isSubmitDisabled = [
+        labelErrors,
+        loginErrors,
+        passwordErrors,
+        masterKeyErrors,
+    ].some(Boolean);
     const renderLabel = (label: string) => (): VNode => <Text>{label}</Text>;
     const renderError = (errors: string) => (): VNode => <Text>{errors}</Text>;
     return (
@@ -134,6 +169,16 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                                 )}
                                 renderInput={renderPasswordInput}
                                 renderError={renderError(passwordErrors)}
+                            />
+                        </FormControlWrapper>
+                        <FormControlWrapper>
+                            <FormControl
+                                hasError={Boolean(passwordErrors)}
+                                renderLabel={renderLabel(
+                                    'optionsPanel.enterMasterKey'
+                                )}
+                                renderInput={renderMasterKeyInput}
+                                renderError={renderError(masterKeyErrors)}
                             />
                         </FormControlWrapper>
                     </form>

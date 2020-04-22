@@ -8,6 +8,7 @@ import {
 } from '@/modules/database/database.selectors';
 import { VariantName } from '@/modules/passwordList/passwordList.contants';
 import { PasswordListState } from '@/modules/passwordList/passwordList.state';
+import { PasswordEntityPayload } from '@/modules/database/database.service';
 
 const merge = mergeState<PasswordListState>('passwordList');
 
@@ -33,13 +34,29 @@ export const passwordListActions = {
         if (!selectIsClientSet(appState)) {
             await callAction(databaseActions.setClient, masterKey, adminKey);
         }
-        const client = selectClient(store.getState());
-        // TODO: Cache it?
-        const passwords = await fetchAllPasswordEntities(client as Client);
+        const client = selectClient(store.getState()) as Client;
+        const passwords = await fetchAllPasswordEntities(client);
 
         // TODO: hide global loader
-        // TODO: setCurrentOptionPanelVariant (if passwords.length > 0 'decode' if not 'form'
-
         return merge({ passwords });
+    },
+    addNewPassword: async (
+        appState: AppState,
+        newEntityPayload: PasswordEntityPayload,
+        masterKey: string
+    ): Promise<Partial<AppState>> => {
+        const { createPasswordEntity } = await import(
+            '@/modules/database/database.service'
+        );
+        const { encrypt } = await import('@/modules/cipher/cipher.service');
+
+        const client = selectClient(store.getState()) as Client;
+        const encryptedPasswordEntity = encrypt(
+            newEntityPayload,
+            masterKey,
+            true
+        );
+        await createPasswordEntity(client, encryptedPasswordEntity);
+        return merge({});
     },
 };

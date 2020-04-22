@@ -10,11 +10,13 @@ export default {
 export const defaultView = (): VNode => (
     <PasswordEntity
         data={{
-            refId: 'xd12',
-            createdAt: '10.02.2010',
-            label: 'Company bank',
-            login: 'theGreatest1292',
-            password: 'xa12j!@sfpsqw',
+            ref: { id: 'x1', value: { id: 'x1 ' } },
+            ts: Date.now(),
+            data: { value: 'v1' },
+        }}
+        isSelected={false}
+        onClick={() => {
+            /* eslint-disable @typescript-eslint/no-empty-function */
         }}
     />
 );
