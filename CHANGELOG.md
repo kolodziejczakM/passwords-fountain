@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.2.0...v0.3.0) (2020-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **module:** Instead of having everything in .model file now we have .actions and .state
+
+* **module:** changed module structure to evade circular deps ([0655f1c](https://github.com/kolodziejczakM/passwords-fountain/commit/0655f1c0129237f4d5eccc0b8efc1df4e5324f3e))
+
 ## [0.2.0](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.1.31...v0.2.0) (2020-04-21)
 
 
