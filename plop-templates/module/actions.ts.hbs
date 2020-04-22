@@ -1,9 +1,7 @@
 import { AppState } from '@/store';
 import { mergeState } from '@/common/utils/store';
+import { {{pascalCase name}}State } from './{{camelCase name}}.state';
 
-export const {{camelCase name}}State = {};
-
-export type {{pascalCase name}}State = typeof {{camelCase name}}State;
 const merge = mergeState<{{pascalCase name}}State>('{{camelCase name}}');
 
 export const {{camelCase name}}Actions = {

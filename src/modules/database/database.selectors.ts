@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { AppState } from '@/store';
-import { DatabaseState } from './database.model';
+import { DatabaseState } from './database.state';
 import { adminKeyLocalStorageKeyName } from './database.constants';
 import { Client } from 'faunadb';
 

@@ -1,18 +1,14 @@
 import createStore from 'unistore';
 import devtools from 'unistore/devtools';
 
-import { overlayState } from '@/modules/overlay/overlay.model';
-import { passwordListState } from '@/modules/passwordList/passwordList.model';
-import { homeState } from '@/modules/home/home.model';
-import { cipherState } from '@/modules/cipher/cipher.model';
-import { databaseState } from '@/modules/database/database.model';
+import { overlayState } from '@/modules/overlay/overlay.state';
+import { passwordListState } from '@/modules/passwordList/passwordList.state';
+import { databaseState } from '@/modules/database/database.state';
 //<-- IMPORT MODULE STATE -->
 
 const appState = {
     overlay: overlayState,
     passwordList: passwordListState,
-    home: homeState,
-    cipher: cipherState,
     database: databaseState,
     //<-- INJECT MODULE STATE -->
 } as const;

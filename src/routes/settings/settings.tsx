@@ -19,8 +19,8 @@ import { TextInput } from '@/common/components/textInput';
 import { FormControl } from '@/common/components/formControl';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Button } from '@/common/components/button';
-import { useAction, store } from '@/store';
-import { passwordListActions } from '@/modules/passwordList/passwordList.model';
+import { useAction } from '@/store';
+import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 
 const formValidation = {
     adminKey(val?: string): boolean | string {
@@ -32,7 +32,7 @@ const formValidation = {
 } as const;
 
 export const Settings: TypedComponent<Props> = () => {
-    const fetchPasswords = useAction(passwordListActions(store).fetchPasswords);
+    const fetchPasswords = useAction(passwordListActions.fetchPasswords);
     const formRef = useRef(undefined as any);
     const [adminKeyValue, setAdminKeyValue] = useState('');
     const [adminKeyErrors, setAdminKeyErrors] = useState('');

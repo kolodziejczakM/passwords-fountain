@@ -66,8 +66,14 @@ module.exports = plop => {
             {
                 type: 'add',
                 path:
-                    'src/modules/{{camelCase name}}/{{camelCase name}}.model.ts',
-                templateFile: 'plop-templates/module/model.ts.hbs',
+                    'src/modules/{{camelCase name}}/{{camelCase name}}.actions.ts',
+                templateFile: 'plop-templates/module/actions.ts.hbs',
+            },
+            {
+                type: 'add',
+                path:
+                    'src/modules/{{camelCase name}}/{{camelCase name}}.state.ts',
+                templateFile: 'plop-templates/module/state.ts.hbs',
             },
             {
                 type: 'add',
@@ -80,7 +86,7 @@ module.exports = plop => {
                 path: 'src/store.ts',
                 pattern: /(\/\/<-- IMPORT MODULE STATE -->)/g,
                 template:
-                    "import { {{ camelCase name }}State } from '@/modules/{{ camelCase name }}/{{ camelCase name }}.model';\n$1",
+                    "import { {{ camelCase name }}State } from '@/modules/{{ camelCase name }}/{{ camelCase name }}.state';\n$1",
             },
             {
                 type: 'modify',

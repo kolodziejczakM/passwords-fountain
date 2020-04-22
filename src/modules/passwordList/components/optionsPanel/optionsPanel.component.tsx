@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { store, useSelector, useAction } from '@/store';
+import { useSelector, useAction } from '@/store';
 import { TypedComponent } from '@/common/typings/prop-types';
 import { Wrapper } from './optionsPanel.styles';
 import { OptionsPanelConnectCollapsed } from './optionsPanelConnectCollapsed';
@@ -7,7 +7,7 @@ import { OptionsPanelConnectExpanded } from './optionsPanelConnectExpanded';
 import { OptionsPanelEntityFormCollapsed } from './optionsPanelEntityFormCollapsed';
 import { OptionsPanelEntityFormExpanded } from './optionsPanelEntityFormExpanded';
 import { selectCurrentOptionPanelVariantName } from '@/modules/passwordList/passwordList.selectors';
-import { passwordListActions } from '@/modules/passwordList/passwordList.model';
+import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import { VariantName } from '@/modules/passwordList/passwordList.contants';
 
 type VariantSwitcher = (destination: VariantName) => void;
@@ -23,7 +23,7 @@ type VariantInstances = {
 export const OptionsPanel: TypedComponent<Props> = () => {
     const currentVariantName = useSelector(selectCurrentOptionPanelVariantName);
     const setCurrentVariantName = useAction(
-        passwordListActions(store).switchOptionPanelVariant
+        passwordListActions.switchOptionPanelVariant
     );
 
     const variants: VariantInstances = {

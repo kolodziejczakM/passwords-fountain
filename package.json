@@ -92,7 +92,8 @@
         "preact-router": "^3.2.1",
         "prop-types": "^15.7.2",
         "reselect": "^4.0.0",
-        "unistore": "^3.4.1"
+        "unistore": "^3.4.1",
+        "wouter-preact": "^2.4.0"
     },
     "config": {
         "commitizen": {

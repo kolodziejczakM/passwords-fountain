@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { AppState } from '@/store';
-import { PasswordListState } from './passwordList.model';
+import { PasswordListState } from './passwordList.state';
 
 const selectPasswordList = (state: AppState): PasswordListState =>
     state.passwordList;

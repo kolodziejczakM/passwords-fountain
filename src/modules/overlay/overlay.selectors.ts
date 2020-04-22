@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { AppState } from '@/store';
-import { OverlayState } from './overlay.model';
+import { OverlayState } from './overlay.state';
 import { SnackbarType } from './overlay.constants';
 
 const selectOverlay = (state: AppState): OverlayState => state.overlay;

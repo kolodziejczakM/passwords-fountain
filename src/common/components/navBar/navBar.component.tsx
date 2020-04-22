@@ -1,5 +1,6 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
+import { useLocation } from 'wouter-preact';
 import {
     Wrapper,
     LogoWrapper,
@@ -42,7 +43,8 @@ const navLinks: NavLink[] = [
 
 export const NavBar: TypedComponent<Props> = () => {
     const logoIconSize = 40;
-    const isOnHomepage = location.pathname.length === 1;
+    const [location] = useLocation();
+    const isOnHomepage = location.length === 1;
 
     const renderNavLinks = renderIfTrue((): VNode[] => {
         return navLinks.map(navLink => (
