@@ -21,6 +21,14 @@ export const Wrapper = styled('button')`
     ${Row}:last-of-type {
         margin-bottom: 0;
     }
+
+    &:hover {
+        cursor: pointer;
+
+        * {
+            text-decoration: underline;
+        }
+    }
 `;
 
 export const GridWrapper = styled('span')`

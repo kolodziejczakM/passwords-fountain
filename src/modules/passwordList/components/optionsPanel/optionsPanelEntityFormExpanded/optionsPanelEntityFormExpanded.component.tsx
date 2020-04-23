@@ -11,25 +11,23 @@ import { FormControl } from '@/common/components/formControl';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
-import { useRef, useState } from 'preact/hooks';
-import { validateInputField } from '@/common/utils/form';
+import { useRef } from 'preact/hooks';
+import { useInputFormControl } from '@/common/utils/form';
 import { TextInput } from '@/common/components/textInput';
 import { useAction } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
+import {
+    label,
+    login,
+    password,
+    masterKey,
+} from '@/common/utils/formValidators';
 
 const formValidation = {
-    label(val?: string): boolean | string {
-        return (val && val.length >= 4) || 'optionsPanel.labelTooShort';
-    },
-    login(val?: string): boolean | string {
-        return (val && val.length >= 6) || 'optionsPanel.loginTooShort';
-    },
-    password(val?: string): boolean | string {
-        return (val && val.length >= 4) || 'optionsPanel.passwordTooShort';
-    },
-    masterKey(val?: string) {
-        return (val && val.length >= 6) || 'optionsPanel.masterKeyTooShort';
-    },
+    label,
+    login,
+    password,
+    masterKey,
 } as const;
 
 export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
@@ -37,17 +35,15 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
 }: VariantProps) => {
     const formRef = useRef(undefined as any);
     const addNewPassword = useAction(passwordListActions.addNewPassword);
-    const [labelValue, setLabelValue] = useState('');
-    const [labelErrors, setLabelErrors] = useState('');
+    const useInputForm = (fieldName: string) =>
+        useInputFormControl(formRef, formValidation, fieldName);
 
-    const [loginValue, setLoginValue] = useState('');
-    const [loginErrors, setLoginErrors] = useState('');
-
-    const [passwordValue, setPasswordValue] = useState('');
-    const [passwordErrors, setPasswordErrors] = useState('');
-
-    const [masterKeyValue, setMasterKeyValue] = useState('');
-    const [masterKeyErrors, setMasterKeyErrors] = useState('');
+    const [labelInputState, labelInputProps] = useInputForm('label');
+    const [loginInputState, loginInputProps] = useInputForm('login');
+    const [passwordInputState, passwordInputProps] = useInputForm('password');
+    const [masterKeyInputState, masterKeyInputProps] = useInputForm(
+        'masterKey'
+    );
 
     const handleCancelClick = (): void =>
         switchCurrentVariantName(variantNames.entityFormCollapsed);
@@ -55,84 +51,20 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     const handleAddClick = async (): Promise<void> => {
         await addNewPassword(
             {
-                label: labelValue,
-                login: loginValue,
-                password: passwordValue,
+                label: labelInputState.value,
+                login: loginInputState.value,
+                password: passwordInputState.value,
             },
-            masterKeyValue
+            masterKeyInputState.value
         );
         switchCurrentVariantName(variantNames.entityFormCollapsed);
     };
 
-    const renderLabelInput = (): VNode => (
-        <TextInput
-            placeholder="e.g. My Bank Account"
-            hasError={Boolean(labelErrors)}
-            name="label"
-            value={labelValue}
-            onInput={validateInputField(
-                'label',
-                formRef,
-                formValidation,
-                setLabelValue,
-                setLabelErrors
-            )}
-        />
-    );
-
-    const renderLoginInput = (): VNode => (
-        <TextInput
-            placeholder="e.g. yourmail@yourmail.com"
-            hasError={Boolean(loginErrors)}
-            name="login"
-            value={loginValue}
-            onInput={validateInputField(
-                'login',
-                formRef,
-                formValidation,
-                setLoginValue,
-                setLoginErrors
-            )}
-        />
-    );
-
-    const renderPasswordInput = (): VNode => (
-        <TextInput
-            placeholder="e.g. myPassWord1234"
-            hasError={Boolean(passwordErrors)}
-            name="password"
-            value={passwordValue}
-            onInput={validateInputField(
-                'password',
-                formRef,
-                formValidation,
-                setPasswordValue,
-                setPasswordErrors
-            )}
-        />
-    );
-
-    const renderMasterKeyInput = (): VNode => (
-        <TextInput
-            placeholder="e.g. MyStrongPassword1234"
-            hasError={Boolean(masterKeyErrors)}
-            name="masterKey"
-            value={masterKeyValue}
-            onInput={validateInputField(
-                'masterKey',
-                formRef,
-                formValidation,
-                setMasterKeyValue,
-                setMasterKeyErrors
-            )}
-        />
-    );
-
     const isSubmitDisabled = [
-        labelErrors,
-        loginErrors,
-        passwordErrors,
-        masterKeyErrors,
+        labelInputState.errors,
+        loginInputState.errors,
+        passwordInputState.errors,
+        masterKeyInputState.errors,
     ].some(Boolean);
     const renderLabel = (label: string) => (): VNode => <Text>{label}</Text>;
     const renderError = (errors: string) => (): VNode => <Text>{errors}</Text>;
@@ -143,42 +75,70 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                     <form ref={formRef}>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={Boolean(labelErrors)}
+                                hasError={Boolean(labelInputState.errors)}
                                 renderLabel={renderLabel(
                                     'optionsPanel.labelInputLabel'
                                 )}
-                                renderInput={renderLabelInput}
-                                renderError={renderError(labelErrors)}
+                                renderInput={(): VNode => (
+                                    <TextInput
+                                        placeholder="e.g. My Bank Account"
+                                        {...labelInputProps}
+                                    />
+                                )}
+                                renderError={renderError(
+                                    labelInputState.errors
+                                )}
                             />
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={Boolean(loginErrors)}
+                                hasError={passwordInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.loginInputLabel'
                                 )}
-                                renderInput={renderLoginInput}
-                                renderError={renderError(loginErrors)}
+                                renderInput={(): VNode => (
+                                    <TextInput
+                                        placeholder="e.g. yourmail@yourmail.com"
+                                        {...loginInputProps}
+                                    />
+                                )}
+                                renderError={renderError(
+                                    loginInputState.errors
+                                )}
                             />
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={Boolean(passwordErrors)}
+                                hasError={passwordInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.passwordInputLabel'
                                 )}
-                                renderInput={renderPasswordInput}
-                                renderError={renderError(passwordErrors)}
+                                renderInput={(): VNode => (
+                                    <TextInput
+                                        placeholder="e.g. myPassWord1234"
+                                        {...passwordInputProps}
+                                    />
+                                )}
+                                renderError={renderError(
+                                    passwordInputState.errors
+                                )}
                             />
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={Boolean(passwordErrors)}
+                                hasError={masterKeyInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.enterMasterKey'
                                 )}
-                                renderInput={renderMasterKeyInput}
-                                renderError={renderError(masterKeyErrors)}
+                                renderInput={(): VNode => (
+                                    <TextInput
+                                        placeholder="e.g. MyStrongPassword1234"
+                                        {...masterKeyInputProps}
+                                    />
+                                )}
+                                renderError={renderError(
+                                    masterKeyInputState.errors
+                                )}
                             />
                         </FormControlWrapper>
                     </form>

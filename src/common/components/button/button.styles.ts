@@ -31,7 +31,10 @@ export const Wrapper = styled('button')`
 
     &:hover:enabled {
         cursor: pointer;
-        text-decoration: underline;
+        
+        * {
+            text-decoration: underline;
+        }
     }
 `;
 

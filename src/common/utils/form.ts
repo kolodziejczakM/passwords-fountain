@@ -1,4 +1,5 @@
 import { RefObject } from 'preact';
+import { useState } from 'preact/hooks';
 import { validate } from 'formee';
 
 type InputEventHandler = (event: Event) => void;
@@ -19,4 +20,43 @@ export const validateInputField = (
 
     valueSetter(value ?? defaultValue);
     errorSetter(errors[fieldName] ?? defaultValue);
+};
+
+export interface FormTextInputState {
+    value: string;
+    setValue: (value: string) => void;
+    errors: string;
+    setErrors: (value: string) => void;
+}
+
+export interface FormTextInputProps {
+    name: string;
+    value: string;
+    hasError: boolean;
+    onInput: Function;
+}
+
+export const useInputFormControl = (
+    formRef: RefObject<HTMLFormElement>,
+    formValidation: { [key: string]: (val: string) => boolean | string },
+    fieldName: string
+): [FormTextInputState, FormTextInputProps] => {
+    const [value, setValue] = useState('');
+    const [errors, setErrors] = useState('');
+
+    return [
+        { value, setValue, errors, setErrors },
+        {
+            name: fieldName,
+            value,
+            hasError: Boolean(errors),
+            onInput: validateInputField(
+                fieldName,
+                formRef,
+                formValidation,
+                setValue,
+                setErrors
+            ),
+        },
+    ];
 };

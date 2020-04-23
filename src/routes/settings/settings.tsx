@@ -13,72 +13,45 @@ import {
     ControlsWrapper,
 } from './settings.styles';
 import { Text } from '@/modules/localisation/components/text';
-import { useRef, useState } from 'preact/hooks';
-import { validateInputField } from '@/common/utils/form';
-import { TextInput } from '@/common/components/textInput';
+import { useRef } from 'preact/hooks';
 import { FormControl } from '@/common/components/formControl';
+import { TextInput } from '@/common/components/textInput';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Button } from '@/common/components/button';
 import { useAction } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
+import { adminKey, masterKey } from '@/common/utils/formValidators';
+import { useInputFormControl } from '@/common/utils/form';
 
 const formValidation = {
-    adminKey(val?: string): boolean | string {
-        return (val && val.length >= 10) || 'settings.adminKeyTooShort';
-    },
-    masterKey(val?: string): boolean | string {
-        return (val && val.length >= 6) || 'optionsPanel.masterKeyTooShort';
-    },
+    adminKey,
+    masterKey,
 } as const;
 
 export const Settings: TypedComponent<Props> = () => {
     const fetchPasswords = useAction(passwordListActions.fetchPasswords);
-    const formRef = useRef(undefined as any);
-    const [adminKeyValue, setAdminKeyValue] = useState('');
-    const [adminKeyErrors, setAdminKeyErrors] = useState('');
-
-    const [masterKeyValue, setMasterKeyValue] = useState('');
-    const [masterKeyErrors, setMasterKeyErrors] = useState('');
+    const formRef = useRef<HTMLFormElement>(undefined as any);
+    const [adminKeyInputState, adminKeyInputProps] = useInputFormControl(
+        formRef,
+        formValidation,
+        'adminKey'
+    );
+    const [masterKeyInputState, masterKeyInputProps] = useInputFormControl(
+        formRef,
+        formValidation,
+        'masterKey'
+    );
 
     const handleConnectClick = async (): Promise<void> => {
-        await fetchPasswords(masterKeyValue, adminKeyValue);
+        await fetchPasswords(
+            masterKeyInputState.value,
+            adminKeyInputState.value
+        );
         route('/app');
     };
     const handleBackClick = (): void => {
         history.back();
     };
-
-    const renderAdminKeyInput = (): VNode => (
-        <TextInput
-            placeholder="92xIJf_ge234kalfnqql4o25ou4334201"
-            hasError={Boolean(adminKeyErrors)}
-            name="adminKey"
-            value={adminKeyValue}
-            onInput={validateInputField(
-                'adminKey',
-                formRef,
-                formValidation,
-                setAdminKeyValue,
-                setAdminKeyErrors
-            )}
-        />
-    );
-
-    const renderMasterKeyInput = (): VNode => (
-        <TextInput
-            placeholder="myMasterPassword1234"
-            hasError={Boolean(masterKeyErrors)}
-            name="masterKey"
-            value={masterKeyValue}
-            onInput={validateInputField(
-                'masterKey',
-                formRef,
-                formValidation,
-                setMasterKeyValue,
-                setMasterKeyErrors
-            )}
-        />
-    );
 
     const renderNoteLabel = (labelDescription: string, shouldRender: boolean) =>
         renderIfTrue(() => (
@@ -121,27 +94,39 @@ export const Settings: TypedComponent<Props> = () => {
                 <form ref={formRef}>
                     <FormControlWrapper>
                         <FormControl
-                            hasError={Boolean(adminKeyErrors)}
+                            hasError={Boolean(adminKeyInputProps.hasError)}
                             renderLabel={renderLabel(
                                 'settings.adminKeyLabel',
                                 'settings.adminKeyLabelDescription',
                                 'settings.noteLabelDescriptionAdminKey'
                             )}
-                            renderInput={renderAdminKeyInput}
-                            renderError={renderError(adminKeyErrors)}
+                            renderInput={(): VNode => (
+                                <TextInput
+                                    placeholder="92xIJf_ge234kalfnqql4o25ou4334201"
+                                    {...adminKeyInputProps}
+                                />
+                            )}
+                            renderError={renderError(adminKeyInputState.errors)}
                         />
                     </FormControlWrapper>
                     <FormControlWrapper>
                         <FormControl
-                            hasError={Boolean(masterKeyErrors)}
+                            hasError={Boolean(masterKeyInputProps.hasError)}
                             renderLabel={renderLabel(
                                 'settings.masterKeyLabel',
                                 'settings.masterKeyLabelDescription',
                                 'settings.noteLabelDescription',
                                 true
                             )}
-                            renderInput={renderMasterKeyInput}
-                            renderError={renderError(masterKeyErrors)}
+                            renderInput={(): VNode => (
+                                <TextInput
+                                    placeholder="myMasterPassword1234"
+                                    {...masterKeyInputProps}
+                                />
+                            )}
+                            renderError={renderError(
+                                masterKeyInputState.errors
+                            )}
                         />
                     </FormControlWrapper>
                     <ControlsWrapper>

@@ -17,6 +17,7 @@ module.exports = {
         '@typescript-eslint/interface-name-prefix': 0, // I don't consider prefixing interfaces names with "I" bad thing
         'react/jsx-indent': 0, // no need to have different indentation in jsx itself
         'react/react-in-jsx-scope': 0, // We don't need react imports in preact
+        '@typescript-eslint/explicit-function-return-type': 0, // There are lots of reasons to let TypeScript infer types instead of adding them explicitly
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     },

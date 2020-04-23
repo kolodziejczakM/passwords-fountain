@@ -9,17 +9,14 @@ import { VariantProps } from '../optionsPanel.component';
 import { variantNames } from '@/modules/passwordList/passwordList.contants';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
-import { useRef, useState } from 'preact/hooks';
-import { validateInputField } from '@/common/utils/form';
+import { useRef } from 'preact/hooks';
 import { useAction, useSelector } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import { selectAdminKey } from '@/modules/database/database.selectors';
+import { masterKey } from '@/common/utils/formValidators';
+import { useInputFormControl } from '@/common/utils/form';
 
-const formValidation = {
-    masterKey(val?: string) {
-        return (val && val.length >= 6) || 'optionsPanel.masterKeyTooShort';
-    },
-} as const;
+const formValidation = { masterKey } as const;
 
 export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
@@ -27,42 +24,36 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     const encryptedAdminKey = useSelector(selectAdminKey);
     const fetchPasswords = useAction(passwordListActions.fetchPasswords);
     const formRef = useRef(undefined as any);
-    const [masterKeyValue, setMasterKeyValue] = useState('');
-    const [masterKeyErrors, setMasterKeyErrors] = useState('');
+    const [masterKeyInputState, masterKeyInputProps] = useInputFormControl(
+        formRef,
+        formValidation,
+        'masterKey'
+    );
 
     const handleCancelClick = (): void =>
         switchCurrentVariantName(variantNames.connectCollapsed);
 
     const handleConfirmClick = async (): Promise<void> => {
-        await fetchPasswords(masterKeyValue, encryptedAdminKey);
+        await fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
         switchCurrentVariantName(variantNames.entityFormCollapsed);
     };
 
     const renderInput = (): VNode => (
         <TextInput
             placeholder="e.g. MyStrongPassword1234"
-            hasError={Boolean(masterKeyErrors)}
-            name="masterKey"
-            value={masterKeyValue}
-            onInput={validateInputField(
-                'masterKey',
-                formRef,
-                formValidation,
-                setMasterKeyValue,
-                setMasterKeyErrors
-            )}
+            {...masterKeyInputProps}
         />
     );
 
     const renderLabel = (): VNode => <Text>optionsPanel.enterMasterKey</Text>;
-    const renderError = (): VNode => <Text>{masterKeyErrors}</Text>;
+    const renderError = (): VNode => <Text>{masterKeyInputState.errors}</Text>;
     return (
         <Wrapper>
             <ContentWrapper>
                 <Content>
                     <form ref={formRef}>
                         <FormControl
-                            hasError={Boolean(masterKeyErrors)}
+                            hasError={Boolean(masterKeyInputProps.hasError)}
                             renderLabel={renderLabel}
                             renderInput={renderInput}
                             renderError={renderError}
@@ -76,7 +67,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
                 </Button>
                 <Button
                     onClick={handleConfirmClick}
-                    disabled={Boolean(masterKeyErrors)}
+                    disabled={Boolean(masterKeyInputState.errors)}
                 >
                     <Text>optionsPanel.confirm</Text>
                 </Button>
