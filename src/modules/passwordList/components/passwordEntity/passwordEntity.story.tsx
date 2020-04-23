@@ -12,7 +12,7 @@ export const defaultView = (): VNode => (
         data={{
             ref: { id: 'x1', value: { id: 'x1 ' } },
             ts: Date.now(),
-            data: { value: 'v1' },
+            data: { label: 'My EA Account', value: 'v1' },
         }}
         isSelected={false}
         onClick={() => {

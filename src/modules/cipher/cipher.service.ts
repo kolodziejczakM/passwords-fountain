@@ -1,9 +1,9 @@
 import AES from 'crypto-js/aes';
 import UTF8 from 'crypto-js/enc-utf8';
-import { PasswordEntityPayload } from '../database/database.service';
+import { PasswordEntityVulnerablePayload } from '../database/database.service';
 
 export const encrypt = (
-    vulnerable: string | PasswordEntityPayload,
+    vulnerable: string | PasswordEntityVulnerablePayload,
     masterKey: string,
     withJSONStringify = false
 ): string => {
@@ -18,7 +18,7 @@ export const decrypt = (
     vulnerableHashed: string,
     masterKey: string,
     withJSONParsing = false
-): string | PasswordEntityPayload => {
+): string | PasswordEntityVulnerablePayload => {
     const decrypted = AES.decrypt(vulnerableHashed, masterKey).toString(UTF8);
 
     return withJSONParsing ? JSON.parse(decrypted) : decrypted;

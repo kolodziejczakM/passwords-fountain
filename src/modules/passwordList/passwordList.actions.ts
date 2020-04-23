@@ -52,11 +52,17 @@ export const passwordListActions = {
 
         const client = selectClient(store.getState()) as Client;
         const encryptedPasswordEntity = encrypt(
-            newEntityPayload,
+            {
+                login: newEntityPayload.login,
+                password: newEntityPayload.password,
+            },
             masterKey,
             true
         );
-        await createPasswordEntity(client, encryptedPasswordEntity);
+        await createPasswordEntity(client, {
+            label: newEntityPayload.label,
+            value: encryptedPasswordEntity,
+        });
         return merge({});
     },
 };

@@ -3,21 +3,30 @@ import faunadb, { ClientConfig, Client } from 'faunadb';
 const { query } = faunadb;
 const collectionName = process.env.COLLECTION_NAME as string;
 const indexName = process.env.INDEX_NAME as string;
+const dbKeysLimit = process.env.DB_KEYS_LIMIT as string;
 
 interface PasswordListRaw {
     data: PasswordEntityRaw[];
 }
 
+interface PasswordEntityDatabasePayload {
+    label: string;
+    value: string;
+}
+
 export interface PasswordEntityRaw {
     ref: { id: string; value: { id: string } };
     ts: number;
-    data: { value: string }; // all passwords are stored in db as encrypted strings
+    data: PasswordEntityDatabasePayload; // all passwords are stored in db as encrypted strings
 }
 
-export interface PasswordEntityPayload {
-    label: string;
+export interface PasswordEntityVulnerablePayload {
     password: string;
     login: string;
+}
+
+export interface PasswordEntityPayload extends PasswordEntityVulnerablePayload {
+    label: string;
 }
 
 export interface PasswordEntity {
@@ -26,6 +35,12 @@ export interface PasswordEntity {
     label: string;
     password: string;
     login: string;
+}
+
+interface KeyRef {
+    value: {
+        id: string;
+    };
 }
 
 const hasCollections = async (client: Client): Promise<boolean> => {
@@ -42,6 +57,27 @@ const hasAllPasswordsIndex = async (client: Client): Promise<boolean> => {
     );
 
     return Boolean(indexes.data.length);
+};
+
+const fetchKeys = async (adminClient: Client): Promise<KeyRef[]> => {
+    const keys: { data: KeyRef[] } = await adminClient.query(
+        query.Paginate(query.Keys())
+    );
+
+    return keys.data;
+};
+
+const deleteKey = async (adminClient: Client, refId: string): Promise<void> => {
+    await adminClient.query(query.Delete(query.Ref(query.Keys(), refId)));
+};
+
+const removeUnusedServerKey = async (adminClient: Client): Promise<void> => {
+    const keys = await fetchKeys(adminClient);
+    const firstServerKeyRefId = keys[1].value.id;
+
+    if (keys.length > Number(dbKeysLimit)) {
+        await deleteKey(adminClient, firstServerKeyRefId);
+    }
 };
 
 export const setupClient = async (options: ClientConfig): Promise<Client> => {
@@ -65,6 +101,7 @@ export const setupClient = async (options: ClientConfig): Promise<Client> => {
         );
     }
 
+    removeUnusedServerKey(adminClient);
     return client;
 };
 
@@ -84,11 +121,11 @@ export const fetchAllPasswordEntities = async (
 
 export const createPasswordEntity = async (
     client: Client,
-    encryptedEntity: string
+    encryptedEntity: PasswordEntityDatabasePayload
 ): Promise<void> => {
     await client.query(
         query.Create(query.Collection(collectionName), {
-            data: { value: encryptedEntity },
+            data: encryptedEntity,
         })
     );
 };
