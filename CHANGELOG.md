@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.4](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.3...v0.3.4) (2020-04-23)
+
+
+### Bug Fixes
+
+* **server keys:** unused FaunaDB server keys removal ([f48da80](https://github.com/kolodziejczakM/passwords-fountain/commit/f48da8056b6d7bdbc58a6ca1867f6bb2de82b85b))
+
 ### [0.3.3](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.2...v0.3.3) (2020-04-23)
 
 ### [0.3.2](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.1...v0.3.2) (2020-04-22)
