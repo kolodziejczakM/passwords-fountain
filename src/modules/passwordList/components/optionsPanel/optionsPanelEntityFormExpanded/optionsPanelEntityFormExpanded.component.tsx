@@ -75,7 +75,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                     <form ref={formRef}>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={Boolean(labelInputState.errors)}
+                                hasError={labelInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.labelInputLabel'
                                 )}

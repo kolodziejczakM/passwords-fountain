@@ -25,7 +25,7 @@ export const Wrapper = styled('button')`
     &:hover {
         cursor: pointer;
 
-        * {
+        & > span {
             text-decoration: underline;
         }
     }
@@ -57,4 +57,8 @@ export const DataWrapper = styled('div')`
 export const ControlsWrapper = styled('div')`
     display: grid;
     align-content: space-between;
+`;
+
+export const FormControlWrapper = styled('div')`
+    text-align: left;
 `;

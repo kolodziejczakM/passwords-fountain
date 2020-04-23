@@ -30,7 +30,7 @@ const mock = [
 
 export const selectPasswords = createSelector(
     selectPasswordList,
-    (passwordListState: PasswordListState) => mock // passwordListState.passwords
+    (passwordListState: PasswordListState) => passwordListState.passwords
 );
 
 export const selectCurrentOptionPanelVariantName = createSelector(

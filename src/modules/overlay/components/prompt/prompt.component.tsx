@@ -1,26 +1,26 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
-import { Wrapper, MessageTextWrapper, ControlsWrapper } from './prompt.styles';
+import { Wrapper, ContentWrapper, ControlsWrapper } from './prompt.styles';
 
 export const Prompt: TypedComponent<Props> = ({
-    renderMessage,
+    renderContent,
     renderControls,
 }: Props) => {
     return (
-        <Wrapper>
-            <MessageTextWrapper>{renderMessage()}</MessageTextWrapper>
+        <Wrapper onClick={(e: Event) => e.stopPropagation()}>
+            <ContentWrapper>{renderContent()}</ContentWrapper>
             <ControlsWrapper>{renderControls()}</ControlsWrapper>
         </Wrapper>
     );
 };
 
 interface Props {
-    renderMessage: () => VNode | string;
+    renderContent: () => VNode | string;
     renderControls: () => VNode;
 }
 
 Prompt.propTypes = {
-    renderMessage: PropTypes.func.isRequired,
+    renderContent: PropTypes.func.isRequired,
     renderControls: PropTypes.func.isRequired,
 };

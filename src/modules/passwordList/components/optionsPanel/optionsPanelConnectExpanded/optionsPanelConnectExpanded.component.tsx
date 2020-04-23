@@ -53,7 +53,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
                 <Content>
                     <form ref={formRef}>
                         <FormControl
-                            hasError={Boolean(masterKeyInputProps.hasError)}
+                            hasError={masterKeyInputProps.hasError}
                             renderLabel={renderLabel}
                             renderInput={renderInput}
                             renderError={renderError}
@@ -67,7 +67,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
                 </Button>
                 <Button
                     onClick={handleConfirmClick}
-                    disabled={Boolean(masterKeyInputState.errors)}
+                    disabled={masterKeyInputProps.hasError}
                 >
                     <Text>optionsPanel.confirm</Text>
                 </Button>

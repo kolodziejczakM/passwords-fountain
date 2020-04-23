@@ -10,7 +10,7 @@ export default {
 
 export const defaultView = (): VNode => (
     <Prompt
-        renderMessage={(): string =>
+        renderContent={(): string =>
             'Are you sure you want to delete this file?'
         }
         renderControls={(): VNode => (

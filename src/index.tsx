@@ -6,7 +6,9 @@ import './globalStyles';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import { LocalisationProvider } from './modules/localisation/localisation.context';
 
-OfflinePluginRuntime.install();
+if (process.env.NODE_ENV !== 'development') {
+    OfflinePluginRuntime.install();
+}
 
 if ((module as any).hot) {
     (module.hot as any).accept();

@@ -5,7 +5,7 @@ setPragma(h);
 
 export const Wrapper = styled('section')`
     position: fixed;
-    top: 100px;
+    top: 76px;
     left: 50%;
     transform: translateX(-50%);
     display: grid;
@@ -14,15 +14,18 @@ export const Wrapper = styled('section')`
     max-width: 640px;
     justify-items: center;
     grid-auto-flow: row;
-    padding: ${theme.spacing.m18};
+    padding: ${theme.spacing.xl30} ${theme.spacing.m18};
     border: 1px solid ${theme.colors.primaryBlue};
     border-top: 4px solid ${theme.colors.primaryBlue};
     background: ${theme.colors.white};
 `;
 
-export const MessageTextWrapper = styled('div')`
+export const ContentWrapper = styled('div')`
     ${typography.text18}
-    padding: ${theme.spacing.xs6};
+    display: grid;
+    max-width: 480px;
+    width: 100%;
+    padding: 0 ${theme.spacing.xs6} ${theme.spacing.xs6};
     margin-bottom: ${theme.spacing.m18};
     text-align: center;
 `;
