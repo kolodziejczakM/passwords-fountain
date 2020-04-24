@@ -19,3 +19,8 @@ export const selectIsSnackbarVisible = createSelector(
     selectSnackbarMessageKey,
     (messageKey: string): boolean => Boolean(messageKey.length)
 );
+
+export const selectIsGlobalLoaderVisible = createSelector(
+    selectOverlay,
+    overlay => overlay.isGlobalLoaderVisible
+);

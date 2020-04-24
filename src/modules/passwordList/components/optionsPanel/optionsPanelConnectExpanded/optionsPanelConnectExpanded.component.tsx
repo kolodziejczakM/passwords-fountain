@@ -34,8 +34,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
         switchCurrentVariantName(variantNames.connectCollapsed);
 
     const handleConfirmClick = async (): Promise<void> => {
-        await fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
-        switchCurrentVariantName(variantNames.entityFormCollapsed);
+        fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
     };
 
     const renderInput = (): VNode => (

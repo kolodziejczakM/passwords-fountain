@@ -1,9 +1,10 @@
 import { AppState } from '@/store';
-import { mergeState } from '@/common/utils/store';
+import { callAction, mergeState } from '@/common/utils/store';
 import { adminKeyLocalStorageKeyName } from './database.constants';
 import { Client } from 'faunadb';
 import { selectAdminKey } from '@/modules/database/database.selectors';
 import { DatabaseState } from '@/modules/database/database.state';
+import { overlayActions } from '@/modules/overlay/overlay.actions';
 
 const merge = mergeState<DatabaseState>('database');
 
@@ -18,17 +19,31 @@ export const databaseActions = {
             '@/modules/cipher/cipher.service'
         );
 
-        const decryptedAdminKey =
-            adminKey === selectAdminKey()
-                ? (decrypt(adminKey, masterKey) as string)
-                : adminKey;
+        try {
+            const decryptedAdminKey =
+                adminKey === selectAdminKey()
+                    ? (decrypt(adminKey, masterKey) as string)
+                    : adminKey;
 
-        const client: Client = await setupClient({
-            secret: decryptedAdminKey,
-        });
+            const client: Client = await setupClient({
+                secret: decryptedAdminKey,
+            });
 
-        const encryptedAdminKey = encrypt(decryptedAdminKey, masterKey);
-        localStorage.setItem(adminKeyLocalStorageKeyName, encryptedAdminKey);
-        return merge({ client });
+            const encryptedAdminKey = encrypt(decryptedAdminKey, masterKey);
+            localStorage.setItem(
+                adminKeyLocalStorageKeyName,
+                encryptedAdminKey
+            );
+            return merge({ client });
+        } catch (err) {
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(
+                overlayActions.showSnackbar,
+                'snackbar.couldNotConnectToDB',
+                'error'
+            );
+            // TODO: send error to error tracking service
+            return merge({});
+        }
     },
 };

@@ -6,9 +6,13 @@ import {
     selectIsClientSet,
     selectClient,
 } from '@/modules/database/database.selectors';
-import { VariantName } from '@/modules/passwordList/passwordList.contants';
+import {
+    VariantName,
+    variantNames,
+} from '@/modules/passwordList/passwordList.contants';
 import { PasswordListState } from '@/modules/passwordList/passwordList.state';
 import { PasswordEntityPayload } from '@/modules/database/database.service';
+import { overlayActions } from '@/modules/overlay/overlay.actions';
 
 const merge = mergeState<PasswordListState>('passwordList');
 
@@ -26,7 +30,7 @@ export const passwordListActions = {
         masterKey: string,
         adminKey: string
     ): Promise<Partial<AppState>> => {
-        // TODO: Show global loader
+        callAction(overlayActions.showGlobalLoader);
         const { fetchAllPasswordEntities } = await import(
             '@/modules/database/database.service'
         );
@@ -34,11 +38,33 @@ export const passwordListActions = {
         if (!selectIsClientSet(appState)) {
             await callAction(databaseActions.setClient, masterKey, adminKey);
         }
-        const client = selectClient(store.getState()) as Client;
-        const passwords = await fetchAllPasswordEntities(client);
 
-        // TODO: hide global loader
-        return merge({ passwords });
+        const client = selectClient(store.getState()) as Client;
+
+        try {
+            const passwords = await fetchAllPasswordEntities(client);
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(
+                overlayActions.showSnackbar,
+                'snackbar.passwordsFetchedSuccessfully',
+                'success'
+            );
+            callAction(
+                passwordListActions.switchOptionPanelVariant,
+                variantNames.entityFormCollapsed
+            );
+
+            return merge({ passwords });
+        } catch (err) {
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(
+                overlayActions.showSnackbar,
+                'snackbar.couldNotFetchPasswords',
+                'error'
+            );
+            // TODO: send error to error tracking service
+            return merge({});
+        }
     },
     addNewPassword: async (
         appState: AppState,
@@ -51,18 +77,30 @@ export const passwordListActions = {
         const { encrypt } = await import('@/modules/cipher/cipher.service');
 
         const client = selectClient(store.getState()) as Client;
-        const encryptedPasswordEntity = encrypt(
-            {
-                login: newEntityPayload.login,
-                password: newEntityPayload.password,
-            },
-            masterKey,
-            true
-        );
-        await createPasswordEntity(client, {
-            label: newEntityPayload.label,
-            value: encryptedPasswordEntity,
-        });
-        return merge({});
+
+        try {
+            const encryptedPasswordEntity = encrypt(
+                {
+                    login: newEntityPayload.login,
+                    password: newEntityPayload.password,
+                },
+                masterKey,
+                true
+            );
+            await createPasswordEntity(client, {
+                label: newEntityPayload.label,
+                value: encryptedPasswordEntity,
+            });
+        } catch (err) {
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(
+                overlayActions.showSnackbar,
+                'snackbar.couldNotCreateNewPassword',
+                'error'
+            );
+            // TODO: send error to error tracking service
+        } finally {
+            return merge({});
+        }
     },
 };

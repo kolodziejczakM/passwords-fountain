@@ -3,10 +3,16 @@ export default {
         error: 'Błąd',
         success: 'Sukces',
         info: 'Info',
-        'snackbar.dbConnectionError':
-            'połączenie z bazą danych nie powiodło się.',
         'snackbar.newPasswordAdded': 'dodano nowe hasło!',
         'snackbar.passwordCopiedToClipboard': 'skopiowano do schowka.',
+        'snackbar.passwordsFetchedSuccessfully':
+            'twoje hasła zostały poprawnie pobrane!',
+        'snackbar.couldNotFetchPasswords':
+            'nie można pobrać haseł - spróbuj wprowadzić klucz główny ponownie.',
+        'snackbar.couldNotConnectToDB':
+            'nie można ustanowić połączenia z bazą danych. Sprawdź swój klucz główny.',
+        'snackbar.couldNotCreateNewPassword':
+            'nie udało się utworzyć nowego hasła. Spróbuj ponownie.',
         'navBar.howItWorks': 'Jak to działa',
         'navBar.howToStart': 'Jak zacząć',
         'navBar.pricing': 'Cennik',
@@ -19,6 +25,7 @@ export default {
         'optionsPanel.addNew': 'Dodaj nowe',
         'optionsPanel.add': 'Dodaj',
         'optionsPanel.enterMasterKey': 'Wprowadź swój klucz główny:',
+        'optionsPanel.masterKey': 'Klucz główny',
         'optionsPanel.masterKeyTooShort':
             'Minimalna długość klucza głównego to 6 znaków.',
         'optionsPanel.labelInputLabel': 'Nazwa',
@@ -63,7 +70,7 @@ export default {
         'home.completelyFree':
             'Passwords Fountain to całkowicie <strong>darmowa</strong> aplikacja.',
         'home.visitFaunaPricing':
-            'Odwiedź <strong><a href="https://fauna.com/pricing">https://fauna.com/pricing</a></strong> aby dowiedzieć się więcej w temacie płatności faunadb.',
+            'Odwiedź <strong><a href="https://fauna.com/pricing">https://fauna.com/pricing</a></strong> aby dowiedzieć się więcej w temacie płatności FaunaDB.',
         'home.helloFromAuthor':
             'Cześć, jestem Marcin i chętnie przeczytam Twoją opinię na temat tej aplikacji.',
         'home.dontHesitateToContact': 'Napisz do mnie na:',
@@ -93,5 +100,7 @@ export default {
         'dropdown.choose': 'Wybierz',
         'language.english': 'Angielski',
         'language.polish': 'Polski',
+        'passwordList.placeholder':
+            'Połącz się z bazą danych aby uzyskać dostęp do swoich haseł',
     },
 };

@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, typography } from '@/common/theme';
+import { theme, typography, media, stylelint } from '@/common/theme';
 setPragma(h);
 
 // Due to bugs, (button shouldn't be displayed both grid & flex)
@@ -8,8 +8,8 @@ setPragma(h);
 // https://github.com/philipwalton/flexbugs#flexbug-9
 export const Wrapper = styled('button')`
     ${typography.text18}
-    padding: ${theme.spacing.m18} ${theme.spacing.xl30};
-    min-width: 120px;
+    padding: ${theme.spacing.s12} ${theme.spacing.m18};
+    min-width: 100px;
     max-width: 360px;
     text-transform: uppercase;
     background: ${theme.colors.primaryBlue};
@@ -36,6 +36,10 @@ export const Wrapper = styled('button')`
             text-decoration: underline;
         }
     }
+    
+    ${media.gte(theme.breakpoints.s480)(stylelint.css`
+        padding: ${theme.spacing.m18} ${theme.spacing.xl30};
+    `)}
 `;
 
 export const GridWrapper = styled('span')`

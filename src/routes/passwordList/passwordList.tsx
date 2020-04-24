@@ -5,6 +5,9 @@ import {
     Wrapper,
     PasswordEntityWrapper,
     OptionsPanelWrapper,
+    Placeholder,
+    PlaceholderTextWrapper,
+    IconSizer,
 } from './passwordList.styles';
 import {
     selectIsClientSet,
@@ -19,6 +22,9 @@ import { PasswordEntity } from '@/modules/passwordList/components/passwordEntity
 import { useAction } from '@preact-hooks/unistore';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import { variantNames } from '@/modules/passwordList/passwordList.contants';
+import { renderIfTrue } from '@/common/utils/rendering';
+import { Icon } from '@/common/components/icon';
+import { Text } from '@/modules/localisation/components/text';
 
 export const useFirstTimeRedirection = (): void => {
     useEffect(() => {
@@ -68,12 +74,24 @@ export const PasswordList: TypedComponent<Props> = () => {
         );
     };
 
+    const renderPlaceholder = renderIfTrue(() => (
+        <Placeholder>
+            <IconSizer>
+                <Icon name="padlock" />
+            </IconSizer>
+            <PlaceholderTextWrapper>
+                <Text>passwordList.placeholder</Text>
+            </PlaceholderTextWrapper>
+        </Placeholder>
+    ));
+
     return (
         <Wrapper>
             <OptionsPanelWrapper>
                 <OptionsPanel />
             </OptionsPanelWrapper>
             {renderPasswords()}
+            {renderPlaceholder(!isClientSet)}
         </Wrapper>
     );
 };

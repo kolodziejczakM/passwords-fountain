@@ -4,6 +4,7 @@ import { theme, stylelint } from '@/common/theme';
 setPragma(h);
 
 export const Wrapper = styled('section')`
+    z-index: ${theme.zIndexes.s};
     position: relative;
     display: grid;
     min-width: 120px;

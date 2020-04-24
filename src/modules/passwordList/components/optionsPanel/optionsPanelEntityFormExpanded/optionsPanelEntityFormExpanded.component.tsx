@@ -49,7 +49,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
         switchCurrentVariantName(variantNames.entityFormCollapsed);
 
     const handleAddClick = async (): Promise<void> => {
-        await addNewPassword(
+        addNewPassword(
             {
                 label: labelInputState.value,
                 login: loginInputState.value,
@@ -128,7 +128,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                             <FormControl
                                 hasError={masterKeyInputProps.hasError}
                                 renderLabel={renderLabel(
-                                    'optionsPanel.enterMasterKey'
+                                    'optionsPanel.masterKey'
                                 )}
                                 renderInput={(): VNode => (
                                     <TextInput

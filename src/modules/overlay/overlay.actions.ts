@@ -30,4 +30,10 @@ export const overlayActions = {
             snackbarType: type,
         });
     },
+    showGlobalLoader(appState: AppState): Partial<AppState> {
+        return merge({ isGlobalLoaderVisible: true });
+    },
+    hideGlobalLoader(appState: AppState): Partial<AppState> {
+        return merge({ isGlobalLoaderVisible: false });
+    },
 } as const;

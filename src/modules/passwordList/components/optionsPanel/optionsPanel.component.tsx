@@ -35,7 +35,7 @@ export const OptionsPanel: TypedComponent<Props> = () => {
 
     const CurrentVariant = variants[currentVariantName as VariantName];
     return (
-        <Wrapper>
+        <Wrapper currentVariantName={currentVariantName}>
             <CurrentVariant switchCurrentVariantName={setCurrentVariantName} />
         </Wrapper>
     );

@@ -5,16 +5,21 @@ import AsyncRoute from 'preact-async-route';
 import { Home } from '@/routes/home/home';
 import { Props as SettingsProps } from '@/routes/settings/settings';
 import { Props as PasswordListProps } from '@/routes/passwordList/passwordList';
-import { Wrapper, PageWrapper, Header } from './app.styles';
+import { Wrapper, PageWrapper, Header, LoaderWrapper } from './app.styles';
 import { NavBar } from '@/common/components/navBar';
 import { Footer } from '@/common/components/footer';
 import { Snackbar } from '@/modules/overlay/components/snackbar';
+import { Loader } from '@/modules/overlay/components/loader';
 import { useSelector } from '@/store';
-import { selectIsSnackbarVisible } from '@/modules/overlay/overlay.selectors';
+import {
+    selectIsSnackbarVisible,
+    selectIsGlobalLoaderVisible,
+} from '@/modules/overlay/overlay.selectors';
 import { renderIfTrue } from '@/common/utils/rendering';
 
 export const App: TypedComponent<Props> = () => {
     const isSnackbarVisible = useSelector(selectIsSnackbarVisible);
+    const isLoaderVisible = useSelector(selectIsGlobalLoaderVisible);
     return (
         <Wrapper>
             <Header>
@@ -47,6 +52,11 @@ export const App: TypedComponent<Props> = () => {
             </PageWrapper>
             <Footer />
             {renderIfTrue(() => <Snackbar />)(isSnackbarVisible)}
+            {renderIfTrue(() => (
+                <LoaderWrapper>
+                    <Loader />
+                </LoaderWrapper>
+            ))(isLoaderVisible)}
         </Wrapper>
     );
 };

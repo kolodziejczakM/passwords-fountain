@@ -9,6 +9,7 @@ import bin from './bin.svg';
 import globe from './globe.svg';
 import eye from './eye.svg';
 import eyeFilled from './eyeFilled.svg';
+import padlock from './padlock.svg';
 
 export type IconName =
     | 'database'
@@ -21,7 +22,8 @@ export type IconName =
     | 'bin'
     | 'globe'
     | 'eye'
-    | 'eyeFilled';
+    | 'eyeFilled'
+    | 'padlock';
 
 type Base64orURL = string;
 
@@ -41,4 +43,5 @@ export const icons: Icons = {
     globe,
     eye,
     eyeFilled,
+    padlock,
 } as const;

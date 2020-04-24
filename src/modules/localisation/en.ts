@@ -3,10 +3,16 @@ export default {
         error: 'Error',
         success: 'Success',
         info: 'Info',
-        'snackbar.dbConnectionError':
-            "connection to database couldn't be established.",
         'snackbar.newPasswordAdded': "you've added new password entity!",
         'snackbar.passwordCopiedToClipboard': 'password copied to clipboard.',
+        'snackbar.passwordsFetchedSuccessfully':
+            'your passwords have been successfully fetched!',
+        'snackbar.couldNotFetchPasswords':
+            "couldn't fetch your passwords - try re-typing your master key.",
+        'snackbar.couldNotConnectToDB':
+            "couldn't connect to your database. Check your master key.",
+        'snackbar.couldNotCreateNewPassword':
+            "couldn't create new password entity. Please try again",
         'navBar.howItWorks': 'How it works',
         'navBar.howToStart': 'How to start',
         'navBar.pricing': 'Pricing',
@@ -19,6 +25,7 @@ export default {
         'optionsPanel.addNew': 'Add new',
         'optionsPanel.add': 'Add',
         'optionsPanel.enterMasterKey': 'Enter your master key:',
+        'optionsPanel.masterKey': 'Master key',
         'optionsPanel.masterKeyTooShort': 'Master key minimum length is 6.',
         'optionsPanel.labelInputLabel': 'Label',
         'optionsPanel.loginInputLabel': 'Login',
@@ -61,7 +68,7 @@ export default {
         'home.completelyFree':
             'Passwords Fountain is a completely <strong>free</strong> app.',
         'home.visitFaunaPricing':
-            'Visit <strong><a href="https://fauna.com/pricing">https://fauna.com/pricing</a></strong> to explore their pricing plans.',
+            'Visit <strong><a href="https://fauna.com/pricing">https://fauna.com/pricing</a></strong> to explore FaunaDB pricing plans.',
         'home.helloFromAuthor':
             "Hello, I'm Marcin and I'd love to hear your opinion about this application.",
         'home.dontHesitateToContact': "Don't hestitate to contact me:",
@@ -90,5 +97,7 @@ export default {
         'dropdown.choose': 'Choose',
         'language.english': 'English',
         'language.polish': 'Polish',
+        'passwordList.placeholder':
+            'Connect to database to see your passwords here',
     },
 };

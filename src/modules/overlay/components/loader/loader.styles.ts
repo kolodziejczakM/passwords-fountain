@@ -5,8 +5,8 @@ setPragma(h);
 
 const animation = `@keyframes ripple {
     0% {
-        top: 36px;
-        left: 36px;
+        top: 30px;
+        left: 30px;
         width: 0;
         height: 0;
         opacity: 1;
@@ -15,8 +15,8 @@ const animation = `@keyframes ripple {
     100% {
         top: 0;
         left: 0;
-        width: 72px;
-        height: 72px;
+        width: 60px;
+        height: 60px;
         opacity: 0;
     }
 }`;
@@ -25,8 +25,8 @@ export const Wrapper = styled('div')`
     ${animation}
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 
     div {
         position: absolute;

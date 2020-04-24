@@ -32,9 +32,11 @@ export const Home: TypedComponent<{}> = () => {
                 <InnerWrapper>
                     <div>
                         <ParagraphsWrapper>
-                            <Paragraph>
-                                <Text withMarkup>home.toStart</Text>
-                            </Paragraph>
+                            <ParagraphsWrapper>
+                                <Paragraph>
+                                    <Text withMarkup>home.toStart</Text>
+                                </Paragraph>
+                            </ParagraphsWrapper>
                             <Paragraph>
                                 <Text withMarkup>home.followGuide</Text>
                             </Paragraph>
@@ -57,19 +59,22 @@ export const Home: TypedComponent<{}> = () => {
             <Segment id="authors" title="home.authors">
                 <InnerWrapper>
                     <AuthorsWrapper>
-                        <Paragraph>
-                            <Text>home.helloFromAuthor</Text>
-                        </Paragraph>
-                        <Paragraph>
-                            <Text>home.dontHesitateToContact</Text>
-                        </Paragraph>
-                        <AuthorContactWrapper>
+                        <ParagraphsWrapper>
                             <Paragraph>
-                                <AuthorContact>
-                                    {process.env.AUTHOR_CONTACT}
-                                </AuthorContact>
+                                <Text>home.helloFromAuthor</Text>
                             </Paragraph>
-                        </AuthorContactWrapper>
+                            <Paragraph>
+                                <Text>home.dontHesitateToContact</Text>
+                            </Paragraph>
+
+                            <AuthorContactWrapper>
+                                <Paragraph>
+                                    <AuthorContact>
+                                        {process.env.AUTHOR_CONTACT}
+                                    </AuthorContact>
+                                </Paragraph>
+                            </AuthorContactWrapper>
+                        </ParagraphsWrapper>
                         <IconAuthors />
                     </AuthorsWrapper>
                     <div>

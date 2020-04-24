@@ -67,5 +67,5 @@ export const IconWrapper = styled('div')`
 `;
 
 export const ParagraphsWrapper = styled('div')`
-    margin-bottom: ${theme.spacing.m18};
+    padding-bottom: ${theme.spacing.m18};
 `;

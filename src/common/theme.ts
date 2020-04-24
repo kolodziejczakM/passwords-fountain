@@ -55,6 +55,7 @@ enum lineHeights {
 enum zIndexes {
     xs = 1,
     s,
+    m,
 }
 
 enum shadows {

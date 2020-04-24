@@ -5,6 +5,7 @@ setPragma(h);
 
 export const Wrapper = styled('section')`
     text-align: center;
+    padding-top: ${theme.spacing.m18};
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
         padding: ${theme.spacing.xl40};

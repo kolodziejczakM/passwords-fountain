@@ -13,6 +13,7 @@ const selectedOutline = stylelint.css`
 
 export const Wrapper = styled('button')`
     width: 100%;
+    box-shadow: ${theme.shadows.clickableItem};
     background: ${theme.colors.pastelGreen};
     padding: ${theme.spacing.m18};
     ${({ isSelected }: { isSelected: boolean }) =>

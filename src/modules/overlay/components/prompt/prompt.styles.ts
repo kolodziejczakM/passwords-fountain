@@ -5,6 +5,7 @@ setPragma(h);
 
 export const Wrapper = styled('section')`
     position: fixed;
+    z-index: ${theme.zIndexes.m};
     top: 76px;
     left: 50%;
     transform: translateX(-50%);
