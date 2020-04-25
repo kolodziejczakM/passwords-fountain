@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.9](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.8...v0.3.9) (2020-04-25)
+
+
+### Features
+
+* **local storage - language:** store language choice into browser's local storage ([06262eb](https://github.com/kolodziejczakM/passwords-fountain/commit/06262ebdd5c8ea84b48bd9ce71c4d4ded3bbb7c3))
+
 ### [0.3.8](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.7...v0.3.8) (2020-04-25)
 
 
