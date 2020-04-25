@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.7](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.6...v0.3.7) (2020-04-25)
+
+
+### Features
+
+* **styles:** small style adjustments: /settings & /app ([bdcf8ed](https://github.com/kolodziejczakM/passwords-fountain/commit/bdcf8ed16d7cf923b54ac4faa7b3d3147eb6d7aa))
+
 ### [0.3.6](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.5...v0.3.6) (2020-04-24)
 
 
