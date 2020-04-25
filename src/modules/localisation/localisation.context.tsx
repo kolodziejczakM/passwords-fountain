@@ -1,6 +1,7 @@
 import { h, VNode } from 'preact';
 import { createContext } from 'preact';
 import { useContext, useState, useMemo } from 'preact/hooks';
+import { defaultLanguageLocalStorageKeyName } from './localisation.constants';
 import i18n from './i18n';
 
 type ContextValue = [string, (v: string) => void];
@@ -34,6 +35,7 @@ export const LocalisationProvider = ({
     const setCurrentLanguage = (lang: string): void => {
         i18n.activate(lang);
         setLanguage(lang);
+        localStorage.setItem(defaultLanguageLocalStorageKeyName, lang);
     };
 
     const value: ContextValue = useMemo(

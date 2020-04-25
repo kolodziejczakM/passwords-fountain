@@ -25,6 +25,10 @@ export const Placeholder = styled('div')`
     display: grid;
     place-items: center;
     padding: 120px 0 0 0;
+
+    ${media.gte(theme.breakpoints.s480)(stylelint.css`
+        padding: 150px 0 0 0;
+    `)}
 `;
 
 export const PlaceholderTextWrapper = styled('div')`

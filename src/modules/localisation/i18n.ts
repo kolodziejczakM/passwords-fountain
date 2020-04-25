@@ -1,4 +1,5 @@
 import { setupI18n } from '@lingui/core';
+import { defaultLanguageLocalStorageKeyName } from './localisation.constants';
 import en from './en';
 import pl from './pl';
 
@@ -13,7 +14,9 @@ const missing = (language: string, id: string): string => {
 };
 
 export default setupI18n({
-    language: languages.en,
+    language:
+        localStorage.getItem(defaultLanguageLocalStorageKeyName) ??
+        languages.en,
     missing,
     catalogs: { en, pl },
 });
