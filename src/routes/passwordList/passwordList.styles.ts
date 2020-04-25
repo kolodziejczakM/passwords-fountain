@@ -8,7 +8,7 @@ export const PasswordEntityWrapper = styled('div')`
 `;
 
 export const Wrapper = styled('section')`
-    padding-top: 130px;
+    padding-top: 100px;
 
     ${PasswordEntityWrapper}:last-of-type {
         margin-bottom: 0;
@@ -24,7 +24,7 @@ export const OptionsPanelWrapper = styled('div')`
 export const Placeholder = styled('div')`
     display: grid;
     place-items: center;
-    padding: 120px 0;
+    padding: 120px 0 0 0;
 `;
 
 export const PlaceholderTextWrapper = styled('div')`

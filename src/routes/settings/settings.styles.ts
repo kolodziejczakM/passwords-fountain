@@ -1,11 +1,16 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme, typography } from '@/common/theme';
+import { theme, typography, media, stylelint } from '@/common/theme';
 setPragma(h);
 
 export const Wrapper = styled('section')`
     display: grid;
     justify-items: center;
+    padding-top: ${theme.spacing.s12};
+
+    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+        padding-top: ${theme.spacing.xl40};
+    `)}
 `;
 
 export const Header = styled('header')`
