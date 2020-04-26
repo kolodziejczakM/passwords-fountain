@@ -15,6 +15,12 @@ export default {
             "couldn't create new password entity. Please try again.",
         'snackbar.couldNotEditPassword':
             "couldn't edit password entity. Please try again.",
+        'snackbar.couldNotRemovePassword':
+            "couldn't remove password entity. Please try again.",
+        'prompt.removePasswordEnsure':
+            'Are you sure you want to delete this password?',
+        'prompt.decrypt': 'Decrypt',
+        'prompt.remove': 'Remove',
         'navBar.howItWorks': 'How it works',
         'navBar.howToStart': 'How to start',
         'navBar.pricing': 'Pricing',

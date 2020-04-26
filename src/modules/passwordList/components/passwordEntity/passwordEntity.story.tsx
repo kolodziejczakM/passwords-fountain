@@ -18,9 +18,5 @@ export const defaultView = (): VNode => (
         onClick={() => {
             /* eslint-disable @typescript-eslint/no-empty-function */
         }}
-        promptVisibility={false}
-        setPromptVisibility={() => {
-            /* eslint-disable @typescript-eslint/no-empty-function */
-        }}
     />
 );

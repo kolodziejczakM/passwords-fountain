@@ -50,7 +50,6 @@ export const PasswordList: TypedComponent<Props> = () => {
         selectedEntity,
         setSelectedEntity,
     ] = useState<PasswordEntityRaw | null>(null);
-    const [promptVisibility, setPromptVisibility] = useState(false);
 
     useEffect(() => {
         if (isClientSet) {
@@ -68,8 +67,6 @@ export const PasswordList: TypedComponent<Props> = () => {
                         data={entity}
                         isSelected={selectedEntity === entity}
                         onClick={setSelectedEntity}
-                        promptVisibility={promptVisibility}
-                        setPromptVisibility={setPromptVisibility}
                     />
                 </PasswordEntityWrapper>
             )

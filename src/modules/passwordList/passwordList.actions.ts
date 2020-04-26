@@ -167,4 +167,30 @@ export const passwordListActions = {
             return merge({});
         }
     },
+    removePassword: async (
+        appState: AppState,
+        refId: string
+    ): Promise<Partial<AppState>> => {
+        callAction(overlayActions.showGlobalLoader);
+        const { deletePasswordEntity } = await import(
+            '@/modules/database/database.service'
+        );
+
+        const client = selectClient(store.getState()) as Client;
+
+        try {
+            await deletePasswordEntity(client, refId);
+            callAction(overlayActions.hideGlobalLoader);
+        } catch (err) {
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(
+                overlayActions.showSnackbar,
+                'snackbar.couldNotRemovePassword',
+                'error'
+            );
+            // TODO: send error to error tracking service
+        } finally {
+            return merge({});
+        }
+    },
 };

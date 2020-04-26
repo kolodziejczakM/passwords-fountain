@@ -15,6 +15,12 @@ export default {
             'nie udało się utworzyć nowego hasła. Spróbuj ponownie.',
         'snackbar.couldNotEditPassword':
             'edytowanie hasła nie powiodło się. Spróbuj ponownie.',
+        'snackbar.couldNotRemovePassword':
+            'nie udało się usunąć hasła. Spróbuj ponownie.',
+        'prompt.removePasswordEnsure':
+            'Jesteś pewien, że chcesz usunąć to hasło?',
+        'prompt.decrypt': 'Odszyfruj',
+        'prompt.remove': 'Usuń',
         'navBar.howItWorks': 'Jak to działa',
         'navBar.howToStart': 'Jak zacząć',
         'navBar.pricing': 'Cennik',

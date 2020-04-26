@@ -1,5 +1,6 @@
 import { h, Fragment } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
+import { valueof } from '@/common/typings/helpers';
 import PropTypes from 'prop-types';
 import {
     Wrapper,
@@ -16,7 +17,7 @@ import {
     placeholderEntityValue,
     PasswordEntityVulnerablePayload,
 } from '@/modules/passwordList/passwordList.constants';
-import { useRef } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 import { PasswordEntityRaw } from '@/modules/database/database.service';
 import { IconButton } from '@/common/components/iconButton';
 import { renderIfTrue } from '@/common/utils/rendering';
@@ -29,23 +30,28 @@ import { Button } from '@/common/components/button';
 import { useAction, useSelector } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import { selectSelectedAndDecryptedEntityByRefId } from '@/modules/passwordList/passwordList.selectors';
+import { selectAdminKey } from '@/modules/database/database.selectors';
 
 const formValidation = { masterKey } as const;
+
+const promptTypes = {
+    invisible: '',
+    removal: 'removal',
+    decryption: 'decryption',
+} as const;
+
+type PromptType = valueof<typeof promptTypes>;
 
 export const PasswordEntity: TypedComponent<Props> = ({
     data,
     isSelected,
     onClick,
-    promptVisibility,
-    setPromptVisibility,
 }: Props) => {
     const formRef = useRef(undefined as any);
-    const setSelectedAndDecryptedEntity = useAction(
-        passwordListActions.setSelectedAndDecryptedEntity
+    const [promptType, setPromptType] = useState<PromptType>(
+        promptTypes.invisible
     );
-    const resetSelectedAndDecryptedEntity = useAction(
-        passwordListActions.resetSelectedAndDecryptedEntity
-    );
+    const encryptedAdminKey = useSelector(selectAdminKey);
     const selectedAndDecryptedEntity = useSelector(
         selectSelectedAndDecryptedEntityByRefId(data.ref.id)
     );
@@ -58,14 +64,28 @@ export const PasswordEntity: TypedComponent<Props> = ({
         'masterKey'
     );
 
-    const handleClick = (): void => {
-        onClick(isSelected ? null : data);
-        resetSelectedAndDecryptedEntity();
-        setPromptVisibility(false);
+    const removePassword = useAction(passwordListActions.removePassword);
+    const fetchPasswords = useAction(passwordListActions.fetchPasswords);
+
+    const setSelectedAndDecryptedEntity = useAction(
+        passwordListActions.setSelectedAndDecryptedEntity
+    );
+    const resetSelectedAndDecryptedEntity = useAction(
+        passwordListActions.resetSelectedAndDecryptedEntity
+    );
+
+    const resetPromptState = (): void => {
+        setPromptType(promptTypes.invisible);
         masterKeyInputState.setValue('');
     };
 
-    const handlePromptConfirm = async (): Promise<void> => {
+    const handleClick = (): void => {
+        onClick(isSelected ? null : data);
+        resetSelectedAndDecryptedEntity();
+        resetPromptState();
+    };
+
+    const handleDecryptionPromptConfirm = async (): Promise<void> => {
         const { decrypt } = await import('@/modules/cipher/cipher.service');
         const { login, password } = decrypt(
             data.data.value,
@@ -79,22 +99,32 @@ export const PasswordEntity: TypedComponent<Props> = ({
             login,
             password,
         });
-        setPromptVisibility(false);
-        masterKeyInputState.setValue('');
     };
 
-    const handlePromptCancel = (): void => {
-        setPromptVisibility(false);
-        masterKeyInputState.setValue('');
+    const handleRemovalPromptConfirm = async (): Promise<void> => {
+        await removePassword(data.ref.id);
+        fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
     };
 
-    const handleEyeClick = (e: Event): void => {
+    const handlePromptConfirm = (): void => {
+        if (promptType === promptTypes.decryption) {
+            handleDecryptionPromptConfirm();
+        } else {
+            handleRemovalPromptConfirm();
+        }
+
+        resetPromptState();
+    };
+
+    const handleControlClick = (nextPromptType: PromptType) => (
+        e: Event
+    ): void => {
         e.stopPropagation();
-        if (promptVisibility) {
+        if (promptType) {
             return;
         }
 
-        setPromptVisibility(true);
+        setPromptType(nextPromptType);
     };
 
     const handleFilledEyeClick = (e: Event): void => {
@@ -102,45 +132,52 @@ export const PasswordEntity: TypedComponent<Props> = ({
         resetSelectedAndDecryptedEntity();
     };
 
-    const renderDecryptionPrompt = renderIfTrue(() => (
-        <Prompt
-            renderContent={() => (
-                <form ref={formRef}>
-                    <FormControlWrapper>
-                        <FormControl
-                            hasError={masterKeyInputProps.hasError}
-                            renderLabel={() => (
-                                <Text>optionsPanel.enterMasterKey</Text>
-                            )}
-                            renderError={() => (
-                                <Text>{masterKeyInputState.errors}</Text>
-                            )}
-                            renderInput={() => (
-                                <TextInput
-                                    type="password"
-                                    placeholder="e.g. MyStrongPassword1234"
-                                    {...masterKeyInputProps}
-                                />
-                            )}
-                        />
-                    </FormControlWrapper>
-                </form>
-            )}
-            renderControls={() => (
-                <Fragment>
-                    <Button onClick={handlePromptCancel}>
-                        <Text>optionsPanel.cancel</Text>
-                    </Button>
-                    <Button
-                        onClick={handlePromptConfirm}
-                        disabled={masterKeyInputProps.hasError}
-                    >
-                        <Text>optionsPanel.confirm</Text>
-                    </Button>
-                </Fragment>
-            )}
-        />
-    ));
+    // TODO: move to separated component.
+    const renderPrompt = renderIfTrue(() => {
+        const confirmBtnLabel =
+            promptType === promptTypes.decryption
+                ? 'prompt.decrypt'
+                : 'prompt.remove';
+        return (
+            <Prompt
+                renderContent={() => (
+                    <form ref={formRef}>
+                        <FormControlWrapper>
+                            <FormControl
+                                hasError={masterKeyInputProps.hasError}
+                                renderLabel={() => (
+                                    <Text>optionsPanel.enterMasterKey</Text>
+                                )}
+                                renderError={() => (
+                                    <Text>{masterKeyInputState.errors}</Text>
+                                )}
+                                renderInput={() => (
+                                    <TextInput
+                                        type="password"
+                                        placeholder="e.g. MyStrongPassword1234"
+                                        {...masterKeyInputProps}
+                                    />
+                                )}
+                            />
+                        </FormControlWrapper>
+                    </form>
+                )}
+                renderControls={() => (
+                    <Fragment>
+                        <Button onClick={resetPromptState}>
+                            <Text>optionsPanel.cancel</Text>
+                        </Button>
+                        <Button
+                            onClick={handlePromptConfirm}
+                            disabled={masterKeyInputProps.hasError}
+                        >
+                            <Text>{confirmBtnLabel}</Text>
+                        </Button>
+                    </Fragment>
+                )}
+            />
+        );
+    });
 
     const renderEyeIcon = () => {
         if (passwordVisibility) {
@@ -151,7 +188,12 @@ export const PasswordEntity: TypedComponent<Props> = ({
                 />
             );
         }
-        return <IconButton iconName="eye" onClick={handleEyeClick} />;
+        return (
+            <IconButton
+                iconName="eye"
+                onClick={handleControlClick(promptTypes.decryption)}
+            />
+        );
     };
 
     const renderControls = renderIfTrue(() => {
@@ -159,9 +201,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
             <Fragment>
                 <IconButton
                     iconName="bin"
-                    onClick={(e: any): void => {
-                        e.stopPropagation();
-                    }}
+                    onClick={handleControlClick(promptTypes.removal)}
                 />
                 {renderEyeIcon()}
             </Fragment>
@@ -201,7 +241,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
                 </DataWrapper>
                 <ControlsWrapper>{renderControls(isSelected)}</ControlsWrapper>
             </GridWrapper>
-            {renderDecryptionPrompt(promptVisibility && isSelected)}
+            {renderPrompt(Boolean(promptType) && isSelected)}
         </Wrapper>
     );
 };
@@ -210,14 +250,10 @@ interface Props {
     isSelected: boolean;
     data: PasswordEntityRaw;
     onClick: Function;
-    promptVisibility: boolean;
-    setPromptVisibility: Function;
 }
 
 PasswordEntity.propTypes = {
     isSelected: PropTypes.bool.isRequired,
     data: PropTypes.any.isRequired,
     onClick: PropTypes.func.isRequired,
-    promptVisibility: PropTypes.bool.isRequired,
-    setPromptVisibility: PropTypes.func.isRequired,
 };

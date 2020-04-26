@@ -24,7 +24,7 @@ export const OptionsPanelWrapper = styled('div')`
 export const Placeholder = styled('div')`
     display: grid;
     place-items: center;
-    padding: 120px 0 0 0;
+    padding: 140px 0 0 0;
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
         padding: 170px 0 0 0;
@@ -42,8 +42,8 @@ export const IconSizer = styled('div')`
     margin: 0 auto;
 
     img {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
