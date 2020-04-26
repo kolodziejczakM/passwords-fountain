@@ -1,11 +1,11 @@
-export enum variantNames {
+export enum optionsPanelVariantNames {
     connectCollapsed = 'connectCollapsed',
     connectExpanded = 'connectExpanded',
     entityFormCollapsed = 'entityFormCollapsed',
     entityFormExpanded = 'entityFormExpanded',
 }
 
-export type VariantName = keyof typeof variantNames;
+export type OptionsPanelVariantName = keyof typeof optionsPanelVariantNames;
 
 export const placeholderEntityValue = 'XXX';
 

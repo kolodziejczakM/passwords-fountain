@@ -15,7 +15,7 @@ import { Text } from '@/modules/localisation/components/text';
 import {
     placeholderEntityValue,
     PasswordEntityVulnerablePayload,
-} from '@/modules/passwordList/passwordList.contants';
+} from '@/modules/passwordList/passwordList.constants';
 import { useRef } from 'preact/hooks';
 import { PasswordEntityRaw } from '@/modules/database/database.service';
 import { IconButton } from '@/common/components/iconButton';
@@ -117,6 +117,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
                             )}
                             renderInput={() => (
                                 <TextInput
+                                    type="password"
                                     placeholder="e.g. MyStrongPassword1234"
                                     {...masterKeyInputProps}
                                 />

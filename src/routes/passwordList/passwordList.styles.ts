@@ -27,7 +27,7 @@ export const Placeholder = styled('div')`
     padding: 120px 0 0 0;
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
-        padding: 150px 0 0 0;
+        padding: 170px 0 0 0;
     `)}
 `;
 

@@ -9,10 +9,11 @@ export const TextInput: TypedComponent<Props> = ({
     placeholder,
     hasError,
     name,
+    type,
 }: Props) => {
     return (
         <Wrapper
-            type="text"
+            type={type}
             value={value}
             onInput={onInput}
             placeholder={placeholder}
@@ -28,6 +29,7 @@ interface Props {
     placeholder?: string;
     hasError?: boolean;
     name?: string;
+    type?: string;
 }
 
 TextInput.propTypes = {
@@ -36,6 +38,7 @@ TextInput.propTypes = {
     placeholder: PropTypes.string,
     hasError: PropTypes.bool,
     name: PropTypes.string,
+    type: PropTypes.string,
 };
 
 TextInput.defaultProps = {
@@ -43,4 +46,5 @@ TextInput.defaultProps = {
     placeholder: '',
     hasError: false,
     name: '',
+    type: 'text',
 };

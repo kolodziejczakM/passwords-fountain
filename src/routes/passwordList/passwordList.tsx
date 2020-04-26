@@ -21,7 +21,7 @@ import { PasswordEntityRaw } from '@/modules/database/database.service';
 import { PasswordEntity } from '@/modules/passwordList/components/passwordEntity';
 import { useAction } from '@preact-hooks/unistore';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
-import { variantNames } from '@/modules/passwordList/passwordList.contants';
+import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Icon } from '@/common/components/icon';
 import { Text } from '@/modules/localisation/components/text';
@@ -54,7 +54,9 @@ export const PasswordList: TypedComponent<Props> = () => {
 
     useEffect(() => {
         if (isClientSet) {
-            switchOptionsPanelVariant(variantNames.entityFormCollapsed);
+            switchOptionsPanelVariant(
+                optionsPanelVariantNames.entityFormCollapsed
+            );
         }
     }, []);
 

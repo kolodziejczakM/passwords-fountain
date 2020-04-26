@@ -1,6 +1,6 @@
 import AES from 'crypto-js/aes';
 import UTF8 from 'crypto-js/enc-utf8';
-import { PasswordEntityVulnerablePayload } from '@/modules/passwordList/passwordList.contants';
+import { PasswordEntityVulnerablePayload } from '@/modules/passwordList/passwordList.constants';
 
 export const encrypt = (
     vulnerable: string | PasswordEntityVulnerablePayload,

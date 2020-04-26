@@ -6,7 +6,7 @@ import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
 import { VariantProps } from '../optionsPanel.component';
-import { variantNames } from '@/modules/passwordList/passwordList.contants';
+import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
 import { useRef } from 'preact/hooks';
@@ -31,7 +31,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     );
 
     const handleCancelClick = (): void =>
-        switchCurrentVariantName(variantNames.connectCollapsed);
+        switchCurrentVariantName(optionsPanelVariantNames.connectCollapsed);
 
     const handleConfirmClick = async (): Promise<void> => {
         fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
@@ -39,6 +39,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
 
     const renderInput = (): VNode => (
         <TextInput
+            type="password"
             placeholder="e.g. MyStrongPassword1234"
             {...masterKeyInputProps}
         />

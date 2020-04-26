@@ -6,7 +6,7 @@ import {
     FormControlWrapper,
 } from './optionsPanelEntityFormExpanded.styles';
 import { VariantProps } from '../optionsPanel.component';
-import { variantNames } from '@/modules/passwordList/passwordList.contants';
+import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
 import { FormControl } from '@/common/components/formControl';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
@@ -68,7 +68,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     );
 
     const handleCancelClick = (): void =>
-        switchCurrentVariantName(variantNames.entityFormCollapsed);
+        switchCurrentVariantName(optionsPanelVariantNames.entityFormCollapsed);
 
     const handleAction = async (): Promise<void> => {
         if (isInEditMode) {
@@ -149,6 +149,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                                 )}
                                 renderInput={(): VNode => (
                                     <TextInput
+                                        type="password"
                                         placeholder="e.g. myPassWord1234"
                                         {...passwordInputProps}
                                     />
@@ -166,6 +167,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                                 )}
                                 renderInput={(): VNode => (
                                     <TextInput
+                                        type="password"
                                         placeholder="e.g. MyStrongPassword1234"
                                         {...masterKeyInputProps}
                                     />

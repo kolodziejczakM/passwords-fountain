@@ -3,7 +3,7 @@ import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { Wrapper } from './optionsPanelEntityFormCollapsed.styles';
 import { VariantProps } from '../optionsPanel.component';
-import { variantNames } from '@/modules/passwordList/passwordList.contants';
+import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
 import { ButtonWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
@@ -23,7 +23,7 @@ export const OptionsPanelEntityFormCollapsed: TypedComponent<VariantProps> = ({
         route('/settings');
     };
     const handleActionClick = (): void =>
-        switchCurrentVariantName(variantNames.entityFormExpanded);
+        switchCurrentVariantName(optionsPanelVariantNames.entityFormExpanded);
 
     return (
         <Wrapper>

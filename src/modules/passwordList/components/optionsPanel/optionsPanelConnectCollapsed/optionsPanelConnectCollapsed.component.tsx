@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Wrapper } from './optionsPanelConnectCollapsed.styles';
 import { ButtonWrapper } from '../optionsPanel.styles';
 import { VariantProps } from '../optionsPanel.component';
-import { variantNames } from '@/modules/passwordList/passwordList.contants';
+import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
 
@@ -16,7 +16,7 @@ export const OptionsPanelConnectCollapsed: TypedComponent<VariantProps> = ({
         route('/settings');
     };
     const handleDecodeClick = (): void =>
-        switchCurrentVariantName(variantNames.connectExpanded);
+        switchCurrentVariantName(optionsPanelVariantNames.connectExpanded);
 
     return (
         <Wrapper>

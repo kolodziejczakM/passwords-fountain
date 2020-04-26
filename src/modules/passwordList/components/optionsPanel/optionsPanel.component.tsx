@@ -8,16 +8,16 @@ import { OptionsPanelEntityFormCollapsed } from './optionsPanelEntityFormCollaps
 import { OptionsPanelEntityFormExpanded } from './optionsPanelEntityFormExpanded';
 import { selectCurrentOptionPanelVariantName } from '@/modules/passwordList/passwordList.selectors';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
-import { VariantName } from '@/modules/passwordList/passwordList.contants';
+import { OptionsPanelVariantName } from '@/modules/passwordList/passwordList.constants';
 
-type VariantSwitcher = (destination: VariantName) => void;
+type VariantSwitcher = (destination: OptionsPanelVariantName) => void;
 
 export interface VariantProps {
     switchCurrentVariantName: VariantSwitcher;
 }
 
 type VariantInstances = {
-    [key in VariantName]: TypedComponent<VariantProps>;
+    [key in OptionsPanelVariantName]: TypedComponent<VariantProps>;
 };
 
 export const OptionsPanel: TypedComponent<Props> = () => {
@@ -33,7 +33,8 @@ export const OptionsPanel: TypedComponent<Props> = () => {
         entityFormExpanded: OptionsPanelEntityFormExpanded,
     };
 
-    const CurrentVariant = variants[currentVariantName as VariantName];
+    const CurrentVariant =
+        variants[currentVariantName as OptionsPanelVariantName];
     return (
         <Wrapper currentVariantName={currentVariantName}>
             <CurrentVariant switchCurrentVariantName={setCurrentVariantName} />

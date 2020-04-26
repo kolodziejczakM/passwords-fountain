@@ -1,12 +1,12 @@
 import {
     PasswordEntityPayloadReferable,
-    VariantName,
-    variantNames,
-} from '@/modules/passwordList/passwordList.contants';
+    OptionsPanelVariantName,
+    optionsPanelVariantNames,
+} from '@/modules/passwordList/passwordList.constants';
 import { PasswordEntityRaw } from '@/modules/database/database.service';
 
 export const passwordListState = {
-    currentOptionPanelVariantName: variantNames.connectCollapsed as VariantName,
+    currentOptionPanelVariantName: optionsPanelVariantNames.connectCollapsed as OptionsPanelVariantName,
     passwords: [] as PasswordEntityRaw[],
     selectedAndDecryptedEntity: {} as PasswordEntityPayloadReferable,
 };

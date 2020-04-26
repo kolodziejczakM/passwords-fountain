@@ -7,11 +7,11 @@ import {
     selectClient,
 } from '@/modules/database/database.selectors';
 import {
-    VariantName,
-    variantNames,
+    OptionsPanelVariantName,
+    optionsPanelVariantNames,
     PasswordEntityPayload,
     PasswordEntityPayloadReferable,
-} from '@/modules/passwordList/passwordList.contants';
+} from '@/modules/passwordList/passwordList.constants';
 import { PasswordListState } from '@/modules/passwordList/passwordList.state';
 import { overlayActions } from '@/modules/overlay/overlay.actions';
 
@@ -20,7 +20,7 @@ const merge = mergeState<PasswordListState>('passwordList');
 export const passwordListActions = {
     switchOptionPanelVariant: (
         appState: AppState,
-        optionPanelVariantName: VariantName
+        optionPanelVariantName: OptionsPanelVariantName
     ): Partial<AppState> => {
         return merge({
             currentOptionPanelVariantName: optionPanelVariantName,
@@ -65,7 +65,7 @@ export const passwordListActions = {
             );
             callAction(
                 passwordListActions.switchOptionPanelVariant,
-                variantNames.entityFormCollapsed
+                optionsPanelVariantNames.entityFormCollapsed
             );
 
             return merge({ passwords });
@@ -109,7 +109,7 @@ export const passwordListActions = {
             callAction(overlayActions.hideGlobalLoader);
             callAction(
                 passwordListActions.switchOptionPanelVariant,
-                variantNames.entityFormCollapsed
+                optionsPanelVariantNames.entityFormCollapsed
             );
         } catch (err) {
             callAction(overlayActions.hideGlobalLoader);
@@ -153,7 +153,7 @@ export const passwordListActions = {
             callAction(passwordListActions.resetSelectedAndDecryptedEntity);
             callAction(
                 passwordListActions.switchOptionPanelVariant,
-                variantNames.entityFormCollapsed
+                optionsPanelVariantNames.entityFormCollapsed
             );
         } catch (err) {
             callAction(overlayActions.hideGlobalLoader);

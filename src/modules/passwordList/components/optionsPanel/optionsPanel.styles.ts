@@ -2,22 +2,22 @@ import { h } from 'preact';
 import { styled, setPragma } from 'goober';
 import { theme } from '@/common/theme';
 import {
-    variantNames,
-    VariantName,
-} from '@/modules/passwordList/passwordList.contants';
+    optionsPanelVariantNames,
+    OptionsPanelVariantName,
+} from '@/modules/passwordList/passwordList.constants';
 setPragma(h);
 
 const getBorderStyle = ({
     currentVariantName,
 }: {
-    currentVariantName: VariantName;
+    currentVariantName: OptionsPanelVariantName;
 }): string => {
     switch (currentVariantName) {
-        case variantNames.connectCollapsed:
-        case variantNames.entityFormCollapsed:
+        case optionsPanelVariantNames.connectCollapsed:
+        case optionsPanelVariantNames.entityFormCollapsed:
             return `border: 2px solid ${theme.colors.pastelGreen};`;
-        case variantNames.connectExpanded:
-        case variantNames.entityFormExpanded:
+        case optionsPanelVariantNames.connectExpanded:
+        case optionsPanelVariantNames.entityFormExpanded:
             return `border: 2px solid ${theme.colors.significantGreen};`;
     }
 

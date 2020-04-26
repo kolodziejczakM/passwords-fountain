@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { AppState } from '@/store';
 import { PasswordListState } from './passwordList.state';
-import { PasswordEntityPayloadReferable } from '@/modules/passwordList/passwordList.contants';
+import { PasswordEntityPayloadReferable } from '@/modules/passwordList/passwordList.constants';
 
 const selectPasswordList = (state: AppState): PasswordListState =>
     state.passwordList;

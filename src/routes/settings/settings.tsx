@@ -102,6 +102,7 @@ export const Settings: TypedComponent<Props> = () => {
                             )}
                             renderInput={(): VNode => (
                                 <TextInput
+                                    type="password"
                                     placeholder="92xIJf_ge234kalfnqql4o25ou4334201"
                                     {...adminKeyInputProps}
                                 />
@@ -120,6 +121,7 @@ export const Settings: TypedComponent<Props> = () => {
                             )}
                             renderInput={(): VNode => (
                                 <TextInput
+                                    type="password"
                                     placeholder="myMasterPassword1234"
                                     {...masterKeyInputProps}
                                 />
