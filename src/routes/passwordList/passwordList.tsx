@@ -30,7 +30,7 @@ export const useFirstTimeRedirection = (): void => {
     useEffect(() => {
         const isFirstTimeOnDevice = useSelector(selectIsFirstTimeOnDevice);
 
-        if (isFirstTimeOnDevice) {
+        if (isFirstTimeOnDevice && !(window as any).prerendering) {
             // User has to be connected to database before accessing /app page
             setTimeout(() => {
                 route('/settings');

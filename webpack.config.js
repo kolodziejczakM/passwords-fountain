@@ -35,6 +35,9 @@ const development = {
     devServer: {
         contentBase: './dist',
         hot: true,
+        historyApiFallback: {
+            disableDotRule: true,
+        },
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
@@ -91,7 +94,10 @@ const production = {
                 keepClosingSlash: true,
                 sortAttributes: true,
             },
-            renderer: new Renderer(),
+            renderer: new Renderer({
+                injectProperty: 'prerendering',
+                inject: true,
+            }),
         }),
         pwaManifest,
         new OfflinePlugin(),

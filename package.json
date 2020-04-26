@@ -8,7 +8,7 @@
     "scripts": {
         "generate": "plop",
         "check:types": "tsc",
-        "build:dev": "webpack-dev-server --config-name dev --history-api-fallback",
+        "build:dev": "webpack-dev-server --config-name dev",
         "build:prod": "webpack --config-name prod",
         "start": "run-s build:dev",
         "build": "run-s check:types build:prod",
