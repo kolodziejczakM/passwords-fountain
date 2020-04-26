@@ -13,6 +13,8 @@ export default {
             'nie można ustanowić połączenia z bazą danych. Sprawdź swój klucz główny.',
         'snackbar.couldNotCreateNewPassword':
             'nie udało się utworzyć nowego hasła. Spróbuj ponownie.',
+        'snackbar.couldNotEditPassword':
+            'edytowanie hasła nie powiodło się. Spróbuj ponownie.',
         'navBar.howItWorks': 'Jak to działa',
         'navBar.howToStart': 'Jak zacząć',
         'navBar.pricing': 'Cennik',
@@ -24,6 +26,7 @@ export default {
         'optionsPanel.confirm': 'Zatwierdź',
         'optionsPanel.addNew': 'Dodaj nowe',
         'optionsPanel.add': 'Dodaj',
+        'optionsPanel.edit': 'Edytuj',
         'optionsPanel.enterMasterKey': 'Wprowadź swój klucz główny:',
         'optionsPanel.masterKey': 'Klucz główny',
         'optionsPanel.masterKeyTooShort':

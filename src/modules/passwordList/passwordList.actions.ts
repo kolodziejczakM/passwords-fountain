@@ -9,9 +9,10 @@ import {
 import {
     VariantName,
     variantNames,
+    PasswordEntityPayload,
+    PasswordEntityPayloadReferable,
 } from '@/modules/passwordList/passwordList.contants';
 import { PasswordListState } from '@/modules/passwordList/passwordList.state';
-import { PasswordEntityPayload } from '@/modules/database/database.service';
 import { overlayActions } from '@/modules/overlay/overlay.actions';
 
 const merge = mergeState<PasswordListState>('passwordList');
@@ -23,6 +24,19 @@ export const passwordListActions = {
     ): Partial<AppState> => {
         return merge({
             currentOptionPanelVariantName: optionPanelVariantName,
+        });
+    },
+    resetSelectedAndDecryptedEntity: (): Partial<AppState> => {
+        return merge({
+            selectedAndDecryptedEntity: {} as PasswordEntityPayloadReferable,
+        });
+    },
+    setSelectedAndDecryptedEntity: (
+        appState: AppState,
+        entity: PasswordEntityPayloadReferable
+    ): Partial<AppState> => {
+        return merge({
+            selectedAndDecryptedEntity: entity,
         });
     },
     fetchPasswords: async (
@@ -71,6 +85,7 @@ export const passwordListActions = {
         newEntityPayload: PasswordEntityPayload,
         masterKey: string
     ): Promise<Partial<AppState>> => {
+        callAction(overlayActions.showGlobalLoader);
         const { createPasswordEntity } = await import(
             '@/modules/database/database.service'
         );
@@ -91,11 +106,60 @@ export const passwordListActions = {
                 label: newEntityPayload.label,
                 value: encryptedPasswordEntity,
             });
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(
+                passwordListActions.switchOptionPanelVariant,
+                variantNames.entityFormCollapsed
+            );
         } catch (err) {
             callAction(overlayActions.hideGlobalLoader);
             callAction(
                 overlayActions.showSnackbar,
                 'snackbar.couldNotCreateNewPassword',
+                'error'
+            );
+            // TODO: send error to error tracking service
+        } finally {
+            return merge({});
+        }
+    },
+    editPassword: async (
+        appState: AppState,
+        entityPayload: PasswordEntityPayloadReferable,
+        masterKey: string
+    ): Promise<Partial<AppState>> => {
+        callAction(overlayActions.showGlobalLoader);
+        const { updatePasswordEntity } = await import(
+            '@/modules/database/database.service'
+        );
+        const { encrypt } = await import('@/modules/cipher/cipher.service');
+
+        const client = selectClient(store.getState()) as Client;
+
+        try {
+            const encryptedPasswordEntity = encrypt(
+                {
+                    login: entityPayload.login,
+                    password: entityPayload.password,
+                },
+                masterKey,
+                true
+            );
+            await updatePasswordEntity(client, entityPayload.refId, {
+                label: entityPayload.label,
+                value: encryptedPasswordEntity,
+            });
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(passwordListActions.resetSelectedAndDecryptedEntity);
+            callAction(
+                passwordListActions.switchOptionPanelVariant,
+                variantNames.entityFormCollapsed
+            );
+        } catch (err) {
+            callAction(overlayActions.hideGlobalLoader);
+            callAction(
+                overlayActions.showSnackbar,
+                'snackbar.couldNotEditPassword',
                 'error'
             );
             // TODO: send error to error tracking service

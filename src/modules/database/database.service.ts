@@ -20,23 +20,6 @@ export interface PasswordEntityRaw {
     data: PasswordEntityDatabasePayload; // all passwords are stored in db as encrypted strings
 }
 
-export interface PasswordEntityVulnerablePayload {
-    password: string;
-    login: string;
-}
-
-export interface PasswordEntityPayload extends PasswordEntityVulnerablePayload {
-    label: string;
-}
-
-export interface PasswordEntity {
-    refId: string;
-    createdAt: string;
-    label: string;
-    password: string;
-    login: string;
-}
-
 interface KeyRef {
     value: {
         id: string;
@@ -133,11 +116,11 @@ export const createPasswordEntity = async (
 export const updatePasswordEntity = async (
     client: Client,
     refId: string,
-    updatedFields: Partial<PasswordEntityPayload>
+    encryptedEntity: PasswordEntityDatabasePayload
 ): Promise<void> => {
     await client.query(
         query.Update(query.Ref(query.Collection(collectionName), refId), {
-            data: updatedFields,
+            data: encryptedEntity,
         })
     );
 };

@@ -8,3 +8,16 @@ export enum variantNames {
 export type VariantName = keyof typeof variantNames;
 
 export const placeholderEntityValue = 'XXX';
+
+export interface PasswordEntityVulnerablePayload {
+    password: string;
+    login: string;
+}
+
+export interface PasswordEntityPayload extends PasswordEntityVulnerablePayload {
+    label: string;
+}
+
+export interface PasswordEntityPayloadReferable extends PasswordEntityPayload {
+    refId: string;
+}

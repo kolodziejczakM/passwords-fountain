@@ -8,14 +8,21 @@ import { ButtonWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
 import { route } from 'preact-router';
+import { useSelector } from '@preact-hooks/unistore';
+import { selectIsInEditMode } from '@/modules/passwordList/passwordList.selectors';
 
 export const OptionsPanelEntityFormCollapsed: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
 }: VariantProps) => {
+    const isInEditMode = useSelector(selectIsInEditMode);
+    const actionLabel = isInEditMode
+        ? 'optionsPanel.edit'
+        : 'optionsPanel.addNew';
+
     const handleSettingsClick = (): void => {
         route('/settings');
     };
-    const handleAddNewClick = (): void =>
+    const handleActionClick = (): void =>
         switchCurrentVariantName(variantNames.entityFormExpanded);
 
     return (
@@ -24,8 +31,8 @@ export const OptionsPanelEntityFormCollapsed: TypedComponent<VariantProps> = ({
                 <Button onClick={handleSettingsClick}>
                     <Text>optionsPanel.settings</Text>
                 </Button>
-                <Button onClick={handleAddNewClick}>
-                    <Text>optionsPanel.addNew</Text>
+                <Button onClick={handleActionClick}>
+                    <Text>{actionLabel}</Text>
                 </Button>
             </ButtonWrapper>
         </Wrapper>

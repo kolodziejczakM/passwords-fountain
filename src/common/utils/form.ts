@@ -39,9 +39,10 @@ export interface FormTextInputProps {
 export const useInputFormControl = (
     formRef: RefObject<HTMLFormElement>,
     formValidation: { [key: string]: (val: string) => boolean | string },
-    fieldName: string
+    fieldName: string,
+    defaultValue = ''
 ): [FormTextInputState, FormTextInputProps] => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(defaultValue);
     const [errors, setErrors] = useState('');
 
     return [

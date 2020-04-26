@@ -12,7 +12,9 @@ export default {
         'snackbar.couldNotConnectToDB':
             "couldn't connect to your database. Check your master key.",
         'snackbar.couldNotCreateNewPassword':
-            "couldn't create new password entity. Please try again",
+            "couldn't create new password entity. Please try again.",
+        'snackbar.couldNotEditPassword':
+            "couldn't edit password entity. Please try again.",
         'navBar.howItWorks': 'How it works',
         'navBar.howToStart': 'How to start',
         'navBar.pricing': 'Pricing',
@@ -24,6 +26,7 @@ export default {
         'optionsPanel.confirm': 'Confirm',
         'optionsPanel.addNew': 'Add new',
         'optionsPanel.add': 'Add',
+        'optionsPanel.edit': 'Edit',
         'optionsPanel.enterMasterKey': 'Enter your master key:',
         'optionsPanel.masterKey': 'Master key',
         'optionsPanel.masterKeyTooShort': 'Master key minimum length is 6.',

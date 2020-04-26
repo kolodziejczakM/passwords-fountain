@@ -12,13 +12,12 @@ import {
     FormControlWrapper,
 } from './passwordEntity.styles';
 import { Text } from '@/modules/localisation/components/text';
-import { placeholderEntityValue } from '@/modules/passwordList/passwordList.contants';
-import { useRef, useState } from 'preact/hooks';
 import {
-    PasswordEntityRaw,
-    PasswordEntityPayload,
+    placeholderEntityValue,
     PasswordEntityVulnerablePayload,
-} from '@/modules/database/database.service';
+} from '@/modules/passwordList/passwordList.contants';
+import { useRef } from 'preact/hooks';
+import { PasswordEntityRaw } from '@/modules/database/database.service';
 import { IconButton } from '@/common/components/iconButton';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Prompt } from '@/modules/overlay/components/prompt';
@@ -27,6 +26,9 @@ import { masterKey } from '@/common/utils/formValidators';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
 import { Button } from '@/common/components/button';
+import { useAction, useSelector } from '@/store';
+import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
+import { selectSelectedAndDecryptedEntityByRefId } from '@/modules/passwordList/passwordList.selectors';
 
 const formValidation = { masterKey } as const;
 
@@ -38,12 +40,17 @@ export const PasswordEntity: TypedComponent<Props> = ({
     setPromptVisibility,
 }: Props) => {
     const formRef = useRef(undefined as any);
-    const [passwordVisibility, setPasswordVisibility] = useState(false);
-    const [entity, setEntity] = useState<PasswordEntityPayload>({
-        label: data.data.label,
-        login: placeholderEntityValue,
-        password: placeholderEntityValue,
-    });
+    const setSelectedAndDecryptedEntity = useAction(
+        passwordListActions.setSelectedAndDecryptedEntity
+    );
+    const resetSelectedAndDecryptedEntity = useAction(
+        passwordListActions.resetSelectedAndDecryptedEntity
+    );
+    const selectedAndDecryptedEntity = useSelector(
+        selectSelectedAndDecryptedEntityByRefId(data.ref.id)
+    );
+    const passwordVisibility =
+        Object.keys(selectedAndDecryptedEntity).length !== 0;
 
     const [masterKeyInputState, masterKeyInputProps] = useInputFormControl(
         formRef,
@@ -53,6 +60,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
 
     const handleClick = (): void => {
         onClick(isSelected ? null : data);
+        resetSelectedAndDecryptedEntity();
         setPromptVisibility(false);
         masterKeyInputState.setValue('');
     };
@@ -65,13 +73,12 @@ export const PasswordEntity: TypedComponent<Props> = ({
             true
         ) as PasswordEntityVulnerablePayload;
 
-        setEntity((prevState: PasswordEntityPayload) => ({
-            label: prevState.label,
+        setSelectedAndDecryptedEntity({
+            refId: data.ref.id,
+            label: data.data.label,
             login,
             password,
-        }));
-
-        setPasswordVisibility(true);
+        });
         setPromptVisibility(false);
         masterKeyInputState.setValue('');
     };
@@ -92,12 +99,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
 
     const handleFilledEyeClick = (e: Event): void => {
         e.stopPropagation();
-        setEntity((prevState: PasswordEntityPayload) => ({
-            label: prevState.label,
-            login: placeholderEntityValue,
-            password: placeholderEntityValue,
-        }));
-        setPasswordVisibility(false);
+        resetSelectedAndDecryptedEntity();
     };
 
     const renderDecryptionPrompt = renderIfTrue(() => (
@@ -173,19 +175,27 @@ export const PasswordEntity: TypedComponent<Props> = ({
                         <Label>
                             <Text>passwordEntity.label</Text>
                         </Label>{' '}
-                        - <Value>{entity.label}</Value>
+                        - <Value>{data.data.label}</Value>
                     </Row>
                     <Row>
                         <Label>
                             <Text>passwordEntity.login</Text>
                         </Label>{' '}
-                        - <Value>{entity.login}</Value>
+                        -{' '}
+                        <Value>
+                            {selectedAndDecryptedEntity.login ??
+                                placeholderEntityValue}
+                        </Value>
                     </Row>
                     <Row>
                         <Label>
                             <Text>passwordEntity.password</Text>
                         </Label>{' '}
-                        - <Value>{entity.password}</Value>
+                        -{' '}
+                        <Value>
+                            {selectedAndDecryptedEntity.password ??
+                                placeholderEntityValue}
+                        </Value>
                     </Row>
                 </DataWrapper>
                 <ControlsWrapper>{renderControls(isSelected)}</ControlsWrapper>

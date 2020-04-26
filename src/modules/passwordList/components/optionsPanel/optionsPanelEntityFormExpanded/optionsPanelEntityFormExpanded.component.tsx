@@ -14,7 +14,7 @@ import { Text } from '@/modules/localisation/components/text';
 import { useRef } from 'preact/hooks';
 import { useInputFormControl } from '@/common/utils/form';
 import { TextInput } from '@/common/components/textInput';
-import { useAction } from '@/store';
+import { useAction, useSelector } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import {
     label,
@@ -22,6 +22,11 @@ import {
     password,
     masterKey,
 } from '@/common/utils/formValidators';
+import {
+    selectSelectedAndDecryptedEntity,
+    selectIsInEditMode,
+} from '@/modules/passwordList/passwordList.selectors';
+import { selectAdminKey } from '@/modules/database/database.selectors';
 
 const formValidation = {
     label,
@@ -33,14 +38,31 @@ const formValidation = {
 export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     switchCurrentVariantName,
 }: VariantProps) => {
+    const encryptedAdminKey = useSelector(selectAdminKey);
     const formRef = useRef(undefined as any);
     const addNewPassword = useAction(passwordListActions.addNewPassword);
-    const useInputForm = (fieldName: string) =>
-        useInputFormControl(formRef, formValidation, fieldName);
+    const editPassword = useAction(passwordListActions.editPassword);
+    const fetchPasswords = useAction(passwordListActions.fetchPasswords);
 
-    const [labelInputState, labelInputProps] = useInputForm('label');
-    const [loginInputState, loginInputProps] = useInputForm('login');
-    const [passwordInputState, passwordInputProps] = useInputForm('password');
+    const editedEntity = useSelector(selectSelectedAndDecryptedEntity);
+    const isInEditMode = useSelector(selectIsInEditMode);
+    const actionLabel = isInEditMode ? 'optionsPanel.edit' : 'optionsPanel.add';
+
+    const useInputForm = (fieldName: string, defaultValue?: string) =>
+        useInputFormControl(formRef, formValidation, fieldName, defaultValue);
+
+    const [labelInputState, labelInputProps] = useInputForm(
+        'label',
+        editedEntity.label
+    );
+    const [loginInputState, loginInputProps] = useInputForm(
+        'login',
+        editedEntity.login
+    );
+    const [passwordInputState, passwordInputProps] = useInputForm(
+        'password',
+        editedEntity.password
+    );
     const [masterKeyInputState, masterKeyInputProps] = useInputForm(
         'masterKey'
     );
@@ -48,16 +70,28 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     const handleCancelClick = (): void =>
         switchCurrentVariantName(variantNames.entityFormCollapsed);
 
-    const handleAddClick = async (): Promise<void> => {
-        addNewPassword(
-            {
-                label: labelInputState.value,
-                login: loginInputState.value,
-                password: passwordInputState.value,
-            },
-            masterKeyInputState.value
-        );
-        switchCurrentVariantName(variantNames.entityFormCollapsed);
+    const handleAction = async (): Promise<void> => {
+        if (isInEditMode) {
+            await editPassword(
+                {
+                    label: labelInputState.value,
+                    login: loginInputState.value,
+                    password: passwordInputState.value,
+                    refId: editedEntity.refId,
+                },
+                masterKeyInputState.value
+            );
+        } else {
+            await addNewPassword(
+                {
+                    label: labelInputState.value,
+                    login: loginInputState.value,
+                    password: passwordInputState.value,
+                },
+                masterKeyInputState.value
+            );
+        }
+        fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
     };
 
     const isSubmitDisabled = [
@@ -148,8 +182,8 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                 <Button onClick={handleCancelClick}>
                     <Text>optionsPanel.cancel</Text>
                 </Button>
-                <Button onClick={handleAddClick} disabled={isSubmitDisabled}>
-                    <Text>optionsPanel.add</Text>
+                <Button onClick={handleAction} disabled={isSubmitDisabled}>
+                    <Text>{actionLabel}</Text>
                 </Button>
             </ButtonWrapper>
         </Wrapper>
