@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.11](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.10...v0.3.11) (2020-04-26)
+
+
+### Features
+
+* **passwordlist constants:** passwordList constants - fixed typo, adjusted type name ([4c1fd52](https://github.com/kolodziejczakM/passwords-fountain/commit/4c1fd526c4ec6cdd581cefd420b5e71f48774c3f))
+
 ### [0.3.10](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.9...v0.3.10) (2020-04-26)
 
 
