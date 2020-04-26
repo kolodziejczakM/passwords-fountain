@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.14](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.13...v0.3.14) (2020-04-26)
+
+
+### Features
+
+* **password removal:** added possibility to remove password ([71fd0db](https://github.com/kolodziejczakM/passwords-fountain/commit/71fd0db12b1342dfb800c3a4f84288d4cc55e946))
+
 ### [0.3.13](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.12...v0.3.13) (2020-04-26)
 
 ### [0.3.12](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.11...v0.3.12) (2020-04-26)
