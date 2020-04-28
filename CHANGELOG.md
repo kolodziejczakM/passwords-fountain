@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.15](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.14...v0.3.15) (2020-04-28)
+
+
+### Features
+
+* **csp:** cSP meta tags + other meta tags ([6845357](https://github.com/kolodziejczakM/passwords-fountain/commit/6845357cd99968350a4ccc47b07bcfe53ed275d6))
+
 ### [0.3.14](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.13...v0.3.14) (2020-04-26)
 
 
