@@ -22,7 +22,7 @@ export const PageWrapper = styled('main')`
 
 export const LoaderWrapper = styled('div')`
     position: fixed;
-    bottom: ${theme.spacing.xl30};
+    bottom: ${theme.spacing.xl40};
     left: 50%;
     transform: translateX(-50%);
 `;
