@@ -33,10 +33,14 @@ const pwaManifest = new WebpackPwaManifest({
     theme_color: '#ffffff',
     crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
     icons: [
-        ...appIcons.map(iconName => ({
-            src: path.resolve(`src/assets/appIcons/${iconName}`),
-            size: iconName.split('-')[1].split('.')[0],
-        })),
+        ...appIcons.map(iconName => {
+            const size = iconName.split('-')[1].split('.')[0];
+            return {
+                src: path.resolve(`src/assets/appIcons/${iconName}`),
+                size,
+                ios: size === '192x192',
+            };
+        }),
     ],
 });
 
@@ -67,6 +71,15 @@ const socialMetaTags = new SocialMetaTags({
     },
 });
 
+const commonPlugins = [
+    new CleanWebpackPlugin(),
+    htmlPluginSetup,
+    new CspHtmlWebpackPlugin(),
+    socialMetaTags,
+    new Dotenv(), // TODO: when released - will be provided via hosting service instead of .env file on Production
+    pwaManifest,
+];
+
 const development = {
     entry: './src/index.tsx',
     mode: 'development',
@@ -96,7 +109,7 @@ const development = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.(webp|svg|woff|woff2)$/,
+                test: /\.(png|webp|svg|woff|woff2)$/,
                 loader: 'url-loader',
                 options: {
                     limit: 8192,
@@ -105,14 +118,8 @@ const development = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        htmlPluginSetup,
-        new CspHtmlWebpackPlugin(),
-        socialMetaTags,
-        new Dotenv(),
+        ...commonPlugins,
         new webpack.HotModuleReplacementPlugin(),
-        pwaManifest,
-        new OfflinePlugin(),
         new CircularDependencyPlugin({
             exclude: /node_modules/,
         }),
@@ -126,11 +133,7 @@ const production = {
     name: 'prod',
     devtool: 'source-maps',
     plugins: [
-        new CleanWebpackPlugin(),
-        htmlPluginSetup,
-        new CspHtmlWebpackPlugin(),
-        socialMetaTags,
-        new Dotenv(), // TODO: when released - will be provided via hosting service instead of .env file
+        ...commonPlugins,
         new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, 'dist'),
             routes: ['/', '/app', '/settings'], // These pages will be pre-rendered
@@ -146,8 +149,19 @@ const production = {
                 inject: true,
             }),
         }),
-        pwaManifest,
-        new OfflinePlugin(),
+        new OfflinePlugin({
+            externals: ['app/index.html', 'settings/index.html'],
+            responseStrategy: 'network-first',
+            rewrites: asset => {
+                if (asset.endsWith('html') && asset !== 'index.html') {
+                    return asset.split('/')[0];
+                } else if (asset === 'index.html') {
+                    return '/';
+                }
+
+                return asset;
+            },
+        }),
     ],
 };
 
