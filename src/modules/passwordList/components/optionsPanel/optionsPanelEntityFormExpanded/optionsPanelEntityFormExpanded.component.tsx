@@ -120,7 +120,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={passwordInputProps.hasError}
+                                hasError={loginInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.loginInputLabel'
                                 )}

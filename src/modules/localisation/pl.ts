@@ -41,13 +41,13 @@ export default {
         'optionsPanel.enterMasterKey': 'Wprowadź swój klucz główny:',
         'optionsPanel.masterKey': 'Klucz główny',
         'optionsPanel.masterKeyTooShort':
-            'Minimalna długość klucza głównego to 6 znaków.',
+            'Minimalna długość klucza głównego to 8 znaków.',
         'optionsPanel.labelInputLabel': 'Nazwa',
         'optionsPanel.loginInputLabel': 'Login',
         'optionsPanel.passwordInputLabel': 'Hasło',
-        'optionsPanel.labelTooShort': 'Minimalna długość nazwy to 4 znaki.',
-        'optionsPanel.loginTooShort': 'Minimalna długość loginu to 6 znaków',
-        'optionsPanel.passwordTooShort': 'Minimalna długość hasła to 4 znaki.',
+        'optionsPanel.labelTooShort': 'Minimalna długość nazwy to 3 znaki.',
+        'optionsPanel.loginTooShort': 'Minimalna długość loginu to 3 znaki.',
+        'optionsPanel.passwordTooShort': 'Minimalna długość hasła to 3 znaki.',
         'passwordEntity.label': 'Nazwa',
         'passwordEntity.login': 'Login',
         'passwordEntity.password': 'Hasło',
@@ -68,7 +68,7 @@ export default {
         'settings.noteLabelDescriptionAdminKey':
             'Ze względów bezpieczeństwa - jest to zaszyfrowana wersja Twojego klucza admina, a nie ta, którą tutaj skopiowałeś.',
         'settings.adminKeyTooShort':
-            'Minimalna długość klucza admina to 10 znaków.',
+            'Minimalna długość klucza admina to 40 znaków.',
         'footer.createdBy': 'Stworzone przez Marcina Kołodziejczaka',
         'banner.ourInterface': 'Nasz interfejs',
         'banner.yourDatabase': 'Twoja baza danych',
