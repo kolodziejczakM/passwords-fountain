@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.17](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.16...v0.3.17) (2020-04-30)
+
+
+### Features
+
+* **readme & social:** social links in footer, README changes, decryption errors handling ([9355225](https://github.com/kolodziejczakM/passwords-fountain/commit/9355225346befbc413732d891798bbb638a2a040))
+
 ### [0.3.16](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.15...v0.3.16) (2020-04-29)
 
 
