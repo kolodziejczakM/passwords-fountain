@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.20](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.19...v0.3.20) (2020-04-30)
+
+
+### Bug Fixes
+
+* **form validation:** form validation fixes, footer fix ([3b5c74c](https://github.com/kolodziejczakM/passwords-fountain/commit/3b5c74cebffde001cd049e1c0f3c0a6474fbd00a))
+
 ### [0.3.19](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.18...v0.3.19) (2020-04-30)
 
 
