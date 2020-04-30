@@ -8,7 +8,7 @@ export default {
         'snackbar.passwordsFetchedSuccessfully':
             'your passwords have been successfully fetched!',
         'snackbar.couldNotFetchPasswords':
-            "couldn't fetch your passwords - try re-typing your master key.",
+            "couldn't fetch your passwords. Please try again.",
         'snackbar.couldNotConnectToDB':
             "couldn't connect to your database. Check your master key.",
         'snackbar.couldNotCreateNewPassword':
@@ -17,6 +17,8 @@ export default {
             "couldn't edit password entity. Please try again.",
         'snackbar.couldNotRemovePassword':
             "couldn't remove password entity. Please try again.",
+        'snackbar.decryptionError':
+            "couldn't decrypt with provided master key.",
         'prompt.removePasswordEnsure':
             'Are you sure you want to delete this password?',
         'prompt.decrypt': 'Decrypt',

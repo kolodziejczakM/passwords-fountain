@@ -84,7 +84,6 @@ export const Dropdown: TypedComponent<Props> = ({
     );
 };
 
-// TODO: try to update goober.js, check their altered typings and specify "any"
 interface Props {
     renderOptionList: (
         OptionComponent: any,

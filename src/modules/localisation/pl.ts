@@ -8,7 +8,7 @@ export default {
         'snackbar.passwordsFetchedSuccessfully':
             'twoje hasła zostały poprawnie pobrane!',
         'snackbar.couldNotFetchPasswords':
-            'nie można pobrać haseł - spróbuj wprowadzić klucz główny ponownie.',
+            'nie udało się pobrać haseł. Spróbuj ponownie.',
         'snackbar.couldNotConnectToDB':
             'nie można ustanowić połączenia z bazą danych. Sprawdź swój klucz główny.',
         'snackbar.couldNotCreateNewPassword':
@@ -17,6 +17,8 @@ export default {
             'edytowanie hasła nie powiodło się. Spróbuj ponownie.',
         'snackbar.couldNotRemovePassword':
             'nie udało się usunąć hasła. Spróbuj ponownie.',
+        'snackbar.decryptionError':
+            'nie udało się odszyfrować hasła za pomocą podanego klucza głównego.',
         'prompt.removePasswordEnsure':
             'Jesteś pewien, że chcesz usunąć to hasło?',
         'prompt.decrypt': 'Odszyfruj',

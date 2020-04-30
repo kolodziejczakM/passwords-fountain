@@ -76,7 +76,6 @@ export const passwordListActions = {
                 'snackbar.couldNotFetchPasswords',
                 'error'
             );
-            // TODO: send error to error tracking service
             return merge({});
         }
     },
@@ -118,7 +117,6 @@ export const passwordListActions = {
                 'snackbar.couldNotCreateNewPassword',
                 'error'
             );
-            // TODO: send error to error tracking service
         } finally {
             return merge({});
         }
@@ -162,7 +160,6 @@ export const passwordListActions = {
                 'snackbar.couldNotEditPassword',
                 'error'
             );
-            // TODO: send error to error tracking service
         } finally {
             return merge({});
         }
@@ -188,7 +185,6 @@ export const passwordListActions = {
                 'snackbar.couldNotRemovePassword',
                 'error'
             );
-            // TODO: send error to error tracking service
         } finally {
             return merge({});
         }

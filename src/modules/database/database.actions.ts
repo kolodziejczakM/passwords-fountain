@@ -42,7 +42,6 @@ export const databaseActions = {
                 'snackbar.couldNotConnectToDB',
                 'error'
             );
-            // TODO: send error to error tracking service
             return merge({});
         }
     },

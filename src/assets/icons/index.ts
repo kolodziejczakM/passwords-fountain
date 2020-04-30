@@ -10,6 +10,8 @@ import globe from './globe.svg';
 import eye from './eye.svg';
 import eyeFilled from './eyeFilled.svg';
 import padlock from './padlock.svg';
+import twitter from './twitter.svg';
+import github from './github.svg';
 
 export type IconName =
     | 'database'
@@ -23,7 +25,9 @@ export type IconName =
     | 'globe'
     | 'eye'
     | 'eyeFilled'
-    | 'padlock';
+    | 'padlock'
+    | 'twitter'
+    | 'github';
 
 type Base64orURL = string;
 
@@ -44,4 +48,6 @@ export const icons: Icons = {
     eye,
     eyeFilled,
     padlock,
+    twitter,
+    github,
 } as const;

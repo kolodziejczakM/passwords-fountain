@@ -102,6 +102,14 @@ export const PasswordEntity: TypedComponent<Props> = ({
     };
 
     const handleRemovalPromptConfirm = async (): Promise<void> => {
+        const { decrypt } = await import('@/modules/cipher/cipher.service');
+        // only to check if master key is known - not needed to removal operation itself
+        decrypt(
+            data.data.value,
+            masterKeyInputState.value,
+            true
+        ) as PasswordEntityVulnerablePayload;
+
         await removePassword(data.ref.id);
         fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
     };
@@ -132,7 +140,6 @@ export const PasswordEntity: TypedComponent<Props> = ({
         resetSelectedAndDecryptedEntity();
     };
 
-    // TODO: move to separated component.
     const renderPrompt = renderIfTrue(() => {
         const confirmBtnLabel =
             promptType === promptTypes.decryption

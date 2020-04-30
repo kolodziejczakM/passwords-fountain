@@ -24,6 +24,8 @@ const iconAuthors: IconAuthor[] = [
     { id: 6, iconName: 'Globe icon', author: 'Freepik' },
     { id: 7, iconName: 'Recycle bin icon', author: 'Freepik' },
     { id: 8, iconName: 'Eye', author: 'Kiranshastry' },
+    { id: 9, iconName: 'Github', author: 'Freepik' },
+    { id: 10, iconName: 'Twitter', author: 'Pixel perfect' },
 ];
 
 export const IconAuthors: TypedComponent<Props> = () => {

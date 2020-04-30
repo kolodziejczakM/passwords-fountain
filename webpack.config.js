@@ -12,6 +12,8 @@ const Dotenv = require('dotenv-webpack');
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
+const appName = 'Passwords Fountain';
+const appURL = 'https://passwords-fountain.com';
 const appIcons = [
     'icon-72x72.png',
     'icon-96x96.png',
@@ -26,8 +28,8 @@ const appIcons = [
 const pwaManifest = new WebpackPwaManifest({
     inject: true,
     ios: true,
-    name: 'Passwords fountain',
-    short_name: 'Passwords fountain',
+    name: appName,
+    short_name: appName,
     description: 'Minimalistic & modern password manager interface',
     background_color: '#ffffff',
     theme_color: '#ffffff',
@@ -50,21 +52,21 @@ const htmlPluginSetup = new HtmlWebpackPlugin({
 });
 
 const socialMetaTags = new SocialMetaTags({
-    appUrl: 'TODO://DOMAIN',
+    appUrl: appURL,
     facebook: {
-        'og:url': 'TODO://DOMAIN',
+        'og:url': appURL,
         'og:type': 'website',
-        'og:title': 'Passwords fountain',
+        'og:title': appName,
         'og:image': './src/assets/appIcons/icon-512x512.png',
         'og:description': 'Minimalistic & modern password manager interface',
-        'og:site_name': 'Passwords fountain',
+        'og:site_name': appName,
         'og:article:author': 'Marcin Kołodziejczak',
     },
     twitter: {
-        'twitter:card': 'Passwords fountain',
+        'twitter:card': appName,
         'twitter:creator': '@kolodziejczakMn',
-        'twitter:url': 'TODO://DOMAIN',
-        'twitter:title': 'Passwords fountain',
+        'twitter:url': appURL,
+        'twitter:title': appName,
         'twitter:description':
             'Minimalistic & modern password manager interface',
         'twitter:image': './src/assets/appIcons/icon-512x512.png',

@@ -1,6 +1,8 @@
 import AES from 'crypto-js/aes';
 import UTF8 from 'crypto-js/enc-utf8';
 import { PasswordEntityVulnerablePayload } from '@/modules/passwordList/passwordList.constants';
+import { callAction } from '@/common/utils/store';
+import { overlayActions } from '@/modules/overlay/overlay.actions';
 
 export const encrypt = (
     vulnerable: string | PasswordEntityVulnerablePayload,
@@ -19,7 +21,18 @@ export const decrypt = (
     masterKey: string,
     withJSONParsing = false
 ): string | PasswordEntityVulnerablePayload => {
-    const decrypted = AES.decrypt(vulnerableHashed, masterKey).toString(UTF8);
+    try {
+        const decrypted = AES.decrypt(vulnerableHashed, masterKey).toString(
+            UTF8
+        );
 
-    return withJSONParsing ? JSON.parse(decrypted) : decrypted;
+        return withJSONParsing ? JSON.parse(decrypted) : decrypted;
+    } catch (err) {
+        callAction(
+            overlayActions.showSnackbar,
+            'snackbar.decryptionError',
+            'error'
+        );
+        throw err;
+    }
 };
