@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.19](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.18...v0.3.19) (2020-04-30)
+
+
+### Features
+
+* **internet connection checker:** internet connection listeners + dedicated snackbar ([74a5be9](https://github.com/kolodziejczakM/passwords-fountain/commit/74a5be9ed6513c8ba75aafca7644a232bace7850))
+
 ### [0.3.18](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.17...v0.3.18) (2020-04-30)
 
 ### [0.3.17](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.16...v0.3.17) (2020-04-30)
