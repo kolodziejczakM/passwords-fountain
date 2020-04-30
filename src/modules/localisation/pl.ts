@@ -19,6 +19,9 @@ export default {
             'nie udało się usunąć hasła. Spróbuj ponownie.',
         'snackbar.decryptionError':
             'nie udało się odszyfrować hasła za pomocą podanego klucza głównego.',
+        'snackbar.noInternetConnection':
+            'brak połączenia z internetem. Jesteś teraz offline.',
+        'snackbar.internetIsBack': 'internet znów działa. Jesteś online.',
         'prompt.removePasswordEnsure':
             'Jesteś pewien, że chcesz usunąć to hasło?',
         'prompt.decrypt': 'Odszyfruj',

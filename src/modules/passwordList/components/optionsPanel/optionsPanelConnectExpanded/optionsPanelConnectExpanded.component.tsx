@@ -67,7 +67,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
                 </Button>
                 <Button
                     onClick={handleConfirmClick}
-                    disabled={masterKeyInputProps.hasError}
+                    disabled={!formRef.current?.isValid}
                 >
                     <Text>optionsPanel.confirm</Text>
                 </Button>

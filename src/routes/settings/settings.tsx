@@ -135,7 +135,10 @@ export const Settings: TypedComponent<Props> = () => {
                         <Button onClick={handleBackClick}>
                             <Text>settings.back</Text>
                         </Button>
-                        <Button onClick={handleConnectClick}>
+                        <Button
+                            onClick={handleConnectClick}
+                            disabled={!formRef.current?.isValid}
+                        >
                             <Text>settings.connect</Text>
                         </Button>
                     </ControlsWrapper>

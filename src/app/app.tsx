@@ -10,16 +10,36 @@ import { NavBar } from '@/common/components/navBar';
 import { Footer } from '@/common/components/footer';
 import { Snackbar } from '@/modules/overlay/components/snackbar';
 import { Loader } from '@/modules/overlay/components/loader';
-import { useSelector } from '@/store';
+import { useSelector, useAction } from '@/store';
 import {
     selectIsSnackbarVisible,
     selectIsGlobalLoaderVisible,
 } from '@/modules/overlay/overlay.selectors';
 import { renderIfTrue } from '@/common/utils/rendering';
+import { useEffect } from 'preact/hooks';
+import { overlayActions } from '@/modules/overlay/overlay.actions';
 
 export const App: TypedComponent<Props> = () => {
     const isSnackbarVisible = useSelector(selectIsSnackbarVisible);
     const isLoaderVisible = useSelector(selectIsGlobalLoaderVisible);
+    const showSnackbar = useAction(overlayActions.showSnackbar);
+    const onOffline = (): void => {
+        showSnackbar('snackbar.noInternetConnection', 'info');
+    };
+    const onOnline = (): void => {
+        showSnackbar('snackbar.internetIsBack', 'info');
+    };
+
+    useEffect(() => {
+        window.addEventListener('offline', onOffline);
+        window.addEventListener('online', onOnline);
+
+        return (): void => {
+            window.removeEventListener('offline', onOffline);
+            window.removeEventListener('online', onOnline);
+        };
+    }, []);
+
     return (
         <Wrapper>
             <Header>

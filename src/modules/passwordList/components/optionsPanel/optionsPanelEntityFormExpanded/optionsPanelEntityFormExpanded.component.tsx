@@ -94,12 +94,6 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
         fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
     };
 
-    const isSubmitDisabled = [
-        labelInputState.errors,
-        loginInputState.errors,
-        passwordInputState.errors,
-        masterKeyInputState.errors,
-    ].some(Boolean);
     const renderLabel = (label: string) => (): VNode => <Text>{label}</Text>;
     const renderError = (errors: string) => (): VNode => <Text>{errors}</Text>;
     return (
@@ -184,7 +178,10 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                 <Button onClick={handleCancelClick}>
                     <Text>optionsPanel.cancel</Text>
                 </Button>
-                <Button onClick={handleAction} disabled={isSubmitDisabled}>
+                <Button
+                    onClick={handleAction}
+                    disabled={!formRef.current?.isValid}
+                >
                     <Text>{actionLabel}</Text>
                 </Button>
             </ButtonWrapper>

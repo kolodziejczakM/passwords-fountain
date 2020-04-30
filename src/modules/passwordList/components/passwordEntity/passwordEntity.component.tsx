@@ -176,7 +176,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
                         </Button>
                         <Button
                             onClick={handlePromptConfirm}
-                            disabled={masterKeyInputProps.hasError}
+                            disabled={!formRef.current?.isValid}
                         >
                             <Text>{confirmBtnLabel}</Text>
                         </Button>

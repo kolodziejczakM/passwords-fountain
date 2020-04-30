@@ -19,6 +19,10 @@ export default {
             "couldn't remove password entity. Please try again.",
         'snackbar.decryptionError':
             "couldn't decrypt with provided master key.",
+        'snackbar.noInternetConnection':
+            "there is no internet connection. You're offline.",
+        'snackbar.internetIsBack':
+            "internet connection is back. You're online.",
         'prompt.removePasswordEnsure':
             'Are you sure you want to delete this password?',
         'prompt.decrypt': 'Decrypt',
