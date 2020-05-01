@@ -7,8 +7,8 @@ setPragma(h);
 // More: https://github.com/rachelandrew/gridbugs#10-some-html-elements-cant-be-grid-containers
 // https://github.com/philipwalton/flexbugs#flexbug-9
 export const Wrapper = styled('button')`
-    ${typography.text18}
-    padding: ${theme.spacing.s12} ${theme.spacing.m18};
+    ${typography.text14}
+    padding: ${theme.spacing.s12};
     min-width: 100px;
     max-width: 360px;
     text-transform: uppercase;
@@ -31,14 +31,20 @@ export const Wrapper = styled('button')`
 
     &:hover:enabled {
         cursor: pointer;
-        
+
         * {
             text-decoration: underline;
         }
     }
-    
+
+    ${media.gte(theme.breakpoints.s375)(stylelint.css`
+        ${typography.text16}
+        padding: ${theme.spacing.s12} ${theme.spacing.m18};
+    `)}
+
     ${media.gte(theme.breakpoints.s480)(stylelint.css`
-        padding: ${theme.spacing.m18} ${theme.spacing.xl30};
+        ${typography.text18}
+        padding: ${theme.spacing.s12} ${theme.spacing.xl30};
     `)}
 `;
 
@@ -46,4 +52,5 @@ export const GridWrapper = styled('span')`
     display: grid;
     place-items: center;
     color: ${theme.colors.white};
+    white-space: nowrap;
 `;

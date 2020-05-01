@@ -1,9 +1,8 @@
-import { invisibleSnackbarValue } from '@/modules/overlay/overlay.constants';
+import { SnackbarMessage } from '@/modules/overlay/overlay.constants';
 
 export const overlayState = {
-    snackbarMessageKey: invisibleSnackbarValue,
-    snackbarType: invisibleSnackbarValue,
     isGlobalLoaderVisible: false,
+    snackbarMessages: [] as SnackbarMessage[],
 };
 
 export type OverlayState = typeof overlayState;

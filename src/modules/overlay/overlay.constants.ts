@@ -1,4 +1,4 @@
-export const invisibleSnackbarValue = '';
+export const snackbarVisibilityTime = 3000;
 
 export enum snackbarTypes {
     success = 'success',
@@ -6,6 +6,10 @@ export enum snackbarTypes {
     error = 'error',
 }
 
-export const snackbarVisibilityTime = 3000;
-
 export type SnackbarType = keyof typeof snackbarTypes;
+
+export interface SnackbarMessage {
+    id: number;
+    messageKey: string;
+    type: SnackbarType;
+}

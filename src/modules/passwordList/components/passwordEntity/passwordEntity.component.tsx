@@ -77,6 +77,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
     const resetPromptState = (): void => {
         setPromptType(promptTypes.invisible);
         masterKeyInputState.setValue('');
+        masterKeyInputState.setErrors('');
     };
 
     const handleClick = (): void => {

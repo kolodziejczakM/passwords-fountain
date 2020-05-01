@@ -6,31 +6,40 @@ import {
     TextWrapper,
     ErrorType,
 } from './snackbar.styles';
-import { useSelector } from '@/store';
-import {
-    selectSnackbarMessageKey,
-    selectSnackbarType,
-} from '@/modules/overlay/overlay.selectors';
-import { SnackbarType } from '@/modules/overlay/overlay.constants';
+import { useSelector, useAction } from '@/store';
+import { snackbarVisibilityTime } from '@/modules/overlay/overlay.constants';
+import { selectSnackbarMessages } from '@/modules/overlay/overlay.selectors';
+import { overlayActions } from '@/modules/overlay/overlay.actions';
 import { Icon } from '@/common/components/icon';
 import { Text } from '@/modules/localisation/components/text';
+import { useEffect } from 'preact/hooks';
 
 export const Snackbar: TypedComponent<Props> = () => {
-    const messageKey = useSelector(selectSnackbarMessageKey);
-    const type = useSelector(selectSnackbarType) as SnackbarType;
     const iconSize = 44;
+    const [currentMessage] = useSelector(selectSnackbarMessages);
+    const hideSnackbar = useAction(overlayActions.hideSnackbar);
+
+    useEffect(() => {
+        setTimeout(() => {
+            hideSnackbar(currentMessage.id);
+        }, snackbarVisibilityTime);
+    }, [currentMessage]);
 
     return (
-        <Wrapper type={type}>
+        <Wrapper type={currentMessage.type}>
             <IconWrapper>
-                <Icon name={type} width={iconSize} height={iconSize} />
+                <Icon
+                    name={currentMessage.type}
+                    width={iconSize}
+                    height={iconSize}
+                />
             </IconWrapper>
             <TextWrapper>
                 <ErrorType>
-                    <Text>{type}</Text>
+                    <Text>{currentMessage.type}</Text>
                 </ErrorType>
                 <span>{' - '}</span>
-                <Text>{messageKey}</Text>
+                <Text>{currentMessage.messageKey}</Text>
             </TextWrapper>
         </Wrapper>
     );

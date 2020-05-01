@@ -32,18 +32,22 @@ export const Placeholder = styled('div')`
 `;
 
 export const PlaceholderTextWrapper = styled('div')`
-    ${typography.text24}
+    ${typography.text20}
     text-align: center;
     color: ${theme.colors.darkBlue};
     padding: ${theme.spacing.l24} 0;
+
+    ${media.gte(theme.breakpoints.s480)(stylelint.css`
+        ${typography.text24}
+    `)}
 `;
 
 export const IconSizer = styled('div')`
     margin: 0 auto;
 
     img {
-        width: 130px;
-        height: 130px;
+        width: 100px;
+        height: 100px;
     }
 
     ${media.gte(theme.breakpoints.s480)(stylelint.css`

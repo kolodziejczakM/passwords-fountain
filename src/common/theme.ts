@@ -1,7 +1,6 @@
 enum colors {
     primaryBlue = '#2484ad',
     pastelBlue = '#b0d3f0',
-    blue = '#48a3ca',
     darkBlue = '#004973',
     primaryGreen = '#46b29d',
     pastelGreen = '#d1f5ea',
@@ -12,6 +11,7 @@ enum colors {
 }
 
 enum fontSizes {
+    xxs14 = '14px',
     xs16 = '16px',
     s18 = '18px',
     m20 = '20px',
@@ -95,6 +95,11 @@ export const theme = {
     shadows,
 } as const;
 
+const text14 = stylelint.css`
+    font-size: ${theme.fontSizes.xxs14};
+    line-height: ${theme.lineHeights.xs21};
+`;
+
 const text16 = stylelint.css`
     font-size: ${theme.fontSizes.xs16};
     line-height: ${theme.lineHeights.xs21};
@@ -123,6 +128,7 @@ const text32 = stylelint.css`
 export const negative = (x: string): string => `-${x}`;
 
 export const typography = {
+    text14,
     text16,
     text18,
     text20,

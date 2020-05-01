@@ -16,7 +16,11 @@ export const Wrapper = styled('section')`
 export const Header = styled('header')`
     display: grid;
     justify-items: center;
-    margin-bottom: ${theme.spacing.xl40};
+    margin-bottom: ${theme.spacing.xl30};
+
+    ${media.gte(theme.breakpoints.m880)(stylelint.css`
+        margin-bottom: ${theme.spacing.xl40};
+    `)}
 `;
 
 export const Heading = styled('h2')`

@@ -1,19 +1,16 @@
 import { AppState } from '@/store';
-import { callAction, mergeState } from '@/common/utils/store';
-import {
-    invisibleSnackbarValue,
-    snackbarVisibilityTime,
-    SnackbarType,
-} from './overlay.constants';
+import { mergeState } from '@/common/utils/store';
+import { SnackbarType, SnackbarMessage } from './overlay.constants';
 import { OverlayState } from '@/modules/overlay/overlay.state';
 
 const merge = mergeState<OverlayState>('overlay');
 
 export const overlayActions = {
-    hideSnackbar(): Partial<AppState> {
+    hideSnackbar(appState: AppState, messageId: number): Partial<AppState> {
         return merge({
-            snackbarMessageKey: invisibleSnackbarValue,
-            snackbarType: invisibleSnackbarValue,
+            snackbarMessages: appState.overlay.snackbarMessages.filter(
+                (message: SnackbarMessage) => message.id !== messageId
+            ),
         });
     },
     showSnackbar(
@@ -21,19 +18,21 @@ export const overlayActions = {
         messageKey: string,
         type: SnackbarType
     ): Partial<AppState> {
-        setTimeout(() => {
-            callAction(overlayActions.hideSnackbar);
-        }, snackbarVisibilityTime);
-
         return merge({
-            snackbarMessageKey: messageKey,
-            snackbarType: type,
+            snackbarMessages: [
+                ...appState.overlay.snackbarMessages,
+                {
+                    id: Date.now(),
+                    messageKey,
+                    type,
+                },
+            ],
         });
     },
-    showGlobalLoader(appState: AppState): Partial<AppState> {
+    showGlobalLoader(): Partial<AppState> {
         return merge({ isGlobalLoaderVisible: true });
     },
-    hideGlobalLoader(appState: AppState): Partial<AppState> {
+    hideGlobalLoader(): Partial<AppState> {
         return merge({ isGlobalLoaderVisible: false });
     },
 } as const;

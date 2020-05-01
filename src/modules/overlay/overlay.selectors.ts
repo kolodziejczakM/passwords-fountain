@@ -1,23 +1,17 @@
 import { createSelector } from 'reselect';
 import { AppState } from '@/store';
 import { OverlayState } from './overlay.state';
-import { SnackbarType } from './overlay.constants';
 
 const selectOverlay = (state: AppState): OverlayState => state.overlay;
 
-export const selectSnackbarMessageKey = createSelector(
+export const selectSnackbarMessages = createSelector(
     selectOverlay,
-    overlay => overlay.snackbarMessageKey
-);
-
-export const selectSnackbarType = createSelector(
-    selectOverlay,
-    (overlay): SnackbarType | string => overlay.snackbarType
+    overlay => overlay.snackbarMessages
 );
 
 export const selectIsSnackbarVisible = createSelector(
-    selectSnackbarMessageKey,
-    (messageKey: string): boolean => Boolean(messageKey.length)
+    selectSnackbarMessages,
+    snackbarMessages => Boolean(snackbarMessages.length)
 );
 
 export const selectIsGlobalLoaderVisible = createSelector(
