@@ -43,6 +43,8 @@ export const PasswordList: TypedComponent<Props> = () => {
     useFirstTimeRedirection();
     const passwords = useSelector(selectPasswords);
     const isClientSet = useSelector(selectIsClientSet);
+    const shouldRenderPlaceholder =
+        !isClientSet || (isClientSet && !Boolean(passwords.length));
     const switchOptionsPanelVariant = useAction(
         passwordListActions.switchOptionPanelVariant
     );
@@ -73,16 +75,24 @@ export const PasswordList: TypedComponent<Props> = () => {
         );
     };
 
-    const renderPlaceholder = renderIfTrue(() => (
-        <Placeholder>
-            <IconSizer>
-                <Icon name="padlock" />
-            </IconSizer>
-            <PlaceholderTextWrapper>
-                <Text>passwordList.placeholder</Text>
-            </PlaceholderTextWrapper>
-        </Placeholder>
-    ));
+    const renderPlaceholder = renderIfTrue(
+        (): VNode => {
+            const iconName = isClientSet ? 'database' : 'padlock';
+            const text = isClientSet
+                ? 'passwordList.noDataPlaceholder'
+                : 'passwordList.connectionPlaceholder';
+            return (
+                <Placeholder>
+                    <IconSizer>
+                        <Icon name={iconName} />
+                    </IconSizer>
+                    <PlaceholderTextWrapper>
+                        <Text>{text}</Text>
+                    </PlaceholderTextWrapper>
+                </Placeholder>
+            );
+        }
+    );
 
     return (
         <Wrapper>
@@ -90,7 +100,7 @@ export const PasswordList: TypedComponent<Props> = () => {
                 <OptionsPanel />
             </OptionsPanelWrapper>
             {renderPasswords()}
-            {renderPlaceholder(!isClientSet)}
+            {renderPlaceholder(shouldRenderPlaceholder)}
         </Wrapper>
     );
 };

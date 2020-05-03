@@ -114,7 +114,9 @@ export default {
         'dropdown.choose': 'Wybierz',
         'language.english': 'Angielski',
         'language.polish': 'Polski',
-        'passwordList.placeholder':
+        'passwordList.connectionPlaceholder':
             'Połącz się z bazą danych aby uzyskać dostęp do swoich haseł',
+        'passwordList.noDataPlaceholder':
+            'Dane wyświetlą się tutaj po ich dodaniu',
     },
 };

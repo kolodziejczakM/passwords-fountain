@@ -112,7 +112,9 @@ export default {
         'dropdown.choose': 'Choose',
         'language.english': 'English',
         'language.polish': 'Polish',
-        'passwordList.placeholder':
+        'passwordList.connectionPlaceholder':
             'Connect to database to see your passwords here',
+        'passwordList.noDataPlaceholder':
+            'Add password entities to see them here',
     },
 };
