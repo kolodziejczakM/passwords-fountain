@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.23](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.22...v0.3.23) (2020-05-03)
+
+
+### Features
+
+* **stories:** added missing stories ([95ecd97](https://github.com/kolodziejczakM/passwords-fountain/commit/95ecd97430bd5b6ef87e21548f4cfa92e41ebc88))
+
 ### [0.3.22](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.21...v0.3.22) (2020-05-03)
 
 
