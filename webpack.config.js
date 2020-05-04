@@ -30,6 +30,7 @@ const pwaManifest = new WebpackPwaManifest({
     ios: true,
     name: appName,
     short_name: appName,
+    start_url: '/',
     description: 'Minimalistic & modern password manager interface',
     background_color: '#ffffff',
     theme_color: '#ffffff',
