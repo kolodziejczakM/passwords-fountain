@@ -64,7 +64,7 @@ const socialMetaTags = new SocialMetaTags({
         'og:article:author': 'Marcin Kołodziejczak',
     },
     twitter: {
-        'twitter:card': appName,
+        'twitter:card': 'summary',
         'twitter:creator': '@kolodziejczakMn',
         'twitter:url': appURL,
         'twitter:title': appName,

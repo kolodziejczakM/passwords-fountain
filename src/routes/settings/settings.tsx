@@ -87,7 +87,7 @@ export const Settings: TypedComponent<Props> = () => {
         <Wrapper>
             <Header>
                 <Heading>
-                    <Text>settings.connectToDB</Text>
+                    <Text>settings.headingText</Text>
                 </Heading>
             </Header>
             <FormWrapper>

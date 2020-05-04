@@ -11,7 +11,7 @@ exports[`Settings should render correctly 1`] = `
       <h2
         class="go1407545707"
       >
-        Connect to existing database
+        Settings
       </h2>
     </header>
     <div

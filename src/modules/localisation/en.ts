@@ -51,7 +51,7 @@ export default {
         'passwordEntity.label': 'Label',
         'passwordEntity.login': 'Login',
         'passwordEntity.password': 'Password',
-        'settings.connectToDB': 'Connect to existing database',
+        'settings.headingText': 'Settings',
         'settings.currentDBConnection:': 'Current database connection',
         'settings.adminKeyLabel': 'FaunaDB admin key',
         'settings.adminKeyLabelDescription':
