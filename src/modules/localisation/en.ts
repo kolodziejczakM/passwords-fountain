@@ -83,14 +83,14 @@ export default {
         'home.completelyFree':
             'Passwords Fountain is a completely <strong>free</strong> app.',
         'home.visitFaunaPricing':
-            'Visit <strong><a href="https://fauna.com/pricing">https://fauna.com/pricing</a></strong> to explore FaunaDB pricing plans.',
+            'Visit <strong><a href="https://fauna.com/pricing" target="_blank" rel="noopener">https://fauna.com/pricing</a></strong> to explore FaunaDB pricing plans.',
         'home.helloFromAuthor':
             "Hello, I'm Marcin and I'd love to hear your opinion about this application.",
         'home.dontHesitateToContact': "Don't hestitate to contact me:",
         'home.thanksToIconAuthors': 'Huge thanks to icon authors:',
         'home.startApp': 'Start now',
         'startGuide.step1':
-            'Go to <strong><a href="https://fauna.com/">https://fauna.com/</a></strong> and create free account, login.',
+            'Go to <strong><a href="https://fauna.com/" target="_blank" rel="noopener">https://fauna.com/</a></strong> and create free account, login.',
         'startGuide.step2':
             "Click <strong>NEW DATABASE</strong> and use <strong>PASSWORDS_FOUNTAIN</strong> as a database name.<br>This is important so please don't misspell it!",
         'startGuide.step3':

@@ -332,6 +332,8 @@ exports[`App should render correctly 1`] = `
                       <strong>
                         <a
                           href="https://fauna.com/"
+                          rel="noopener"
+                          target="_blank"
                         >
                           https://fauna.com/
                         </a>
@@ -453,6 +455,8 @@ exports[`App should render correctly 1`] = `
                 <strong>
                   <a
                     href="https://fauna.com/pricing"
+                    rel="noopener"
+                    target="_blank"
                   >
                     https://fauna.com/pricing
                   </a>

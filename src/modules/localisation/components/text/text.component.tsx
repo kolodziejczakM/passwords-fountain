@@ -16,7 +16,9 @@ export const Text: TypedComponent<Props> = ({
         <span
             className="sanitized-translation"
             dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(i18n._(children)),
+                __html: DOMPurify.sanitize(i18n._(children), {
+                    ALLOWED_ATTR: ['rel', 'href', 'target'],
+                }),
             }}
         />
     ) : (

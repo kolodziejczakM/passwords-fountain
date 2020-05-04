@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snackbar should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go2645182152"
+    type="success"
+  >
+    <div
+      class="go115679"
+    >
+      <img
+        alt="icon"
+        class="go115679"
+        height="44"
+        src="static-asset-stub"
+        width="44"
+      />
+    </div>
+    <div
+      class="go2656262278"
+    >
+      <strong
+        class="go859468004"
+      >
+        Success
+      </strong>
+      <span>
+         - 
+      </span>
+      Passwords fetched!
+    </div>
+  </section>
+</DocumentFragment>
+`;
