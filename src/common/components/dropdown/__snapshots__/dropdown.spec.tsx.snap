@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go62670245"
+    tabindex="0"
+  >
+    <div
+      class="go3942427238"
+    >
+      Choose
+      <span
+        class="go4075838652"
+      />
+    </div>
+    <div
+      class="go129576329"
+    />
+  </section>
+</DocumentFragment>
+`;

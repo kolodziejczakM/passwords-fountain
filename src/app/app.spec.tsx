@@ -1,35 +1,24 @@
 import '@testing-library/jest-dom/extend-expect';
 import { h } from 'preact';
-import { render, fireEvent } from '@testing-library/preact';
+import { render } from '@testing-library/preact';
+import { App } from './app';
 import { StoreProvider } from '@preact-hooks/unistore';
 import createStore from 'unistore';
-import { App } from './app';
 
-const storeMock = createStore({ count: 12 });
+const stateMock = {
+    overlay: {
+        snackbarMessages: [],
+    },
+};
 
 describe('App', () => {
     it('should render correctly', () => {
         const { asFragment } = render(
-            <StoreProvider value={storeMock}>
-                <App description="This is test description" />
+            <StoreProvider value={createStore(stateMock)}>
+                <App />
             </StoreProvider>
         );
 
         expect(asFragment()).toMatchSnapshot();
-    });
-
-    describe('increment button', () => {
-        it('should increment displayed count value', () => {
-            const { getByText } = render(
-                <StoreProvider value={storeMock}>
-                    <App description="This is test description" />
-                </StoreProvider>
-            );
-
-            const incrementBtn = getByText('Increment');
-            fireEvent.click(incrementBtn);
-
-            expect(getByText('13')).toBeInTheDocument();
-        });
     });
 });

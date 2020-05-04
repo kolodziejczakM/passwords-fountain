@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StartGuide should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go2790461336"
+  >
+    <div
+      class="go4191126316"
+    >
+      <span
+        class="sanitized-translation"
+      >
+        Go to 
+        <strong>
+          <a
+            href="https://fauna.com/"
+          >
+            https://fauna.com/
+          </a>
+        </strong>
+         and create free account, login.
+      </span>
+    </div>
+    <div
+      class="go4191126316"
+    >
+      <span
+        class="sanitized-translation"
+      >
+        Click 
+        <strong>
+          NEW DATABASE
+        </strong>
+         and use 
+        <strong>
+          PASSWORDS_FOUNTAIN
+        </strong>
+         as a database name.
+        <br />
+        This is important so please don't misspell it!
+      </span>
+    </div>
+    <div
+      class="go4191126316"
+    >
+      <span
+        class="sanitized-translation"
+      >
+        Go to Settings -&gt; Account API Keys.
+        <br />
+         Now choose any name for your admin key and click 
+        <strong>
+          CREATE NEW ADMIN KEY.
+        </strong>
+      </span>
+    </div>
+    <div
+      class="go4191126316"
+    >
+      <span
+        class="sanitized-translation"
+      >
+        Your admin key will be shown only once, copy it. Don't show it to other people.
+        <br />
+         If you somehow lose admin key (you shouldn't) you can generate new one.
+      </span>
+    </div>
+    <div
+      class="go4191126316"
+    >
+      <span
+        class="sanitized-translation"
+      >
+        Now you can connect our interface to your database.
+        <br />
+        Click on 
+        <strong>
+          App
+        </strong>
+         (upper-right corner) and start your journey!
+      </span>
+    </div>
+  </section>
+</DocumentFragment>
+`;

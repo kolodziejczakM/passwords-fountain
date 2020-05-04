@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionsPanelEntityFormCollapsed should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go115679"
+  >
+    <div
+      class="go2997710935"
+    >
+      <button
+        class="go3135434547"
+        type="button"
+      >
+        <span
+          class="go4062099715"
+        >
+          Settings
+        </span>
+      </button>
+      <button
+        class="go3135434547"
+        type="button"
+      >
+        <span
+          class="go4062099715"
+        >
+          Add new
+        </span>
+      </button>
+    </div>
+  </section>
+</DocumentFragment>
+`;

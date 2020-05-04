@@ -72,12 +72,13 @@ Don't hesitate to open an issue! If you're new on github, read this [guide](http
 Of course! Contribution flow looks like this:
 
 1. Fork this repo
-2. Create your feature branch (`git checkout -b my-new-feature`) on your fork.
+2. Create your feature branch (`git checkout -b new-feature`) on your fork.
 3. Write the code.
 4. Write tests!
 5. Commit your changes via `npm run commit` - we use commitizen to ensure that all commits will have appropriate structure.
-6. Push to the branch (`git push origin my-new-feature`)
-7. Create new pull request.
+6. Push to your origin branch via `npm run push` - this will bump code version in `package.json` and `package-lock.json` files, update `CHANGELOG.md` and create git tag.
+7. Create new pull request (from `your_fork_repository/new-feature` to this repository master branch).
+8. Wait for code review and react accordingly, thanks a lot!
 
 ### Contact
 

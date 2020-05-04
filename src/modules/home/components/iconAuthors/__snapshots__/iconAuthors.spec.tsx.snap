@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconAuthors should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go115679"
+  >
+    <h4
+      class="go1694588680"
+    >
+      Huge thanks to icon authors:
+    </h4>
+    <ul
+      class="go115679"
+    >
+      <li
+        class="go2712826534"
+      >
+        Padlock icon - Pixel perfect
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Success icon - Alfredo Hernandez
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Error icon - Freepik
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Fountain icon - Smashicons
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Database icon - Smashicons
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Heart icon - Smashicons
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Globe icon - Freepik
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Recycle bin icon - Freepik
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Eye - Kiranshastry
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Github - Freepik
+      </li>
+      <li
+        class="go2712826534"
+      >
+        Twitter - Pixel perfect
+      </li>
+    </ul>
+  </section>
+</DocumentFragment>
+`;

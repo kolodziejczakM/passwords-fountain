@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="go3135434547 go3618827259"
+  >
+    <span
+      class="go4062099715"
+    >
+      <img
+        alt="icon"
+        class="go115679"
+        height="30"
+        width="30"
+      />
+    </span>
+  </button>
+</DocumentFragment>
+`;

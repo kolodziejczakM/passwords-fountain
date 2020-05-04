@@ -3,53 +3,636 @@
 exports[`App should render correctly 1`] = `
 <DocumentFragment>
   <section
-    class="go460013392"
+    class="go3517357811"
   >
-    <h1>
-      This is test description
-    </h1>
-    <header>
-      <a
-        href="/"
+    <header
+      class="go115679"
+    >
+      <nav
+        class="go956739197"
       >
-        Home
-      </a>
-      <a
-        href="/about-me"
-      >
-        About me
-      </a>
+        <div
+          class="go1351599409"
+        >
+          <a
+            class="go2191268173"
+            href="/"
+          >
+            <img
+              alt="icon"
+              class="go115679"
+              height="40"
+              src="static-asset-stub"
+              width="40"
+            />
+            <h1
+              class="go115679"
+            >
+              <span
+                class="go2484009180"
+              >
+                Passwords
+              </span>
+              <span
+                class="go792706930"
+              >
+                Fountain
+              </span>
+            </h1>
+          </a>
+        </div>
+        <div
+          class="go1198697951"
+        >
+          <a
+            class="go1602260"
+            href="#how-it-works"
+            native="true"
+          >
+            How it works
+          </a>
+          <a
+            class="go1602260"
+            href="#how-to-start"
+            native="true"
+          >
+            How to start
+          </a>
+          <a
+            class="go1602260"
+            href="#pricing"
+            native="true"
+          >
+            Pricing
+          </a>
+        </div>
+        <div
+          class="go123319007"
+        >
+          <section
+            class="go2164034101"
+          >
+            <section
+              class="go62670245"
+              tabindex="0"
+            >
+              <div
+                class="go3942427238"
+              >
+                <img
+                  alt="icon"
+                  class="go115679"
+                  height="30"
+                  src="static-asset-stub"
+                  width="30"
+                />
+              </div>
+              <div
+                class="go129576329"
+              />
+            </section>
+          </section>
+        </div>
+      </nav>
     </header>
-    <section>
-      <h1>
-        Testing store
-      </h1>
-      <section>
-        (see redux-dev-tools): 
-        <strong>
-          12
-        </strong>
+    <main
+      class="go1034121750"
+    >
+      <section
+        class="go115679"
+      >
+        <section
+          class="go3569793134"
+        >
+          <div
+            class="go491017831"
+          >
+            <h2
+              class="go4118476274"
+            >
+              <span
+                class="go39130778"
+              >
+                Our interface
+              </span>
+              <span
+                class="go39130778"
+              >
+                &
+              </span>
+              <span
+                class="go4028419248"
+              >
+                Your database
+              </span>
+            </h2>
+            <h2
+              class="go4118476274"
+            >
+              All passwords in one place. For free.
+            </h2>
+          </div>
+          <div
+            class="go3798638344"
+          >
+            <img
+              alt="icon"
+              class="go115679"
+              height="100"
+              src="static-asset-stub"
+              width="100"
+            />
+          </div>
+          <div
+            class="go1642154294"
+          >
+            <a
+              class="go2474195109"
+              href="/settings"
+            >
+              Start now
+            </a>
+          </div>
+        </section>
+        <section
+          class="go115679"
+          id="how-it-works"
+        >
+          <div
+            class="go1325277684"
+          >
+            <h3
+              class="go1148060721"
+            >
+              How it works
+            </h3>
+          </div>
+          <div
+            class="go2070058702"
+          >
+            <div
+              class="go3961218100"
+            >
+              <section
+                class="go2948064075"
+              >
+                <div
+                  class="go1644515284"
+                />
+                <div
+                  class="go1680411122"
+                />
+                <div
+                  class="go1604521913"
+                />
+                <div
+                  class="go34989163"
+                >
+                  <div
+                    class="go3274727537"
+                  >
+                    Oh... so I have to create another account? : ( I don't like it.
+                    <img
+                      alt="avatar"
+                      class="go1379153261"
+                      src="static-asset-stub"
+                    />
+                  </div>
+                  <div
+                    class="go2924647195"
+                    isright="true"
+                  >
+                    Yes, but don't you use any Password manager?
+                    <img
+                      alt="avatar"
+                      class="go2213353200"
+                      isright="true"
+                      src="static-asset-stub"
+                    />
+                  </div>
+                  <div
+                    class="go3274727537"
+                  >
+                    I've tried. I'm not able to trust any of them.
+                    <img
+                      alt="avatar"
+                      class="go1379153261"
+                      src="static-asset-stub"
+                    />
+                  </div>
+                  <div
+                    class="go3274727537"
+                  >
+                    Usually it's like: you know nothing about where passwords are saved and in which format... and who has access to them?
+                    <img
+                      alt="avatar"
+                      class="go1379153261"
+                      src="static-asset-stub"
+                    />
+                  </div>
+                  <div
+                    class="go2924647195"
+                    isright="true"
+                  >
+                    <span
+                      class="sanitized-translation"
+                    >
+                      Try Passwords Fountain then.
+                      <br />
+                       It's only lightweight user interface that you use to access your own database.
+                    </span>
+                    <img
+                      alt="avatar"
+                      class="go2213353200"
+                      isright="true"
+                      src="static-asset-stub"
+                    />
+                  </div>
+                  <div
+                    class="go2924647195"
+                    isright="true"
+                  >
+                    It encrypts all your passwords before sending them + whole code is open source so you be sure that nothing can be stolen.
+                    <img
+                      alt="avatar"
+                      class="go2213353200"
+                      isright="true"
+                      src="static-asset-stub"
+                    />
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+        <section
+          class="go115679"
+          id="how-to-start"
+        >
+          <div
+            class="go1325277684"
+          >
+            <h3
+              class="go1148060721"
+            >
+              How to start - creating database
+            </h3>
+          </div>
+          <div
+            class="go2070058702"
+          >
+            <div
+              class="go1359144627"
+            >
+              <div>
+                <div
+                  class="go4038517794"
+                >
+                  <div
+                    class="go4038517794"
+                  >
+                    <p
+                      class="go3271949006"
+                    >
+                      <span
+                        class="sanitized-translation"
+                      >
+                        To start using this app you need to create a 
+                        <strong>
+                          database
+                        </strong>
+                         to which your passwords will be stored.
+                      </span>
+                    </p>
+                  </div>
+                  <p
+                    class="go3271949006"
+                  >
+                    <span
+                      class="sanitized-translation"
+                    >
+                      Follow our 
+                      <strong>
+                        5-step guide
+                      </strong>
+                       and start the journey!
+                    </span>
+                  </p>
+                </div>
+                <section
+                  class="go2790461336"
+                >
+                  <div
+                    class="go4191126316"
+                  >
+                    <span
+                      class="sanitized-translation"
+                    >
+                      Go to 
+                      <strong>
+                        <a
+                          href="https://fauna.com/"
+                        >
+                          https://fauna.com/
+                        </a>
+                      </strong>
+                       and create free account, login.
+                    </span>
+                  </div>
+                  <div
+                    class="go4191126316"
+                  >
+                    <span
+                      class="sanitized-translation"
+                    >
+                      Click 
+                      <strong>
+                        NEW DATABASE
+                      </strong>
+                       and use 
+                      <strong>
+                        PASSWORDS_FOUNTAIN
+                      </strong>
+                       as a database name.
+                      <br />
+                      This is important so please don't misspell it!
+                    </span>
+                  </div>
+                  <div
+                    class="go4191126316"
+                  >
+                    <span
+                      class="sanitized-translation"
+                    >
+                      Go to Settings -&gt; Account API Keys.
+                      <br />
+                       Now choose any name for your admin key and click 
+                      <strong>
+                        CREATE NEW ADMIN KEY.
+                      </strong>
+                    </span>
+                  </div>
+                  <div
+                    class="go4191126316"
+                  >
+                    <span
+                      class="sanitized-translation"
+                    >
+                      Your admin key will be shown only once, copy it. Don't show it to other people.
+                      <br />
+                       If you somehow lose admin key (you shouldn't) you can generate new one.
+                    </span>
+                  </div>
+                  <div
+                    class="go4191126316"
+                  >
+                    <span
+                      class="sanitized-translation"
+                    >
+                      Now you can connect our interface to your database.
+                      <br />
+                      Click on 
+                      <strong>
+                        App
+                      </strong>
+                       (upper-right corner) and start your journey!
+                    </span>
+                  </div>
+                </section>
+              </div>
+              <div
+                class="go1605887862"
+              >
+                <img
+                  alt="icon"
+                  class="go115679"
+                  height="100"
+                  src="static-asset-stub"
+                  width="100"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="go115679"
+          id="pricing"
+        >
+          <div
+            class="go1325277684"
+          >
+            <h3
+              class="go1148060721"
+            >
+              Pricing
+            </h3>
+          </div>
+          <div
+            class="go2070058702"
+          >
+            <p
+              class="go3271949006"
+            >
+              <span
+                class="sanitized-translation"
+              >
+                Passwords Fountain is a completely 
+                <strong>
+                  free
+                </strong>
+                 app.
+              </span>
+            </p>
+            <p
+              class="go3271949006"
+            >
+              <span
+                class="sanitized-translation"
+              >
+                Visit 
+                <strong>
+                  <a
+                    href="https://fauna.com/pricing"
+                  >
+                    https://fauna.com/pricing
+                  </a>
+                </strong>
+                 to explore FaunaDB pricing plans.
+              </span>
+            </p>
+          </div>
+        </section>
+        <section
+          class="go115679"
+          id="authors"
+        >
+          <div
+            class="go1325277684"
+          >
+            <h3
+              class="go1148060721"
+            >
+              Authors
+            </h3>
+          </div>
+          <div
+            class="go2070058702"
+          >
+            <div
+              class="go1359144627"
+            >
+              <div
+                class="go1382876467"
+              >
+                <div
+                  class="go4038517794"
+                >
+                  <p
+                    class="go3271949006"
+                  >
+                    Hello, I'm Marcin and I'd love to hear your opinion about this application.
+                  </p>
+                  <p
+                    class="go3271949006"
+                  >
+                    Don't hestitate to contact me:
+                  </p>
+                  <div
+                    class="go1389952092"
+                  >
+                    <p
+                      class="go3271949006"
+                    >
+                      <span
+                        class="go859468004"
+                      />
+                    </p>
+                  </div>
+                </div>
+                <section
+                  class="go115679"
+                >
+                  <h4
+                    class="go1694588680"
+                  >
+                    Huge thanks to icon authors:
+                  </h4>
+                  <ul
+                    class="go115679"
+                  >
+                    <li
+                      class="go2712826534"
+                    >
+                      Padlock icon - Pixel perfect
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Success icon - Alfredo Hernandez
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Error icon - Freepik
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Fountain icon - Smashicons
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Database icon - Smashicons
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Heart icon - Smashicons
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Globe icon - Freepik
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Recycle bin icon - Freepik
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Eye - Kiranshastry
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Github - Freepik
+                    </li>
+                    <li
+                      class="go2712826534"
+                    >
+                      Twitter - Pixel perfect
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div>
+                <div
+                  class="go1605887862"
+                >
+                  <img
+                    alt="icon"
+                    class="go115679"
+                    height="100"
+                    src="static-asset-stub"
+                    width="100"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
-      <button>
-        Increment
-      </button>
-      <hr />
-    </section>
-    <main>
-      <div>
-        <section>
-          <h1>
-            Testing pre-rendering
-          </h1>
-        </section>
-        <section>
-          <button>
-            Load more
-          </button>
-        </section>
-        <div />
-      </div>
     </main>
+    <footer
+      class="go2119715341"
+    >
+      <div
+        class="go2046521801"
+      >
+        Created by Marcin Kołodziejczak
+      </div>
+      <div
+        class="go2921248024"
+      >
+        <a
+          class="go115679"
+          href="https://github.com/kolodziejczakM"
+        >
+          <img
+            alt="icon"
+            class="go115679"
+            height="30"
+            src="static-asset-stub"
+            width="30"
+          />
+        </a>
+        <a
+          class="go115679"
+          href="https://twitter.com/kolodziejczakMn"
+        >
+          <img
+            alt="icon"
+            class="go115679"
+            height="30"
+            src="static-asset-stub"
+            width="30"
+          />
+        </a>
+      </div>
+    </footer>
   </section>
 </DocumentFragment>
 `;

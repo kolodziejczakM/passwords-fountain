@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhoneChat should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go2948064075"
+  >
+    <div
+      class="go1644515284"
+    />
+    <div
+      class="go1680411122"
+    />
+    <div
+      class="go1604521913"
+    />
+    <div
+      class="go34989163"
+    >
+      <div
+        class="go3274727537"
+      >
+        Oh... so I have to create another account? : ( I don't like it.
+        <img
+          alt="avatar"
+          class="go1379153261"
+          src="static-asset-stub"
+        />
+      </div>
+      <div
+        class="go2924647195"
+        isright="true"
+      >
+        Yes, but don't you use any Password manager?
+        <img
+          alt="avatar"
+          class="go2213353200"
+          isright="true"
+          src="static-asset-stub"
+        />
+      </div>
+      <div
+        class="go3274727537"
+      >
+        I've tried. I'm not able to trust any of them.
+        <img
+          alt="avatar"
+          class="go1379153261"
+          src="static-asset-stub"
+        />
+      </div>
+      <div
+        class="go3274727537"
+      >
+        Usually it's like: you know nothing about where passwords are saved and in which format... and who has access to them?
+        <img
+          alt="avatar"
+          class="go1379153261"
+          src="static-asset-stub"
+        />
+      </div>
+      <div
+        class="go2924647195"
+        isright="true"
+      >
+        <span
+          class="sanitized-translation"
+        >
+          Try Passwords Fountain then.
+          <br />
+           It's only lightweight user interface that you use to access your own database.
+        </span>
+        <img
+          alt="avatar"
+          class="go2213353200"
+          isright="true"
+          src="static-asset-stub"
+        />
+      </div>
+      <div
+        class="go2924647195"
+        isright="true"
+      >
+        It encrypts all your passwords before sending them + whole code is open source so you be sure that nothing can be stolen.
+        <img
+          alt="avatar"
+          class="go2213353200"
+          isright="true"
+          src="static-asset-stub"
+        />
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

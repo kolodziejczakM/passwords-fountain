@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should render correctly 1`] = `
+<DocumentFragment>
+  <nav
+    class="go956739197"
+  >
+    <div
+      class="go1351599409"
+    >
+      <a
+        class="go2191268173"
+        href="/"
+      >
+        <img
+          alt="icon"
+          class="go115679"
+          height="40"
+          src="static-asset-stub"
+          width="40"
+        />
+        <h1
+          class="go115679"
+        >
+          <span
+            class="go2484009180"
+          >
+            Passwords
+          </span>
+          <span
+            class="go792706930"
+          >
+            Fountain
+          </span>
+        </h1>
+      </a>
+    </div>
+    <div
+      class="go1198697951"
+    >
+      <a
+        class="go1602260"
+        href="#how-it-works"
+        native="true"
+      >
+        How it works
+      </a>
+      <a
+        class="go1602260"
+        href="#how-to-start"
+        native="true"
+      >
+        How to start
+      </a>
+      <a
+        class="go1602260"
+        href="#pricing"
+        native="true"
+      >
+        Pricing
+      </a>
+    </div>
+    <div
+      class="go123319007"
+    >
+      <section
+        class="go2164034101"
+      >
+        <section
+          class="go62670245"
+          tabindex="0"
+        >
+          <div
+            class="go3942427238"
+          >
+            <img
+              alt="icon"
+              class="go115679"
+              height="30"
+              src="static-asset-stub"
+              width="30"
+            />
+          </div>
+          <div
+            class="go129576329"
+          />
+        </section>
+      </section>
+    </div>
+  </nav>
+</DocumentFragment>
+`;

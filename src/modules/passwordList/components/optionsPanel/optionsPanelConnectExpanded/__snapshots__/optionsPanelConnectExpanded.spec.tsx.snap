@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionsPanelConnectExpanded should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go115679"
+  >
+    <div
+      class="go115679"
+    >
+      <div
+        class="go4038517794"
+      >
+        <form>
+          <section
+            class="go3154290440"
+          >
+            <div
+              class="go720639114"
+            >
+              Enter your master key:
+            </div>
+            <div
+              class="go3253370986"
+            >
+              <input
+                class="go3854179087"
+                name="masterKey"
+                placeholder="e.g. MyStrongPassword1234"
+                type="password"
+              />
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+    <div
+      class="go2997710935"
+    >
+      <button
+        class="go3135434547"
+        type="button"
+      >
+        <span
+          class="go4062099715"
+        >
+          Cancel
+        </span>
+      </button>
+      <button
+        class="go3135434547"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="go4062099715"
+        >
+          Confirm
+        </span>
+      </button>
+    </div>
+  </section>
+</DocumentFragment>
+`;

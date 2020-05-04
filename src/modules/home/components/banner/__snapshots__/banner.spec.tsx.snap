@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go3569793134"
+  >
+    <div
+      class="go491017831"
+    >
+      <h2
+        class="go4118476274"
+      >
+        <span
+          class="go39130778"
+        >
+          Our interface
+        </span>
+        <span
+          class="go39130778"
+        >
+          &
+        </span>
+        <span
+          class="go4028419248"
+        >
+          Your database
+        </span>
+      </h2>
+      <h2
+        class="go4118476274"
+      >
+        All passwords in one place. For free.
+      </h2>
+    </div>
+    <div
+      class="go3798638344"
+    >
+      <img
+        alt="icon"
+        class="go115679"
+        height="100"
+        src="static-asset-stub"
+        width="100"
+      />
+    </div>
+    <div
+      class="go1642154294"
+    >
+      <a
+        class="go2474195109"
+        href="/settings"
+      >
+        Start now
+      </a>
+    </div>
+  </section>
+</DocumentFragment>
+`;

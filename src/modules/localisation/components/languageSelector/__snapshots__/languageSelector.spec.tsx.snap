@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguageSelector should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go2164034101"
+  >
+    <section
+      class="go62670245"
+      tabindex="0"
+    >
+      <div
+        class="go3942427238"
+      >
+        <img
+          alt="icon"
+          class="go115679"
+          height="30"
+          src="static-asset-stub"
+          width="30"
+        />
+      </div>
+      <div
+        class="go129576329"
+      />
+    </section>
+  </section>
+</DocumentFragment>
+`;

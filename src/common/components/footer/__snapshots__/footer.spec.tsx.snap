@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render correctly 1`] = `
+<DocumentFragment>
+  <footer
+    class="go2119715341"
+  >
+    <div
+      class="go2046521801"
+    >
+      Created by Marcin Kołodziejczak
+    </div>
+    <div
+      class="go2921248024"
+    >
+      <a
+        class="go115679"
+        href="https://github.com/kolodziejczakM"
+      >
+        <img
+          alt="icon"
+          class="go115679"
+          height="30"
+          src="static-asset-stub"
+          width="30"
+        />
+      </a>
+      <a
+        class="go115679"
+        href="https://twitter.com/kolodziejczakMn"
+      >
+        <img
+          alt="icon"
+          class="go115679"
+          height="30"
+          src="static-asset-stub"
+          width="30"
+        />
+      </a>
+    </div>
+  </footer>
+</DocumentFragment>
+`;

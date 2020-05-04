@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StartAppAnchor should render correctly 1`] = `
+<DocumentFragment>
+  <a
+    class="go2474195109"
+    href="/settings"
+  >
+    Start now
+  </a>
+</DocumentFragment>
+`;

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prompt should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="go939053875"
+  >
+    <div
+      class="go579113919"
+    >
+      Are you sure you want to delete this file?
+    </div>
+    <div
+      class="go444860531"
+    >
+      <button
+        class="go3135434547"
+        type="button"
+      >
+        <span
+          class="go4062099715"
+        >
+          Cancel
+        </span>
+      </button>
+      <button
+        class="go3135434547"
+        type="button"
+      >
+        <span
+          class="go4062099715"
+        >
+          Ok
+        </span>
+      </button>
+    </div>
+  </section>
+</DocumentFragment>
+`;
