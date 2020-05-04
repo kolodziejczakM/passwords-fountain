@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.25](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.24...v0.3.25) (2020-05-04)
+
+
+### Bug Fixes
+
+* **start_url:** pWA start_url adjustment, removed unused mock ([af22808](https://github.com/kolodziejczakM/passwords-fountain/commit/af22808e6356e78cbfc12fcaf3829f4290788286))
+
 ### [0.3.24](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.23...v0.3.24) (2020-05-04)
 
 ### [0.3.23](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.22...v0.3.23) (2020-05-03)
