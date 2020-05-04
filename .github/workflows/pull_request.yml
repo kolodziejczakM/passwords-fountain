@@ -1,0 +1,23 @@
+name: Pull request
+
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node_version: [12]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+    - name: npm deps installation
+      run: npm install
+    - name: build-ci
+      run: npm run build-ci
