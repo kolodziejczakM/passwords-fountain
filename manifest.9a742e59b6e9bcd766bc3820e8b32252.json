@@ -1,0 +1,52 @@
+{
+  "icons": [
+    {
+      "src": "icon_512x512.0fb8c93b2c1499d790bd35a357328a71.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_384x384.510eba9ea6cc47a7e6df45dea7f6e8ee.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_192x192.2ecb88946a1335a1e79675a8f01af517.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_152x152.204402cc727974b6dbcc2a503315ae52.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_144x144.d51e54c10053b5df4f4610673b8a8cf1.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_128x128.670d56cac2f5ac95ac6c179d4f4cca11.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_96x96.fee5274692ed856f4b3bf6524313f4d5.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_72x72.a05cd0464cfcc7e93f9f5310594f4a08.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ],
+  "name": "Passwords Fountain",
+  "short_name": "Passwords Fountain",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Minimalistic & modern password manager interface",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
