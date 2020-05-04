@@ -1,7 +1,0 @@
-node_modules
-dist
-.cache
-yarn-error.log
-.vscode
-.idea
-storybook-static
