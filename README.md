@@ -1,5 +1,8 @@
+![GitHub](https://img.shields.io/github/license/kolodziejczakM/passwords-fountain)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/kolodziejczakM/passwords-fountain)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kolodziejczakM/passwords-fountain/Push)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
-![GitHub](https://img.shields.io/github/license/kolodziejczakM/passwords-fountain) ![GitHub package.json version](https://img.shields.io/github/package-json/v/kolodziejczakM/passwords-fountain)
+
 
 <div align="center">
     <img src="./src/assets/icons/logo.svg" width="250" height="250"/>
