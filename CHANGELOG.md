@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.28...v0.4.0) (2020-05-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **encryption key definition:** Encryption key definition has been introduced in add new / edit form, updated
+5-step guide, form submit fixes
+
+### Features
+
+* **encryption key definition:** introduced encryption key definition ([92bab42](https://github.com/kolodziejczakM/passwords-fountain/commit/92bab42d35b85b0fa725a3469b4c8945d92f5610))
+
 ### [0.3.28](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.27...v0.3.28) (2020-05-05)
 
 ### [0.3.27](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.26...v0.3.27) (2020-05-04)
