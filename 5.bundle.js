@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{121:function(e,t,a){"use strict";a.d(t,"a",(function(){return l}));var n=a(0),r=a(5),o=a.n(r),c=a(124);const l=({children:e,onClick:t,disabled:a})=>Object(n.h)(c.b,{type:"button",onClick:t,disabled:a},Object(n.h)(c.a,null,e));l.propTypes={disabled:o.a.bool,onClick:o.a.func.isRequired,children:o.a.any.isRequired},l.defaultProps={disabled:!1}},122:function(e,t,a){"use strict";a.d(t,"a",(function(){return u}));var n=a(7),r=a(49),o=a(50),c=a(48),l=a(25);const s=Object(r.b)("database"),i=async(e,t,n)=>{const{setupClient:i}=await Promise.all([a.e(0),a.e(2)]).then(a.bind(null,195)),{encrypt:d,decrypt:b}=await Promise.all([a.e(1),a.e(3)]).then(a.bind(null,196));try{const e=n===Object(c.a)()?b(n,t):n,a=await i({secret:e}),r=d(e,t);return localStorage.setItem(o.a,r),s({client:a})}catch(e){return Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotConnectToDB","error"),s({})}};var d=a(47);const b=Object(r.b)("passwordList"),u={switchOptionPanelVariant:(e,t)=>b({currentOptionPanelVariantName:t}),resetSelectedAndDecryptedEntity:()=>b({selectedAndDecryptedEntity:{}}),setSelectedAndDecryptedEntity:(e,t)=>b({selectedAndDecryptedEntity:t}),fetchPasswords:async(e,t,o)=>{Object(r.a)(l.a.showGlobalLoader);const{fetchAllPasswordEntities:s}=await Promise.all([a.e(0),a.e(2)]).then(a.bind(null,195));Object(c.c)(e)||await Object(r.a)(i,t,o);const p=Object(c.b)(n.a.getState());try{const e=await s(p);return Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.passwordsFetchedSuccessfully","success"),Object(r.a)(u.switchOptionPanelVariant,d.a.entityFormCollapsed),b({passwords:e})}catch(e){return Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotFetchPasswords","error"),b({})}},addNewPassword:async(e,t,o)=>{Object(r.a)(l.a.showGlobalLoader);const{createPasswordEntity:s}=await Promise.all([a.e(0),a.e(2)]).then(a.bind(null,195)),{encrypt:i}=await Promise.all([a.e(1),a.e(3)]).then(a.bind(null,196)),p=Object(c.b)(n.a.getState());try{const e=i({login:t.login,password:t.password},o,!0);await s(p,{label:t.label,value:e}),Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(u.switchOptionPanelVariant,d.a.entityFormCollapsed)}catch(e){Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotCreateNewPassword","error")}finally{return b({})}},editPassword:async(e,t,o)=>{Object(r.a)(l.a.showGlobalLoader);const{updatePasswordEntity:s}=await Promise.all([a.e(0),a.e(2)]).then(a.bind(null,195)),{encrypt:i}=await Promise.all([a.e(1),a.e(3)]).then(a.bind(null,196)),p=Object(c.b)(n.a.getState());try{const e=i({login:t.login,password:t.password},o,!0);await s(p,t.refId,{label:t.label,value:e}),Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(u.resetSelectedAndDecryptedEntity),Object(r.a)(u.switchOptionPanelVariant,d.a.entityFormCollapsed)}catch(e){Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotEditPassword","error")}finally{return b({})}},removePassword:async(e,t)=>{Object(r.a)(l.a.showGlobalLoader);const{deletePasswordEntity:o}=await Promise.all([a.e(0),a.e(2)]).then(a.bind(null,195)),s=Object(c.b)(n.a.getState());try{await o(s,t),Object(r.a)(l.a.hideGlobalLoader)}catch(e){Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotRemovePassword","error")}finally{return b({})}}}},124:function(e,t,a){"use strict";a.d(t,"b",(function(){return c})),a.d(t,"a",(function(){return l}));var n=a(0),r=a(2),o=a(1);Object(r.b)(n.h);const c=Object(r.c)("button")`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{121:function(e,t,n){"use strict";n.d(t,"a",(function(){return l}));var a=n(0),r=n(5),o=n.n(r),c=n(124);const l=({type:e,children:t,onClick:n,disabled:r})=>Object(a.h)(c.b,{type:e,onClick:n,disabled:r},Object(a.h)(c.a,null,t));l.propTypes={type:o.a.string,disabled:o.a.bool,onClick:o.a.func.isRequired,children:o.a.any.isRequired},l.defaultProps={type:"button",disabled:!1}},122:function(e,t,n){"use strict";n.d(t,"a",(function(){return u}));var a=n(7),r=n(49),o=n(50),c=n(48),l=n(25);const i=Object(r.b)("database"),s=async(e,t,a)=>{const{setupClient:s}=await Promise.all([n.e(0),n.e(2)]).then(n.bind(null,195)),{encrypt:d,decrypt:b}=await Promise.all([n.e(1),n.e(3)]).then(n.bind(null,196));try{const e=a===Object(c.a)()?b(a,t):a,n=await s({secret:e}),r=d(e,t);return localStorage.setItem(o.a,r),i({client:n})}catch(e){return Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotConnectToDB","error"),i({})}};var d=n(47);const b=Object(r.b)("passwordList"),u={switchOptionPanelVariant:(e,t)=>b({currentOptionPanelVariantName:t}),resetSelectedAndDecryptedEntity:()=>b({selectedAndDecryptedEntity:{}}),setSelectedAndDecryptedEntity:(e,t)=>b({selectedAndDecryptedEntity:t}),fetchPasswords:async(e,t,o,i=!1)=>{Object(r.a)(l.a.showGlobalLoader);const{fetchAllPasswordEntities:p}=await Promise.all([n.e(0),n.e(2)]).then(n.bind(null,195));Object(c.c)(e)&&!i||await Object(r.a)(s,t,o);const h=Object(c.b)(a.a.getState());try{const e=await p(h);return Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.passwordsFetchedSuccessfully","success"),Object(r.a)(u.switchOptionPanelVariant,d.a.entityFormCollapsed),b({passwords:e})}catch(e){return Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotFetchPasswords","error"),b({})}},addNewPassword:async(e,t,o)=>{Object(r.a)(l.a.showGlobalLoader);const{createPasswordEntity:i}=await Promise.all([n.e(0),n.e(2)]).then(n.bind(null,195)),{encrypt:s}=await Promise.all([n.e(1),n.e(3)]).then(n.bind(null,196)),p=Object(c.b)(a.a.getState());try{const e=s({login:t.login,password:t.password},o,!0);await i(p,{label:t.label,value:e}),Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(u.switchOptionPanelVariant,d.a.entityFormCollapsed)}catch(e){Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotCreateNewPassword","error")}finally{return b({})}},editPassword:async(e,t,o)=>{Object(r.a)(l.a.showGlobalLoader);const{updatePasswordEntity:i}=await Promise.all([n.e(0),n.e(2)]).then(n.bind(null,195)),{encrypt:s}=await Promise.all([n.e(1),n.e(3)]).then(n.bind(null,196)),p=Object(c.b)(a.a.getState());try{const e=s({login:t.login,password:t.password},o,!0);await i(p,t.refId,{label:t.label,value:e}),Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(u.resetSelectedAndDecryptedEntity),Object(r.a)(u.switchOptionPanelVariant,d.a.entityFormCollapsed)}catch(e){Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotEditPassword","error")}finally{return b({})}},removePassword:async(e,t)=>{Object(r.a)(l.a.showGlobalLoader);const{deletePasswordEntity:o}=await Promise.all([n.e(0),n.e(2)]).then(n.bind(null,195)),i=Object(c.b)(a.a.getState());try{await o(i,t),Object(r.a)(l.a.hideGlobalLoader)}catch(e){Object(r.a)(l.a.hideGlobalLoader),Object(r.a)(l.a.showSnackbar,"snackbar.couldNotRemovePassword","error")}finally{return b({})}}}},124:function(e,t,n){"use strict";n.d(t,"b",(function(){return c})),n.d(t,"a",(function(){return l}));var a=n(0),r=n(2),o=n(1);Object(r.b)(a.h);const c=Object(r.c)("button")`
     ${o.e.text14}
     padding: ${o.d.spacing.s12};
     min-width: 100px;
@@ -43,9 +43,9 @@
     place-items: center;
     color: ${o.d.colors.white};
     white-space: nowrap;
-`},125:function(e,t,a){"use strict";a.d(t,"d",(function(){return n})),a.d(t,"b",(function(){return r})),a.d(t,"c",(function(){return o})),a.d(t,"e",(function(){return c})),a.d(t,"a",(function(){return l}));const n=e=>e&&e.length>=8||"optionsPanel.masterKeyTooShort",r=e=>e&&e.length>=3||"optionsPanel.labelTooShort",o=e=>e&&e.length>=3||"optionsPanel.loginTooShort",c=e=>e&&e.length>=3||"optionsPanel.passwordTooShort",l=e=>e&&e.length>=40||"settings.adminKeyTooShort"},128:function(e,t,a){"use strict";a.d(t,"a",(function(){return u}));var n=a(0),r=a(5),o=a.n(r),c=a(2),l=a(1);Object(c.b)(n.h);const s=Object(c.c)("section")`
+`},125:function(e,t,n){"use strict";n.d(t,"e",(function(){return a})),n.d(t,"b",(function(){return r})),n.d(t,"c",(function(){return o})),n.d(t,"d",(function(){return c})),n.d(t,"f",(function(){return l})),n.d(t,"a",(function(){return i}));const a=e=>e&&e.length>=8||"optionsPanel.masterKeyTooShort",r=e=>e&&e.length>=8||"optionsPanel.encryptionKeyTooShort",o=e=>e&&e.length>=3||"optionsPanel.labelTooShort",c=e=>e&&e.length>=3||"optionsPanel.loginTooShort",l=e=>e&&e.length>=3||"optionsPanel.passwordTooShort",i=e=>e&&e.length>=20||"settings.adminKeyTooShort"},128:function(e,t,n){"use strict";n.d(t,"a",(function(){return u}));var a=n(0),r=n(5),o=n.n(r),c=n(2),l=n(1);Object(c.b)(a.h);const i=Object(c.c)("section")`
     display: grid;
-`,i=Object(c.c)("div")`
+`,s=Object(c.c)("div")`
     ${l.e.text18}
     font-family: ${l.d.fontFamilies.bold};
     color: ${l.d.colors.darkBlue};
@@ -55,13 +55,13 @@
 `,b=Object(c.c)("div")`
     ${l.e.text18}
     color: ${l.d.colors.red};
-`,u=({hasError:e,renderLabel:t,renderInput:a,renderError:r})=>Object(n.h)(s,null,Object(n.h)(i,null,t()),Object(n.h)(d,null,a()),e&&Object(n.h)(b,null,r()));u.propTypes={hasError:o.a.oneOfType([o.a.string,o.a.bool]).isRequired,renderLabel:o.a.func.isRequired,renderInput:o.a.func.isRequired,renderError:o.a.func.isRequired}},129:function(e,t,a){"use strict";a.d(t,"a",(function(){return b}));var n=a(0),r=a(5),o=a.n(r),c=a(2),l=a(1);Object(c.b)(n.h);const s=l.c.css`
+`,u=({hasError:e,renderLabel:t,renderInput:n,renderError:r})=>Object(a.h)(i,null,Object(a.h)(s,null,t()),Object(a.h)(d,null,n()),e&&Object(a.h)(b,null,r()));u.propTypes={hasError:o.a.oneOfType([o.a.string,o.a.bool]).isRequired,renderLabel:o.a.func.isRequired,renderInput:o.a.func.isRequired,renderError:o.a.func.isRequired}},129:function(e,t,n){"use strict";n.d(t,"a",(function(){return b}));var a=n(0),r=n(5),o=n.n(r),c=n(2),l=n(1);Object(c.b)(a.h);const i=l.c.css`
     border: 1px solid ${l.d.colors.primaryBlue};
 
     &:focus {
         box-shadow: 0 0 0 2px ${l.d.colors.primaryBlue} inset;
     }
-`,i=l.c.css`
+`,s=l.c.css`
     border: 1px solid ${l.d.colors.red};
     color: ${l.d.colors.red};
 
@@ -81,16 +81,16 @@
         text-decoration: underline;
     }
 
-    ${({hasError:e})=>e?i:s}
-`,b=({value:e,onInput:t,placeholder:a,hasError:r,name:o,type:c})=>Object(n.h)(d,{type:c,value:e,onInput:t,placeholder:a,hasError:r,name:o});b.propTypes={onInput:o.a.func.isRequired,value:o.a.string,placeholder:o.a.string,hasError:o.a.bool,name:o.a.string,type:o.a.string},b.defaultProps={value:"",placeholder:"",hasError:!1,name:"",type:"text"}},130:function(e,t,a){"use strict";a.d(t,"a",(function(){return l}));var n=a(4);function r(e){for(var t,a,n,r=0,o={},c=/(radio|checkbox)/i,l=/(file|reset|submit|button)/i;n=e.elements[r++];)if(n.name&&!n.disabled&&!l.test(n.type))if(a=n.name,"select-multiple"===n.type)for(o[a]=[],t=0;t<n.options.length;t++)n.options[t].selected&&o[a].push(n.options[t].value);else c.test(n.type)?n.checked&&(t=o[a],n="on"===n.value||n.value,o[a]=null==t&&0!==t?n:[].concat(t,n)):(n.value||0===n.value)&&(t=o[a],o[a]=null==t&&0!==t?n.value:[].concat(t,n.value));return o}function o(e,t,a){t=t||{};var n,o,c,l,s,i=!0,d={},b=r(e);for(c in a&&a.trim&&((n={})[a]=t[a],t=n),t)for(l=(t[c].test||t[c]).call(t[c],b[c],b),s=(o=(n=e.elements[c]).length?n:[n]).length;s--;)o[s].isValid=!0===l||(d[c]=l,i=!1);return e.isValid=i,d}const c=(e,t,a,n,r)=>c=>{var l;const s=o(t.current,a),i=c.target.value;n(null!=i?i:""),r(null!==(l=s[e])&&void 0!==l?l:"")},l=(e,t,a,r="")=>{const[o,l]=Object(n.h)(r),[s,i]=Object(n.h)("");return[{value:o,setValue:l,errors:s,setErrors:i},{name:a,value:o,hasError:Boolean(s),onInput:c(a,e,t,l,i)}]}},197:function(e,t,a){"use strict";a.r(t),a.d(t,"useFirstTimeRedirection",(function(){return fe})),a.d(t,"PasswordList",(function(){return ve}));var n=a(0),r=a(7),o=a(2),c=a(1);Object(o.b)(n.h);const l=Object(o.c)("div")`
+    ${({hasError:e})=>e?s:i}
+`,b=({value:e,onInput:t,placeholder:n,hasError:r,name:o,type:c})=>Object(a.h)(d,{type:c,value:e,onInput:t,placeholder:n,hasError:r,name:o});b.propTypes={onInput:o.a.func.isRequired,value:o.a.string,placeholder:o.a.string,hasError:o.a.bool,name:o.a.string,type:o.a.string},b.defaultProps={value:"",placeholder:"",hasError:!1,name:"",type:"text"}},130:function(e,t,n){"use strict";n.d(t,"a",(function(){return l}));var a=n(4);function r(e){for(var t,n,a,r=0,o={},c=/(radio|checkbox)/i,l=/(file|reset|submit|button)/i;a=e.elements[r++];)if(a.name&&!a.disabled&&!l.test(a.type))if(n=a.name,"select-multiple"===a.type)for(o[n]=[],t=0;t<a.options.length;t++)a.options[t].selected&&o[n].push(a.options[t].value);else c.test(a.type)?a.checked&&(t=o[n],a="on"===a.value||a.value,o[n]=null==t&&0!==t?a:[].concat(t,a)):(a.value||0===a.value)&&(t=o[n],o[n]=null==t&&0!==t?a.value:[].concat(t,a.value));return o}function o(e,t,n){t=t||{};var a,o,c,l,i,s=!0,d={},b=r(e);for(c in n&&n.trim&&((a={})[n]=t[n],t=a),t)for(l=(t[c].test||t[c]).call(t[c],b[c],b),i=(o=(a=e.elements[c]).length?a:[a]).length;i--;)o[i].isValid=!0===l||(d[c]=l,s=!1);return e.isValid=s,d}const c=(e,t,n,a,r)=>c=>{var l;const i=o(t.current,n),s=c.target.value;a(null!=s?s:""),r(null!==(l=i[e])&&void 0!==l?l:"")},l=(e,t,n,r="")=>{const[o,l]=Object(a.h)(r),[i,s]=Object(a.h)("");return[{value:o,setValue:l,errors:i,setErrors:s},{name:n,value:o,hasError:Boolean(i),onInput:c(n,e,t,l,s)}]}},197:function(e,t,n){"use strict";n.r(t),n.d(t,"useFirstTimeRedirection",(function(){return ve})),n.d(t,"PasswordList",(function(){return xe}));var a=n(0),r=n(7),o=n(2),c=n(1);Object(o.b)(a.h);const l=Object(o.c)("div")`
     margin-bottom: ${c.d.spacing.s12};
-`,s=Object(o.c)("section")`
+`,i=Object(o.c)("section")`
     padding-top: 100px;
 
     ${l}:last-of-type {
         margin-bottom: 0;
     }
-`,i=Object(o.c)("div")`
+`,s=Object(o.c)("div")`
     display: grid;
     justify-items: center;
     margin-bottom: ${c.d.spacing.s12};
@@ -125,7 +125,7 @@
             height: 200px;
         }
     `)}
-`;var p=a(48),h=a(34),O=a(4),j=a(47);Object(o.b)(n.h);const g=Object(o.c)("section")`
+`;var p=n(48),h=n(34),O=n(4),j=n(47);Object(o.b)(a.h);const g=Object(o.c)("section")`
     ${({currentVariantName:e})=>{switch(e){case j.a.connectCollapsed:case j.a.entityFormCollapsed:return`border: 2px solid ${c.d.colors.pastelGreen};`;case j.a.connectExpanded:case j.a.entityFormExpanded:return`border: 2px solid ${c.d.colors.significantGreen};`}return`border: 2px solid ${c.d.colors.pastelGreen};`}}
     z-index: ${c.d.zIndexes.xs};
     position: absolute;
@@ -136,26 +136,48 @@
     max-width: ${c.d.breakpoints.s480};
     background: ${c.d.colors.white};
     padding: ${c.d.spacing.m18};
-`,w=Object(o.c)("div")``,m=Object(o.c)("div")`
+`,y=Object(o.c)("div")``,w=Object(o.c)("div")`
     padding-bottom: ${c.d.spacing.m18};
-`,y=Object(o.c)("div")`
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: ${c.d.spacing.xl30};
-`;var f=a(5),v=a.n(f);Object(o.b)(n.h);const x=Object(o.c)("section")``;var $=a(121),P=a(3);const k=({switchCurrentVariantName:e})=>Object(n.h)(x,null,Object(n.h)(y,null,Object(n.h)($.a,{onClick:()=>{Object(h.route)("/settings")}},Object(n.h)(P.a,null,"optionsPanel.settings")),Object(n.h)($.a,{onClick:()=>e(j.a.connectExpanded)},Object(n.h)(P.a,null,"optionsPanel.connect"))));k.propTypes={switchCurrentVariantName:v.a.func.isRequired},Object(o.b)(n.h);const C=Object(o.c)("section")``;var E=a(128),S=a(129),L=a(122),N=a(125),I=a(130);function V(){return(V=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n])}return e}).apply(this,arguments)}const R={masterKey:N.d},T=({switchCurrentVariantName:e})=>{var t;const a=Object(r.c)(p.a),o=Object(r.b)(L.a.fetchPasswords),c=Object(O.g)(void 0),[l,s]=Object(I.a)(c,R,"masterKey");return Object(n.h)(C,null,Object(n.h)(w,null,Object(n.h)(m,null,Object(n.h)("form",{ref:c},Object(n.h)(E.a,{hasError:s.hasError,renderLabel:()=>Object(n.h)(P.a,null,"optionsPanel.enterMasterKey"),renderInput:()=>Object(n.h)(S.a,V({type:"password",placeholder:"e.g. MyStrongPassword1234"},s)),renderError:()=>Object(n.h)(P.a,null,l.errors)})))),Object(n.h)(y,null,Object(n.h)($.a,{onClick:()=>e(j.a.connectCollapsed)},Object(n.h)(P.a,null,"optionsPanel.cancel")),Object(n.h)($.a,{onClick:async()=>{o(l.value,a)},disabled:!(null===(t=c.current)||void 0===t?void 0:t.isValid)},Object(n.h)(P.a,null,"optionsPanel.confirm"))))};T.propTypes={switchCurrentVariantName:v.a.func.isRequired},Object(o.b)(n.h);const q=Object(o.c)("section")``;var F=a(13),G=a(12);const B=e=>e.passwordList,K=Object(G.a)(B,e=>e.passwords),A=Object(G.a)(B,e=>e.currentOptionPanelVariantName),D=Object(G.a)(B,e=>e.selectedAndDecryptedEntity),M=Object(G.a)(D,e=>0!==Object.keys(e).length),z=({switchCurrentVariantName:e})=>{const t=Object(F.c)(M)?"optionsPanel.edit":"optionsPanel.addNew";return Object(n.h)(q,null,Object(n.h)(y,null,Object(n.h)($.a,{onClick:()=>{Object(h.route)("/settings")}},Object(n.h)(P.a,null,"optionsPanel.settings")),Object(n.h)($.a,{onClick:()=>e(j.a.entityFormExpanded)},Object(n.h)(P.a,null,t))))};z.propTypes={switchCurrentVariantName:v.a.func.isRequired},Object(o.b)(n.h);const J=Object(o.c)("section")``,X=Object(o.c)("div")`
+`,m=Object(o.c)("div")`
+    display: flex;
+    justify-content: center;
+
+    button {
+        width: 100%;
+    }
+
+    button:first-of-type {
+        margin-right: ${c.d.spacing.xl30};
+    }
+
+    ${({isInEditMode:e})=>{if(e)return c.c.css`
+        &::after {
+            content: '•';
+            font-size: ${c.d.fontSizes.xl32};
+            color: ${c.d.colors.significantGreen};
+            display: inline-block;
+            position: relative;
+            top: -20px;
+            left: 8px;
+        }`}}
+`;var f=n(5),v=n.n(f);Object(o.b)(a.h);const x=Object(o.c)("section")``;var $=n(121),P=n(3);const k=({switchCurrentVariantName:e})=>Object(a.h)(x,null,Object(a.h)(m,null,Object(a.h)($.a,{onClick:()=>{Object(h.route)("/settings")}},Object(a.h)(P.a,null,"optionsPanel.settings")),Object(a.h)($.a,{onClick:()=>e(j.a.connectExpanded)},Object(a.h)(P.a,null,"optionsPanel.connect"))));k.propTypes={switchCurrentVariantName:v.a.func.isRequired},Object(o.b)(a.h);const E=Object(o.c)("section")``;var C=n(128),S=n(129),L=n(122),V=n(125),I=n(130);function N(){return(N=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var a in n)Object.prototype.hasOwnProperty.call(n,a)&&(e[a]=n[a])}return e}).apply(this,arguments)}const T={masterKey:V.e},R=({switchCurrentVariantName:e})=>{var t;const n=Object(r.c)(p.a),o=Object(r.b)(L.a.fetchPasswords),c=Object(O.g)(void 0),[l,i]=Object(I.a)(c,T,"masterKey"),s=async e=>{var t;e.preventDefault(),(null===(t=c.current)||void 0===t?void 0:t.isValid)&&o(l.value,n)};return Object(a.h)(E,null,Object(a.h)(y,null,Object(a.h)(w,null,Object(a.h)("form",{ref:c,onSubmit:s},Object(a.h)(C.a,{hasError:i.hasError,renderLabel:()=>Object(a.h)(P.a,null,"optionsPanel.enterMasterKey"),renderInput:()=>Object(a.h)(S.a,N({type:"password",placeholder:"e.g. MyStrongPassword1234"},i)),renderError:()=>Object(a.h)(P.a,null,l.errors)})))),Object(a.h)(m,null,Object(a.h)($.a,{onClick:()=>e(j.a.connectCollapsed)},Object(a.h)(P.a,null,"optionsPanel.cancel")),Object(a.h)($.a,{onClick:s,disabled:!(null===(t=c.current)||void 0===t?void 0:t.isValid)},Object(a.h)(P.a,null,"optionsPanel.confirm"))))};R.propTypes={switchCurrentVariantName:v.a.func.isRequired},Object(o.b)(a.h);const F=Object(o.c)("section")``;var G=n(13),q=n(12);const B=e=>e.passwordList,D=Object(q.a)(B,e=>e.passwords),K=Object(q.a)(B,e=>e.currentOptionPanelVariantName),A=Object(q.a)(B,e=>e.selectedAndDecryptedEntity),M=Object(q.a)(A,e=>0!==Object.keys(e).length),z=({switchCurrentVariantName:e})=>{const t=Object(G.c)(M),n=t?"optionsPanel.edit":"optionsPanel.addNew";return Object(a.h)(F,null,Object(a.h)(m,{isInEditMode:t},Object(a.h)($.a,{onClick:()=>{Object(h.route)("/settings")}},Object(a.h)(P.a,null,"optionsPanel.settings")),Object(a.h)($.a,{onClick:()=>e(j.a.entityFormExpanded)},Object(a.h)(P.a,null,n))))};z.propTypes={switchCurrentVariantName:v.a.func.isRequired},Object(o.b)(a.h);const J=Object(o.c)("section")``,X=Object(o.c)("div")`
     padding-bottom: ${c.d.spacing.m18};
-`;function W(){return(W=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n])}return e}).apply(this,arguments)}const H={label:N.b,login:N.c,password:N.e,masterKey:N.d},Q=({switchCurrentVariantName:e})=>{var t;const a=Object(r.c)(p.a),o=Object(O.g)(void 0),c=Object(r.b)(L.a.addNewPassword),l=Object(r.b)(L.a.editPassword),s=Object(r.b)(L.a.fetchPasswords),i=Object(r.c)(D),d=Object(r.c)(M),b=d?"optionsPanel.edit":"optionsPanel.add",u=(e,t)=>Object(I.a)(o,H,e,t),[h,g]=u("label",i.label),[f,v]=u("login",i.login),[x,k]=u("password",i.password),[C,N]=u("masterKey"),V=e=>()=>Object(n.h)(P.a,null,e),R=e=>()=>Object(n.h)(P.a,null,e);return Object(n.h)(J,null,Object(n.h)(w,null,Object(n.h)(m,null,Object(n.h)("form",{ref:o},Object(n.h)(X,null,Object(n.h)(E.a,{hasError:g.hasError,renderLabel:V("optionsPanel.labelInputLabel"),renderInput:()=>Object(n.h)(S.a,W({placeholder:"e.g. My Bank Account"},g)),renderError:R(h.errors)})),Object(n.h)(X,null,Object(n.h)(E.a,{hasError:v.hasError,renderLabel:V("optionsPanel.loginInputLabel"),renderInput:()=>Object(n.h)(S.a,W({placeholder:"e.g. yourmail@yourmail.com"},v)),renderError:R(f.errors)})),Object(n.h)(X,null,Object(n.h)(E.a,{hasError:k.hasError,renderLabel:V("optionsPanel.passwordInputLabel"),renderInput:()=>Object(n.h)(S.a,W({type:"password",placeholder:"e.g. myPassWord1234"},k)),renderError:R(x.errors)})),Object(n.h)(X,null,Object(n.h)(E.a,{hasError:N.hasError,renderLabel:V("optionsPanel.masterKey"),renderInput:()=>Object(n.h)(S.a,W({type:"password",placeholder:"e.g. MyStrongPassword1234"},N)),renderError:R(C.errors)}))))),Object(n.h)(y,null,Object(n.h)($.a,{onClick:()=>e(j.a.entityFormCollapsed)},Object(n.h)(P.a,null,"optionsPanel.cancel")),Object(n.h)($.a,{onClick:async()=>{d?await l({label:h.value,login:f.value,password:x.value,refId:i.refId},C.value):await c({label:h.value,login:f.value,password:x.value},C.value),s(C.value,a)},disabled:!(null===(t=o.current)||void 0===t?void 0:t.isValid)},Object(n.h)(P.a,null,b))))};Q.propTypes={switchCurrentVariantName:v.a.func.isRequired};const U=()=>{const e=Object(r.c)(A),t=Object(r.b)(L.a.switchOptionPanelVariant),a={connectCollapsed:k,connectExpanded:T,entityFormCollapsed:z,entityFormExpanded:Q}[e];return Object(n.h)(g,{currentVariantName:e},Object(n.h)(a,{switchCurrentVariantName:t}))};U.propTypes={},Object(o.b)(n.h);const Y=Object(o.c)("div")`
+`,W=Object(o.c)("div")`
+    color: ${c.d.colors.darkBlue};
+    font-style: italic;
+    padding-top: ${c.d.spacing.xs6};
+`;var H=n(16);function Q(){return(Q=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var a in n)Object.prototype.hasOwnProperty.call(n,a)&&(e[a]=n[a])}return e}).apply(this,arguments)}const U={label:V.c,login:V.d,password:V.f,encryptionKey:V.b},Y=({switchCurrentVariantName:e})=>{var t;const n=Object(r.c)(p.a),o=Object(O.g)(void 0),c=Object(r.b)(L.a.addNewPassword),l=Object(r.b)(L.a.editPassword),i=Object(r.b)(L.a.fetchPasswords),s=Object(r.c)(A),d=Object(r.c)(M),b=d?"optionsPanel.edit":"optionsPanel.add",u=(e,t)=>Object(I.a)(o,U,e,t),[h,g]=u("label",s.label),[f,v]=u("login",s.login),[x,k]=u("password",s.password),[E,V]=u("encryptionKey"),N=async e=>{var t;e.preventDefault(),(null===(t=o.current)||void 0===t?void 0:t.isValid)&&(d?await l({label:h.value,login:f.value,password:x.value,refId:s.refId},E.value):await c({label:h.value,login:f.value,password:x.value},E.value),i(E.value,n))},T=e=>()=>Object(a.h)(P.a,null,e),R=(e,t)=>()=>Object(a.h)(a.Fragment,null,Object(a.h)(P.a,null,e),Object(H.a)(()=>Object(a.h)(W,null,Object(a.h)(P.a,null,"settings.noteLabel")," ",Object(a.h)(P.a,null,t)))(Boolean(t)));return Object(a.h)(J,null,Object(a.h)(y,null,Object(a.h)(w,null,Object(a.h)("form",{ref:o,onSubmit:N},Object(a.h)(X,null,Object(a.h)(C.a,{hasError:g.hasError,renderLabel:R("optionsPanel.labelInputLabel"),renderInput:()=>Object(a.h)(S.a,Q({placeholder:"e.g. My Bank Account"},g)),renderError:T(h.errors)})),Object(a.h)(X,null,Object(a.h)(C.a,{hasError:v.hasError,renderLabel:R("optionsPanel.loginInputLabel"),renderInput:()=>Object(a.h)(S.a,Q({placeholder:"e.g. yourmail@yourmail.com"},v)),renderError:T(f.errors)})),Object(a.h)(X,null,Object(a.h)(C.a,{hasError:k.hasError,renderLabel:R("optionsPanel.passwordInputLabel"),renderInput:()=>Object(a.h)(S.a,Q({type:"password",placeholder:"e.g. myPassWord1234"},k)),renderError:T(x.errors)})),Object(a.h)(X,null,Object(a.h)(C.a,{hasError:V.hasError,renderLabel:R("optionsPanel.encryptionKey","optionsPanel.noteEncryptionKey"),renderInput:()=>Object(a.h)(S.a,Q({type:"password",placeholder:"e.g. MyStrongPassword1234"},V)),renderError:T(E.errors)})),Object(a.h)("input",{type:"submit",hidden:!0})))),Object(a.h)(m,null,Object(a.h)($.a,{onClick:()=>e(j.a.entityFormCollapsed)},Object(a.h)(P.a,null,"optionsPanel.cancel")),Object(a.h)($.a,{onClick:N,disabled:!(null===(t=o.current)||void 0===t?void 0:t.isValid)},Object(a.h)(P.a,null,b))))};Y.propTypes={switchCurrentVariantName:v.a.func.isRequired};const Z=()=>{const e=Object(r.c)(K),t=Object(r.b)(L.a.switchOptionPanelVariant),n={connectCollapsed:k,connectExpanded:R,entityFormCollapsed:z,entityFormExpanded:Y}[e];return Object(a.h)(g,{currentVariantName:e},Object(a.h)(n,{switchCurrentVariantName:t}))};Z.propTypes={},Object(o.b)(a.h);const _=Object(o.c)("div")`
     margin-bottom: ${c.d.spacing.m18};
-`,Z=c.c.css`
+`,ee=c.c.css`
     outline: ${c.d.spacing.xxs2} solid ${c.d.colors.significantGreen};
-`,_=Object(o.c)("button")`
+`,te=Object(o.c)("button")`
     width: 100%;
     box-shadow: ${c.d.shadows.clickableItem};
     background: ${c.d.colors.pastelGreen};
     padding: ${c.d.spacing.m18};
-    ${({isSelected:e})=>e?Z:"outline: none;"}
+    ${({isSelected:e})=>e?ee:"outline: none;"}
 
-    ${Y}:last-of-type {
+    ${_}:last-of-type {
         margin-bottom: 0;
     }
 
@@ -166,30 +188,30 @@
             text-decoration: underline;
         }
     }
-`,ee=Object(o.c)("span")`
+`,ne=Object(o.c)("span")`
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
-`,te=Object(o.c)("span")`
+`,ae=Object(o.c)("span")`
     font-family: ${c.d.fontFamilies.bold};
     color: ${c.d.colors.darkBlue};
     ${c.e.text18}
-`,ae=Object(o.c)("strong")`
+`,re=Object(o.c)("strong")`
     color: ${c.d.colors.darkBlue};
     word-break: break-all;
     ${c.e.text18}
-`,ne=Object(o.c)("div")`
+`,oe=Object(o.c)("div")`
     display: grid;
     text-align: left;
-`,re=Object(o.c)("div")`
+`,ce=Object(o.c)("div")`
     display: grid;
     align-content: space-between;
-`,oe=Object(o.c)("div")`
+`,le=Object(o.c)("div")`
     text-align: left;
-`;var ce=a(124);Object(o.b)(n.h);const le=Object(o.c)(ce.b)`
+`;var ie=n(124);Object(o.b)(a.h);const se=Object(o.c)(ie.b)`
     padding: ${c.d.spacing.xs6};
     min-width: initial;
-`;var se=a(6);const ie=({iconName:e,width:t,height:a,onClick:r})=>Object(n.h)(le,{onClick:r},Object(n.h)(ce.a,null,Object(n.h)(se.a,{name:e,width:t,height:a})));ie.propTypes={iconName:v.a.any.isRequired,onClick:v.a.func.isRequired,width:v.a.number,height:v.a.number},ie.defaultProps={width:30,height:30};var de=a(16);Object(o.b)(n.h);const be=Object(o.c)("section")`
+`;var de=n(6);const be=({iconName:e,width:t,height:n,onClick:r})=>Object(a.h)(se,{onClick:r},Object(a.h)(ie.a,null,Object(a.h)(de.a,{name:e,width:t,height:n})));be.propTypes={iconName:v.a.any.isRequired,onClick:v.a.func.isRequired,width:v.a.number,height:v.a.number},be.defaultProps={width:30,height:30},Object(o.b)(a.h);const ue=Object(o.c)("section")`
     position: fixed;
     z-index: ${c.d.zIndexes.m};
     top: 76px;
@@ -205,7 +227,7 @@
     border: 1px solid ${c.d.colors.primaryBlue};
     border-top: 4px solid ${c.d.colors.primaryBlue};
     background: ${c.d.colors.white};
-`,ue=Object(o.c)("div")`
+`,pe=Object(o.c)("div")`
     ${c.e.text18}
     display: grid;
     max-width: 480px;
@@ -213,9 +235,9 @@
     padding: 0 ${c.d.spacing.xs6} ${c.d.spacing.xs6};
     margin-bottom: ${c.d.spacing.m18};
     text-align: center;
-`,pe=Object(o.c)("div")`
+`,he=Object(o.c)("div")`
     display: grid;
     grid-gap: ${c.d.spacing.xl30};
     grid-auto-flow: column;
-`,he=({renderContent:e,renderControls:t})=>Object(n.h)(be,{onClick:e=>e.stopPropagation()},Object(n.h)(ue,null,e()),Object(n.h)(pe,null,t()));function Oe(){return(Oe=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n])}return e}).apply(this,arguments)}he.propTypes={renderContent:v.a.func.isRequired,renderControls:v.a.func.isRequired};const je={masterKey:N.d},ge="",we="removal",me="decryption",ye=({data:e,isSelected:t,onClick:o})=>{var c,l;const s=Object(O.g)(void 0),[i,d]=Object(O.h)(ge),b=Object(r.c)(p.a),u=Object(r.c)((h=e.ref.id,Object(G.a)(D,e=>e.refId===h?e:{})));var h;const g=0!==Object.keys(u).length,[w,m]=Object(I.a)(s,je,"masterKey"),y=Object(r.b)(L.a.removePassword),f=Object(r.b)(L.a.fetchPasswords),v=Object(r.b)(L.a.setSelectedAndDecryptedEntity),x=Object(r.b)(L.a.resetSelectedAndDecryptedEntity),k=()=>{d(ge),w.setValue(""),w.setErrors("")},C=()=>{i===me?(async()=>{const{decrypt:t}=await Promise.all([a.e(1),a.e(3)]).then(a.bind(null,196)),{login:n,password:r}=t(e.data.value,w.value,!0);v({refId:e.ref.id,label:e.data.label,login:n,password:r})})():(async()=>{const{decrypt:t}=await Promise.all([a.e(1),a.e(3)]).then(a.bind(null,196));t(e.data.value,w.value,!0),await y(e.ref.id),f(w.value,b)})(),k()},N=e=>t=>{t.stopPropagation(),i||d(e)},V=e=>{e.stopPropagation(),x()},R=Object(de.a)(()=>{const e=i===me?"prompt.decrypt":"prompt.remove";return Object(n.h)(he,{renderContent:()=>Object(n.h)("form",{ref:s},Object(n.h)(oe,null,Object(n.h)(E.a,{hasError:m.hasError,renderLabel:()=>Object(n.h)(P.a,null,"optionsPanel.enterMasterKey"),renderError:()=>Object(n.h)(P.a,null,w.errors),renderInput:()=>Object(n.h)(S.a,Oe({type:"password",placeholder:"e.g. MyStrongPassword1234"},m))}))),renderControls:()=>{var t;return Object(n.h)(n.Fragment,null,Object(n.h)($.a,{onClick:k},Object(n.h)(P.a,null,"optionsPanel.cancel")),Object(n.h)($.a,{onClick:C,disabled:!(null===(t=s.current)||void 0===t?void 0:t.isValid)},Object(n.h)(P.a,null,e)))}})}),T=Object(de.a)(()=>Object(n.h)(n.Fragment,null,Object(n.h)(ie,{iconName:"bin",onClick:N(we)}),g?Object(n.h)(ie,{iconName:"eyeFilled",onClick:V}):Object(n.h)(ie,{iconName:"eye",onClick:N(me)})));return Object(n.h)(_,{onClick:()=>{o(t?null:e),x(),k()},isSelected:t},Object(n.h)(ee,null,Object(n.h)(ne,null,Object(n.h)(Y,null,Object(n.h)(te,null,Object(n.h)(P.a,null,"passwordEntity.label"))," ","- ",Object(n.h)(ae,null,e.data.label)),Object(n.h)(Y,null,Object(n.h)(te,null,Object(n.h)(P.a,null,"passwordEntity.login"))," ","-"," ",Object(n.h)(ae,null,null!==(c=u.login)&&void 0!==c?c:j.b)),Object(n.h)(Y,null,Object(n.h)(te,null,Object(n.h)(P.a,null,"passwordEntity.password"))," ","-"," ",Object(n.h)(ae,null,null!==(l=u.password)&&void 0!==l?l:j.b))),Object(n.h)(re,null,T(t))),R(Boolean(i)&&t))};ye.propTypes={isSelected:v.a.bool.isRequired,data:v.a.any.isRequired,onClick:v.a.func.isRequired};const fe=()=>{Object(O.c)(()=>{Object(r.c)(p.d)&&!window.prerendering&&setTimeout(()=>{Object(h.route)("/settings")})},[])},ve=()=>{fe();const e=Object(r.c)(K),t=Object(r.c)(p.c),a=!t||t&&!Boolean(e.length),o=Object(F.b)(L.a.switchOptionPanelVariant),[c,h]=Object(O.h)(null);Object(O.c)(()=>{t&&o(j.a.entityFormCollapsed)},[]);const g=Object(de.a)(()=>{const e=t?"database":"padlock",a=t?"passwordList.noDataPlaceholder":"passwordList.connectionPlaceholder";return Object(n.h)(d,null,Object(n.h)(u,null,Object(n.h)(se.a,{name:e})),Object(n.h)(b,null,Object(n.h)(P.a,null,a)))});return Object(n.h)(s,null,Object(n.h)(i,null,Object(n.h)(U,null)),e.map(e=>Object(n.h)(l,{key:e.ref.id},Object(n.h)(ye,{data:e,isSelected:c===e,onClick:h}))),g(a))}}}]);
+`,Oe=({renderContent:e,renderControls:t})=>Object(a.h)(ue,{onClick:e=>e.stopPropagation()},Object(a.h)(pe,null,e()),Object(a.h)(he,null,t()));function je(){return(je=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var a in n)Object.prototype.hasOwnProperty.call(n,a)&&(e[a]=n[a])}return e}).apply(this,arguments)}Oe.propTypes={renderContent:v.a.func.isRequired,renderControls:v.a.func.isRequired};const ge={encryptionKey:V.b},ye="",we="removal",me="decryption",fe=({data:e,isSelected:t,onClick:o})=>{var c,l;const i=Object(O.g)(void 0),[s,d]=Object(O.h)(ye),b=Object(r.c)(p.a),u=Object(r.c)((h=e.ref.id,Object(q.a)(A,e=>e.refId===h?e:{})));var h;const g=0!==Object.keys(u).length,[y,w]=Object(I.a)(i,ge,"encryptionKey"),m=Object(r.b)(L.a.removePassword),f=Object(r.b)(L.a.fetchPasswords),v=Object(r.b)(L.a.setSelectedAndDecryptedEntity),x=Object(r.b)(L.a.resetSelectedAndDecryptedEntity),k=()=>{d(ye),y.setValue(""),y.setErrors("")},E=t=>{var a;t.preventDefault(),(null===(a=i.current)||void 0===a?void 0:a.isValid)&&(s===me?(async()=>{const{decrypt:t}=await Promise.all([n.e(1),n.e(3)]).then(n.bind(null,196)),{login:a,password:r}=t(e.data.value,y.value,!0);v({refId:e.ref.id,label:e.data.label,login:a,password:r})})():(async()=>{const{decrypt:t}=await Promise.all([n.e(1),n.e(3)]).then(n.bind(null,196));t(e.data.value,y.value,!0),await m(e.ref.id),f(y.value,b)})(),k())},V=e=>t=>{t.stopPropagation(),s||d(e)},N=e=>{e.stopPropagation(),x()},T=Object(H.a)(()=>{const e=s===me?"prompt.decrypt":"prompt.remove";return Object(a.h)(Oe,{renderContent:()=>Object(a.h)("form",{ref:i,onSubmit:E},Object(a.h)(le,null,Object(a.h)(C.a,{hasError:w.hasError,renderLabel:()=>Object(a.h)(P.a,null,"optionsPanel.enterEncryptionKey"),renderError:()=>Object(a.h)(P.a,null,y.errors),renderInput:()=>Object(a.h)(S.a,je({type:"password",placeholder:"e.g. MyStrongPassword1234"},w))}))),renderControls:()=>{var t;return Object(a.h)(a.Fragment,null,Object(a.h)($.a,{onClick:k},Object(a.h)(P.a,null,"optionsPanel.cancel")),Object(a.h)($.a,{onClick:E,disabled:!(null===(t=i.current)||void 0===t?void 0:t.isValid)},Object(a.h)(P.a,null,e)))}})}),R=Object(H.a)(()=>Object(a.h)(a.Fragment,null,Object(a.h)(be,{iconName:"bin",onClick:V(we)}),g?Object(a.h)(be,{iconName:"eyeFilled",onClick:N}):Object(a.h)(be,{iconName:"eye",onClick:V(me)})));return Object(a.h)(te,{onClick:()=>{o(t?null:e),x(),k()},isSelected:t},Object(a.h)(ne,null,Object(a.h)(oe,null,Object(a.h)(_,null,Object(a.h)(ae,null,Object(a.h)(P.a,null,"passwordEntity.label"))," ","- ",Object(a.h)(re,null,e.data.label)),Object(a.h)(_,null,Object(a.h)(ae,null,Object(a.h)(P.a,null,"passwordEntity.login"))," ","-"," ",Object(a.h)(re,null,null!==(c=u.login)&&void 0!==c?c:j.b)),Object(a.h)(_,null,Object(a.h)(ae,null,Object(a.h)(P.a,null,"passwordEntity.password"))," ","-"," ",Object(a.h)(re,null,null!==(l=u.password)&&void 0!==l?l:j.b))),Object(a.h)(ce,null,R(t))),T(Boolean(s)&&t))};fe.propTypes={isSelected:v.a.bool.isRequired,data:v.a.any.isRequired,onClick:v.a.func.isRequired};const ve=()=>{Object(O.c)(()=>{Object(r.c)(p.d)&&!window.prerendering&&setTimeout(()=>{Object(h.route)("/settings")})},[])},xe=()=>{ve();const e=Object(r.c)(D),t=Object(r.c)(p.c),n=!t||t&&!Boolean(e.length),o=Object(G.b)(L.a.switchOptionPanelVariant),[c,h]=Object(O.h)(null);Object(O.c)(()=>{t&&o(j.a.entityFormCollapsed)},[]);const g=Object(H.a)(()=>{const e=t?"database":"padlock",n=t?"passwordList.noDataPlaceholder":"passwordList.connectionPlaceholder";return Object(a.h)(d,null,Object(a.h)(u,null,Object(a.h)(de.a,{name:e})),Object(a.h)(b,null,Object(a.h)(P.a,null,n)))});return Object(a.h)(i,null,Object(a.h)(s,null,Object(a.h)(Z,null)),e.map(e=>Object(a.h)(l,{key:e.ref.id},Object(a.h)(fe,{data:e,isSelected:c===e,onClick:h}))),g(n))}}}]);
 //# sourceMappingURL=5.bundle.js.map
