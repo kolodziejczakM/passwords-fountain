@@ -1,9 +1,10 @@
-import { h, VNode } from 'preact';
+import { h, VNode, Fragment } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import {
     Wrapper,
     FormControlWrapper,
+    NoteLabelWrapper,
 } from './optionsPanelEntityFormExpanded.styles';
 import { VariantProps } from '../optionsPanel.component';
 import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
@@ -20,19 +21,20 @@ import {
     label,
     login,
     password,
-    masterKey,
+    encryptionKey,
 } from '@/common/utils/formValidators';
 import {
     selectSelectedAndDecryptedEntity,
     selectIsInEditMode,
 } from '@/modules/passwordList/passwordList.selectors';
 import { selectAdminKey } from '@/modules/database/database.selectors';
+import { renderIfTrue } from '@/common/utils/rendering';
 
 const formValidation = {
     label,
     login,
     password,
-    masterKey,
+    encryptionKey,
 } as const;
 
 export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
@@ -63,14 +65,20 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
         'password',
         editedEntity.password
     );
-    const [masterKeyInputState, masterKeyInputProps] = useInputForm(
-        'masterKey'
+    const [encryptionKeyInputState, encryptionKeyInputProps] = useInputForm(
+        'encryptionKey'
     );
 
     const handleCancelClick = (): void =>
         switchCurrentVariantName(optionsPanelVariantNames.entityFormCollapsed);
 
-    const handleAction = async (): Promise<void> => {
+    const handleAction = async (e: Event): Promise<void> => {
+        e.preventDefault();
+
+        if (!formRef.current?.isValid) {
+            return;
+        }
+
         if (isInEditMode) {
             await editPassword(
                 {
@@ -79,7 +87,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                     password: passwordInputState.value,
                     refId: editedEntity.refId,
                 },
-                masterKeyInputState.value
+                encryptionKeyInputState.value
             );
         } else {
             await addNewPassword(
@@ -88,19 +96,29 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                     login: loginInputState.value,
                     password: passwordInputState.value,
                 },
-                masterKeyInputState.value
+                encryptionKeyInputState.value
             );
         }
-        fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
+        fetchPasswords(encryptionKeyInputState.value, encryptedAdminKey);
     };
 
-    const renderLabel = (label: string) => (): VNode => <Text>{label}</Text>;
     const renderError = (errors: string) => (): VNode => <Text>{errors}</Text>;
+    const renderLabel = (label: string, noteText?: string) => (): VNode => (
+        <Fragment>
+            <Text>{label}</Text>
+            {renderIfTrue(() => (
+                <NoteLabelWrapper>
+                    <Text>settings.noteLabel</Text>{' '}
+                    <Text>{noteText as string}</Text>
+                </NoteLabelWrapper>
+            ))(Boolean(noteText))}
+        </Fragment>
+    );
     return (
         <Wrapper>
             <ContentWrapper>
                 <Content>
-                    <form ref={formRef}>
+                    <form ref={formRef} onSubmit={handleAction}>
                         <FormControlWrapper>
                             <FormControl
                                 hasError={labelInputProps.hasError}
@@ -155,22 +173,24 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={masterKeyInputProps.hasError}
+                                hasError={encryptionKeyInputProps.hasError}
                                 renderLabel={renderLabel(
-                                    'optionsPanel.masterKey'
+                                    'optionsPanel.encryptionKey',
+                                    'optionsPanel.noteEncryptionKey'
                                 )}
                                 renderInput={(): VNode => (
                                     <TextInput
                                         type="password"
                                         placeholder="e.g. MyStrongPassword1234"
-                                        {...masterKeyInputProps}
+                                        {...encryptionKeyInputProps}
                                     />
                                 )}
                                 renderError={renderError(
-                                    masterKeyInputState.errors
+                                    encryptionKeyInputState.errors
                                 )}
                             />
                         </FormControlWrapper>
+                        <input type="submit" hidden />
                     </form>
                 </Content>
             </ContentWrapper>

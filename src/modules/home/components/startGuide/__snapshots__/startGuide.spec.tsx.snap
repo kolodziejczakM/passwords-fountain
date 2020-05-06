@@ -49,11 +49,11 @@ exports[`StartGuide should render correctly 1`] = `
       <span
         class="sanitized-translation"
       >
-        Go to Settings -&gt; Account API Keys.
+        On the left hand side panel choose SECURITY and click on NEW KEY.
         <br />
          Now choose any name for your admin key and click 
         <strong>
-          CREATE NEW ADMIN KEY.
+          SAVE.
         </strong>
       </span>
     </div>
@@ -78,9 +78,9 @@ exports[`StartGuide should render correctly 1`] = `
         <br />
         Click on 
         <strong>
-          App
+          START NOW
         </strong>
-         (upper-right corner) and start your journey!
+         button and start your journey!
       </span>
     </div>
   </section>

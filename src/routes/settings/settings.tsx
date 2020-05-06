@@ -18,10 +18,11 @@ import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Button } from '@/common/components/button';
-import { useAction } from '@/store';
+import { useAction, useSelector } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import { adminKey, masterKey } from '@/common/utils/formValidators';
 import { useInputFormControl } from '@/common/utils/form';
+import { selectIsFirstTimeOnDevice } from '@/modules/database/database.selectors';
 
 const formValidation = {
     adminKey,
@@ -29,6 +30,7 @@ const formValidation = {
 } as const;
 
 export const Settings: TypedComponent<Props> = () => {
+    const isFirstTimeOnDevice = useSelector(selectIsFirstTimeOnDevice);
     const fetchPasswords = useAction(passwordListActions.fetchPasswords);
     const formRef = useRef<HTMLFormElement>(undefined as any);
     const [adminKeyInputState, adminKeyInputProps] = useInputFormControl(
@@ -42,10 +44,21 @@ export const Settings: TypedComponent<Props> = () => {
         'masterKey'
     );
 
-    const handleConnectClick = async (): Promise<void> => {
+    const headingText = isFirstTimeOnDevice
+        ? 'settings.connectToDB'
+        : 'settings.headingText';
+
+    const handleConnectClick = async (e: Event): Promise<void> => {
+        e.preventDefault();
+
+        if (!formRef.current?.isValid) {
+            return;
+        }
+
         await fetchPasswords(
             masterKeyInputState.value,
-            adminKeyInputState.value
+            adminKeyInputState.value,
+            true
         );
         route('/app');
     };
@@ -87,7 +100,7 @@ export const Settings: TypedComponent<Props> = () => {
         <Wrapper>
             <Header>
                 <Heading>
-                    <Text>settings.headingText</Text>
+                    <Text>{headingText}</Text>
                 </Heading>
             </Header>
             <FormWrapper>
@@ -136,6 +149,7 @@ export const Settings: TypedComponent<Props> = () => {
                             <Text>settings.back</Text>
                         </Button>
                         <Button
+                            type="submit"
                             onClick={handleConnectClick}
                             disabled={!formRef.current?.isValid}
                         >

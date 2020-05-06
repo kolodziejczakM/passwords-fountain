@@ -42,14 +42,15 @@ export const passwordListActions = {
     fetchPasswords: async (
         appState: AppState,
         masterKey: string,
-        adminKey: string
+        adminKey: string,
+        forceReconnect = false
     ): Promise<Partial<AppState>> => {
         callAction(overlayActions.showGlobalLoader);
         const { fetchAllPasswordEntities } = await import(
             '@/modules/database/database.service'
         );
 
-        if (!selectIsClientSet(appState)) {
+        if (!selectIsClientSet(appState) || forceReconnect) {
             await callAction(databaseActions.setClient, masterKey, adminKey);
         }
 

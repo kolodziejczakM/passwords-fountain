@@ -18,7 +18,7 @@ export default {
         'snackbar.couldNotRemovePassword':
             'nie udało się usunąć hasła. Spróbuj ponownie.',
         'snackbar.decryptionError':
-            'nie udało się odszyfrować hasła za pomocą podanego klucza głównego.',
+            'nie udało się odszyfrować hasła za pomocą podanego klucza.',
         'snackbar.noInternetConnection':
             'brak połączenia z internetem. Jesteś teraz offline.',
         'snackbar.internetIsBack': 'internet znów działa. Jesteś online.',
@@ -39,9 +39,15 @@ export default {
         'optionsPanel.add': 'Dodaj',
         'optionsPanel.edit': 'Edytuj',
         'optionsPanel.enterMasterKey': 'Wprowadź swój klucz główny:',
+        'optionsPanel.enterEncryptionKey': 'Wprowadź swój klucz szyfrujący:',
         'optionsPanel.masterKey': 'Klucz główny',
+        'optionsPanel.encryptionKey': 'Klucz szyfrujący',
+        'optionsPanel.noteEncryptionKey':
+            'zalecane jest użycie klucza głównego.',
         'optionsPanel.masterKeyTooShort':
             'Minimalna długość klucza głównego to 8 znaków.',
+        'optionsPanel.encryptionKeyTooShort':
+            'Minimalna długość klucza szyfrującego to 8 znaków.',
         'optionsPanel.labelInputLabel': 'Nazwa',
         'optionsPanel.loginInputLabel': 'Login',
         'optionsPanel.passwordInputLabel': 'Hasło',
@@ -52,6 +58,7 @@ export default {
         'passwordEntity.login': 'Login',
         'passwordEntity.password': 'Hasło',
         'settings.headingText': 'Ustawienia',
+        'settings.connectToDB': 'Połącz z bazą danych',
         'settings.currentDBConnection:': 'Połączenie z bazą danych',
         'settings.adminKeyLabel': 'Klucz admina FaunaDB',
         'settings.adminKeyLabelDescription':
@@ -68,7 +75,7 @@ export default {
         'settings.noteLabelDescriptionAdminKey':
             'Ze względów bezpieczeństwa - jest to zaszyfrowana wersja Twojego klucza admina, a nie ta, którą tutaj skopiowałeś.',
         'settings.adminKeyTooShort':
-            'Minimalna długość klucza admina to 40 znaków.',
+            'Minimalna długość klucza admina to 20 znaków.',
         'footer.createdBy': 'Stworzone przez Marcina Kołodziejczaka',
         'banner.ourInterface': 'Nasz interfejs',
         'banner.yourDatabase': 'Twoja baza danych',
@@ -95,11 +102,11 @@ export default {
         'startGuide.step2':
             'Kliknij na <strong>NEW DATABASE</strong> i wprowadź <strong>PASSWORDS_FOUNTAIN</strong> jako nazwę dla bazy danych.<br>To ważne, nie zrób literówki!',
         'startGuide.step3':
-            'Przejdź do Settings -> Account API Keys.<br> a następnie wybierz nazwę dla klucza admina i kliknij <strong>CREATE NEW ADMIN KEY.</strong>',
+            'Z panelu bocznego wybierz SECURITY a następnie NEW KEY.<br> Teraz wprowadź jakąkolwiek nazwę dla klucza admina i kliknij <strong>SAVE.</strong>',
         'startGuide.step4':
             'Twój klucz admina pojawi się tylko raz, skopiuj go. Nie pokazuj go nikomu.<br> Jeśli z jakiegoś powodu zgubisz klucz admina (nie powinieneś!), to będziesz mógł wygenerować nowy.',
         'startGuide.step5':
-            'Teraz możesz połączyć nasz interfejs z Twoją bazą danych.<br>Kliknij na <strong>App</strong> (prawy górny róg) i rozpocznij przygodę!',
+            'Teraz możesz połączyć nasz interfejs z Twoją bazą danych.<br>Kliknij na przycisk <strong>URUCHOM</strong> i rozpocznij przygodę!',
         'phoneChat.soAnotherAccount':
             'Eh... muszę założyć kolejne konto? :\xa0( Suuabo.',
         'phoneChat.dontYouUse': 'Tak, ale nie używasz żadnego menadżera haseł?',

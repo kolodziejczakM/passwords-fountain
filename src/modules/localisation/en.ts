@@ -17,8 +17,7 @@ export default {
             "couldn't edit password entity. Please try again.",
         'snackbar.couldNotRemovePassword':
             "couldn't remove password entity. Please try again.",
-        'snackbar.decryptionError':
-            "couldn't decrypt with provided master key.",
+        'snackbar.decryptionError': "couldn't decrypt with provided key.",
         'snackbar.noInternetConnection':
             "there is no internet connection. You're offline.",
         'snackbar.internetIsBack':
@@ -40,8 +39,14 @@ export default {
         'optionsPanel.add': 'Add',
         'optionsPanel.edit': 'Edit',
         'optionsPanel.enterMasterKey': 'Enter your master key:',
+        'optionsPanel.enterEncryptionKey': 'Enter your encryption key:',
         'optionsPanel.masterKey': 'Master key',
+        'optionsPanel.encryptionKey': 'Encryption key',
+        'optionsPanel.noteEncryptionKey':
+            "it's recommended to use master key here.",
         'optionsPanel.masterKeyTooShort': 'Master key minimum length is 8.',
+        'optionsPanel.encryptionKeyTooShort':
+            'Encryption key minimum length is 8.',
         'optionsPanel.labelInputLabel': 'Label',
         'optionsPanel.loginInputLabel': 'Login',
         'optionsPanel.passwordInputLabel': 'Password',
@@ -52,6 +57,7 @@ export default {
         'passwordEntity.login': 'Login',
         'passwordEntity.password': 'Password',
         'settings.headingText': 'Settings',
+        'settings.connectToDB': 'Connect to existing database',
         'settings.currentDBConnection:': 'Current database connection',
         'settings.adminKeyLabel': 'FaunaDB admin key',
         'settings.adminKeyLabelDescription':
@@ -67,7 +73,7 @@ export default {
             'if you want to connect to database which already has encrypted passwords - use the same master key as during initial connection.',
         'settings.noteLabelDescriptionAdminKey':
             'For security purposes - this is encrypted version of your admin key, not the one you’ve copied here.',
-        'settings.adminKeyTooShort': 'Admin key minimum length is 40.',
+        'settings.adminKeyTooShort': 'Admin key minimum length is 20.',
         'footer.createdBy': 'Created by Marcin Kołodziejczak',
         'banner.ourInterface': 'Our interface',
         'banner.yourDatabase': 'Your database',
@@ -94,11 +100,11 @@ export default {
         'startGuide.step2':
             "Click <strong>NEW DATABASE</strong> and use <strong>PASSWORDS_FOUNTAIN</strong> as a database name.<br>This is important so please don't misspell it!",
         'startGuide.step3':
-            'Go to Settings -> Account API Keys.<br> Now choose any name for your admin key and click <strong>CREATE NEW ADMIN KEY.</strong>',
+            'On the left hand side panel choose SECURITY and click on NEW KEY.<br> Now choose any name for your admin key and click <strong>SAVE.</strong>',
         'startGuide.step4':
             "Your admin key will be shown only once, copy it. Don't show it to other people.<br> If you somehow lose admin key (you shouldn't) you can generate new one.",
         'startGuide.step5':
-            'Now you can connect our interface to your database.<br>Click on <strong>App</strong> (upper-right corner) and start your journey!',
+            'Now you can connect our interface to your database.<br>Click on <strong>START NOW</strong> button and start your journey!',
         'phoneChat.soAnotherAccount':
             "Oh... so I have to create another account? :\xa0( I don't like it.",
         'phoneChat.dontYouUse': "Yes, but don't you use any Password manager?",

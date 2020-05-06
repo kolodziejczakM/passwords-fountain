@@ -11,7 +11,7 @@ exports[`Settings should render correctly 1`] = `
       <h2
         class="go1407545707"
       >
-        Settings
+        Connect to existing database
       </h2>
     </header>
     <div
@@ -108,7 +108,7 @@ exports[`Settings should render correctly 1`] = `
           <button
             class="go3135434547"
             disabled=""
-            type="button"
+            type="submit"
           >
             <span
               class="go4062099715"

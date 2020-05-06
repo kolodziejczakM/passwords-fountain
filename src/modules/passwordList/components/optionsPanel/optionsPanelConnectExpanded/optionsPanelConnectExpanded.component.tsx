@@ -33,8 +33,12 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     const handleCancelClick = (): void =>
         switchCurrentVariantName(optionsPanelVariantNames.connectCollapsed);
 
-    const handleConfirmClick = async (): Promise<void> => {
-        fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
+    const handleConfirmClick = async (e: Event): Promise<void> => {
+        e.preventDefault();
+
+        if (formRef.current?.isValid) {
+            fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
+        }
     };
 
     const renderInput = (): VNode => (
@@ -51,7 +55,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
         <Wrapper>
             <ContentWrapper>
                 <Content>
-                    <form ref={formRef}>
+                    <form ref={formRef} onSubmit={handleConfirmClick}>
                         <FormControl
                             hasError={masterKeyInputProps.hasError}
                             renderLabel={renderLabel}

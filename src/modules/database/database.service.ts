@@ -1,9 +1,9 @@
 import faunadb, { ClientConfig, Client } from 'faunadb';
+import { unusedServerKeyRefIdLocalStorageKeyName } from './database.constants';
 
 const { query } = faunadb;
 const collectionName = process.env.COLLECTION_NAME as string;
 const indexName = process.env.INDEX_NAME as string;
-const dbKeysLimit = process.env.DB_KEYS_LIMIT as string;
 
 interface PasswordListRaw {
     data: PasswordEntityRaw[];
@@ -18,12 +18,6 @@ export interface PasswordEntityRaw {
     ref: { id: string; value: { id: string } };
     ts: number;
     data: PasswordEntityDatabasePayload; // all passwords are stored in db as encrypted strings
-}
-
-interface KeyRef {
-    value: {
-        id: string;
-    };
 }
 
 const hasCollections = async (client: Client): Promise<boolean> => {
@@ -42,32 +36,20 @@ const hasAllPasswordsIndex = async (client: Client): Promise<boolean> => {
     return Boolean(indexes.data.length);
 };
 
-const fetchKeys = async (adminClient: Client): Promise<KeyRef[]> => {
-    const keys: { data: KeyRef[] } = await adminClient.query(
-        query.Paginate(query.Keys())
-    );
-
-    return keys.data;
-};
-
-const deleteKey = async (adminClient: Client, refId: string): Promise<void> => {
-    await adminClient.query(query.Delete(query.Ref(query.Keys(), refId)));
-};
-
 const removeUnusedServerKey = async (adminClient: Client): Promise<void> => {
-    const keys = await fetchKeys(adminClient);
-    const firstServerKeyRefId = keys[1].value.id;
+    const refId = localStorage.getItem(unusedServerKeyRefIdLocalStorageKeyName);
 
-    if (keys.length > Number(dbKeysLimit)) {
-        await deleteKey(adminClient, firstServerKeyRefId);
+    if (refId) {
+        await adminClient.query(query.Delete(query.Ref(query.Keys(), refId)));
     }
 };
 
 export const setupClient = async (options: ClientConfig): Promise<Client> => {
     const adminClient = new faunadb.Client(options);
-    const serverKey: { secret: string } = await adminClient.query(
-        query.CreateKey({ role: 'server' })
-    );
+    const serverKey: {
+        secret: string;
+        ref: { id: string };
+    } = await adminClient.query(query.CreateKey({ role: 'server' }));
 
     const client = new faunadb.Client({ secret: serverKey.secret });
 
@@ -85,6 +67,10 @@ export const setupClient = async (options: ClientConfig): Promise<Client> => {
     }
 
     removeUnusedServerKey(adminClient);
+    localStorage.setItem(
+        unusedServerKeyRefIdLocalStorageKeyName,
+        serverKey.ref.id
+    );
     return client;
 };
 

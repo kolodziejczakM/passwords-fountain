@@ -2,6 +2,10 @@ export const masterKey = (val?: string) => {
     return (val && val.length >= 8) || 'optionsPanel.masterKeyTooShort';
 };
 
+export const encryptionKey = (val?: string) => {
+    return (val && val.length >= 8) || 'optionsPanel.encryptionKeyTooShort';
+};
+
 export const label = (val?: string): boolean | string => {
     return (val && val.length >= 3) || 'optionsPanel.labelTooShort';
 };
@@ -15,5 +19,5 @@ export const password = (val?: string): boolean | string => {
 };
 
 export const adminKey = (val?: string): boolean | string => {
-    return (val && val.length >= 40) || 'settings.adminKeyTooShort';
+    return (val && val.length >= 20) || 'settings.adminKeyTooShort';
 };

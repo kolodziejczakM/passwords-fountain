@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { styled, setPragma } from 'goober';
-import { theme } from '@/common/theme';
+import { stylelint, theme } from '@/common/theme';
 import {
     optionsPanelVariantNames,
     OptionsPanelVariantName,
@@ -43,8 +43,32 @@ export const Content = styled('div')`
     padding-bottom: ${theme.spacing.m18};
 `;
 
+const renderDot = ({ isInEditMode }: { isInEditMode: boolean }) => {
+    if (isInEditMode) {
+        return stylelint.css`
+        &::after {
+            content: '•';
+            font-size: ${theme.fontSizes.xl32};
+            color: ${theme.colors.significantGreen};
+            display: inline-block;
+            position: relative;
+            top: -20px;
+            left: 8px;
+        }`;
+    }
+};
+
 export const ButtonWrapper = styled('div')`
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: ${theme.spacing.xl30};
+    display: flex;
+    justify-content: center;
+
+    button {
+        width: 100%;
+    }
+
+    button:first-of-type {
+        margin-right: ${theme.spacing.xl30};
+    }
+
+    ${renderDot}
 `;

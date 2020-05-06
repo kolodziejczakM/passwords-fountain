@@ -38,8 +38,9 @@ If you feel that you need additional help to setup the app, don't hestitate to c
 2. Passwords Fountain has access to your database as long as you want to.
    You can remove admin key from your database account anytime (**it's you who are in control!**).
 3. In your database (https://fauna.com/) passwords are stored in encrypted version so nobody can steal them from there.
-4. We use strict [Content-Security-Policy](https://content-security-policy.com/) to **prevent any third party script** from being injected during runtime.
+4. We use strict [Content-Security-Policy](https://content-security-policy.com/) to **prevent any third party script** from being injected during application runtime.
 5. We don't use any tracking / logging tool like: Google Analytics, LogRocket or Sentry.
+6. Whole application flow is public and you can see it here: [Figma](https://www.figma.com/file/nXvJKpwhcjWZLrGRiaPEgw/Passwords-fountain?node-id=0%3A1)
 
 #### What you can do to make it safe:
 
@@ -59,13 +60,6 @@ If you feel that you need additional help to setup the app, don't hestitate to c
 Of course! If you don't want to use official Passwords Fountain instance from https://www.passwords-fountain.com, you can fork the code, use any ([free?](https://dev.to/0xbanana/easy-and-free-ways-to-publish-a-website-in-2020-44lo)) static site hosting service and you are all set!
 
 Using "public" instance is preferred though - we can polish it together. It can be hard to help with bug fixing on your private, modified instance.
-
-### Why there is no privacy policy and cookie consent?
-
-We don't store any data that would require such an action.
-
-There is language preference stored in LocalStorage and encrypted admin key needed to establish connection between FaunaDB (database) and Passwords fountain (user interface).
-That's all.
 
 ### I found a bug. What should I do?
 

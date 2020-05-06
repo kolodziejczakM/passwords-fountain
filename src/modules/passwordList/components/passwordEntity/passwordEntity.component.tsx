@@ -23,7 +23,7 @@ import { IconButton } from '@/common/components/iconButton';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Prompt } from '@/modules/overlay/components/prompt';
 import { useInputFormControl } from '@/common/utils/form';
-import { masterKey } from '@/common/utils/formValidators';
+import { encryptionKey } from '@/common/utils/formValidators';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
 import { Button } from '@/common/components/button';
@@ -32,7 +32,7 @@ import { passwordListActions } from '@/modules/passwordList/passwordList.actions
 import { selectSelectedAndDecryptedEntityByRefId } from '@/modules/passwordList/passwordList.selectors';
 import { selectAdminKey } from '@/modules/database/database.selectors';
 
-const formValidation = { masterKey } as const;
+const formValidation = { encryptionKey } as const;
 
 const promptTypes = {
     invisible: '',
@@ -58,11 +58,10 @@ export const PasswordEntity: TypedComponent<Props> = ({
     const passwordVisibility =
         Object.keys(selectedAndDecryptedEntity).length !== 0;
 
-    const [masterKeyInputState, masterKeyInputProps] = useInputFormControl(
-        formRef,
-        formValidation,
-        'masterKey'
-    );
+    const [
+        encryptionKeyInputState,
+        encryptionKeyInputProps,
+    ] = useInputFormControl(formRef, formValidation, 'encryptionKey');
 
     const removePassword = useAction(passwordListActions.removePassword);
     const fetchPasswords = useAction(passwordListActions.fetchPasswords);
@@ -76,8 +75,8 @@ export const PasswordEntity: TypedComponent<Props> = ({
 
     const resetPromptState = (): void => {
         setPromptType(promptTypes.invisible);
-        masterKeyInputState.setValue('');
-        masterKeyInputState.setErrors('');
+        encryptionKeyInputState.setValue('');
+        encryptionKeyInputState.setErrors('');
     };
 
     const handleClick = (): void => {
@@ -90,7 +89,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
         const { decrypt } = await import('@/modules/cipher/cipher.service');
         const { login, password } = decrypt(
             data.data.value,
-            masterKeyInputState.value,
+            encryptionKeyInputState.value,
             true
         ) as PasswordEntityVulnerablePayload;
 
@@ -107,15 +106,21 @@ export const PasswordEntity: TypedComponent<Props> = ({
         // only to check if master key is known - not needed to removal operation itself
         decrypt(
             data.data.value,
-            masterKeyInputState.value,
+            encryptionKeyInputState.value,
             true
         ) as PasswordEntityVulnerablePayload;
 
         await removePassword(data.ref.id);
-        fetchPasswords(masterKeyInputState.value, encryptedAdminKey);
+        fetchPasswords(encryptionKeyInputState.value, encryptedAdminKey);
     };
 
-    const handlePromptConfirm = (): void => {
+    const handlePromptConfirm = (e: Event): void => {
+        e.preventDefault();
+
+        if (!formRef.current?.isValid) {
+            return;
+        }
+
         if (promptType === promptTypes.decryption) {
             handleDecryptionPromptConfirm();
         } else {
@@ -149,21 +154,23 @@ export const PasswordEntity: TypedComponent<Props> = ({
         return (
             <Prompt
                 renderContent={() => (
-                    <form ref={formRef}>
+                    <form ref={formRef} onSubmit={handlePromptConfirm}>
                         <FormControlWrapper>
                             <FormControl
-                                hasError={masterKeyInputProps.hasError}
+                                hasError={encryptionKeyInputProps.hasError}
                                 renderLabel={() => (
-                                    <Text>optionsPanel.enterMasterKey</Text>
+                                    <Text>optionsPanel.enterEncryptionKey</Text>
                                 )}
                                 renderError={() => (
-                                    <Text>{masterKeyInputState.errors}</Text>
+                                    <Text>
+                                        {encryptionKeyInputState.errors}
+                                    </Text>
                                 )}
                                 renderInput={() => (
                                     <TextInput
                                         type="password"
                                         placeholder="e.g. MyStrongPassword1234"
-                                        {...masterKeyInputProps}
+                                        {...encryptionKeyInputProps}
                                     />
                                 )}
                             />

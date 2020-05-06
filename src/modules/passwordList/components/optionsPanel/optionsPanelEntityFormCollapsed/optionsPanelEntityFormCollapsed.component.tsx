@@ -27,7 +27,7 @@ export const OptionsPanelEntityFormCollapsed: TypedComponent<VariantProps> = ({
 
     return (
         <Wrapper>
-            <ButtonWrapper>
+            <ButtonWrapper isInEditMode={isInEditMode}>
                 <Button onClick={handleSettingsClick}>
                     <Text>optionsPanel.settings</Text>
                 </Button>
