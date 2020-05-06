@@ -9,17 +9,11 @@ describe('Database actions', () => {
     describe('setClient', () => {
         describe('success path', () => {
             it('stores encryptedAdminKey into localStorage', async () => {
-                const setItemSpy = jest.spyOn(
-                    localStorage.__proto__,
-                    'setItem'
-                );
-                const setupClientSpy = jest
-                    .spyOn(databaseService, 'setupClient')
-                    .mockResolvedValue({ query: {} } as any);
-
-                const encryptSpy = jest
-                    .spyOn(cipherService, 'encrypt')
-                    .mockReturnValue('abcdef');
+                jest.spyOn(localStorage.__proto__, 'setItem');
+                jest.spyOn(databaseService, 'setupClient').mockResolvedValue({
+                    query: {},
+                } as any);
+                jest.spyOn(cipherService, 'encrypt').mockReturnValue('abcdef');
 
                 await databaseActions.setClient(
                     {} as any,
@@ -31,19 +25,14 @@ describe('Database actions', () => {
                     'abcdef'
                 );
 
-                setItemSpy.mockRestore();
-                setupClientSpy.mockRestore();
-                encryptSpy.mockRestore();
+                jest.restoreAllMocks();
             });
 
             it('stores client into store', async () => {
-                const setupClientSpy = jest
-                    .spyOn(databaseService, 'setupClient')
-                    .mockResolvedValue({ query: {} } as any);
-
-                const encryptSpy = jest
-                    .spyOn(cipherService, 'encrypt')
-                    .mockReturnValue('abcdef');
+                jest.spyOn(databaseService, 'setupClient').mockResolvedValue({
+                    query: {},
+                } as any);
+                jest.spyOn(cipherService, 'encrypt').mockReturnValue('abcdef');
 
                 const state = {
                     database: {
@@ -57,17 +46,16 @@ describe('Database actions', () => {
                 );
 
                 expect(selectIsClientSet(newState as any)).toBe(true);
-                setupClientSpy.mockRestore();
-                encryptSpy.mockRestore();
+                jest.restoreAllMocks();
             });
         });
 
         describe('error path', () => {
             it('calls action: overlayActions.hideGlobalLoader', async () => {
-                const callActionSpy = jest.spyOn(storeUtils, 'callAction');
-                const setupClientSpy = jest
-                    .spyOn(databaseService, 'setupClient')
-                    .mockRejectedValue({} as any);
+                jest.spyOn(storeUtils, 'callAction');
+                jest.spyOn(databaseService, 'setupClient').mockRejectedValue(
+                    {} as any
+                );
                 try {
                     await databaseActions.setClient(
                         {} as any,
@@ -78,16 +66,15 @@ describe('Database actions', () => {
                     expect(storeUtils.callAction).toHaveBeenCalledWith(
                         overlayActions.hideGlobalLoader
                     );
-                    callActionSpy.mockRestore();
-                    setupClientSpy.mockRestore();
+                    jest.restoreAllMocks();
                 }
             });
 
             it('calls action: overlayActions.showSnackbar', async () => {
-                const callActionSpy = jest.spyOn(storeUtils, 'callAction');
-                const setupClientSpy = jest
-                    .spyOn(databaseService, 'setupClient')
-                    .mockRejectedValue({} as any);
+                jest.spyOn(storeUtils, 'callAction');
+                jest.spyOn(databaseService, 'setupClient').mockRejectedValue(
+                    {} as any
+                );
 
                 await databaseActions.setClient(
                     {} as any,
@@ -101,8 +88,7 @@ describe('Database actions', () => {
                     'error'
                 );
 
-                callActionSpy.mockRestore();
-                setupClientSpy.mockRestore();
+                jest.restoreAllMocks();
             });
         });
     });

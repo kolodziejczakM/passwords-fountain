@@ -41,6 +41,9 @@ jest.mock('faunadb', () => {
             Get: () => ({}),
             Match: () => ({}),
             Lambda: () => ({}),
+            Map: () => ({}),
+            Create: () => ({}),
+            Update: () => ({}),
         },
     };
 });
@@ -57,7 +60,7 @@ describe('Database service', () => {
         });
 
         it('stores created server key ref id into localStorage', async () => {
-            const setItemSpy = jest.spyOn(localStorage.__proto__, 'setItem');
+            jest.spyOn(localStorage.__proto__, 'setItem');
 
             await setupClient({ secret: 'xd' });
 
@@ -65,13 +68,13 @@ describe('Database service', () => {
                 unusedServerKeyRefIdLocalStorageKeyName,
                 'serverKeyRefIdMock'
             );
-            setItemSpy.mockRestore();
+            jest.restoreAllMocks();
         });
     });
 
     describe('fetchAllPasswordEntities', () => {
         it('fetches data via proper index', () => {
-            const queryIndexSpy = jest.spyOn(faunadb.query, 'Index');
+            jest.spyOn(faunadb.query, 'Index');
             const client = {
                 query: jest
                     .fn()
@@ -83,13 +86,13 @@ describe('Database service', () => {
             expect(faunadb.query.Index).toHaveBeenCalledWith(
                 process.env.INDEX_NAME
             );
-            queryIndexSpy.mockRestore();
+            jest.restoreAllMocks();
         });
     });
 
     describe('createPasswordEntity', () => {
         it('creates entity in proper collection', () => {
-            const collectionSpy = jest.spyOn(faunadb.query, 'Collection');
+            jest.spyOn(faunadb.query, 'Collection');
             const client = {
                 query: jest.fn().mockImplementation(() => Promise.resolve({})),
             } as any;
@@ -102,13 +105,13 @@ describe('Database service', () => {
             expect(faunadb.query.Collection).toHaveBeenCalledWith(
                 process.env.COLLECTION_NAME
             );
-            collectionSpy.mockRestore();
+            jest.restoreAllMocks();
         });
     });
 
     describe('updatePasswordEntity', () => {
         it('updates entity in proper collection', () => {
-            const collectionSpy = jest.spyOn(faunadb.query, 'Collection');
+            jest.spyOn(faunadb.query, 'Collection');
             const client = {
                 query: jest.fn().mockImplementation(() => Promise.resolve({})),
             } as any;
@@ -121,13 +124,13 @@ describe('Database service', () => {
             expect(faunadb.query.Collection).toHaveBeenCalledWith(
                 process.env.COLLECTION_NAME
             );
-            collectionSpy.mockRestore();
+            jest.restoreAllMocks();
         });
     });
 
     describe('deletePasswordEntity', () => {
         it('deletes entity in proper collection', () => {
-            const collectionSpy = jest.spyOn(faunadb.query, 'Collection');
+            jest.spyOn(faunadb.query, 'Collection');
             const client = {
                 query: jest.fn().mockImplementation(() => Promise.resolve({})),
             } as any;
@@ -137,7 +140,7 @@ describe('Database service', () => {
             expect(faunadb.query.Collection).toHaveBeenCalledWith(
                 process.env.COLLECTION_NAME
             );
-            collectionSpy.mockRestore();
+            jest.restoreAllMocks();
         });
     });
 });

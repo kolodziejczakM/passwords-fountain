@@ -64,7 +64,7 @@ describe('Cipher service', () => {
         });
 
         it('calls snackbar error action when decryption is disrupted', () => {
-            spyOn(storeUtils, 'callAction');
+            jest.spyOn(storeUtils, 'callAction');
             const vulnerableData = {
                 login: 'tester',
                 password: 'p4ssw0rD1',
@@ -81,6 +81,7 @@ describe('Cipher service', () => {
                     'error'
                 );
             }
+            jest.restoreAllMocks();
         });
     });
 });

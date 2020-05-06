@@ -13,23 +13,23 @@ describe('Database selectors', () => {
     describe('selectAdminKey', () => {
         describe('when adminKey exists in localStorage', () => {
             it('selects encrypted adminKey', () => {
-                const getItemSpy = jest
-                    .spyOn(localStorage.__proto__, 'getItem')
-                    .mockReturnValue('xyz');
+                jest.spyOn(localStorage.__proto__, 'getItem').mockReturnValue(
+                    'xyz'
+                );
 
                 expect(databaseSelectors.selectAdminKey()).toBe('xyz');
-                getItemSpy.mockRestore();
+                jest.restoreAllMocks();
             });
         });
 
         describe("when adminKey doesn't exist in localStorage", () => {
             it('returns null', () => {
-                const getItemSpy = jest
-                    .spyOn(localStorage.__proto__, 'getItem')
-                    .mockReturnValue(null);
+                jest.spyOn(localStorage.__proto__, 'getItem').mockReturnValue(
+                    null
+                );
 
                 expect(databaseSelectors.selectAdminKey()).toEqual(null);
-                getItemSpy.mockRestore();
+                jest.restoreAllMocks();
             });
         });
     });
@@ -65,30 +65,30 @@ describe('Database selectors', () => {
     describe('selectIsFirstTimeOnDevice', () => {
         describe('when adminKey is truthful', () => {
             it('returns FALSE', () => {
-                const getItemSpy = jest
-                    .spyOn(localStorage.__proto__, 'getItem')
-                    .mockReturnValue('xyz');
+                jest.spyOn(localStorage.__proto__, 'getItem').mockReturnValue(
+                    'xyz'
+                );
 
                 expect(
                     databaseSelectors.selectIsFirstTimeOnDevice(
                         getState() as any
                     )
                 ).toBe(false);
-                getItemSpy.mockRestore();
+                jest.restoreAllMocks();
             });
         });
 
         describe('when adminKey is untruthful', () => {
             it('returns TRUE', () => {
-                const getItemSpy = jest
-                    .spyOn(localStorage.__proto__, 'getItem')
-                    .mockReturnValue(null);
+                jest.spyOn(localStorage.__proto__, 'getItem').mockReturnValue(
+                    null
+                );
                 expect(
                     databaseSelectors.selectIsFirstTimeOnDevice(
                         getState() as any
                     )
                 ).toBe(true);
-                getItemSpy.mockRestore();
+                jest.restoreAllMocks();
             });
         });
     });
