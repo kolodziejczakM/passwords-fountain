@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.0...v0.4.1) (2020-05-06)
+
+
+### Bug Fixes
+
+* **passwordlist:** handling decryption submitting via ENTER key on Firefox, display placeholders fix ([ec22b17](https://github.com/kolodziejczakM/passwords-fountain/commit/ec22b17b177c442c36c1401addf20ba1670388f5))
+
 ## [0.4.0](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.3.28...v0.4.0) (2020-05-06)
 
 
