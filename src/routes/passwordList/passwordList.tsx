@@ -1,6 +1,6 @@
 import { h, VNode } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
-import { useSelector } from '@/store';
+import { useSelector, useAction } from '@/store';
 import {
     Wrapper,
     PasswordEntityWrapper,
@@ -19,12 +19,12 @@ import { OptionsPanel } from '@/modules/passwordList/components/optionsPanel';
 import { selectPasswords } from '@/modules/passwordList/passwordList.selectors';
 import { PasswordEntityRaw } from '@/modules/database/database.service';
 import { PasswordEntity } from '@/modules/passwordList/components/passwordEntity';
-import { useAction } from '@preact-hooks/unistore';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
 import { renderIfTrue } from '@/common/utils/rendering';
 import { Icon } from '@/common/components/icon';
 import { Text } from '@/modules/localisation/components/text';
+import { selectIsGlobalLoaderVisible } from '@/modules/overlay/overlay.selectors';
 
 export const useFirstTimeRedirection = (): void => {
     useEffect(() => {
@@ -43,8 +43,10 @@ export const PasswordList: TypedComponent<Props> = () => {
     useFirstTimeRedirection();
     const passwords = useSelector(selectPasswords);
     const isClientSet = useSelector(selectIsClientSet);
+    const isGlobalLoaderVisible = useSelector(selectIsGlobalLoaderVisible);
     const shouldRenderPlaceholder =
-        !isClientSet || (isClientSet && !Boolean(passwords.length));
+        !isClientSet ||
+        (isClientSet && !isGlobalLoaderVisible && !Boolean(passwords.length));
     const switchOptionsPanelVariant = useAction(
         passwordListActions.switchOptionPanelVariant
     );

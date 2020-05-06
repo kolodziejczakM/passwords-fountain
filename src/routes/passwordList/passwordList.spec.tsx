@@ -6,6 +6,9 @@ import { StoreProvider } from '@preact-hooks/unistore';
 import createStore from 'unistore';
 
 const stateMock = {
+    overlay: {
+        isGlobalLoaderVisible: false,
+    },
     database: {
         client: {},
     },

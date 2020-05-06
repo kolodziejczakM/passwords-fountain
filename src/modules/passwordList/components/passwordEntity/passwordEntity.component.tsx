@@ -79,7 +79,12 @@ export const PasswordEntity: TypedComponent<Props> = ({
         encryptionKeyInputState.setErrors('');
     };
 
-    const handleClick = (): void => {
+    const handleClick = (e: MouseEvent): void => {
+        if (e.detail === 0) {
+            // Firefox fix - ignore outclicking via ENTER key
+            return;
+        }
+
         onClick(isSelected ? null : data);
         resetSelectedAndDecryptedEntity();
         resetPromptState();
