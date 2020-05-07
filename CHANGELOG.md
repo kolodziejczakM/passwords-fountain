@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.4](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.3...v0.4.4) (2020-05-07)
+
+
+### Features
+
+* **newsletter segment:** added newsletter segment to homepage ([180894d](https://github.com/kolodziejczakM/passwords-fountain/commit/180894d5d072d535c16800a994336e7356eca3a4))
+
 ### [0.4.3](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.2...v0.4.3) (2020-05-07)
 
 ### [0.4.2](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.1...v0.4.2) (2020-05-06)
