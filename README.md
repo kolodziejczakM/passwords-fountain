@@ -4,7 +4,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/15f86f5b8ebc4976ad172c9cbe9335eb)](https://www.codacy.com/manual/kolodziejczak.mn/passwords-fountain?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kolodziejczakM/passwords-fountain&amp;utm_campaign=Badge_Grade)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
-
 <div align="center">
     <img src="./src/assets/icons/logo.svg" width="250" height="250"/>
 </div>
@@ -41,6 +40,7 @@ If you feel that you need additional help to setup the app, don't hestitate to c
 4. We use strict [Content-Security-Policy](https://content-security-policy.com/) to **prevent any third party script** from being injected during application runtime.
 5. We don't use any tracking / logging tool like: Google Analytics, LogRocket or Sentry.
 6. Whole application flow is public and you can see it here: [Figma](https://www.figma.com/file/nXvJKpwhcjWZLrGRiaPEgw/Passwords-fountain?node-id=0%3A1)
+7. We released a [newsletter](https://passwordsfountain.substack.com/) to provide you with latest news about the application state.
 
 #### What you can do to make it safe:
 
