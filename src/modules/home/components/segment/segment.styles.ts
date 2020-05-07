@@ -8,13 +8,13 @@ export const Wrapper = styled('section')``;
 export const TitleBar = styled('div')`
     width: calc(100% + (2 * ${theme.spacing.m18}));
     margin-left: ${negative(theme.spacing.m18)};
-    padding: ${theme.spacing.s12} ${theme.spacing.m18};
+    padding: ${theme.spacing.xs6} ${theme.spacing.m18};
     border-bottom: 2px solid ${theme.colors.pastelGreen};
 
     ${media.gte(theme.breakpoints.m880)(stylelint.css`
         width: calc(100% + ${theme.spacing.xxl60});
         margin-left: ${negative(theme.spacing.xl30)};
-        padding: ${theme.spacing.m18} ${theme.spacing.xxl60};
+        padding: ${theme.spacing.s12} ${theme.spacing.xxl60};
     `)}
 `;
 
@@ -37,7 +37,7 @@ export const ContentWrapper = styled('div')`
     `)}
 
     ${media.gte(theme.breakpoints.m880)(stylelint.css`
-        padding: ${theme.spacing.xl40} ${theme.spacing.xl30};
+        padding: ${theme.spacing.xl30} ${theme.spacing.xl30} ${theme.spacing.xl40};
         ${typography.text24}
     `)}
 `;

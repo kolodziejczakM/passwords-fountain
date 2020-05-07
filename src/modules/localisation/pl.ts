@@ -83,6 +83,7 @@ export default {
         'home.howItWorks': 'Jak to działa',
         'home.howToStart': 'Jak zacząć - tworzenie bazy danych',
         'home.pricing': 'Cennik',
+        'home.newsletter': 'Newsletter',
         'home.authors': 'Autorzy',
         'home.toStart':
             'Aby móc skorzystać z aplikacji będziesz potrzebował <strong>bazy danych</strong>, w której Twoje hasła będą przechowywane.',
@@ -90,6 +91,8 @@ export default {
             'Przejdź przez poradnik składający się z <strong>5 kroków</strong> i rozpocznij przygodę!',
         'home.completelyFree':
             'Passwords Fountain to całkowicie <strong>darmowa</strong> aplikacja.',
+        'home.visitNewsletter':
+            '<a href="https://passwordsfountain.substack.com/" target="_blank" rel="noopener">Subskrybuj</a> nasz newsletter aby otrzymywać informacje o aktualizacjach i planach na przyszłość. Pozostańmy w kontakcie!',
         'home.visitFaunaPricing':
             'Odwiedź <strong><a href="https://fauna.com/pricing" target="_blank" rel="noopener">https://fauna.com/pricing</a></strong> aby dowiedzieć się więcej w temacie płatności FaunaDB.',
         'home.helloFromAuthor':

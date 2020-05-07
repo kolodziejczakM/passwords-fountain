@@ -81,6 +81,7 @@ export default {
         'home.howItWorks': 'How it works',
         'home.howToStart': 'How to start - creating database',
         'home.pricing': 'Pricing',
+        'home.newsletter': 'Newsletter',
         'home.authors': 'Authors',
         'home.toStart':
             'To start using this app you need to create a <strong>database</strong> to which your passwords will be stored.',
@@ -88,6 +89,8 @@ export default {
             'Follow our <strong>5-step guide</strong> and start the journey!',
         'home.completelyFree':
             'Passwords Fountain is a completely <strong>free</strong> app.',
+        'home.visitNewsletter':
+            '<a href="https://passwordsfountain.substack.com/" target="_blank" rel="noopener">Subscribe</a> to our newsletter to get news about latest releases and future plans. Let\'s stay in touch!',
         'home.visitFaunaPricing':
             'Visit <strong><a href="https://fauna.com/pricing" target="_blank" rel="noopener">https://fauna.com/pricing</a></strong> to explore FaunaDB pricing plans.',
         'home.helloFromAuthor':

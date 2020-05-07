@@ -56,6 +56,11 @@ export const Home: TypedComponent<{}> = () => {
                     <Text withMarkup>home.visitFaunaPricing</Text>
                 </Paragraph>
             </Segment>
+            <Segment id="newsletter" title="home.newsletter">
+                <Paragraph>
+                    <Text withMarkup>home.visitNewsletter</Text>
+                </Paragraph>
+            </Segment>
             <Segment id="authors" title="home.authors">
                 <InnerWrapper>
                     <AuthorsWrapper>
