@@ -6,6 +6,10 @@ import * as storeUtils from '@/common/utils/store';
 import { overlayActions } from '../../overlay/overlay.actions';
 
 describe('Database actions', () => {
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
     describe('setClient', () => {
         describe('success path', () => {
             it('stores encryptedAdminKey into localStorage', async () => {
@@ -24,8 +28,6 @@ describe('Database actions', () => {
                     'ak',
                     'abcdef'
                 );
-
-                jest.restoreAllMocks();
             });
 
             it('stores client into store', async () => {
@@ -46,7 +48,6 @@ describe('Database actions', () => {
                 );
 
                 expect(selectIsClientSet(newState as any)).toBe(true);
-                jest.restoreAllMocks();
             });
         });
 
@@ -66,7 +67,6 @@ describe('Database actions', () => {
                     expect(storeUtils.callAction).toHaveBeenCalledWith(
                         overlayActions.hideGlobalLoader
                     );
-                    jest.restoreAllMocks();
                 }
             });
 
@@ -87,8 +87,6 @@ describe('Database actions', () => {
                     'snackbar.couldNotConnectToDB',
                     'error'
                 );
-
-                jest.restoreAllMocks();
             });
         });
     });

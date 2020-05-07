@@ -106,6 +106,12 @@ const resetCss = `
     * {
         box-sizing: border-box;
     }
+    
+    ::-moz-focus-inner, :active, :focus {
+        outline:none;
+        border:0;
+        -moz-outline-style: none;
+    }
 `;
 
 if (!document.getElementById('_fonts')) {

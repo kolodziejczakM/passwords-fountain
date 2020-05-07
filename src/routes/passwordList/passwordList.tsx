@@ -101,7 +101,7 @@ export const PasswordList: TypedComponent<Props> = () => {
             <OptionsPanelWrapper>
                 <OptionsPanel />
             </OptionsPanelWrapper>
-            {renderPasswords()}
+            <ul>{renderPasswords()}</ul>
             {renderPlaceholder(shouldRenderPlaceholder)}
         </Wrapper>
     );

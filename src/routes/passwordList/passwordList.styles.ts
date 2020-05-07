@@ -3,7 +3,7 @@ import { styled, setPragma } from 'goober';
 import { media, stylelint, theme, typography } from '@/common/theme';
 setPragma(h);
 
-export const PasswordEntityWrapper = styled('div')`
+export const PasswordEntityWrapper = styled('li')`
     margin-bottom: ${theme.spacing.s12};
 `;
 

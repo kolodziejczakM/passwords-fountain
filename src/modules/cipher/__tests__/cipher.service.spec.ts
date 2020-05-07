@@ -3,6 +3,10 @@ import * as storeUtils from '../../../common/utils/store';
 import { overlayActions } from '../../overlay/overlay.actions';
 
 describe('Cipher service', () => {
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
     describe('encrypt', () => {
         describe('when withJSONStringify argument is untruthful', () => {
             it('encrypts vulnerable text with secret key', () => {
@@ -81,7 +85,6 @@ describe('Cipher service', () => {
                     'error'
                 );
             }
-            jest.restoreAllMocks();
         });
     });
 });

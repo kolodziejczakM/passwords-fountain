@@ -49,6 +49,10 @@ jest.mock('faunadb', () => {
 });
 
 describe('Database service', () => {
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
     describe('setupClient', () => {
         it('creates usable database client', async () => {
             const client = await setupClient({ secret: 'xd' });
@@ -68,7 +72,6 @@ describe('Database service', () => {
                 unusedServerKeyRefIdLocalStorageKeyName,
                 'serverKeyRefIdMock'
             );
-            jest.restoreAllMocks();
         });
     });
 
@@ -86,7 +89,6 @@ describe('Database service', () => {
             expect(faunadb.query.Index).toHaveBeenCalledWith(
                 process.env.INDEX_NAME
             );
-            jest.restoreAllMocks();
         });
     });
 
@@ -105,7 +107,6 @@ describe('Database service', () => {
             expect(faunadb.query.Collection).toHaveBeenCalledWith(
                 process.env.COLLECTION_NAME
             );
-            jest.restoreAllMocks();
         });
     });
 
@@ -124,7 +125,6 @@ describe('Database service', () => {
             expect(faunadb.query.Collection).toHaveBeenCalledWith(
                 process.env.COLLECTION_NAME
             );
-            jest.restoreAllMocks();
         });
     });
 
@@ -140,7 +140,6 @@ describe('Database service', () => {
             expect(faunadb.query.Collection).toHaveBeenCalledWith(
                 process.env.COLLECTION_NAME
             );
-            jest.restoreAllMocks();
         });
     });
 });

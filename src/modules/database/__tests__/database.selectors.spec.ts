@@ -10,6 +10,10 @@ const getState = () => ({
 });
 
 describe('Database selectors', () => {
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
     describe('selectAdminKey', () => {
         describe('when adminKey exists in localStorage', () => {
             it('selects encrypted adminKey', () => {
@@ -18,7 +22,6 @@ describe('Database selectors', () => {
                 );
 
                 expect(databaseSelectors.selectAdminKey()).toBe('xyz');
-                jest.restoreAllMocks();
             });
         });
 
@@ -29,7 +32,6 @@ describe('Database selectors', () => {
                 );
 
                 expect(databaseSelectors.selectAdminKey()).toEqual(null);
-                jest.restoreAllMocks();
             });
         });
     });
@@ -74,7 +76,6 @@ describe('Database selectors', () => {
                         getState() as any
                     )
                 ).toBe(false);
-                jest.restoreAllMocks();
             });
         });
 
@@ -88,7 +89,6 @@ describe('Database selectors', () => {
                         getState() as any
                     )
                 ).toBe(true);
-                jest.restoreAllMocks();
             });
         });
     });

@@ -4,6 +4,7 @@ import * as storeUtils from '@/common/utils/store';
 import { overlayActions } from '../../overlay/overlay.actions';
 import { databaseActions } from '../../database/database.actions';
 import { optionsPanelVariantNames } from '../passwordList.constants';
+import { store } from '../../../store';
 
 const setupFetchPasswordsSpies = (errorPath = false) => {
     jest.spyOn(storeUtils, 'callAction');
@@ -62,6 +63,85 @@ const setupRemovePasswordSpies = (errorPath = false) => {
 };
 
 describe('PasswordList actions', () => {
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
+    describe('switchOptionPanelVariant', () => {
+        it('switches optionPanel variant to provided one', () => {
+            const state = {
+                passwordList: {
+                    currentOptionPanelVariantName: 'someDefaultVariant',
+                },
+            };
+            jest.spyOn(store, 'getState').mockReturnValue(state as any);
+            const newState = passwordListActions.switchOptionPanelVariant(
+                state as any,
+                'newVariant' as any
+            );
+
+            expect(newState).toEqual({
+                passwordList: {
+                    currentOptionPanelVariantName: 'newVariant',
+                },
+            });
+        });
+    });
+
+    describe('resetSelectedAndDecryptedEntity', () => {
+        it('makes selectedAndDecryptedEntity an empty object', () => {
+            const state = {
+                passwordList: {
+                    selectedAndDecryptedEntity: {
+                        label: 'Bank account',
+                        login: 'SplinterCell12',
+                        password: 'P4$$w0rd1',
+                        refId: 'mock_ref_id',
+                    },
+                },
+            };
+            jest.spyOn(store, 'getState').mockReturnValue(state as any);
+            const newState = passwordListActions.resetSelectedAndDecryptedEntity();
+
+            expect(newState).toEqual({
+                passwordList: {
+                    selectedAndDecryptedEntity: {},
+                },
+            });
+        });
+    });
+
+    describe('setSelectedAndDecryptedEntity', () => {
+        it('sets selectedAndDecrypted entity to provided one', () => {
+            const state = {
+                passwordList: {
+                    selectedAndDecryptedEntity: {},
+                },
+            };
+            jest.spyOn(store, 'getState').mockReturnValue(state as any);
+            const newState = passwordListActions.setSelectedAndDecryptedEntity(
+                state as any,
+                {
+                    label: 'Bank account',
+                    login: 'SplinterCell12',
+                    password: 'P4$$w0rd1',
+                    refId: 'mock_ref_id',
+                }
+            );
+
+            expect(newState).toEqual({
+                passwordList: {
+                    selectedAndDecryptedEntity: {
+                        label: 'Bank account',
+                        login: 'SplinterCell12',
+                        password: 'P4$$w0rd1',
+                        refId: 'mock_ref_id',
+                    },
+                },
+            });
+        });
+    });
+
     describe('fetchPasswords', () => {
         it('calls action: overlayActions.showGlobalLoader', async () => {
             setupFetchPasswordsSpies();
@@ -74,7 +154,6 @@ describe('PasswordList actions', () => {
             expect(storeUtils.callAction).toHaveBeenCalledWith(
                 overlayActions.showGlobalLoader
             );
-            jest.restoreAllMocks();
         });
 
         describe('when client is not set', () => {
@@ -92,7 +171,6 @@ describe('PasswordList actions', () => {
                     'master_key',
                     'admin_key'
                 );
-                jest.restoreAllMocks();
             });
         });
 
@@ -112,7 +190,6 @@ describe('PasswordList actions', () => {
                     'master_key',
                     'admin_key'
                 );
-                jest.restoreAllMocks();
             });
         });
 
@@ -128,7 +205,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: overlayActions.showSnackbar', async () => {
@@ -144,7 +220,6 @@ describe('PasswordList actions', () => {
                     'snackbar.passwordsFetchedSuccessfully',
                     'success'
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: passwordListActions.switchOptionPanelVariant', async () => {
@@ -159,7 +234,6 @@ describe('PasswordList actions', () => {
                     passwordListActions.switchOptionPanelVariant,
                     optionsPanelVariantNames.entityFormCollapsed
                 );
-                jest.restoreAllMocks();
             });
         });
 
@@ -175,7 +249,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: overlayActions.showSnackbar', async () => {
@@ -191,7 +264,6 @@ describe('PasswordList actions', () => {
                     'snackbar.couldNotFetchPasswords',
                     'error'
                 );
-                jest.restoreAllMocks();
             });
         });
     });
@@ -212,7 +284,6 @@ describe('PasswordList actions', () => {
             expect(storeUtils.callAction).toHaveBeenCalledWith(
                 overlayActions.showGlobalLoader
             );
-            jest.restoreAllMocks();
         });
 
         describe('success path', () => {
@@ -231,7 +302,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: passwordListActions.switchOptionPanelVariant', async () => {
@@ -250,7 +320,6 @@ describe('PasswordList actions', () => {
                     passwordListActions.switchOptionPanelVariant,
                     optionsPanelVariantNames.entityFormCollapsed
                 );
-                jest.restoreAllMocks();
             });
         });
 
@@ -270,7 +339,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: overlayActions.showSnackbar', async () => {
@@ -290,7 +358,6 @@ describe('PasswordList actions', () => {
                     'snackbar.couldNotCreateNewPassword',
                     'error'
                 );
-                jest.restoreAllMocks();
             });
         });
     });
@@ -312,7 +379,6 @@ describe('PasswordList actions', () => {
             expect(storeUtils.callAction).toHaveBeenCalledWith(
                 overlayActions.showGlobalLoader
             );
-            jest.restoreAllMocks();
         });
 
         describe('success path', () => {
@@ -332,7 +398,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: passwordListActions.resetSelectedAndDecryptedEntity', async () => {
@@ -351,7 +416,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     passwordListActions.resetSelectedAndDecryptedEntity
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: passwordListActions.switchOptionPanelVariant', async () => {
@@ -371,7 +435,6 @@ describe('PasswordList actions', () => {
                     passwordListActions.switchOptionPanelVariant,
                     optionsPanelVariantNames.entityFormCollapsed
                 );
-                jest.restoreAllMocks();
             });
         });
 
@@ -392,7 +455,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: overlayActions.showSnackbar', async () => {
@@ -413,7 +475,6 @@ describe('PasswordList actions', () => {
                     'snackbar.couldNotEditPassword',
                     'error'
                 );
-                jest.restoreAllMocks();
             });
         });
     });
@@ -426,7 +487,6 @@ describe('PasswordList actions', () => {
             expect(storeUtils.callAction).toHaveBeenCalledWith(
                 overlayActions.showGlobalLoader
             );
-            jest.restoreAllMocks();
         });
 
         describe('success path', () => {
@@ -440,7 +500,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
         });
 
@@ -455,7 +514,6 @@ describe('PasswordList actions', () => {
                 expect(storeUtils.callAction).toHaveBeenCalledWith(
                     overlayActions.hideGlobalLoader
                 );
-                jest.restoreAllMocks();
             });
 
             it('calls action: overlayActions.showSnackbar', async () => {
@@ -470,7 +528,6 @@ describe('PasswordList actions', () => {
                     'snackbar.couldNotRemovePassword',
                     'error'
                 );
-                jest.restoreAllMocks();
             });
         });
     });
