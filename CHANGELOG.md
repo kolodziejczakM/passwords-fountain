@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.7](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.6...v0.4.7) (2020-05-12)
+
+
+### Bug Fixes
+
+* **optionspanelconnectexpanded:** fix input autofocus on Firefox ([f77936d](https://github.com/kolodziejczakM/passwords-fountain/commit/f77936df0b84491290236d58c2530e045b4953d7))
+
 ### [0.4.6](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.5...v0.4.6) (2020-05-12)
 
 
