@@ -13,7 +13,7 @@ describe('OptionsPanelConnectExpanded', () => {
             <StoreProvider value={createStore(stateMock)}>
                 <OptionsPanelConnectExpanded
                     switchCurrentVariantName={(): void => {
-                        // TODO
+                        /* eslint-disable @typescript-eslint/no-empty-function */
                     }}
                 />
             </StoreProvider>

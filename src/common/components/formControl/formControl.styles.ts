@@ -7,7 +7,7 @@ export const Wrapper = styled('section')`
     display: grid;
 `;
 
-export const LabelWrapper = styled('div')`
+export const LabelWrapper = styled('label')`
     ${typography.text18}
     font-family: ${theme.fontFamilies.bold};
     color: ${theme.colors.darkBlue};

@@ -37,7 +37,7 @@ exports[`Banner should render correctly 1`] = `
       class="go3798638344"
     >
       <img
-        alt="icon"
+        alt="logoAnimated icon"
         class="go115679"
         height="100"
         src="static-asset-stub"

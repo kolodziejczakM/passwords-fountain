@@ -17,7 +17,7 @@ import {
     placeholderEntityValue,
     PasswordEntityVulnerablePayload,
 } from '@/modules/passwordList/passwordList.constants';
-import { useRef, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { PasswordEntityRaw } from '@/modules/database/database.service';
 import { IconButton } from '@/common/components/iconButton';
 import { renderIfTrue } from '@/common/utils/rendering';
@@ -48,6 +48,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
     onClick,
 }: Props) => {
     const formRef = useRef(undefined as any);
+    const promptInputRef = useRef(undefined as any);
     const [promptType, setPromptType] = useState<PromptType>(
         promptTypes.invisible
     );
@@ -72,6 +73,10 @@ export const PasswordEntity: TypedComponent<Props> = ({
     const resetSelectedAndDecryptedEntity = useAction(
         passwordListActions.resetSelectedAndDecryptedEntity
     );
+
+    useEffect(() => {
+        promptInputRef.current?.base?.focus();
+    }, [promptInputRef, promptType]);
 
     const resetPromptState = (): void => {
         setPromptType(promptTypes.invisible);
@@ -162,6 +167,7 @@ export const PasswordEntity: TypedComponent<Props> = ({
                     <form ref={formRef} onSubmit={handlePromptConfirm}>
                         <FormControlWrapper>
                             <FormControl
+                                id={encryptionKeyInputProps.name}
                                 hasError={encryptionKeyInputProps.hasError}
                                 renderLabel={() => (
                                     <Text>optionsPanel.enterEncryptionKey</Text>
@@ -171,8 +177,10 @@ export const PasswordEntity: TypedComponent<Props> = ({
                                         {encryptionKeyInputState.errors}
                                     </Text>
                                 )}
-                                renderInput={() => (
+                                renderInput={(id: string) => (
                                     <TextInput
+                                        ref={promptInputRef}
+                                        id={id}
                                         type="password"
                                         placeholder="e.g. MyStrongPassword1234"
                                         {...encryptionKeyInputProps}

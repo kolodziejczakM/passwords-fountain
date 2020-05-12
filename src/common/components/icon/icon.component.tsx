@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { Wrapper } from './icon.styles';
 import { IconName, icons } from '@/assets/icons';
 
-export const Icon: TypedComponent<Props> = ({
-    name,
-    width = 100,
-    height = 100,
-}: Props) => {
+export const Icon: TypedComponent<Props> = ({ name, width, height }: Props) => {
     return (
-        <Wrapper src={icons[name]} width={width} height={height} alt="icon" />
+        <Wrapper
+            src={icons[name]}
+            width={width}
+            height={height}
+            alt={`${name} icon`}
+        />
     );
 };
 
@@ -24,4 +25,9 @@ Icon.propTypes = {
     name: PropTypes.any.isRequired,
     width: PropTypes.number,
     height: PropTypes.number,
+};
+
+Icon.defaultProps = {
+    width: 100,
+    height: 100,
 };

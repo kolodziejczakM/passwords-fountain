@@ -10,8 +10,10 @@ export default {
 
 export const defaultView = (): VNode => (
     <FormControl
-        renderInput={() => (
+        id="default-view-id"
+        renderInput={(id: string) => (
             <TextInput
+                id={id}
                 onInput={() => {
                     /* eslint-disable @typescript-eslint/no-empty-function */
                 }}
@@ -25,8 +27,10 @@ export const defaultView = (): VNode => (
 
 export const hasError = (): VNode => (
     <FormControl
-        renderInput={() => (
+        id="has-error-id"
+        renderInput={(id: string) => (
             <TextInput
+                id={id}
                 hasError
                 onInput={() => {
                     /* eslint-disable @typescript-eslint/no-empty-function */

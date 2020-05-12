@@ -12,7 +12,7 @@ import { FormControl } from '@/common/components/formControl';
 import { ButtonWrapper, Content, ContentWrapper } from '../optionsPanel.styles';
 import { Button } from '@/common/components/button';
 import { Text } from '@/modules/localisation/components/text';
-import { useRef } from 'preact/hooks';
+import { useEffect, useRef } from 'preact/hooks';
 import { useInputFormControl } from '@/common/utils/form';
 import { TextInput } from '@/common/components/textInput';
 import { useAction, useSelector } from '@/store';
@@ -42,6 +42,7 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
 }: VariantProps) => {
     const encryptedAdminKey = useSelector(selectAdminKey);
     const formRef = useRef(undefined as any);
+    const firstInputRef = useRef(undefined as any);
     const addNewPassword = useAction(passwordListActions.addNewPassword);
     const editPassword = useAction(passwordListActions.editPassword);
     const fetchPasswords = useAction(passwordListActions.fetchPasswords);
@@ -49,6 +50,10 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
     const editedEntity = useSelector(selectSelectedAndDecryptedEntity);
     const isInEditMode = useSelector(selectIsInEditMode);
     const actionLabel = isInEditMode ? 'optionsPanel.edit' : 'optionsPanel.add';
+
+    useEffect(() => {
+        firstInputRef.current.base.focus();
+    }, [firstInputRef]);
 
     const useInputForm = (fieldName: string, defaultValue?: string) =>
         useInputFormControl(formRef, formValidation, fieldName, defaultValue);
@@ -121,12 +126,15 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                     <form ref={formRef} onSubmit={handleAction}>
                         <FormControlWrapper>
                             <FormControl
+                                id={labelInputProps.name}
                                 hasError={labelInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.labelInputLabel'
                                 )}
-                                renderInput={(): VNode => (
+                                renderInput={(id: string): VNode => (
                                     <TextInput
+                                        ref={firstInputRef}
+                                        id={id}
                                         placeholder="e.g. My Bank Account"
                                         {...labelInputProps}
                                     />
@@ -138,12 +146,14 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
+                                id={loginInputProps.name}
                                 hasError={loginInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.loginInputLabel'
                                 )}
-                                renderInput={(): VNode => (
+                                renderInput={(id: string): VNode => (
                                     <TextInput
+                                        id={id}
                                         placeholder="e.g. yourmail@yourmail.com"
                                         {...loginInputProps}
                                     />
@@ -155,12 +165,14 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
+                                id={passwordInputProps.name}
                                 hasError={passwordInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.passwordInputLabel'
                                 )}
-                                renderInput={(): VNode => (
+                                renderInput={(id: string): VNode => (
                                     <TextInput
+                                        id={id}
                                         type="password"
                                         placeholder="e.g. myPassWord1234"
                                         {...passwordInputProps}
@@ -173,13 +185,15 @@ export const OptionsPanelEntityFormExpanded: TypedComponent<VariantProps> = ({
                         </FormControlWrapper>
                         <FormControlWrapper>
                             <FormControl
+                                id={encryptionKeyInputProps.name}
                                 hasError={encryptionKeyInputProps.hasError}
                                 renderLabel={renderLabel(
                                     'optionsPanel.encryptionKey',
                                     'optionsPanel.noteEncryptionKey'
                                 )}
-                                renderInput={(): VNode => (
+                                renderInput={(id: string): VNode => (
                                     <TextInput
+                                        id={id}
                                         type="password"
                                         placeholder="e.g. MyStrongPassword1234"
                                         {...encryptionKeyInputProps}

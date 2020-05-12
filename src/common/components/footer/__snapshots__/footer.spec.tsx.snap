@@ -18,7 +18,7 @@ exports[`Footer should render correctly 1`] = `
         href="https://github.com/kolodziejczakM"
       >
         <img
-          alt="icon"
+          alt="github icon"
           class="go115679"
           height="30"
           src="static-asset-stub"
@@ -30,7 +30,7 @@ exports[`Footer should render correctly 1`] = `
         href="https://twitter.com/kolodziejczakMn"
       >
         <img
-          alt="icon"
+          alt="twitter icon"
           class="go115679"
           height="30"
           src="static-asset-stub"

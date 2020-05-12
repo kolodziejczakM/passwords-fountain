@@ -13,7 +13,7 @@ exports[`NavBar should render correctly 1`] = `
         href="/"
       >
         <img
-          alt="icon"
+          alt="logo icon"
           class="go115679"
           height="40"
           src="static-asset-stub"
@@ -74,7 +74,7 @@ exports[`NavBar should render correctly 1`] = `
             class="go3942427238"
           >
             <img
-              alt="icon"
+              alt="globe icon"
               class="go115679"
               height="30"
               src="static-asset-stub"

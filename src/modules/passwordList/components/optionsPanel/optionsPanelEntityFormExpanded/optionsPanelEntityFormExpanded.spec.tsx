@@ -17,7 +17,7 @@ describe('OptionsPanelAddNewExpanded', () => {
             <StoreProvider value={createStore(stateMock)}>
                 <OptionsPanelEntityFormExpanded
                     switchCurrentVariantName={(): void => {
-                        // TODO
+                        /* eslint-disable @typescript-eslint/no-empty-function */
                     }}
                 />
             </StoreProvider>

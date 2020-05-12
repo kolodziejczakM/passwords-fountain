@@ -5,7 +5,14 @@ import { IconButton } from './iconButton.component';
 
 describe('IconButton', () => {
     it('should render correctly', () => {
-        const { asFragment } = render(<IconButton />);
+        const { asFragment } = render(
+            <IconButton
+                iconName="bin"
+                onClick={() => {
+                    /* eslint-disable @typescript-eslint/no-empty-function */
+                }}
+            />
+        );
 
         expect(asFragment()).toMatchSnapshot();
     });

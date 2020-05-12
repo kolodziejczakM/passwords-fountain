@@ -41,8 +41,10 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
         }
     };
 
-    const renderInput = (): VNode => (
+    const renderInput = (id: string): VNode => (
         <TextInput
+            autofocus
+            id={id}
             type="password"
             placeholder="e.g. MyStrongPassword1234"
             {...masterKeyInputProps}
@@ -57,6 +59,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
                 <Content>
                     <form ref={formRef} onSubmit={handleConfirmClick}>
                         <FormControl
+                            id={masterKeyInputProps.name}
                             hasError={masterKeyInputProps.hasError}
                             renderLabel={renderLabel}
                             renderInput={renderInput}

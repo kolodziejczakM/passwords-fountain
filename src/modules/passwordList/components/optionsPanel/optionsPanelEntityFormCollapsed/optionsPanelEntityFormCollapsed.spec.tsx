@@ -17,7 +17,7 @@ describe('OptionsPanelEntityFormCollapsed', () => {
             <StoreProvider value={createStore(stateMock)}>
                 <OptionsPanelEntityFormCollapsed
                     switchCurrentVariantName={(): void => {
-                        // TODO
+                        /* eslint-disable @typescript-eslint/no-empty-function */
                     }}
                 />
             </StoreProvider>

@@ -15,16 +15,21 @@ exports[`OptionsPanelConnectExpanded should render correctly 1`] = `
           <section
             class="go3154290440"
           >
-            <div
+            <label
               class="go720639114"
+              for="masterKey"
             >
               Enter your master key:
-            </div>
+            </label>
             <div
               class="go3253370986"
             >
               <input
+                aria-describedby="masterKey-error-message"
+                aria-invalid="false"
+                autofocus=""
                 class="go3854179087"
+                id="masterKey"
                 name="masterKey"
                 placeholder="e.g. MyStrongPassword1234"
                 type="password"

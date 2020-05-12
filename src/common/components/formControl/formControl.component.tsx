@@ -8,7 +8,10 @@ import {
     ErrorWrapper,
 } from './formControl.styles';
 
+export const errorIdentifierPrefix = 'error-message';
+
 export const FormControl: TypedComponent<Props> = ({
+    id,
     hasError,
     renderLabel,
     renderInput,
@@ -16,14 +19,22 @@ export const FormControl: TypedComponent<Props> = ({
 }: Props) => {
     return (
         <Wrapper>
-            <LabelWrapper>{renderLabel()}</LabelWrapper>
-            <InputWrapper>{renderInput()}</InputWrapper>
-            {hasError && <ErrorWrapper>{renderError()}</ErrorWrapper>}
+            <LabelWrapper htmlFor={id}>{renderLabel(id)}</LabelWrapper>
+            <InputWrapper>{renderInput(id)}</InputWrapper>
+            {hasError && (
+                <ErrorWrapper
+                    id={`${id}-${errorIdentifierPrefix}`}
+                    aria-role="alert"
+                >
+                    {renderError(id)}
+                </ErrorWrapper>
+            )}
         </Wrapper>
     );
 };
 
 interface Props {
+    id: string;
     hasError: string | boolean;
     renderInput: Function;
     renderLabel: Function;
@@ -31,6 +42,7 @@ interface Props {
 }
 
 FormControl.propTypes = {
+    id: PropTypes.string.isRequired,
     hasError: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
         .isRequired,
     renderLabel: PropTypes.func.isRequired,

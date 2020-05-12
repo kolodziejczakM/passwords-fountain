@@ -19,7 +19,7 @@ exports[`App should render correctly 1`] = `
             href="/"
           >
             <img
-              alt="icon"
+              alt="logo icon"
               class="go115679"
               height="40"
               src="static-asset-stub"
@@ -80,7 +80,7 @@ exports[`App should render correctly 1`] = `
                 class="go3942427238"
               >
                 <img
-                  alt="icon"
+                  alt="globe icon"
                   class="go115679"
                   height="30"
                   src="static-asset-stub"
@@ -136,7 +136,7 @@ exports[`App should render correctly 1`] = `
             class="go3798638344"
           >
             <img
-              alt="icon"
+              alt="logoAnimated icon"
               class="go115679"
               height="100"
               src="static-asset-stub"
@@ -406,7 +406,7 @@ exports[`App should render correctly 1`] = `
                 class="go1605887862"
               >
                 <img
-                  alt="icon"
+                  alt="database icon"
                   class="go115679"
                   height="100"
                   src="static-asset-stub"
@@ -621,7 +621,7 @@ exports[`App should render correctly 1`] = `
                   class="go1605887862"
                 >
                   <img
-                    alt="icon"
+                    alt="love icon"
                     class="go115679"
                     height="100"
                     src="static-asset-stub"
@@ -650,7 +650,7 @@ exports[`App should render correctly 1`] = `
           href="https://github.com/kolodziejczakM"
         >
           <img
-            alt="icon"
+            alt="github icon"
             class="go115679"
             height="30"
             src="static-asset-stub"
@@ -662,7 +662,7 @@ exports[`App should render correctly 1`] = `
           href="https://twitter.com/kolodziejczakMn"
         >
           <img
-            alt="icon"
+            alt="twitter icon"
             class="go115679"
             height="30"
             src="static-asset-stub"

@@ -8,7 +8,7 @@ describe('OptionsPanelConnectCollapsed', () => {
         const { asFragment } = render(
             <OptionsPanelConnectCollapsed
                 switchCurrentVariantName={(): void => {
-                    // TODO
+                    /* eslint-disable @typescript-eslint/no-empty-function */
                 }}
             />
         );

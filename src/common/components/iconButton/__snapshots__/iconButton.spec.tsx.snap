@@ -9,9 +9,10 @@ exports[`IconButton should render correctly 1`] = `
       class="go4062099715"
     >
       <img
-        alt="icon"
+        alt="bin icon"
         class="go115679"
         height="30"
+        src="static-asset-stub"
         width="30"
       />
     </span>

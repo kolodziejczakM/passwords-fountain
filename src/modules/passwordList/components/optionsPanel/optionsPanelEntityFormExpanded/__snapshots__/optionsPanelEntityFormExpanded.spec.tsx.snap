@@ -18,16 +18,20 @@ exports[`OptionsPanelAddNewExpanded should render correctly 1`] = `
             <section
               class="go3154290440"
             >
-              <div
+              <label
                 class="go720639114"
+                for="label"
               >
                 Label
-              </div>
+              </label>
               <div
                 class="go3253370986"
               >
                 <input
+                  aria-describedby="label-error-message"
+                  aria-invalid="false"
                   class="go3854179087"
+                  id="label"
                   name="label"
                   placeholder="e.g. My Bank Account"
                   type="text"
@@ -41,16 +45,20 @@ exports[`OptionsPanelAddNewExpanded should render correctly 1`] = `
             <section
               class="go3154290440"
             >
-              <div
+              <label
                 class="go720639114"
+                for="login"
               >
                 Login
-              </div>
+              </label>
               <div
                 class="go3253370986"
               >
                 <input
+                  aria-describedby="login-error-message"
+                  aria-invalid="false"
                   class="go3854179087"
+                  id="login"
                   name="login"
                   placeholder="e.g. yourmail@yourmail.com"
                   type="text"
@@ -64,16 +72,20 @@ exports[`OptionsPanelAddNewExpanded should render correctly 1`] = `
             <section
               class="go3154290440"
             >
-              <div
+              <label
                 class="go720639114"
+                for="password"
               >
                 Password
-              </div>
+              </label>
               <div
                 class="go3253370986"
               >
                 <input
+                  aria-describedby="password-error-message"
+                  aria-invalid="false"
                   class="go3854179087"
+                  id="password"
                   name="password"
                   placeholder="e.g. myPassWord1234"
                   type="password"
@@ -87,8 +99,9 @@ exports[`OptionsPanelAddNewExpanded should render correctly 1`] = `
             <section
               class="go3154290440"
             >
-              <div
+              <label
                 class="go720639114"
+                for="encryptionKey"
               >
                 Encryption key
                 <div
@@ -96,12 +109,15 @@ exports[`OptionsPanelAddNewExpanded should render correctly 1`] = `
                 >
                   Note: it's recommended to use master key here.
                 </div>
-              </div>
+              </label>
               <div
                 class="go3253370986"
               >
                 <input
+                  aria-describedby="encryptionKey-error-message"
+                  aria-invalid="false"
                   class="go3854179087"
+                  id="encryptionKey"
                   name="encryptionKey"
                   placeholder="e.g. MyStrongPassword1234"
                   type="password"

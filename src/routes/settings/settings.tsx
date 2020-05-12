@@ -107,14 +107,16 @@ export const Settings: TypedComponent<Props> = () => {
                 <form ref={formRef}>
                     <FormControlWrapper>
                         <FormControl
+                            id={adminKeyInputProps.name}
                             hasError={Boolean(adminKeyInputProps.hasError)}
                             renderLabel={renderLabel(
                                 'settings.adminKeyLabel',
                                 'settings.adminKeyLabelDescription',
                                 'settings.noteLabelDescriptionAdminKey'
                             )}
-                            renderInput={(): VNode => (
+                            renderInput={(id: string): VNode => (
                                 <TextInput
+                                    id={id}
                                     type="password"
                                     placeholder="92xIJf_ge234kalfnqql4o25ou4334201"
                                     {...adminKeyInputProps}
@@ -125,6 +127,7 @@ export const Settings: TypedComponent<Props> = () => {
                     </FormControlWrapper>
                     <FormControlWrapper>
                         <FormControl
+                            id={masterKeyInputProps.name}
                             hasError={Boolean(masterKeyInputProps.hasError)}
                             renderLabel={renderLabel(
                                 'settings.masterKeyLabel',
@@ -132,8 +135,9 @@ export const Settings: TypedComponent<Props> = () => {
                                 'settings.noteLabelDescription',
                                 true
                             )}
-                            renderInput={(): VNode => (
+                            renderInput={(id: string): VNode => (
                                 <TextInput
+                                    id={id}
                                     type="password"
                                     placeholder="myMasterPassword1234"
                                     {...masterKeyInputProps}

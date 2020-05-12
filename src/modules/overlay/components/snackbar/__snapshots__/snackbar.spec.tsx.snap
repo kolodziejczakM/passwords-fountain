@@ -10,7 +10,7 @@ exports[`Snackbar should render correctly 1`] = `
       class="go115679"
     >
       <img
-        alt="icon"
+        alt="success icon"
         class="go115679"
         height="44"
         src="static-asset-stub"

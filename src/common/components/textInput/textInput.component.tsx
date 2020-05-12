@@ -2,6 +2,7 @@ import { h } from 'preact';
 import { TypedComponent } from '@/common/typings/prop-types';
 import PropTypes from 'prop-types';
 import { Wrapper } from './textInput.styles';
+import { errorIdentifierPrefix } from '@/common/components/formControl/formControl.component';
 
 export const TextInput: TypedComponent<Props> = ({
     value,
@@ -10,41 +11,46 @@ export const TextInput: TypedComponent<Props> = ({
     hasError,
     name,
     type,
+    id,
+    ref,
+    autofocus,
 }: Props) => {
+    const ariaProps = {
+        'aria-invalid': hasError,
+        ...(id !== undefined && {
+            'aria-describedby': `${id}-${errorIdentifierPrefix}`,
+        }),
+    };
+
     return (
         <Wrapper
+            ref={ref}
+            id={id}
+            name={name}
             type={type}
             value={value}
-            onInput={onInput}
             placeholder={placeholder}
+            onInput={onInput}
             hasError={hasError}
-            name={name}
+            autofocus={autofocus}
+            {...ariaProps}
         />
     );
 };
 
-interface Props {
+interface Props extends Partial<HTMLInputElement> {
+    type?: 'text' | 'password';
     onInput: Function;
-    value?: string;
-    placeholder?: string;
     hasError?: boolean;
-    name?: string;
-    type?: string;
+    ref?: any;
 }
 
 TextInput.propTypes = {
     onInput: PropTypes.func.isRequired,
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
     hasError: PropTypes.bool,
-    name: PropTypes.string,
-    type: PropTypes.string,
 };
 
 TextInput.defaultProps = {
-    value: '',
-    placeholder: '',
-    hasError: false,
-    name: '',
     type: 'text',
+    hasError: false,
 };
