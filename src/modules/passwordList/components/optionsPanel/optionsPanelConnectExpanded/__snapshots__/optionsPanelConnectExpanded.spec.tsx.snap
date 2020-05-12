@@ -27,7 +27,6 @@ exports[`OptionsPanelConnectExpanded should render correctly 1`] = `
               <input
                 aria-describedby="masterKey-error-message"
                 aria-invalid="false"
-                autofocus=""
                 class="go3854179087"
                 id="masterKey"
                 name="masterKey"

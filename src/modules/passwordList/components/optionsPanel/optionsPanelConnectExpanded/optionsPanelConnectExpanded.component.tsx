@@ -9,7 +9,7 @@ import { VariantProps } from '../optionsPanel.component';
 import { optionsPanelVariantNames } from '@/modules/passwordList/passwordList.constants';
 import { FormControl } from '@/common/components/formControl';
 import { TextInput } from '@/common/components/textInput';
-import { useRef } from 'preact/hooks';
+import { useEffect, useRef } from 'preact/hooks';
 import { useAction, useSelector } from '@/store';
 import { passwordListActions } from '@/modules/passwordList/passwordList.actions';
 import { selectAdminKey } from '@/modules/database/database.selectors';
@@ -24,11 +24,16 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
     const encryptedAdminKey = useSelector(selectAdminKey);
     const fetchPasswords = useAction(passwordListActions.fetchPasswords);
     const formRef = useRef(undefined as any);
+    const inputRef = useRef(undefined as any);
     const [masterKeyInputState, masterKeyInputProps] = useInputFormControl(
         formRef,
         formValidation,
         'masterKey'
     );
+
+    useEffect(() => {
+        inputRef.current.base.focus();
+    }, [inputRef]);
 
     const handleCancelClick = (): void =>
         switchCurrentVariantName(optionsPanelVariantNames.connectCollapsed);
@@ -43,7 +48,7 @@ export const OptionsPanelConnectExpanded: TypedComponent<VariantProps> = ({
 
     const renderInput = (id: string): VNode => (
         <TextInput
-            autofocus
+            ref={inputRef}
             id={id}
             type="password"
             placeholder="e.g. MyStrongPassword1234"

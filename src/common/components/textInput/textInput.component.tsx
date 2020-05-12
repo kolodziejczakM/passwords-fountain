@@ -5,15 +5,14 @@ import { Wrapper } from './textInput.styles';
 import { errorIdentifierPrefix } from '@/common/components/formControl/formControl.component';
 
 export const TextInput: TypedComponent<Props> = ({
-    value,
     onInput,
-    placeholder,
     hasError,
+    value,
+    placeholder,
     name,
     type,
     id,
     ref,
-    autofocus,
 }: Props) => {
     const ariaProps = {
         'aria-invalid': hasError,
@@ -32,16 +31,15 @@ export const TextInput: TypedComponent<Props> = ({
             placeholder={placeholder}
             onInput={onInput}
             hasError={hasError}
-            autofocus={autofocus}
             {...ariaProps}
         />
     );
 };
 
 interface Props extends Partial<HTMLInputElement> {
-    type?: 'text' | 'password';
     onInput: Function;
     hasError?: boolean;
+    type?: 'text' | 'password';
     ref?: any;
 }
 
@@ -51,6 +49,6 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
-    type: 'text',
     hasError: false,
+    type: 'text',
 };
