@@ -107,7 +107,7 @@ export default {
         'startGuide.step4':
             "Your admin key will be shown only once, copy it. Don't show it to other people.<br> If you somehow lose admin key (you shouldn't) you can generate new one.",
         'startGuide.step5':
-            'Now you can connect our interface to your database.<br>Click on <strong>START NOW</strong> button and start your journey!',
+            'Now you can connect our interface to your database.<br>Click on <a href="/app" rel="noopener">START NOW</a> and start your journey!',
         'phoneChat.soAnotherAccount':
             "Oh... so I have to create another account? :\xa0( I don't like it.",
         'phoneChat.dontYouUse': "Yes, but don't you use any Password manager?",

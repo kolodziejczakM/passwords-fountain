@@ -51,7 +51,7 @@ exports[`Banner should render correctly 1`] = `
         class="go2474195109"
         href="/settings"
       >
-        Start now
+        Start now ►
       </a>
     </div>
   </section>

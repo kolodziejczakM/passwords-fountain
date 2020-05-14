@@ -109,7 +109,7 @@ export default {
         'startGuide.step4':
             'Twój klucz admina pojawi się tylko raz, skopiuj go. Nie pokazuj go nikomu.<br> Jeśli z jakiegoś powodu zgubisz klucz admina (nie powinieneś!), to będziesz mógł wygenerować nowy.',
         'startGuide.step5':
-            'Teraz możesz połączyć nasz interfejs z Twoją bazą danych.<br>Kliknij na przycisk <strong>URUCHOM</strong> i rozpocznij przygodę!',
+            'Teraz możesz połączyć nasz interfejs z Twoją bazą danych.<br>Kliknij na <a href="/app" rel="noopener">URUCHOM</a> i rozpocznij przygodę!',
         'phoneChat.soAnotherAccount':
             'Eh... muszę założyć kolejne konto? :\xa0( Suuabo.',
         'phoneChat.dontYouUse': 'Tak, ale nie używasz żadnego menadżera haseł?',

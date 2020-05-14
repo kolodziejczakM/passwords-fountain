@@ -12,7 +12,7 @@ export const StartAppAnchor: TypedComponent<Props> = () => {
 
     return (
         <Wrapper href={destinationPath}>
-            <Text>home.startApp</Text>
+            <Text>home.startApp</Text> &#9658;
         </Wrapper>
     );
 };
