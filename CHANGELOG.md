@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.8](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.7...v0.4.8) (2020-05-14)
+
+
+### Features
+
+* **startguide:** made START NOW clickable anchor, added triangular char next to main START NOW ([579628b](https://github.com/kolodziejczakM/passwords-fountain/commit/579628b0e8c3fa8f3a90db22adef2f4adcdc04e7))
+
 ### [0.4.7](https://github.com/kolodziejczakM/passwords-fountain/compare/v0.4.6...v0.4.7) (2020-05-12)
 
 
